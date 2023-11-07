@@ -7,7 +7,7 @@ are early steps on Kotlin.
 
 If there will be major issues in solving the tasks in Kotlin these tasks may be solved in JAVA 17.
 
-For more information see https://adventofcode.com [2022](https://adventofcode.com/2023)
+For more information see https://adventofcode.com [2023](https://adventofcode.com/2023)
 
 [![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2023%3Aadvent_of_code_2023&metric=alert_status "The current SonarQube analysis status")
 ![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2023%3Aadvent_of_code_2023&metric=coverage "The current coverage")
@@ -16,7 +16,7 @@ For more information see https://adventofcode.com [2022](https://adventofcode.co
 ![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2023%3Aadvent_of_code_2023&metric=code_smells "The current number of SonarQube code smells")](https://sonarcloud.io/dashboard?id=de.havox_design.aoc2022%3Aadvent_of_code_2022)
 
 To run all solutions, simply run `./gradlew run`. If you want to run the solution for day 5, simply run
-`./gradlew :aoc05:run`.
+`./gradlew :day05:run`.
 
 ## Current status:
 
