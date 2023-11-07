@@ -1,0 +1,111 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day01/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day02/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day03/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day04/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day05/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day06/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day07/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day08/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day09/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day10/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day11/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day12/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day13/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day14/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day15/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day16/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day17/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day18/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day19/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day20/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day21/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day22/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day23/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day24/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/day25/"
+    schedule:
+      interval: "daily"
