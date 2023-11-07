@@ -13,7 +13,7 @@ For more information see https://adventofcode.com [2023](https://adventofcode.co
 ![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2023%3Aadvent_of_code_2023&metric=coverage "The current coverage")
 ![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2023%3Aadvent_of_code_2023&metric=bugs "The current number of SonarQube bugs")
 ![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2023%3Aadvent_of_code_2023&metric=vulnerabilities "The current number of SonarQube vulnerabilities")
-![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2023%3Aadvent_of_code_2023&metric=code_smells "The current number of SonarQube code smells")](https://sonarcloud.io/dashboard?id=de.havox_design.aoc2022%3Aadvent_of_code_2022)
+![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2023%3Aadvent_of_code_2023&metric=code_smells "The current number of SonarQube code smells")](https://sonarcloud.io/dashboard?id=de.havox_design.aoc2023%3Aadvent_of_code_2023)
 
 To run all solutions, simply run `./gradlew run`. If you want to run the solution for day 5, simply run
 `./gradlew :day05:run`.
