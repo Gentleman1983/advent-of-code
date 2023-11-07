@@ -10,102 +10,102 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc01/"
+    directory: "/day01/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc02/"
+    directory: "/day02/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc03/"
+    directory: "/day03/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc04/"
+    directory: "/day04/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc05/"
+    directory: "/day05/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc06/"
+    directory: "/day06/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc07/"
+    directory: "/day07/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc08/"
+    directory: "/day08/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc09/"
+    directory: "/day09/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc10/"
+    directory: "/day10/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc11/"
+    directory: "/day11/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc12/"
+    directory: "/day12/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc13/"
+    directory: "/day13/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc14/"
+    directory: "/day14/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc15/"
+    directory: "/day15/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc16/"
+    directory: "/day16/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc17/"
+    directory: "/day17/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc18/"
+    directory: "/day18/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc19/"
+    directory: "/day19/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc20/"
+    directory: "/day20/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc21/"
+    directory: "/day21/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc22/"
+    directory: "/day22/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc23/"
+    directory: "/day23/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc24/"
+    directory: "/day24/"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/aoc25/"
+    directory: "/day25/"
     schedule:
       interval: "daily"
