@@ -29,4 +29,18 @@ class Day03Test {
                 Arguments.of("part1sample3.txt", 2)
         );
     }
+
+    @ParameterizedTest
+    @MethodSource("getDataForPart2")
+    void testPart2(String fileName, int expectedHousesVisited) {
+        Assertions.assertEquals(expectedHousesVisited, PresentDelivery.solvePart2(fileName));
+    }
+
+    private static Stream<Arguments> getDataForPart2() {
+        return Stream.of(
+                Arguments.of("part2sample1.txt", 3),
+                Arguments.of("part2sample2.txt", 3),
+                Arguments.of("part2sample3.txt", 11)
+        );
+    }
 }

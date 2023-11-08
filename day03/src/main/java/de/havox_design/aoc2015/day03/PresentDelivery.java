@@ -30,7 +30,7 @@ public class PresentDelivery {
         visitedHouses.add(currentLocation);
 
         for (char c : input.toCharArray()) {
-            currentLocation = calculateNextHouse(c, currentLocation);
+            currentLocation = calculateSantasNextHouse(c, currentLocation);
             visitedHouses.add(currentLocation);
         }
 
@@ -38,10 +38,30 @@ public class PresentDelivery {
     }
 
     public int solvePart2() {
-        return 0;
+        Set<Location> visitedHouses = new HashSet<>();
+
+        Location currentLocationSanta = new Location(0, 0);
+        Location currentLocationRoboSanta = new Location(0, 0);
+        boolean santaMoves = true;
+        visitedHouses.add(currentLocationSanta);
+        visitedHouses.add(currentLocationRoboSanta);
+
+        for (char c : input.toCharArray()) {
+            if (santaMoves) {
+                currentLocationSanta = calculateSantasNextHouse(c, currentLocationSanta);
+                visitedHouses.add(currentLocationSanta);
+            } else {
+                currentLocationRoboSanta = calculateSantasNextHouse(c, currentLocationRoboSanta);
+                visitedHouses.add(currentLocationRoboSanta);
+            }
+
+            santaMoves = !santaMoves;
+        }
+
+        return visitedHouses.size();
     }
 
-    private Location calculateNextHouse(char c, Location currentLocation) {
+    private Location calculateSantasNextHouse(char c, Location currentLocation) {
         if ('<' == c) {
             return new Location(currentLocation.x() - 1, currentLocation.y());
         } else if ('>' == c) {
