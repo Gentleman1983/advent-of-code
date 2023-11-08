@@ -2,10 +2,11 @@ package de.havox_design.aoc2015.day15;
 
 import org.junit.jupiter.api.Test;
 
-public class Day15Test {
+class Day15Test {
 
+    @SuppressWarnings("java:S2699")
     @Test
-    public void testMainClass() {
+    void testMainClass() {
         MainClass.main(new String[0]);
     }
 }
