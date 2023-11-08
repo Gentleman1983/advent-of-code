@@ -7,6 +7,6 @@ public class MainClass {
 
     public static void main(String[] args) {
         LOGGER.info("Solution 1: " + NotQuiteLisp.processTask1("day01.txt"));
-        LOGGER.info("Solution 2: 23");
+        LOGGER.info("Solution 2: " + NotQuiteLisp.processTask2("day01.txt"));
     }
 }

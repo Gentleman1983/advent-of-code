@@ -35,4 +35,17 @@ class Day01Test {
                 Arguments.of("task1sample9.txt", -3)
         );
     }
+
+    @ParameterizedTest
+    @MethodSource("getDataForTask2")
+    void testTask2(String fileName, int expectedStep) {
+        Assertions.assertEquals(expectedStep, NotQuiteLisp.processTask2(fileName));
+    }
+
+    private static Stream<Arguments> getDataForTask2() {
+        return Stream.of(
+                Arguments.of("task2sample1.txt", 1),
+                Arguments.of("task2sample2.txt", 5)
+        );
+    }
 }

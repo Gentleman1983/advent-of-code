@@ -16,6 +16,11 @@ public class NotQuiteLisp {
         return instance.processTask1();
     }
 
+    public static int processTask2(String fileName) {
+        NotQuiteLisp instance = new NotQuiteLisp(fileName);
+        return instance.processTask2();
+    }
+
     public int processTask1() {
         int currentFloor = 0;
 
@@ -24,6 +29,22 @@ public class NotQuiteLisp {
         }
 
         return currentFloor;
+    }
+
+    public int processTask2() {
+        int currentFloor = 0;
+        int step = 0;
+
+        for(char c : input.toCharArray()) {
+            step++;
+            currentFloor += translateFloor(c);
+
+            if(-1 == currentFloor) {
+                return step;
+            }
+        }
+
+        throw new IllegalArgumentException("Expected Santa to enter basement (floor '-1').");
     }
 
     private int translateFloor(char c) {
