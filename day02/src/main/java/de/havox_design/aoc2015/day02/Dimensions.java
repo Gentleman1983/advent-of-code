@@ -50,15 +50,14 @@ public record Dimensions(int length, int width, int height) {
             throw new IllegalArgumentException("Expected data row to have format of LxWxH with L=length, W=width, H=height.");
         }
 
-        int length, width, height;
         try {
-            length = Integer.parseInt(elements[0]);
-            width = Integer.parseInt(elements[1]);
-            height = Integer.parseInt(elements[2]);
+            int length = Integer.parseInt(elements[0]);
+            int width = Integer.parseInt(elements[1]);
+            int height = Integer.parseInt(elements[2]);
+
+            return new Dimensions(length, width, height);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Expected data row to have format of LxWxH with L=length, W=width, H=height with integer values.", e);
         }
-
-        return new Dimensions(length, width, height);
     }
 }
