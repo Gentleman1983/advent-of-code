@@ -2,7 +2,9 @@ package de.havox_design.aoc2015.day03;
 
 import de.havox_design.aoc2015.utils.DataReader;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class PresentDelivery {
     private final String input;
@@ -22,11 +24,35 @@ public class PresentDelivery {
     }
 
     public int solvePart1() {
-        return 0;
+        Set<Location> visitedHouses = new HashSet<>();
+
+        Location currentLocation = new Location(0, 0);
+        visitedHouses.add(currentLocation);
+
+        for (char c : input.toCharArray()) {
+            currentLocation = calculateNextHouse(c, currentLocation);
+            visitedHouses.add(currentLocation);
+        }
+
+        return visitedHouses.size();
     }
 
     public int solvePart2() {
         return 0;
+    }
+
+    private Location calculateNextHouse(char c, Location currentLocation) {
+        if ('<' == c) {
+            return new Location(currentLocation.x() - 1, currentLocation.y());
+        } else if ('>' == c) {
+            return new Location(currentLocation.x() + 1, currentLocation.y());
+        } else if ('v' == c) {
+            return new Location(currentLocation.x(), currentLocation.y() - 1);
+        } else if ('^' == c) {
+            return new Location(currentLocation.x(), currentLocation.y() + 1);
+        } else {
+            throw new IllegalArgumentException("Illegal character found.");
+        }
     }
 
     private List<String> readData(String fileName) {
