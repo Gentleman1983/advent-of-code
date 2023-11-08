@@ -13,7 +13,11 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class DataReader {
-    public static List<String> readData(String fileName, Class callingClass) {
+    private DataReader() {
+        super();
+    }
+
+    public static List<String> readData(String fileName, Class<?> callingClass) {
         try {
             URL url = ClassLoaderUtil.getResource(fileName, callingClass);
             Path path = Paths.get(url.toURI());
