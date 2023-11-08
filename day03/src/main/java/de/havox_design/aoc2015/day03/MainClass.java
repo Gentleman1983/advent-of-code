@@ -1,8 +1,12 @@
 package de.havox_design.aoc2015.day03;
 
+import java.util.logging.Logger;
+
 public class MainClass {
+    private static final Logger LOGGER = Logger.getLogger(MainClass.class.getName());
+
     public static void main(String[] args) {
-        System.out.println("Solution 1: 13");
-        System.out.println("Solution 2: 23");
+        LOGGER.info("Solution 1: 13");
+        LOGGER.info("Solution 2: 23");
     }
 }
