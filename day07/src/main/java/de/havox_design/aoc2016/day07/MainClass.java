@@ -6,7 +6,7 @@ public class MainClass {
     private static final Logger LOGGER = Logger.getLogger(MainClass.class.getName());
 
     public static void main(String[] args) {
-        LOGGER.info("Solution 1: 13");
-        LOGGER.info("Solution 2: 23");
+        LOGGER.info("Part 1: 13");
+        LOGGER.info("Part 2: 23");
     }
 }
