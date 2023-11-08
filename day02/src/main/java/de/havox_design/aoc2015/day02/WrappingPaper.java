@@ -38,7 +38,19 @@ public class WrappingPaper {
     }
 
     public int solvePart2() {
-        return 0;
+        int amount = 0;
+
+        for (String dataRow : input) {
+            Dimensions current = parseDimensions(dataRow);
+
+            for (int length : current.getBothSmallerLengths()) {
+                amount += 2 * length;
+            }
+
+            amount += current.length() * current.width() * current.height();
+        }
+
+        return amount;
     }
 
     private Dimensions parseDimensions(String dataRow) {

@@ -24,9 +24,23 @@ class Day02Test {
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("part1sample1.txt", 58),
-                Arguments.of("part1sample2.txt", 43),
-                Arguments.of("part1sample3.txt", 101)
+                Arguments.of("sample1.txt", 58),
+                Arguments.of("sample2.txt", 43),
+                Arguments.of("sample3.txt", 101)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getDataForPart2")
+    void testPart2(String fileName, int expectedLengthOfRibbon) {
+        Assertions.assertEquals(expectedLengthOfRibbon, WrappingPaper.solvePart2(fileName));
+    }
+
+    private static Stream<Arguments> getDataForPart2() {
+        return Stream.of(
+                Arguments.of("sample1.txt", 34),
+                Arguments.of("sample2.txt", 14),
+                Arguments.of("sample3.txt", 48)
         );
     }
 }

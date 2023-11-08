@@ -25,6 +25,20 @@ public record Dimensions(int length, int width, int height) {
         return data;
     }
 
+    public List<Integer> getBothSmallerLengths() {
+        ArrayList<Integer> dimensions = new ArrayList<>(List.of(length, width, height));
+        int maximum = dimensions.stream().max(Integer::compareTo).orElseThrow(() -> new IllegalStateException("This should never happen..."));
+
+        for (int i = 0; i < dimensions.size(); i++) {
+            if (dimensions.get(i) == maximum) {
+                dimensions.remove(i);
+                break;
+            }
+        }
+
+        return dimensions;
+    }
+
     public static Dimensions getForDataRow(String dataRow) {
         if (dataRow == null || dataRow.isEmpty()) {
             throw new IllegalArgumentException("Expected data row to have format of LxWxH with L=length, W=width, H=height.");
