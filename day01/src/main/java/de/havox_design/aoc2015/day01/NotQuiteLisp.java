@@ -24,7 +24,7 @@ public class NotQuiteLisp {
     public int processTask1() {
         int currentFloor = 0;
 
-        for(char c : input.toCharArray()) {
+        for (char c : input.toCharArray()) {
             currentFloor += translateFloor(c);
         }
 
@@ -35,11 +35,11 @@ public class NotQuiteLisp {
         int currentFloor = 0;
         int step = 0;
 
-        for(char c : input.toCharArray()) {
+        for (char c : input.toCharArray()) {
             step++;
             currentFloor += translateFloor(c);
 
-            if(-1 == currentFloor) {
+            if (-1 == currentFloor) {
                 return step;
             }
         }
@@ -48,12 +48,11 @@ public class NotQuiteLisp {
     }
 
     private int translateFloor(char c) {
-        if('(' == c) {
+        if ('(' == c) {
             return 1;
         } else if (')' == c) {
             return -1;
-        }
-        else {
+        } else {
             throw new IllegalArgumentException("Illegal character found.");
         }
     }
