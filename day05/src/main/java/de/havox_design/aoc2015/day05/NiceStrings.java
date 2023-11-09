@@ -29,7 +29,7 @@ public class NiceStrings {
             if (
                     countVowels(string) >= 3 &&
                             containsDoubleLetter(string) &&
-                            !containsForbiddenStrings(string)
+                            !containsAnyString(string)
             ) {
                 numberNiceStrings++;
             }
@@ -39,7 +39,18 @@ public class NiceStrings {
     }
 
     public int solvePart2() {
-        return 0;
+        int numberNiceStrings = 0;
+
+        for (String string : input) {
+            if (
+                    containsTwoLetterStringAtLeastTwice(string) &&
+                            containsDoubleLetterWithOneLetterInBetween(string)
+            ) {
+                numberNiceStrings++;
+            }
+        }
+
+        return numberNiceStrings;
     }
 
     private int countVowels(String string) {
@@ -62,7 +73,31 @@ public class NiceStrings {
         return false;
     }
 
-    private boolean containsForbiddenStrings(String string) {
+    private boolean containsTwoLetterStringAtLeastTwice(String string) {
+        for (int i = 0; i < string.length() - 1; i++) {
+            String substring = string.substring(i, i + 2);
+
+            if (StringUtils.countMatches(string, substring) >= 2 &&
+                    string.lastIndexOf(substring) - string.indexOf(substring) >= 2
+            ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean containsDoubleLetterWithOneLetterInBetween(String string) {
+        for (int i = 0; i < string.length() - 2; i++) {
+            if (string.charAt(i) == string.charAt(i + 2)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean containsAnyString(String string) {
         return StringUtils.containsAny(string, "ab", "cd", "pq", "xy");
     }
 
