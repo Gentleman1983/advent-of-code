@@ -32,4 +32,20 @@ class Day05Test {
                 Arguments.of("part1sample6.txt", 2)
         );
     }
+
+    @ParameterizedTest
+    @MethodSource("getDataForPart2")
+    void testPart2(String fileName, int expectedNumberOfNiceStrings) {
+        Assertions.assertEquals(expectedNumberOfNiceStrings, NiceStrings.solvePart2(fileName));
+    }
+
+    private static Stream<Arguments> getDataForPart2() {
+        return Stream.of(
+                Arguments.of("part2sample1.txt", 1),
+                Arguments.of("part2sample2.txt", 1),
+                Arguments.of("part2sample3.txt", 0),
+                Arguments.of("part2sample4.txt", 0),
+                Arguments.of("part2sample5.txt", 2)
+        );
+    }
 }
