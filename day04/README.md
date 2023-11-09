@@ -15,3 +15,6 @@ zeroes (`000001dbbfa...`), and it is the lowest such number to do so.
 is `1048970`; that is, the MD5 hash of `pqrstuv1048970` looks like `000006136ef...`.
 
 Your puzzle input is `bgvyzdsv`.
+
+# Part Two
+Now find one that starts with **six zeroes**.
