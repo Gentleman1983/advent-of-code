@@ -18,8 +18,8 @@ class Day04Test {
 
     @ParameterizedTest
     @MethodSource("getDataForPart1")
-    void testPart1(String fileName, int expectedHousesVisited) {
-        Assertions.assertEquals(expectedHousesVisited, AdventCoins.solvePart1(fileName));
+    void testPart1(String fileName, int expectedSecretNumber) {
+        Assertions.assertEquals(expectedSecretNumber, AdventCoins.solvePart1(fileName));
     }
 
     private static Stream<Arguments> getDataForPart1() {

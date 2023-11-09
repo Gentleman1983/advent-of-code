@@ -1,6 +1,7 @@
 package de.havox_design.aoc2015.day04;
 
 import de.havox_design.aoc2015.utils.DataReader;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.util.List;
 
@@ -22,7 +23,16 @@ public class AdventCoins {
     }
 
     public int solvePart1() {
-        return 0;
+        for(int i = 0; i < Integer.MAX_VALUE; i++) {
+            String combinedKey = input + i;
+            String md5Hash = DigestUtils.md5Hex(combinedKey);
+
+            if(md5Hash.startsWith("00000")) {
+                return i;
+            }
+        }
+
+        throw new IllegalStateException("An valid hash should be able to be found.");
     }
 
     public int solvePart2() {
