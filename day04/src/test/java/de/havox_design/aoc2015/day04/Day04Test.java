@@ -24,8 +24,21 @@ class Day04Test {
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("part1sample1.txt", 609043),
-                Arguments.of("part1sample2.txt", 1048970)
+                Arguments.of("sample1.txt", 609043),
+                Arguments.of("sample2.txt", 1048970)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getDataForPart2")
+    void testPart2(String fileName, int expectedSecretNumber) {
+        Assertions.assertEquals(expectedSecretNumber, AdventCoins.solvePart2(fileName));
+    }
+
+    private static Stream<Arguments> getDataForPart2() {
+        return Stream.of(
+                Arguments.of("sample1.txt", 6742839),
+                Arguments.of("sample2.txt", 5714438)
         );
     }
 }

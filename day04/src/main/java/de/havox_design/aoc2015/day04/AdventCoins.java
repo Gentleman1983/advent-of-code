@@ -23,20 +23,24 @@ public class AdventCoins {
     }
 
     public int solvePart1() {
+        return detectSecretNumberForHashStart("00000");
+    }
+
+    public int solvePart2() {
+        return detectSecretNumberForHashStart("000000");
+    }
+
+    private int detectSecretNumberForHashStart(String prefix) {
         for(int i = 0; i < Integer.MAX_VALUE; i++) {
             String combinedKey = input + i;
             String md5Hash = DigestUtils.md5Hex(combinedKey);
 
-            if(md5Hash.startsWith("00000")) {
+            if(md5Hash.startsWith(prefix)) {
                 return i;
             }
         }
 
         throw new IllegalStateException("An valid hash should be able to be found.");
-    }
-
-    public int solvePart2() {
-        return 0;
     }
 
     private List<String> readData(String fileName) {
