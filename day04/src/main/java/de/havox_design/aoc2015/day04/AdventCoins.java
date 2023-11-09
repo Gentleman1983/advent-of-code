@@ -31,11 +31,11 @@ public class AdventCoins {
     }
 
     private int detectSecretNumberForHashStart(String prefix) {
-        for(int i = 0; i < Integer.MAX_VALUE; i++) {
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
             String combinedKey = input + i;
             String md5Hash = DigestUtils.md5Hex(combinedKey);
 
-            if(md5Hash.startsWith(prefix)) {
+            if (md5Hash.startsWith(prefix)) {
                 return i;
             }
         }
