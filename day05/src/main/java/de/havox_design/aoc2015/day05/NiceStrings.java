@@ -1,6 +1,7 @@
 package de.havox_design.aoc2015.day05;
 
 import de.havox_design.aoc2015.utils.DataReader;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -42,15 +43,27 @@ public class NiceStrings {
     }
 
     private int countVowels(String string) {
-        return 0;
+        int numberOfVowels = 0;
+
+        for (char vowel : "aeiou".toCharArray()) {
+            numberOfVowels += StringUtils.countMatches(string, vowel);
+        }
+
+        return numberOfVowels;
     }
 
     private boolean containsDoubleLetter(String string) {
+        for (int i = 0; i < string.length() - 1; i++) {
+            if (string.charAt(i) == string.charAt(i + 1)) {
+                return true;
+            }
+        }
+
         return false;
     }
 
     private boolean containsForbiddenStrings(String string) {
-        return false;
+        return StringUtils.containsAny(string, "ab", "cd", "pq", "xy");
     }
 
     private List<String> readData(String fileName) {
