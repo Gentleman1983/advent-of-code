@@ -7,6 +7,6 @@ public class MainClass {
 
     public static void main(String[] args) {
         LOGGER.info(() -> "Solution 1: " + HouseDecoratingContest.solvePart1("day06.txt"));
-        LOGGER.info(() -> "Solution 2: " + HouseDecoratingContest.solvePart1("day06.txt"));
+        LOGGER.info(() -> "Solution 2: " + HouseDecoratingContest.solvePart2("day06.txt"));
     }
 }
