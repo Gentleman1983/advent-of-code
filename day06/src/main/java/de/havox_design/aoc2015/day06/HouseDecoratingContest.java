@@ -29,20 +29,20 @@ public class HouseDecoratingContest {
     }
 
     public int solvePart1() {
-        for(String instruction : input) {
-            if(instruction.startsWith("turn on")) {
-                int[] values = parseInstruction(instruction,8);
+        for (String instruction : input) {
+            if (instruction.startsWith("turn on")) {
+                int[] values = parseInstruction(instruction, 8);
                 turnOnLight(values[FROM_X], values[TO_X], values[FROM_Y], values[TO_Y]);
 
             } else if (instruction.startsWith("turn off")) {
-                int[] values = parseInstruction(instruction,9);
+                int[] values = parseInstruction(instruction, 9);
                 turnOffLight(values[FROM_X], values[TO_X], values[FROM_Y], values[TO_Y]);
 
             } else if (instruction.startsWith("toggle")) {
-                int[] values = parseInstruction(instruction,7);
+                int[] values = parseInstruction(instruction, 7);
                 toggleLight(values[FROM_X], values[TO_X], values[FROM_Y], values[TO_Y]);
             } else {
-                throw new IllegalArgumentException("no valid instruction: " + instruction );
+                throw new IllegalArgumentException("no valid instruction: " + instruction);
             }
         }
 
@@ -57,9 +57,9 @@ public class HouseDecoratingContest {
     private int countNumberOfLitLights() {
         int numberOfLightsLit = 0;
 
-        for(int x = 0; x < 1000; x++) {
-            for(int y = 0; y < 1000; y++) {
-                if(houseDecoration[x][y]) {
+        for (int x = 0; x < 1000; x++) {
+            for (int y = 0; y < 1000; y++) {
+                if (houseDecoration[x][y]) {
                     numberOfLightsLit++;
                 }
             }
@@ -71,8 +71,8 @@ public class HouseDecoratingContest {
     private int countBrightness() {
         int currentBrightness = 0;
 
-        for(int x = 0; x < 1000; x++) {
-            for(int y = 0; y < 1000; y++) {
+        for (int x = 0; x < 1000; x++) {
+            for (int y = 0; y < 1000; y++) {
                 currentBrightness += brightness[x][y];
             }
         }
@@ -108,8 +108,8 @@ public class HouseDecoratingContest {
     }
 
     private void toggleLight(int fromX, int toX, int fromY, int toY) {
-        for(int x = fromX; x <= toX; x++) {
-            for(int y = fromY; y <= toY; y++) {
+        for (int x = fromX; x <= toX; x++) {
+            for (int y = fromY; y <= toY; y++) {
                 toggleLight(x, y);
             }
         }
@@ -119,14 +119,14 @@ public class HouseDecoratingContest {
         houseDecoration[x][y] = value;
         brightness[x][y] += brightnessChange;
 
-        if(brightness[x][y] < 0) {
+        if (brightness[x][y] < 0) {
             brightness[x][y] = 0;
         }
     }
 
     private void setLight(int fromX, int toX, int fromY, int toY, boolean value, int brightnessChange) {
-        for(int x = fromX; x <= toX; x++) {
-            for(int y = fromY; y <= toY; y++) {
+        for (int x = fromX; x <= toX; x++) {
+            for (int y = fromY; y <= toY; y++) {
                 setLight(x, y, value, brightnessChange);
             }
         }
