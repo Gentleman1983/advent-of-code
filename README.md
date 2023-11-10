@@ -44,6 +44,6 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 23      | ❌       | ❌       |
 | 24      | ❌       | ❌       |
 | 25      | ❌       | ❌       |
-| **SUM** | **6 ⭐** | **5 ⭐** |
+| **SUM** | **6 ⭐** | **6 ⭐** |
 
-Total: 11 ⭐
+Total: 12 ⭐

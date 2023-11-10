@@ -18,8 +18,8 @@ class Day06Test {
 
     @ParameterizedTest
     @MethodSource("getDataForPart1")
-    void testPart1(String fileName, int expectedNumberOfNiceStrings) {
-        Assertions.assertEquals(expectedNumberOfNiceStrings, HouseDecoratingContest.solvePart1(fileName));
+    void testPart1(String fileName, int expectedNumberOfLights) {
+        Assertions.assertEquals(expectedNumberOfLights, HouseDecoratingContest.solvePart1(fileName));
     }
 
     private static Stream<Arguments> getDataForPart1() {
@@ -29,6 +29,23 @@ class Day06Test {
                 Arguments.of("part1sample3.txt", 999000),
                 Arguments.of("part1sample4.txt", 999996),
                 Arguments.of("part1sample5.txt", 998996)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getDataForPart2")
+    void testPart2(String fileName, int expectedBrightness) {
+        Assertions.assertEquals(expectedBrightness, HouseDecoratingContest.solvePart2(fileName));
+    }
+
+    private static Stream<Arguments> getDataForPart2() {
+        return Stream.of(
+                Arguments.of("part2sample1.txt", 1),
+                Arguments.of("part2sample2.txt", 0),
+                Arguments.of("part2sample3.txt", 2),
+                Arguments.of("part2sample4.txt", 1),
+                Arguments.of("part2sample5.txt", 2000000),
+                Arguments.of("part2sample6.txt", 2000003)
         );
     }
 }

@@ -12,6 +12,7 @@ public class HouseDecoratingContest {
 
     private final List<String> input;
     private final boolean[][] houseDecoration = new boolean[1000][1000];
+    private final int[][] brightness = new int[1000][1000];
 
     public HouseDecoratingContest(String fileName) {
         input = readData(fileName);
@@ -49,7 +50,8 @@ public class HouseDecoratingContest {
     }
 
     public int solvePart2() {
-        return 0;
+        solvePart1();
+        return countBrightness();
     }
 
     private int countNumberOfLitLights() {
@@ -64,6 +66,18 @@ public class HouseDecoratingContest {
         }
 
         return numberOfLightsLit;
+    }
+
+    private int countBrightness() {
+        int currentBrightness = 0;
+
+        for(int x = 0; x < 1000; x++) {
+            for(int y = 0; y < 1000; y++) {
+                currentBrightness += brightness[x][y];
+            }
+        }
+
+        return currentBrightness;
     }
 
     private int[] parseInstruction(String instruction, int offset) {
@@ -81,24 +95,16 @@ public class HouseDecoratingContest {
         return values;
     }
 
-    private void turnOnLight(int x, int y) {
-        setLight(x, y, true);
-    }
-
     private void turnOnLight(int fromX, int toX, int fromY, int toY) {
-        setLight(fromX, toX, fromY, toY, true);
-    }
-
-    private void turnOffLight(int x, int y) {
-        setLight(x, y, false);
+        setLight(fromX, toX, fromY, toY, true, 1);
     }
 
     private void turnOffLight(int fromX, int toX, int fromY, int toY) {
-        setLight(fromX, toX, fromY, toY, false);
+        setLight(fromX, toX, fromY, toY, false, -1);
     }
 
     private void toggleLight(int x, int y) {
-        setLight(x, y, !houseDecoration[x][y]);
+        setLight(x, y, !houseDecoration[x][y], 2);
     }
 
     private void toggleLight(int fromX, int toX, int fromY, int toY) {
@@ -109,14 +115,19 @@ public class HouseDecoratingContest {
         }
     }
 
-    private void setLight(int x, int y, boolean value) {
+    private void setLight(int x, int y, boolean value, int brightnessChange) {
         houseDecoration[x][y] = value;
+        brightness[x][y] += brightnessChange;
+
+        if(brightness[x][y] < 0) {
+            brightness[x][y] = 0;
+        }
     }
 
-    private void setLight(int fromX, int toX, int fromY, int toY, boolean value) {
+    private void setLight(int fromX, int toX, int fromY, int toY, boolean value, int brightnessChange) {
         for(int x = fromX; x <= toX; x++) {
             for(int y = fromY; y <= toY; y++) {
-                setLight(x, y, value);
+                setLight(x, y, value, brightnessChange);
             }
         }
     }
