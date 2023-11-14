@@ -24,7 +24,7 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 3       | ⭐       | ⭐       |
 | 4       | ⭐       | ⭐       |
 | 5       | ⭐       | ⭐       |
-| 6       | ⭐       | ❌       |
+| 6       | ⭐       | ⭐       |
 | 7       | ❌       | ❌       |
 | 8       | ❌       | ❌       |
 | 9       | ❌       | ❌       |
