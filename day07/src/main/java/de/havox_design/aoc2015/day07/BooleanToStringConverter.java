@@ -6,7 +6,8 @@ import org.apache.commons.lang3.StringUtils;
 
 public class BooleanToStringConverter {
 
-    private BooleanToStringConverter() {}
+    private BooleanToStringConverter() {
+    }
 
     public static BooleanToStringConverter getInstance() {
         return SingletonHelper.INSTANCE;
