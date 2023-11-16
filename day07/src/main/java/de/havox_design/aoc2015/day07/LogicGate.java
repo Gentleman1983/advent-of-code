@@ -12,4 +12,8 @@ public interface LogicGate
       getObserver().unregisterGate( this );
     }
   }
+
+  default void updateVariable(String name, int value) {
+    getObserver().updateVariable( name, value );
+  }
 }

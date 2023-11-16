@@ -1,5 +1,9 @@
 package de.havox_design.aoc2015.day07;
 
+import org.apache.commons.lang3.StringUtils;
+
+import static de.havox_design.aoc2015.day07.LogicGates.NUMBER_OF_BITS;
+
 public class LeftShiftGate implements LogicGate
 {
   private final LogicGates observer;
@@ -13,6 +17,11 @@ public class LeftShiftGate implements LogicGate
     this.shift = shift;
     this.output = output;
   }
+
+  public LeftShiftGate(String input, String shift, String output, LogicGates observer) {
+    this(input, Integer.parseInt(shift), output, observer);
+  }
+
   @Override public LogicGates getObserver()
   {
     return observer;
@@ -25,6 +34,33 @@ public class LeftShiftGate implements LogicGate
 
   @Override public void process()
   {
+    int value;
 
+    if( StringUtils.isNumeric( input ) ) {
+      value = Integer.parseInt( input );
+    }
+    else if(observer.getValueForVariable( input ) != null) {
+      value = observer.getValueForVariable( input );
+    }
+    else {
+      return;
+    }
+
+    boolean[] binary = new boolean[NUMBER_OF_BITS];
+    boolean[] binaryInput = BooleanToStringConverter.getInstance().convert(value);
+
+    for(int i = 0; i < NUMBER_OF_BITS; i++) {
+      int destination = (i - shift) % NUMBER_OF_BITS;
+
+      while (destination < 0) {
+        destination += NUMBER_OF_BITS;
+      }
+
+      binary[destination] = binaryInput[i];
+    }
+
+    int newValue = BooleanToStringConverter.getInstance().convert(binary);
+
+    updateVariable(output, newValue);
   }
 }

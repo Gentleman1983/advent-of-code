@@ -25,11 +25,18 @@ public class SetGate implements LogicGate
 
   @Override public void process()
   {
+    int value;
+
     if( StringUtils.isNumeric( input ) ) {
-      observer.updateVariable( output, Integer.parseInt( input ) );
+      value = Integer.parseInt( input );
     }
     else if(observer.getValueForVariable( input ) != null) {
-      observer.updateVariable( output, observer.getValueForVariable( input ) );
+      value = observer.getValueForVariable( input );
     }
+    else {
+      return;
+    }
+
+    updateVariable(output, value);
   }
 }
