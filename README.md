@@ -2,7 +2,7 @@
 
 Simple project for Advent of Code 2015.
 
-Done in JAVA 17.
+Done in JAVA 17. Maybe some in e.g. Groovy or Kotlin... ;)
 
 For more information see https://adventofcode.com [2015](https://adventofcode.com/2015)
 
@@ -25,7 +25,7 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 4       | ⭐       | ⭐       |
 | 5       | ⭐       | ⭐       |
 | 6       | ⭐       | ⭐       |
-| 7       | ❌       | ❌       |
+| 7       | ⭐       | ⭐       |
 | 8       | ❌       | ❌       |
 | 9       | ❌       | ❌       |
 | 10      | ❌       | ❌       |
@@ -44,6 +44,6 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 23      | ❌       | ❌       |
 | 24      | ❌       | ❌       |
 | 25      | ❌       | ❌       |
-| **SUM** | **6 ⭐** | **6 ⭐** |
+| **SUM** | **7 ⭐** | **7 ⭐** |
 
-Total: 12 ⭐
+Total: 14 ⭐

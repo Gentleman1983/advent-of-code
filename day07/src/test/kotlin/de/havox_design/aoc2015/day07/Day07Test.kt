@@ -18,11 +18,6 @@ class Day07Test {
     fun testProcessPart1(filename: String, expectedResult: Int) =
         LogicGates(filename).processPart1().shouldBe(expectedResult)
 
-    @ParameterizedTest
-    @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Int) =
-        LogicGates(filename).processPart2().shouldBe(expectedResult)
-
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
@@ -35,12 +30,6 @@ class Day07Test {
                 Arguments.of("part1sample6.txt", 65079),
                 Arguments.of("part1sample7.txt", 123),
                 Arguments.of("part1sample8.txt", 456)
-            )
-
-        @JvmStatic
-        private fun getDataForTestProcessPart2(): Stream<Arguments> =
-            Stream.of(
-                Arguments.of("sample.txt", 42)
             )
     }
 }

@@ -9,7 +9,7 @@ class LogicGates(private var filename: String) {
         calculate(data, mutableMapOf(), "a")
 
     fun processPart2(): Int =
-        42
+        calculate(data, mutableMapOf("b" to processPart1()), "a")
 
     @SuppressWarnings("kotlin:S6611")
     private fun calculate(
