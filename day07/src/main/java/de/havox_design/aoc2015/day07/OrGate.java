@@ -61,4 +61,22 @@ public class OrGate implements LogicGate {
 
         updateVariable(output, newValue);
     }
+
+    @Override
+    public String toString() {
+        return getOutputString(inputA, inputB, output);
+    }
+
+    @Override
+    public String getValueString() {
+        String valueA = getValueForVariable(inputA);
+        String valueB = getValueForVariable(inputB);
+        String valueOutput = getValueForVariable(output);
+
+        return getOutputString(valueA, valueB, valueOutput);
+    }
+
+    private String getOutputString(String inputA, String inputB, String output) {
+        return inputA + " OR " + inputB + " -> " + output;
+    }
 }

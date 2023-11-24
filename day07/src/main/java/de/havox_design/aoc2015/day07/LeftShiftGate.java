@@ -60,4 +60,21 @@ public class LeftShiftGate implements LogicGate {
 
         updateVariable(output, newValue);
     }
+
+    @Override
+    public String toString() {
+        return getOutputString(input, shift, output);
+    }
+
+    @Override
+    public String getValueString() {
+        String valueInput = getValueForVariable(input);
+        String valueOutput = getValueForVariable(output);
+
+        return getOutputString(valueInput, shift, valueOutput);
+    }
+
+    private String getOutputString(String input, int shift, String output) {
+        return input + " LSHIFT " + shift + " -> " + output;
+    }
 }

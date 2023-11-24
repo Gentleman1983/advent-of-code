@@ -47,4 +47,21 @@ public class NotGate implements LogicGate {
 
         updateVariable(output, newValue);
     }
+
+    @Override
+    public String toString() {
+        return getOutputString(input, output);
+    }
+
+    @Override
+    public String getValueString() {
+        String valueInput = getValueForVariable(input);
+        String valueOutput = getValueForVariable(output);
+
+        return getOutputString(valueInput, valueOutput);
+    }
+
+    private String getOutputString(String input, String output) {
+        return "NOT " + input + " -> " + output;
+    }
 }

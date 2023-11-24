@@ -37,4 +37,21 @@ public class SetGate implements LogicGate {
 
         updateVariable(output, value);
     }
+
+    @Override
+    public String toString() {
+        return getOutputString(input, output);
+    }
+
+    @Override
+    public String getValueString() {
+        String valueInput = getValueForVariable(input);
+        String valueOutput = getValueForVariable(output);
+
+        return getOutputString(valueInput, valueOutput);
+    }
+
+    private String getOutputString(String input, String output) {
+        return input + " -> " + output;
+    }
 }
