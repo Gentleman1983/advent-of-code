@@ -26,9 +26,9 @@ public class ReindeerOlympics {
         return instance.solvePart2();
     }
 
-    protected static int race(String fileName, int time) {
+    protected static int race(String fileName, int time, boolean newScoringSystem) {
         ReindeerOlympics instance = new ReindeerOlympics(fileName);
-        return instance.race(time);
+        return instance.race(time, newScoringSystem);
     }
 
     public int solvePart1() {
@@ -36,7 +36,11 @@ public class ReindeerOlympics {
     }
 
     public int solvePart2() {
-        return 0;
+        return race(2503, true);
+    }
+
+    protected int race(int time, boolean newScoringSystem) {
+        return newScoringSystem ? raceForPoints(time) : race(time);
     }
 
     @SuppressWarnings("squid:S3655")
@@ -49,6 +53,24 @@ public class ReindeerOlympics {
         return input
                 .stream()
                 .map(Reindeer::getDistance)
+                .max(Integer::compareTo)
+                .get();
+    }
+
+    @SuppressWarnings("squid:S3655")
+    protected int raceForPoints(int time) {
+        for(int i = 0; i < time; i++) {
+            int currentMaxDistance = race(1);
+
+            input
+                    .stream()
+                    .filter( reindeer -> reindeer.getDistance() == currentMaxDistance )
+                    .forEach( reindeer -> reindeer.awardPoint() );
+        }
+
+        return input
+                .stream()
+                .map(Reindeer::getPoints)
                 .max(Integer::compareTo)
                 .get();
     }

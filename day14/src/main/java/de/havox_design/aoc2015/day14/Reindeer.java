@@ -11,6 +11,7 @@ public class Reindeer {
     private ReindeerState currentState = ReindeerState.RESTING;
     private int timeInState = 0;
     private int distance = 0;
+    private int points = 0;
 
 
     public Reindeer(String name, int flySpeed, int flyTime, int restTime) {
@@ -40,6 +41,14 @@ public class Reindeer {
 
     public int getDistance() {
         return distance;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void awardPoint() {
+        points++;
     }
 
     public void processSecond() {
