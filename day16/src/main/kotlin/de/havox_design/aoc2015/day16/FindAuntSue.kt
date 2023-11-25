@@ -14,7 +14,11 @@ class LogicGates(private var filename: String) {
             .id
 
     fun processPart2(): Int =
-        0
+        data
+            .toMutableSet()
+            .apply { removeIf{ !signature.matchesWithRanges(it)} }
+            .single()
+            .id
 
     private fun readData(): Set<AuntSueDescription> =
         getResourceAsText(filename)
@@ -43,6 +47,17 @@ class LogicGates(private var filename: String) {
         fun matchesButOutdated(description: AuntSueDescription): Boolean =
             description.properties.all { (key, value) ->
                 properties.containsKey(key) && properties[key] == value
+            }
+
+        @SuppressWarnings("kotlin:S6611")
+        fun matchesWithRanges(description: AuntSueDescription) =
+            description.properties.all { (key, value) ->
+                properties.containsKey(key) &&
+                        when (key) {
+                            "cats", "trees" -> properties[key]!! < value
+                            "pomeranians", "goldfish" -> properties[key]!! > value
+                            else -> properties[key] == value
+                        }
             }
     }
 }
