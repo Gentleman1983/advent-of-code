@@ -12,7 +12,22 @@ class KnightsOfTheDinnerTable(private var filename: String) {
             .maxOf { arrangement -> arrangement.totalHappiness(data) }
 
     fun processPart2(): Int =
-        0
+        data
+            .toMutableMap()
+            .apply {
+                data
+                    .guests()
+                    .forEach { guest ->
+                        this[Guest("Me") to guest] = 0
+                        this[guest to Guest("Me")] = 0
+                    }
+            }
+            .let {
+                it
+                    .guests()
+                    .arrangements()
+                    .maxOf { arrangement -> arrangement.totalHappiness(it) }
+            }
 
     private fun readData(): Map<Pair<Guest, Guest>, Int> {
         val fileData = getResourceAsText(filename).associate { line ->
