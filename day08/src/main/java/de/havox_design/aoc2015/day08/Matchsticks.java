@@ -30,11 +30,47 @@ public class Matchsticks {
     }
 
     protected int calculateCharactersOfCode() {
-        return 0;
+        return input
+                .stream()
+                .map(String::length)
+                .mapToInt(Integer::intValue)
+                .sum();
     }
 
     protected int calculateCharactersInMemory() {
-        return 0;
+        return input
+                .stream()
+                .map(Matchsticks::inMemoryLength)
+                .mapToInt(Integer::intValue)
+                .sum();
+    }
+
+    private static int inMemoryLength(String line) {
+
+        String rawString = line.substring(1, line.length() - 1);
+        int length = rawString.length();
+
+        int count = rawString.length();
+        if (count == 0) {
+            return count;
+        }
+        int i = 0;
+
+        do {
+            if (rawString.charAt(i) == '\\'
+                    && (rawString.charAt(i + 1) == '\\'
+                    || rawString.charAt(i + 1) == '"')) {
+                count -= 1;
+                i += 2;
+            } else if (rawString.charAt(i) == '\\'
+                    && rawString.charAt(i + 1) == 'x') {
+                i += 4;
+                count -= 3;
+            } else {
+                i += 1;
+            }
+        } while (i < length);
+        return count;
     }
 
     private List<String> readData(String fileName) {

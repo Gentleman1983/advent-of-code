@@ -22,9 +22,23 @@ class Day08Test {
         Matchsticks objectUnderTest = new Matchsticks(fileName);
 
         Assertions.assertAll(
-                () -> Assertions.assertEquals(expectedNumberOfCharactersOfCode, objectUnderTest.calculateCharactersOfCode()),
-                () -> Assertions.assertEquals(expectedNumberOfCharactersInMemory, objectUnderTest.calculateCharactersInMemory()),
-                () -> Assertions.assertEquals(expectedResult, objectUnderTest.solvePart1())
+                () -> Assertions.assertEquals(
+                        expectedNumberOfCharactersOfCode,
+                        objectUnderTest.calculateCharactersOfCode(),
+                        "Expected to be " + expectedNumberOfCharactersOfCode + " characters of code, but was " +
+                                objectUnderTest.calculateCharactersOfCode()
+                ),
+                () -> Assertions.assertEquals(
+                        expectedNumberOfCharactersInMemory,
+                        objectUnderTest.calculateCharactersInMemory(),
+                        "Expected to be " + expectedNumberOfCharactersInMemory + " characters in memory, but was " +
+                                objectUnderTest.calculateCharactersInMemory()
+                ),
+                () -> Assertions.assertEquals(
+                        expectedResult,
+                        objectUnderTest.solvePart1(),
+                        "Expected difference " + expectedResult + ", but was " + objectUnderTest.solvePart1()
+                )
         );
     }
 
