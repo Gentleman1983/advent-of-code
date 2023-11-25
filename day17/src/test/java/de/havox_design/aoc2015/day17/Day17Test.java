@@ -24,7 +24,19 @@ class Day17Test {
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("part1sample.txt", 4)
+                Arguments.of("sample.txt", 4)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getDataForPart2")
+    void testPart2(String fileName, int expectedNumberOfCombinations) {
+        Assertions.assertEquals(expectedNumberOfCombinations, NotEnoughEggnod.countLimitedCombinations(fileName, 25));
+    }
+
+    private static Stream<Arguments> getDataForPart2() {
+        return Stream.of(
+                Arguments.of("sample.txt", 3)
         );
     }
 }
