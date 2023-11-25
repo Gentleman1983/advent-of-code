@@ -38,8 +38,12 @@ public class ScienceForHungryPeople {
                 .orElseThrow();
     }
 
-    public long solvePart2() {
-        return 0L;
+    public int solvePart2() {
+        return distributions
+                .stream()
+                .mapToInt(d -> scoreOfDistributionWithCalories(d, input, 500))
+                .max()
+                .orElseThrow();
     }
 
     private int scoreOfDistribution(int[] distribution, List<Ingredient> ingredients) {
@@ -48,6 +52,13 @@ public class ScienceForHungryPeople {
         int flavour = mix(distribution, ingredients, Ingredient::flavor);
         int texture = mix(distribution, ingredients, Ingredient::texture);
         return capacity * durability * flavour * texture;
+    }
+
+    private int scoreOfDistributionWithCalories(int[] distribution, List<Ingredient> ingredients, int calories) {
+        if (mix(distribution, ingredients, Ingredient::calories) != calories) {
+            return 0;
+        }
+        return scoreOfDistribution(distribution, ingredients);
     }
 
     private int mix(int[] distribution, List<Ingredient> ingredients, ToIntFunction<Ingredient> getValue) {

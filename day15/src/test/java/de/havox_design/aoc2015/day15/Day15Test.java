@@ -18,13 +18,25 @@ class Day15Test {
 
     @ParameterizedTest
     @MethodSource("getDataForPart1")
-    void testPart1(String fileName, long expectedScore) {
+    void testPart1(String fileName, int expectedScore) {
         Assertions.assertEquals(expectedScore, ScienceForHungryPeople.solvePart1(fileName));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("part1sample.txt", 62842880L)
+                Arguments.of("sample.txt", 62842880)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getDataForPart2")
+    void testPart2(String fileName, int expectedScore) {
+        Assertions.assertEquals(expectedScore, ScienceForHungryPeople.solvePart2(fileName));
+    }
+
+    private static Stream<Arguments> getDataForPart2() {
+        return Stream.of(
+                Arguments.of("sample.txt", 57600000)
         );
     }
 }
