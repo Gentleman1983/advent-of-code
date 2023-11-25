@@ -1,6 +1,7 @@
 package de.havox_design.aoc2015.day12;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class CharacterIterator implements Iterator<Character> {
     private final String data;
@@ -17,6 +18,10 @@ public class CharacterIterator implements Iterator<Character> {
 
     @Override
     public Character next() {
+        if(!hasNext()) {
+            throw new NoSuchElementException("There are no more elements...");
+        }
+
         return data.charAt(current++);
     }
 
