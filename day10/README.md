@@ -15,3 +15,11 @@ For example:
 * `111221` becomes `312211` (three `1`s, two `2`s, and one `1`).
 
 Starting with the digits in your puzzle input, apply this process `40` times. What is **the length of the result**?
+
+# Part Two
+Neat, right? You might also enjoy hearing 
+[John Conway talking about this sequence](https://www.youtube.com/watch?v=ea7lJkEhytA) (that's Conway of **Conway's Game 
+of Life** fame).
+
+Now, starting again with the digits in your puzzle input, apply this process `50` times. What is **the length of the 
+new result**?
