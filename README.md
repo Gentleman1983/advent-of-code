@@ -32,7 +32,7 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 11                                                                                                                                                    | ⭐        | ⭐        |
 | 12                                                                                                                                                    | ⭐        | ⭐        |
 | 13 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png" width="10" height="10" alt="Kotlin" />  | ⭐        | ⭐        |
-| 14                                                                                                                                                    | ❌        | ❌        |
+| 14                                                                                                                                                    | ⭐        | ⭐        |
 | 15                                                                                                                                                    | ❌        | ❌        |
 | 16                                                                                                                                                    | ❌        | ❌        |
 | 17                                                                                                                                                    | ❌        | ❌        |
@@ -44,6 +44,6 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 23                                                                                                                                                    | ❌        | ❌        |
 | 24                                                                                                                                                    | ❌        | ❌        |
 | 25                                                                                                                                                    | ❌        | ❌        |
-| **SUM**                                                                                                                                               | **13 ⭐** | **13 ⭐** |
+| **SUM**                                                                                                                                               | **14 ⭐** | **14 ⭐** |
 
-Total: 26 ⭐
+Total: 28 ⭐
