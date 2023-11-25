@@ -23,3 +23,6 @@ of Life** fame).
 
 Now, starting again with the digits in your puzzle input, apply this process `50` times. What is **the length of the 
 new result**?
+
+# Part Two
+Santa's password expired again. What's the next one?
