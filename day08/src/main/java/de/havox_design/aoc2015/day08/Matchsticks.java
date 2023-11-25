@@ -82,15 +82,16 @@ public class Matchsticks {
     }
 
     private static int encodedLength(String line) {
-        String encodedString = "\\\"";
+        StringBuilder builder = new StringBuilder();
+        builder.append("\\\"");
         for (int i = 1; i < line.length(); i++) {
             if (line.charAt(i) == '\\' || line.charAt(i) == '"') {
-                encodedString += "\\";
+                builder.append("\\");
             }
-            encodedString += line.charAt(i);
+            builder.append(line.charAt(i));
         }
-        encodedString += "\\\"";
-        return encodedString.length();
+        builder.append("\\\"");
+        return builder.toString().length();
     }
 
     private List<String> readData(String fileName) {
