@@ -2,11 +2,11 @@ package de.havox_design.aoc2015.day12;
 
 import java.util.List;
 
-public final class JSString implements CharSequence, JSEntity {
+public final class JSONString implements CharSequence, JSONEntity {
 
     private String string;
 
-    public JSString(String string) {
+    public JSONString(String string) {
         this.string = string;
     }
 
@@ -32,7 +32,7 @@ public final class JSString implements CharSequence, JSEntity {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof JSString jss) {
+        if (obj instanceof JSONString jss) {
             return string.equals(jss.string);
         }
         return false;

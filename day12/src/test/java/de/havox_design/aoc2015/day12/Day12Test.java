@@ -34,4 +34,19 @@ class Day12Test {
                 Arguments.of("part1sample8.txt", 0)
         );
     }
+
+    @ParameterizedTest
+    @MethodSource("getDataForPart2")
+    void testPart2(String fileName, int expectedSum) {
+        Assertions.assertEquals(expectedSum, JSONAbacus.solvePart2(fileName));
+    }
+
+    private static Stream<Arguments> getDataForPart2() {
+        return Stream.of(
+                Arguments.of("part2sample1.txt", 6),
+                Arguments.of("part2sample2.txt", 4),
+                Arguments.of("part2sample3.txt", 0),
+                Arguments.of("part2sample4.txt", 6)
+        );
+    }
 }
