@@ -28,14 +28,19 @@ public class SantasPasswordPolicy {
     }
 
     public String solvePart2() {
-        return "";
+        return nextPassword(nextPassword(input));
     }
 
     private String nextPassword(String initialPassword) {
         byte[] encoded = encodeString(initialPassword);
         PasswordValidator validator = PasswordValidator.getInstance(encoded);
+        boolean firstRun = true;
 
-        while (!validator.validate()) {
+        while (firstRun || !validator.validate()) {
+            if(firstRun) {
+                firstRun = false;
+            }
+
             increment(encoded);
             validator = PasswordValidator.getInstance(encoded);
         }
