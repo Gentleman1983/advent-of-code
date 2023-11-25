@@ -26,7 +26,7 @@ public class Matchsticks {
     }
 
     public int solvePart2() {
-        return 42;
+        return calculateEncodedCharacters() - calculateCharactersOfCode();
     }
 
     protected int calculateCharactersOfCode() {
@@ -41,6 +41,14 @@ public class Matchsticks {
         return input
                 .stream()
                 .map(Matchsticks::inMemoryLength)
+                .mapToInt(Integer::intValue)
+                .sum();
+    }
+
+    protected int calculateEncodedCharacters() {
+        return input
+                .stream()
+                .map(Matchsticks::encodedLength)
                 .mapToInt(Integer::intValue)
                 .sum();
     }
@@ -71,6 +79,18 @@ public class Matchsticks {
             }
         } while (i < length);
         return count;
+    }
+
+    private static int encodedLength(String line) {
+        String encodedString = "\\\"";
+        for (int i = 1; i < line.length(); i++) {
+            if (line.charAt(i) == '\\' || line.charAt(i) == '"') {
+                encodedString += "\\";
+            }
+            encodedString += line.charAt(i);
+        }
+        encodedString += "\\\"";
+        return encodedString.length();
     }
 
     private List<String> readData(String fileName) {
