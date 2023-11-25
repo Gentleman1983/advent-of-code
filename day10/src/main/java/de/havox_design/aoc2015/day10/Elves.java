@@ -3,8 +3,6 @@ package de.havox_design.aoc2015.day10;
 import de.havox_design.aoc2015.utils.DataReader;
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Elves {
     private final String input;
@@ -28,7 +26,7 @@ public class Elves {
     }
 
     public int solvePart2() {
-        return 0;
+        return processForIterations(50).length();
     }
 
     protected String processIteration(String input) {
@@ -36,19 +34,20 @@ public class Elves {
 
         int i = 0;
         while(i < input.length()) {
-            Pattern pattern = Pattern.compile(input.charAt(i) + "+");
-            Matcher matcher = pattern.matcher(input.substring(i));
-
-            if (matcher.find()) {
-                String group = matcher.group(0);
-                i += matcher.group(0).length() - 1;
-                newInput.append(matcher.group(0).length()).append(group.charAt(0));
-            }
-
-            i++;
+            i = lookAndSay(input, newInput, i);
         }
 
         return newInput.toString();
+    }
+
+    private int lookAndSay(String input, StringBuilder newInput, int from) {
+        int i = from;
+        while (i < input.length() && input.charAt(i) == input.charAt(from)) {
+            ++i;
+        }
+        newInput.append(i - from);
+        newInput.append(input.charAt(from));
+        return i;
     }
 
     protected String processForIterations(int iterations) {
