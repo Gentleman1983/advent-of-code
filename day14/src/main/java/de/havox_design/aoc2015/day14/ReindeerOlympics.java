@@ -65,7 +65,7 @@ public class ReindeerOlympics {
             input
                     .stream()
                     .filter( reindeer -> reindeer.getDistance() == currentMaxDistance )
-                    .forEach( reindeer -> reindeer.awardPoint() );
+                    .forEach(Reindeer::awardPoint);
         }
 
         return input
@@ -91,7 +91,12 @@ public class ReindeerOlympics {
         Matcher matcher = pattern.matcher(input);
         
         if(matcher.matches()) {
-            return new Reindeer(matcher.group(1), Integer.parseInt(matcher.group(2)), Integer.parseInt(matcher.group(3)), Integer.parseInt(matcher.group(4)));
+            return new Reindeer(
+                    matcher.group(1),
+                    Integer.parseInt(matcher.group(2)),
+                    Integer.parseInt(matcher.group(3)),
+                    Integer.parseInt(matcher.group(4))
+            );
         }
         throw new IllegalArgumentException("Expected the input '" + input + "' to match pattern '" + DATA_PATTERN + "'.");
     }
