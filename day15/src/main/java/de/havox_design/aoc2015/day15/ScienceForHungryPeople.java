@@ -87,13 +87,13 @@ public class ScienceForHungryPeople {
         List<Ingredient> ingredient = new ArrayList<>();
 
         for(String r : data) {
-            ingredient.add(parseIngriedient(r));
+            ingredient.add(parseIngredient(r));
         }
 
         return ingredient;
     }
 
-    private Ingredient parseIngriedient(String input) {
+    private Ingredient parseIngredient(String input) {
         Pattern pattern = Pattern.compile(DATA_PATTERN);
         Matcher matcher = pattern.matcher(input);
 
