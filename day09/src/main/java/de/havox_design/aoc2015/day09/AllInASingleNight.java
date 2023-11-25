@@ -36,7 +36,16 @@ public class AllInASingleNight {
     }
 
     public int solvePart2() {
-        return 0;
+        Queue<DeliveryNetwork> queue = new PriorityQueue<>(
+                Comparator.comparingInt(DeliveryNetwork::getSize).thenComparing(DeliveryNetwork::getDistance, Comparator.reverseOrder()));
+        input.keySet().forEach(city -> queue.add(new DeliveryNetwork(city)));
+        while (!queue.isEmpty() && queue.peek().getSize() != input.size()) {
+            var top = queue.poll();
+            assert top != null;
+            queue.addAll(top.getNexts(input.get(top.lastCity())));
+        }
+        assert queue.peek() != null;
+        return queue.peek().getDistance();
     }
 
     private Map<String, Map<String, Integer>> readData(String fileName) {

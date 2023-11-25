@@ -24,7 +24,19 @@ class Day09Test {
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("part1sample1.txt", 605)
+                Arguments.of("sample.txt", 605)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getDataForPart2")
+    void testPart2(String fileName, int expectedLongestDistance) {
+        Assertions.assertEquals(expectedLongestDistance, AllInASingleNight.solvePart2(fileName));
+    }
+
+    private static Stream<Arguments> getDataForPart2() {
+        return Stream.of(
+                Arguments.of("sample.txt", 982)
         );
     }
 }
