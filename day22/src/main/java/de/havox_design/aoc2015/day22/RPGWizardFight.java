@@ -64,7 +64,7 @@ public class RPGWizardFight {
                 result.add(test);
             }
         }
-        if (result.stream().anyMatch(s -> s.player.hitPoints() > 0 & s.boss.hitPoints() <= 0)) {
+        if (result.stream().anyMatch(s -> s.player.hitPoints() > 0 && s.boss.hitPoints() <= 0)) {
             result.removeIf(s -> s.player.hitPoints() <= 0 || s.boss.hitPoints() > 0);
         }
         return result;
