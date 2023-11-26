@@ -21,7 +21,7 @@ class MedicineForRudolph(private var filename: String) {
     fun processPart2(): Int {
         val reversedReplacementKeySet = reversedReplacements
             .map { pair -> pair.first }
-            .toSet()
+            .toSortedSet()
         var oldMolecule: String
         var molecule = base.reversed()
         val joiner = StringJoiner("|", "(", ")")
@@ -68,6 +68,9 @@ class MedicineForRudolph(private var filename: String) {
 
     private fun readData(): List<String> =
         getResourceAsText(filename)
+
+    fun getPythonResult(path: String): String =
+        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readText()
 
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
