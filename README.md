@@ -1,4 +1,4 @@
-# Advent of Coding 2015
+# Advent of Coding 2016
 
 Simple project for Advent of Code 2016.
 
