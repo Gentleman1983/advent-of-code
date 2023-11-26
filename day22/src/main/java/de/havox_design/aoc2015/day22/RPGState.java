@@ -5,6 +5,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class RPGState {
 
+    final boolean hardMode;
+
     final RPGPlayer player;
 
     final RPGBoss boss;
@@ -13,10 +15,11 @@ public class RPGState {
 
     private final int[] spellDuration;
 
-    public RPGState(RPGPlayer player, RPGBoss boss, int[] spellDuration, AtomicInteger best) {
+    public RPGState(RPGPlayer player, RPGBoss boss, int[] spellDuration, boolean hardMode, AtomicInteger best) {
         this.player = player;
         this.boss = boss;
         this.spellDuration = spellDuration;
+        this.hardMode = hardMode;
         this.best = best;
     }
 
@@ -25,6 +28,29 @@ public class RPGState {
         int playerMana = player.mana() - spell.getCosts();
         int bossHitPoints = boss.hitPoints();
         int bossDamage = boss.damage();
+
+        if (hardMode) {
+            playerHitPoints--;
+            if (playerHitPoints <= 0) {
+                return new RPGState
+                        (
+                                new RPGPlayer
+                                        (
+                                                playerHitPoints,
+                                                playerMana,
+                                                player.manaSpent() + spell.getCosts()
+                                        ),
+                                new RPGBoss
+                                        (
+                                                bossHitPoints,
+                                                bossDamage
+                                        ),
+                                spellDuration,
+                                hardMode,
+                                best
+                        );
+            }
+        }
 
         final int[] newSpellDuration = Arrays.copyOf(spellDuration, spellDuration.length);
 
@@ -63,6 +89,7 @@ public class RPGState {
                                             bossDamage
                                     ),
                             newSpellDuration,
+                            hardMode,
                             best
                     );
         }
@@ -92,6 +119,7 @@ public class RPGState {
                                             bossDamage
                                     ),
                             newSpellDuration,
+                            hardMode,
                             best
                     );
         }
@@ -112,6 +140,7 @@ public class RPGState {
                                         bossDamage
                                 ),
                         newSpellDuration,
+                        hardMode,
                         best
                 );
     }

@@ -27,20 +27,20 @@ public class RPGWizardFight {
     }
 
     public int solvePart1() {
-        return calc();
+        return calc(false);
     }
 
     public int solvePart2() {
-        return 0;
+        return calc(true);
     }
 
-    private Integer calc() {
+    private Integer calc(boolean hardMode) {
         int hitPoints = Integer.parseInt(matchRegex("Hit Points: (\\d+)", input.get(0)).group(1));
         int damage = Integer.parseInt(matchRegex("Damage: (\\d+)", input.get(1)).group(1));
         RPGBoss boss = new RPGBoss(hitPoints, damage);
         RPGPlayer player = new RPGPlayer(50, 500, 0);
         AtomicInteger best = new AtomicInteger(Integer.MAX_VALUE);
-        RPGState state = new RPGState(player, boss, new int[RPGSpell.values().length], best);
+        RPGState state = new RPGState(player, boss, new int[RPGSpell.values().length], hardMode, best);
 
         Algorithms.breadthFirstSearch(state, this::producer, (x -> {
             if (x.getState().player.hitPoints() >= 0 && x.getState().boss.hitPoints() <= 0) {
