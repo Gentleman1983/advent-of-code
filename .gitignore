@@ -7,9 +7,6 @@ build/
 # Gradle temp dir
 .gradle/
 
-# Gradle wrapper
-!/gradle/wrapper/gradle-wrapper.jar
-
 # Idea-Data
 .idea/
 
