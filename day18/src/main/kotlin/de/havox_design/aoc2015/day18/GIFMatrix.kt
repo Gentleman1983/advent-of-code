@@ -9,7 +9,9 @@ class GIFMatrix(private var filename: String) {
             .lights()
 
     fun processPart2(steps: Int=100): Int =
-        0
+        (1..steps)
+            .fold(data) { current, _ -> current.turnCornersOn().next().turnCornersOn() }
+            .lights()
 
     private fun readData(): BooleanGrid =
         BooleanGrid.from(getResourceAsText(filename))
