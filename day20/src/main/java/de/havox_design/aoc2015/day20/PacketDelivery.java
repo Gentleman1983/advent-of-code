@@ -39,7 +39,20 @@ public class PacketDelivery {
     }
 
     public int solvePart2() {
-        return 0;
+        int minPresents = input;
+        int[] houses = new int[minPresents / 11];
+        Arrays.fill(houses, 1);
+        for (int elve = 2; elve < minPresents; elve++) {
+            for (int houseNumber = elve, deliveries = 0; deliveries < 50 && houseNumber < houses.length; deliveries++, houseNumber += elve) {
+                houses[houseNumber] += elve * 11;
+            }
+        }
+
+        int houseNumber = 0;
+        while (houses[houseNumber] < minPresents) {
+            houseNumber++;
+        }
+        return houseNumber;
     }
 
     private Integer readData(String fileName) {
