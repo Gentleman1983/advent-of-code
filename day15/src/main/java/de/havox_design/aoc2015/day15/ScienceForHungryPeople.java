@@ -15,6 +15,7 @@ public class ScienceForHungryPeople {
     private final List<Ingredient> input;
     private final List<int[]> distributions;
 
+    @SuppressWarnings("javabugs:S6466")
     public ScienceForHungryPeople(String fileName) {
         input = readData(fileName);
         distributions = cutToPieces(100, input.size());
