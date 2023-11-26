@@ -3,13 +3,12 @@ advent-of-code-2016
 aoc
 aoc2016
 aoc-2016-in-java
+github-actions
+gradle
 java
 java-language
-java-17
-java-17-gradle
-gradle
+java-21
+renovate
 sonarcloud
 sonarqube
 sonarqube-analysis
-github-actions
-dependabot
