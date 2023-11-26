@@ -52,7 +52,6 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 Total: 0 ⭐
 
 ## Prior Years contribution:
-
 | Year | Language(s)                                  | Total Stars               | Link to repository                                   |
 |------|----------------------------------------------|---------------------------|------------------------------------------------------|
 | 2022 | Kotlin, Gradle, GitHub Actions               | 50 ⭐ + 2 ⭐ (Meili Riddle) | [aoc2022](https://github.com/Gentleman1983/aoc2022)  |
