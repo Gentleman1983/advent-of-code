@@ -7,6 +7,7 @@ public class RPGItem {
     private int armor;
 
     public RPGItem(String name, int cost, int damage, int armor) {
+        this.name = name;
         this.cost = cost;
         this.damage = damage;
         this.armor = armor;
