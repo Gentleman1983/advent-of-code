@@ -4,10 +4,10 @@ class MainClass {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            println("Solution 1: 13")
-            println("Solution 2: 23")
+            val filename = "day23.txt"
 
-            //println("Top Elf has '${SolvingClass("source.txt").processFile()}' calories")
+            println("Solution part 1: ${Day23(filename).solvePart1()}")
+            println("Solution part 2: ${Day23(filename).solvePart2()}")
         }
     }
 }
