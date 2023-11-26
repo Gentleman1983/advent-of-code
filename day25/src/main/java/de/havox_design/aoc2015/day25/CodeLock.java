@@ -49,7 +49,7 @@ public class CodeLock {
     }
 
     public int solvePart2() {
-        return 0;
+        return 49;
     }
 
     private List<String> readData(String fileName) {
