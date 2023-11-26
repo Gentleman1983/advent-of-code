@@ -49,7 +49,6 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 Total: 0 ⭐
 
 ## Prior Years contribution:
-
 | Year | Language(s)                                  | Total Stars | Link to repository                                   |
 |------|----------------------------------------------|-------------|------------------------------------------------------|
-| 2015 | JAVA, Kotlin, Python, Gradle, GitHub Actions | 50 ⭐        | [aoc2015](https://github.com/Gentleman1983/aoc2015)  |
+| 2015 | JAVA 17 , Kotlin, Python, Gradle, GitHub Actions | 50 ⭐         | [aoc2015](https://github.com/Gentleman1983/aoc2015)  |
