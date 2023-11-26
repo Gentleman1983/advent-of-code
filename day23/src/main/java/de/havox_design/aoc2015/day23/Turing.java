@@ -28,17 +28,21 @@ public class Turing {
     }
 
     public int solvePart1() {
+        return processData(0, 0);
+    }
+
+    public int solvePart2() {
+        return processData(1, 0);
+    }
+
+    private int processData(int initialA, int initialB) {
         List<Operation> operations = tokenStream(input, PATTERN, this::parseOperation).toList();
-        State state = new State();
+        State state = new State(initialA, initialB);
         while (state.processCount < operations.size()) {
             Operation operation = operations.get(state.processCount);
             operation.operate(state);
         }
         return state.registerB;
-    }
-
-    public int solvePart2() {
-        return 0;
     }
 
     private List<String> readData(String fileName) {
