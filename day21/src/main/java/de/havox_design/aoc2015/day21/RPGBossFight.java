@@ -53,16 +53,16 @@ public class RPGBossFight {
     }
 
     public int solvePart1() {
-        return simulate(Math::min);
+        return simulate(Math::min, true, Integer.MAX_VALUE);
     }
 
     public int solvePart2() {
-        return 0;
+        return simulate(Math::max, false, Integer.MIN_VALUE);
     }
 
     @SuppressWarnings({"squid:S3776", "squid:S4276"})
-    public int simulate(BiFunction<Integer, Integer, Integer> resultAggregator){
-        int resultCost = Integer.MAX_VALUE;
+    public int simulate(BiFunction<Integer, Integer, Integer> resultAggregator, boolean expectedToWin, int startCost){
+        int resultCost = startCost;
 
         for (RPGItem weapon : weapons) {
             for (RPGItem armor : armors) {
@@ -77,7 +77,7 @@ public class RPGBossFight {
                                 weapon.getDamage() + armor.getDamage() + ring1.getDamage() + ring2.getDamage(),
                                 weapon.getArmor() + armor.getArmor() + ring1.getArmor() + ring2.getArmor()
                         );
-                        if (simulate(player)) {
+                        if (expectedToWin == simulate(player)) {
                             resultCost = resultAggregator.apply(resultCost, cost);
                         }
                     }
