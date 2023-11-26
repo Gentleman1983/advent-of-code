@@ -10,7 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ScienceForHungryPeople {
-    private static final String DATA_PATTERN = "^(\\w+)\\: capacity ([-]?\\d+), durability ([-]?\\d+), flavor ([-]?\\d+), texture ([-]?\\d+), calories ([-]?\\d+)$";
+    private static final String DATA_PATTERN = "^(\\w+)\\: capacity (-?\\d+), durability (-?\\d+), flavor (-?\\d+), texture (-?\\d+), calories (-?\\d+)$";
 
     private final List<Ingredient> input;
     private final List<int[]> distributions;
