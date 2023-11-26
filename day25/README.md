@@ -68,3 +68,11 @@ are required before proceeding. **One star** is available."
 ..."one star is available"? You check the fuel tank; sure enough, a lone star sits at the bottom, awaiting its friends. Looks like you need to provide 49 yourself.
 
 You have enough stars to **\[Start the Weather Machine]**.
+
+# Success
+You fill the weather machine with **fifty stars**. It comes to life!
+
+**Snow begins to fall**.
+
+Congratulations! You've finished every puzzle in Advent of Code 2015! I hope you had as much fun solving them as I had 
+making them for you. I'd love to hear about your adventure
