@@ -37,7 +37,7 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 16 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png" width="10" height="10" alt="Kotlin" />  | ⭐        | ⭐        |
 | 17                                                                                                                                                    | ⭐        | ⭐        |
 | 18 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png" width="10" height="10" alt="Kotlin" />  | ⭐        | ⭐        |
-| 19                                                                                                                                                    | ❌        | ❌        |
+| 19 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png" width="10" height="10" alt="Kotlin" />  | ❌        | ❌        |
 | 20                                                                                                                                                    | ❌        | ❌        |
 | 21                                                                                                                                                    | ❌        | ❌        |
 | 22                                                                                                                                                    | ❌        | ❌        |
