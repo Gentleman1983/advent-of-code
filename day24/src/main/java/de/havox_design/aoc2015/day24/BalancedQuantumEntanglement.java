@@ -84,7 +84,7 @@ public class BalancedQuantumEntanglement {
             combination.add(current);
             if (remaining == current) {
                 result.add(combination.toArray(Integer[]::new));
-            } else if (remaining > current) {
+            } else {
                 calcCombinations(weights, remaining - current, combination, i + 1, result);
             }
             combination.remove(combination.size() - 1);

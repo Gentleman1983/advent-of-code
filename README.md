@@ -2,7 +2,7 @@
 
 Simple project for Advent of Code 2015.
 
-Done in JAVA 17. Maybe some in e.g. Python, Groovy or Kotlin... ;)
+Done in JAVA 17. Maybe some in e.g. Python or Kotlin... ;)
 
 For more information see https://adventofcode.com [2015](https://adventofcode.com/2015)
 
