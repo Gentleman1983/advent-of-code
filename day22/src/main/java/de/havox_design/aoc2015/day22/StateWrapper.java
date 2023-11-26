@@ -3,27 +3,27 @@ package de.havox_design.aoc2015.day22;
 import java.util.ArrayList;
 import java.util.List;
 
-public  class StateWrapper<StateT> {
+public  class StateWrapper<S> {
 
-    private final StateT state;
+    private final S state;
 
-    private final StateWrapper<StateT> predecessor;
+    private final StateWrapper<S> predecessor;
 
-    StateWrapper(final StateT state, final StateWrapper<StateT> predecessor) {
+    StateWrapper(final S state, final StateWrapper<S> predecessor) {
         this.state = state;
         this.predecessor = predecessor;
     }
 
-    public StateT getState() {
+    public S getState() {
         return state;
     }
 
-    public StateWrapper<StateT> getPredecessor() {
+    public StateWrapper<S> getPredecessor() {
         return predecessor;
     }
 
-    public List<StateT> getStates() {
-        final List<StateT> stateList;
+    public List<S> getStates() {
+        final List<S> stateList;
         if (predecessor == null) {
             stateList = new ArrayList<>();
         } else {
