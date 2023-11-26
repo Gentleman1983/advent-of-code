@@ -8,6 +8,10 @@ java-language
 java-17
 java-17-gradle
 gradle
+kotlin
+python
+python3
+python-3
 sonarcloud
 sonarqube
 sonarqube-analysis
