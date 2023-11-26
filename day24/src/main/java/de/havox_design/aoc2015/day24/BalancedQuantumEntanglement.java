@@ -4,7 +4,6 @@ import de.havox_design.aoc2015.utils.DataReader;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class BalancedQuantumEntanglement {
     private final List<String> input;
@@ -24,6 +23,14 @@ public class BalancedQuantumEntanglement {
     }
 
     public long solvePart1() {
+        return processDay24(3);
+    }
+
+    public long solvePart2() {
+        return processDay24(4);
+    }
+
+    private long processDay24(int numberOfGroups) {
         List<Integer> weights = input
                 .stream()
                 .map(Integer::valueOf)
@@ -33,19 +40,19 @@ public class BalancedQuantumEntanglement {
                 .mapToInt(Integer::intValue)
                 .sum();
 
-        return findSolution(weights, weight / 3);
+        return findSolution(weights, weight / numberOfGroups, numberOfGroups == 4);
     }
 
-    public long solvePart2() {
-        return 0;
-    }
-
-    private long findSolution(final List<Integer> weights, final int groupWeight) {
+    private long findSolution(final List<Integer> weights, final int groupWeight, final boolean isPart2) {
         final LengthSortedResult combinations = calcCombinations(weights, groupWeight);
         for (Integer[] firstCombination : combinations) {
             List<Integer> remaining = difference(weights, firstCombination);
             final LengthSortedResult combinationsForSecondGroup = calcCombinations(remaining, groupWeight);
-            if (combinationsForSecondGroup.size() > 0) {
+            if (isPart2) {
+                if (combinationsForSecondGroup.size() > 0) {
+                    return quantumEntanglement(firstCombination);
+                }
+            } else if (combinationsForSecondGroup.size() > 0) {
                 for (final Integer[] secondCombination : combinationsForSecondGroup) {
                     final LengthSortedResult combinationsForThirdGroup = calcCombinations(difference(remaining, secondCombination), groupWeight);
                     if (combinationsForThirdGroup.size() > 0) {
@@ -77,7 +84,7 @@ public class BalancedQuantumEntanglement {
             combination.add(current);
             if (remaining == current) {
                 result.add(combination.toArray(Integer[]::new));
-            } else {
+            } else if (remaining > current) {
                 calcCombinations(weights, remaining - current, combination, i + 1, result);
             }
             combination.remove(combination.size() - 1);
