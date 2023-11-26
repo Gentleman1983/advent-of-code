@@ -2,7 +2,7 @@
 
 Simple project for Advent of Code 2016.
 
-Done in JAVA 17.
+Done in JAVA 21.
 
 For more information see https://adventofcode.com [2016](https://adventofcode.com/2016)
 
