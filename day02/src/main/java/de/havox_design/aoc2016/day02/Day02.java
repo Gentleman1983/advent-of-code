@@ -1,7 +1,6 @@
 package de.havox_design.aoc2016.day02;
 
 import static de.havox_design.aoc2016.day02.Direction.*;
-import static de.havox_design.aoc2016.day02.Key.*;
 
 import de.havox_design.aoc2016.utils.DataReader;
 
@@ -19,15 +18,28 @@ public class Day02 {
         return instance.solvePart1();
     }
 
-    public static long solvePart2(String fileName) {
+    public static String solvePart2(String fileName) {
         Day02 instance = new Day02(fileName);
         return instance.solvePart2();
     }
 
     public String solvePart1() {
+        KeyPad keypad = SimpleKeyPad.getInstance();
+        Key currentElement = SimpleKeyPad.FIVE;
         StringBuilder bathroomCode = new StringBuilder();
-        Key currentElement = FIVE;
+        searchBathroomCode(currentElement, keypad, bathroomCode);
+        return bathroomCode.toString();
+    }
 
+    public String solvePart2() {
+        KeyPad keypad = ComplexKeyPad.getInstance();
+        Key currentElement = ComplexKeyPad.FIVE;
+        StringBuilder bathroomCode = new StringBuilder();
+        searchBathroomCode(currentElement, keypad, bathroomCode);
+        return bathroomCode.toString();
+    }
+
+    private void searchBathroomCode(Key currentElement, KeyPad keypad, StringBuilder bathroomCode) {
         for(String instruction : input) {
             for(char c : instruction.toCharArray()) {
                 Key nextElement = switch (c) {
@@ -39,22 +51,17 @@ public class Day02 {
                             "' is no supported operation.");
                 };
 
-                if(isOnKeypad(nextElement)) {
+                if(isOnKeypad(nextElement, keypad)) {
                     currentElement = nextElement;
                 }
             }
 
-            bathroomCode.append(Key.getValueForKey(currentElement));
+            bathroomCode.append(keypad.getValueForKey(currentElement));
         }
-
-        return bathroomCode.toString();
     }
 
-    public long solvePart2() {return 0L;
-    }
-
-    private boolean isOnKeypad(Key key) {
-        return Key.getKeypadElements().contains(key);
+    private boolean isOnKeypad(Key key, KeyPad keypad) {
+        return keypad.getKeypadElements().contains(key);
     }
 
     private List<String> readData(String fileName) {
