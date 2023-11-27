@@ -1,35 +1,17 @@
 package de.havox_design.aoc2016.day02;
 
 public enum Direction {
-    NORTH,
-    SOUTH,
-    EAST,
-    WEST;
+    UP,
+    DOWN,
+    RIGHT,
+    LEFT;
 
-    public Direction left() {
+    public Key next(Key point) {
         return switch (this) {
-            case NORTH -> WEST;
-            case SOUTH -> EAST;
-            case EAST -> NORTH;
-            case WEST -> SOUTH;
-        };
-    }
-
-    public Direction right() {
-        return switch (this) {
-            case NORTH -> EAST;
-            case SOUTH -> WEST;
-            case EAST -> SOUTH;
-            case WEST -> NORTH;
-        };
-    }
-
-    public Point next(Point point, int offset) {
-        return switch (this) {
-            case NORTH -> new Point(point.x(), point.y() + offset);
-            case SOUTH -> new Point(point.x(), point.y() - offset);
-            case EAST -> new Point(point.x() + offset, point.y());
-            case WEST -> new Point(point.x() - offset, point.y());
+            case UP -> new Key(point.x(), point.y() - 1);
+            case DOWN -> new Key(point.x(), point.y() + 1);
+            case RIGHT -> new Key(point.x() + 1, point.y());
+            case LEFT -> new Key(point.x() - 1, point.y());
         };
     }
 }
