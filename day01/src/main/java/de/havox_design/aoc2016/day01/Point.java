@@ -1,33 +1,55 @@
 package de.havox_design.aoc2016.day01;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.function.IntFunction;
+import java.util.Objects;
 import java.util.stream.IntStream;
 
 public record Point(int x, int y) {
-    int getDistance() {
+    public int getDistance() {
         return Math.abs(x) + Math.abs(y);
     }
 
-    List<Point> range(Point other) {
+    public List<Point> range(Point other) {
+        List<Point> result = new ArrayList<>();
         if (x == other.x) {
-            return ranger(y, other.y, i -> new Point(x, i));
+            for(int i : getRange(y, other.y)) {
+                result.add(new Point(x, i));
+            }
         } else if (y == other.y) {
-            return ranger(x, other.x, i -> new Point(i, y));
+            for(int i : getRange(x, other.x)) {
+                result.add(new Point(i, y));
+            }
         } else {
-            throw new IllegalArgumentException("Incorrect range");
+            throw new IllegalArgumentException("Only moves along the edges allowed!");
         }
+
+        return result;
     }
 
-    private List<Point> ranger(int a, int b, IntFunction<Point> mapper) {
-        return (
-                a < b ?
-                        IntStream
-                                .range(a, b) :
-                        IntStream
-                                .range(-1 * b, -1 * a)
-                                .map(i -> -1 * i))
-                .mapToObj(mapper)
-                .toList();
+    private int[] getRange(int a, int b) {
+        int lower = Math.min(a, b);
+        int upper = Math.max(a, b);
+
+        return IntStream.range(lower, upper).toArray();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Point point = (Point) o;
+        return x == point.x && y == point.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }
