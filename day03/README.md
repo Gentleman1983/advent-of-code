@@ -26,4 +26,4 @@ For example, given the following specification, numbers with the same hundreds d
 202 402 602
 203 403 603
 ```
-In your puzzle input, and instead reading by columns, how many of the listed triangles are possible?
+In your puzzle input, and instead reading by columns, **how many** of the listed triangles are **possible**?
