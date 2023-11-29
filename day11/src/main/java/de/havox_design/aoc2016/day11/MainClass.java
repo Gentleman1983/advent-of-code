@@ -8,6 +8,6 @@ public class MainClass {
 
     public static void main(String[] args) {
         LOGGER.info(() -> "Solution for part 1: " + Day11.solvePart1(FILENAME));
-        LOGGER.info(() -> "Solution for part 2: " + Day11.solvePart1(FILENAME));
+        LOGGER.info(() -> "Solution for part 2: " + Day11.solvePart2(FILENAME));
     }
 }
