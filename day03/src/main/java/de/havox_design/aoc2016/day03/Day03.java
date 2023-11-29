@@ -2,10 +2,11 @@ package de.havox_design.aoc2016.day03;
 
 import de.havox_design.aoc2016.utils.DataReader;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Day03 {
-    private final List<String> input;
+    private final List<Triangle> input;
 
     public Day03(String fileName) {
         input = readData(fileName);
@@ -22,13 +23,26 @@ public class Day03 {
     }
 
     public long solvePart1() {
-        return 0L;
+        long validTriangles = 0L;
+
+        for(Triangle triangle : input) {
+            if(triangle.isValid()) {
+                validTriangles++;
+            }
+        }
+
+        return validTriangles;
     }
 
     public long solvePart2() {return 0L;
     }
 
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
+    private List<Triangle> readData(String fileName) {
+        return DataReader
+                .readData(fileName, MainClass.class)
+                .stream()
+                .map(String::trim)
+                .map(Triangle::fromString)
+                .toList();
     }
 }
