@@ -9,7 +9,7 @@ version '0.0.1'
 // Switch to gradle "all" distribution.
 wrapper {
     distributionType = Wrapper.DistributionType.ALL
-    gradleVersion '8.4'
+    gradleVersion '8.5'
 }
 
 sonarqube {
