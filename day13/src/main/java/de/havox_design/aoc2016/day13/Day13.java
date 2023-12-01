@@ -29,6 +29,7 @@ public class Day13 {
     }
 
     private List<String> readData(String fileName) {
+
         return DataReader.readData(fileName, MainClass.class);
     }
 }

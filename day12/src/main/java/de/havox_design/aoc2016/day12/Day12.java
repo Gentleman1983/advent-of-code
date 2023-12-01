@@ -25,7 +25,8 @@ public class Day12 {
         return 0L;
     }
 
-    public long solvePart2() {return 0L;
+    public long solvePart2() {
+        return 0L;
     }
 
     private List<String> readData(String fileName) {
