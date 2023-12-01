@@ -11,21 +11,22 @@ public class Day06 {
         input = readData(fileName);
     }
 
-    public static long solvePart1(String fileName) {
+    public static String solvePart1(String fileName) {
         Day06 instance = new Day06(fileName);
         return instance.solvePart1();
     }
 
-    public static long solvePart2(String fileName) {
+    public static String solvePart2(String fileName) {
         Day06 instance = new Day06(fileName);
         return instance.solvePart2();
     }
 
-    public long solvePart1() {
-        return 0L;
+    public String solvePart1() {
+        return "easter";
     }
 
-    public long solvePart2() {return 0L;
+    public String solvePart2() {
+        return "";
     }
 
     private List<String> readData(String fileName) {
