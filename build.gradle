@@ -4,12 +4,12 @@ plugins {
 
 // project meta data
 group 'de.havox_design.aoc2023'
-version '0.1.0'
+version '0.1.1'
 
 // Switch to gradle "all" distribution.
 wrapper {
     distributionType = Wrapper.DistributionType.ALL
-    gradleVersion '8.4'
+    gradleVersion '8.5'
 }
 
 sonarqube {
