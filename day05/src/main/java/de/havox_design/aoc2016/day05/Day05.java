@@ -1,11 +1,14 @@
 package de.havox_design.aoc2016.day05;
 
 import de.havox_design.aoc2016.utils.DataReader;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Day05 {
-    private final List<String> input;
+    private final String input;
 
     public Day05(String fileName) {
         input = readData(fileName);
@@ -22,13 +25,18 @@ public class Day05 {
     }
 
     public String solvePart1() {
-        return "";
+        return IntStream.iterate(0, i -> i + 1)
+                .mapToObj(i -> DigestUtils.md5Hex(input + i))
+                .filter(v -> v.startsWith("00000"))
+                .limit(8)
+                .map(v -> String.valueOf(v.charAt(5)))
+                .collect(Collectors.joining());
     }
 
     public long solvePart2() {return 0L;
     }
 
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
+    private String readData(String fileName) {
+        return DataReader.readData(fileName, MainClass.class).get(0);
     }
 }
