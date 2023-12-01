@@ -5,7 +5,6 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -27,6 +26,7 @@ public class Day05 {
         return instance.solvePart2();
     }
 
+    @SuppressWarnings("squid:S4790")
     public String solvePart1() {
         return IntStream
                 .iterate(0, i -> i + 1)
@@ -37,6 +37,7 @@ public class Day05 {
                 .collect(Collectors.joining());
     }
 
+    @SuppressWarnings("squid:S4790")
     public String solvePart2() {
         var password = new ArrayList<>(Collections.nCopies(8, " "));
         var pattern = Pattern.compile("^00000[0-7]");
