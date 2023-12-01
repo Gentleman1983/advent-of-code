@@ -19,7 +19,7 @@ public class Day05 {
         return instance.solvePart1();
     }
 
-    public static long solvePart2(String fileName) {
+    public static String solvePart2(String fileName) {
         Day05 instance = new Day05(fileName);
         return instance.solvePart2();
     }
@@ -33,7 +33,8 @@ public class Day05 {
                 .collect(Collectors.joining());
     }
 
-    public long solvePart2() {return 0L;
+    public String solvePart2() {
+        return "";
     }
 
     private String readData(String fileName) {
