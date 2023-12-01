@@ -23,4 +23,12 @@ public record Room(String name, int sectorId, String checksum) {
                 .collect(Collectors.joining())
                 .equals(checksum);
     }
+
+    boolean checkForRoomsStoringObjectsFromNorthPole() {
+        return isValid() && name.chars()
+                .map(c -> c == ' ' ? c : 'a' + (((c - 'a') + sectorId) % 26))
+                .mapToObj(c -> String.valueOf((char) c))
+                .collect(Collectors.joining())
+                .startsWith("north");
+    }
 }

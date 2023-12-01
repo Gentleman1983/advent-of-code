@@ -33,7 +33,10 @@ public class Day04 {
     }
 
     public long solvePart2() {
-        return 0L;
+        return parseAll(Room::checkForRoomsStoringObjectsFromNorthPole)
+                .findFirst()
+                .map(Room::sectorId)
+                .orElseThrow();
     }
 
     private Stream<Room> parseAll(Predicate<Room> predicate) {
