@@ -33,7 +33,7 @@ public class Day06 {
     }
 
     public String solvePart2() {
-        return "advent";
+        return detectMessage(Comparator.reverseOrder());
     }
 
     private String detectMessage(Comparator<Long> comparator) {
