@@ -5,7 +5,9 @@ import de.havox_design.aoc2016.utils.DataReader;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -27,24 +29,46 @@ public class Day07 {
     }
 
     public long solvePart1() {
-        return calculateTlsIps(getRiddle1Predicate());
+        return calculateTlsIps();
     }
 
     public long solvePart2() {
-        return 0L;
+        return calculateSslIps();
     }
 
-    private Predicate<Address> getRiddle1Predicate() {
+    private Predicate<Address> getTlsPredicate() {
         return address ->
                 address.supernetStream().anyMatch(isAbba()) &&
                         address.hypernetStream().noneMatch(isAbba());
     }
 
-    private long calculateTlsIps(Predicate<Address> predicate) {
-        return calculateTlsIps(input, predicate);
+    private Predicate<Address> getSslPredicate() {
+        return address -> {
+            var reversedPatterns = address
+                    .supernetStream()
+                    .flatMap(filterAba())
+                    .map(v -> v.substring(1) + v.charAt(1))
+                    .collect(Collectors.toUnmodifiableSet());
+            return address
+                    .hypernetStream()
+                    .flatMap(filterAba())
+                    .anyMatch(reversedPatterns::contains);
+        };
     }
 
-    private long calculateTlsIps(List<String> input, Predicate<Address> predicate) {
+    private long calculateTlsIps() {
+        return calculateProtocolIps(getTlsPredicate());
+    }
+
+    private long calculateSslIps() {
+        return calculateProtocolIps(getSslPredicate());
+    }
+
+    private long calculateProtocolIps(Predicate<Address> predicate) {
+        return calculateProtocolIps(input, predicate);
+    }
+
+    private long calculateProtocolIps(List<String> input, Predicate<Address> predicate) {
         return input
                 .stream()
                 .filter(
@@ -70,6 +94,12 @@ public class Day07 {
     private boolean isHypernet(String value) {
         return value
                 .startsWith("[");
+    }
+
+    private Function<String, Stream<String>> filterAba() {
+        return value -> getDynamicScrollWindow(3, value)
+                .filter(v -> v[0] == v[2] && v[0] != v[1])
+                .map(String::new);
     }
 
     private String[] getSubAddresses(String addressString) {
