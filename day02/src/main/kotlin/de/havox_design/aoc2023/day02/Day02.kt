@@ -8,7 +8,13 @@ class Day02(private var filename: String) {
             .toLong()
 
     fun solvePart2(): Long =
-        0L
+        getResourceAsText(filename).sumOf { game ->
+            val indicators = parseIndicators(game)
+            val subsets = parseSubsets(indicators)
+            val (minRed, minGreen, minBlue) = getMinSetOfCubes(subsets)
+
+            (minRed * minGreen * minBlue).toLong()
+        }
 
     private fun getGameIdOfValidInputLine(line: String): Int? {
         val (game, indicators) = line.split(":")
@@ -29,6 +35,11 @@ class Day02(private var filename: String) {
             .split(";", ",")
             .map { sets -> sets.filter { it.isLetter() } to sets.filter { it.isDigit() }.toInt() }
 
+    private fun parseIndicators(string: String) =
+        string
+            .split(":")
+            .last()
+
     private fun isValidSubset(subset: Pair<String, Int>): Boolean {
         val (color, count) = subset
 
@@ -38,6 +49,20 @@ class Day02(private var filename: String) {
             color == "blue" && count <= 14 -> true
             else -> false
         }
+    }
+
+    @SuppressWarnings("kotlin:S6611")
+    private fun getMinSetOfCubes(subsets: List<Pair<String, Int>>): Triple<Int, Int, Int> {
+
+        val countMap = mutableMapOf("red" to 0, "green" to 0, "blue" to 0)
+        subsets
+            .forEach { (color, count) ->
+            if (count > countMap[color]!!) {
+                countMap[color] = count
+            }
+        }
+
+        return Triple(countMap["red"]!!, countMap["green"]!!, countMap["blue"]!!)
     }
 
     private fun getResourceAsText(path: String): List<String> =
