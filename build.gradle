@@ -52,5 +52,4 @@ subprojects {
             property "sonar.coverage.jacoco.xmlReportPath", "${project.layout.buildDirectory}/jacoco/jacoco.xml"
         }
     }
-
 }
