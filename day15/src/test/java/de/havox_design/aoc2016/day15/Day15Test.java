@@ -36,7 +36,7 @@ class Day15Test {
 
     private static Stream<Arguments> getDataForPart2() {
         return Stream.of(
-                Arguments.of("sample.txt", 0L)
+                Arguments.of("sample.txt", 85L)
         );
     }
 }

@@ -36,7 +36,9 @@ public class Day15 {
     }
 
     public long solvePart2() {
-        return 0L;
+        discs.add(new Disc(11, 0));
+
+        return solve();
     }
 
     private long solve() {
