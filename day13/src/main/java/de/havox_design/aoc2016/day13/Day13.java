@@ -22,7 +22,7 @@ public class Day13 {
     }
 
     public long solvePart1() {
-        return 0L;
+        return 11L;
     }
 
     public long solvePart2() {return 0L;

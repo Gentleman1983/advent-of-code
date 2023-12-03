@@ -18,13 +18,13 @@ class Day13Test {
 
     @ParameterizedTest
     @MethodSource("getDataForPart1")
-    void testPart1(String fileName, long expected) {
+    void testPart1(String fileName, long expected, int startColumn, int startRow, int endColumn, int endRow) {
         Assertions.assertEquals(expected, Day13.solvePart1(fileName));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("part1sample1.txt", 0L)
+                Arguments.of("part1sample.txt", 11L, 1, 1, 7, 4)
         );
     }
 
