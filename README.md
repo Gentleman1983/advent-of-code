@@ -26,7 +26,7 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 5       | ⭐       | ⭐       |
 | 6       | ⭐       | ⭐       |
 | 7       | ⭐       | ⭐       |
-| 8       | ❌       | ❌       |
+| 8       | ⭐       | ⭐       |
 | 9       | ❌       | ❌       |
 | 10      | ❌       | ❌       |
 | 11      | ❌       | ❌       |
@@ -44,11 +44,11 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 23      | ❌       | ❌       |
 | 24      | ❌       | ❌       |
 | 25      | ❌       | ❌       |
-| **SUM** | **7 ⭐** | **7 ⭐** |
+| **SUM** | **8 ⭐** | **8 ⭐** |
 
-Total: 14 ⭐
+Total: 16 ⭐
 
 ## Prior Years contribution:
-| Year | Language(s)                                  | Total Stars | Link to repository                                   |
-|------|----------------------------------------------|-------------|------------------------------------------------------|
-| 2015 | JAVA 17 , Kotlin, Python, Gradle, GitHub Actions | 50 ⭐         | [aoc2015](https://github.com/Gentleman1983/aoc2015)  |
+| Year | Language(s)                                       | Total Stars | Link to repository                                  |
+|------|---------------------------------------------------|-------------|-----------------------------------------------------|
+| 2015 | JAVA 17 , Kotlin, Python, Gradle, GitHub Actions  | 50 ⭐        | [aoc2015](https://github.com/Gentleman1983/aoc2015) |
