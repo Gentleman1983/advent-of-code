@@ -21,7 +21,7 @@ public class Day13 {
 
     public static long solvePart2(String fileName) {
         Day13 instance = new Day13(fileName);
-        return instance.solvePart2();
+        return instance.solvePart2(1, 1, 50);
     }
 
     public long solvePart1(int startColumn, int startRow, int endColumn, int endRow) {
@@ -31,8 +31,12 @@ public class Day13 {
                 .getDistance();
     }
 
-    public long solvePart2() {
-        return 0L;
+    public long solvePart2(int startColumn, int startRow, int maxDistance) {
+        return process(startColumn, startRow)
+                .values()
+                .stream()
+                .filter(res -> res.getDistance() <= maxDistance)
+                .count();
     }
 
     private Map<Point, PathResult<Point>> process(int startColumn, int startRow) {
