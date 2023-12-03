@@ -5,28 +5,28 @@ import de.havox_design.aoc2016.utils.input.DataReader;
 import java.util.List;
 
 public class Day17 {
-    private final List<String> input;
+    private final String input;
 
     public Day17(String fileName) {
-        input = readData(fileName);
+        input = readData(fileName).get(0);
     }
 
-    public static long solvePart1(String fileName) {
+    public static String solvePart1(String fileName) {
         Day17 instance = new Day17(fileName);
         return instance.solvePart1();
     }
 
-    public static long solvePart2(String fileName) {
+    public static String solvePart2(String fileName) {
         Day17 instance = new Day17(fileName);
         return instance.solvePart2();
     }
 
-    public long solvePart1() {
-        return 0L;
+    public String solvePart1() {
+        return "";
     }
 
-    public long solvePart2() {
-        return 0L;
+    public String solvePart2() {
+        return "";
     }
 
     private List<String> readData(String fileName) {
