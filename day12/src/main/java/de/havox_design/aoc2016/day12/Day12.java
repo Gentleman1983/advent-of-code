@@ -29,9 +29,10 @@ public class Day12 {
     }
 
     public long solvePart2() {
-        return 0L;
+        return process(Map.of("a", 0, "b", 0, "c", 1, "d", 0));
     }
 
+    @SuppressWarnings("squid:S127")
     private long process(Map<String, Integer> initial) {
         Map<String, Integer> registers = new HashMap<>(initial);
 
