@@ -30,16 +30,4 @@ class Day08Test {
                 Arguments.of("part1sample4.txt", 6L)
         );
     }
-
-    @ParameterizedTest
-    @MethodSource("getDataForPart2")
-    void testPart2(String fileName, long expected) {
-        Assertions.assertEquals(expected, Day08.solvePart2(fileName));
-    }
-
-    private static Stream<Arguments> getDataForPart2() {
-        return Stream.of(
-                Arguments.of("part2sample1.txt", 0L)
-        );
-    }
 }

@@ -13,9 +13,11 @@ public class Day08 {
     private static final char OFF = '.';
 
     private final List<String> input;
+    private char[][] display = new char[ROWS][COLUMNS];
 
     public Day08(String fileName) {
         input = readData(fileName);
+        processDisplayInputs();
     }
 
     public static long solvePart1(String fileName) {
@@ -23,13 +25,20 @@ public class Day08 {
         return instance.solvePart1();
     }
 
-    public static long solvePart2(String fileName) {
+    public static String solvePart2(String fileName) {
         Day08 instance = new Day08(fileName);
         return instance.solvePart2();
     }
 
     public long solvePart1() {
-        char[][] display = new char[ROWS][COLUMNS];
+        return getPixelCount(display);
+    }
+
+    public String solvePart2() {
+        return printDisplay();
+    }
+
+    private void processDisplayInputs() {
         fillRect(display, ROWS, COLUMNS, OFF);
 
         for (var line : input) {
@@ -46,12 +55,20 @@ public class Day08 {
                 shiftRow(display, Integer.parseInt(parts[ID_ROW]), Integer.parseInt(parts[ID_COL]));
             }
         }
-
-        return getPixelCount(display);
     }
 
-    public long solvePart2() {
-        return 0L;
+    private String printDisplay() {
+        StringBuilder builder = new StringBuilder().append("\n");
+
+        for(int r = 0; r < ROWS; r++) {
+            for(int c = 0; c < COLUMNS; c++) {
+                builder.append(display[r][c]);
+            }
+
+            builder.append("\n");
+        }
+
+        return builder.toString();
     }
 
     private void shiftRow(char[][] display, int row, int shift) {
