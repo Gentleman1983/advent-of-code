@@ -28,15 +28,15 @@ public class Day09 {
     }
 
     public long solvePart1() {
-        return process(input);
+        return process(input, false);
     }
 
     public long solvePart2() {
-        return 0L;
+        return process(input, true);
     }
 
     @SuppressWarnings("squid:S127")
-    private static long process(String input) {
+    private static long process(String input, boolean isNested) {
         var length = 0L;
         Marker marker = null;
         for (int i = 0; i < input.length(); ) {
@@ -49,7 +49,7 @@ public class Day09 {
                     i++;
                 }
             } else {
-                length += marker.size() * marker.times();
+                length += (isNested ? process(input.substring(i, i + marker.size()), true) : marker.size()) * marker.times();
                 i += marker.size();
                 marker = null;
             }
