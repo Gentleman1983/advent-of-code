@@ -14,12 +14,12 @@ class EngineSchematic(input: List<String>) {
     }
 
     fun sumOfPartNumbers(): Long =
-            partNumbers
-                    .sumOf { partNumber -> partNumber.getValue() }
+        partNumbers
+            .sumOf { partNumber -> partNumber.getValue() }
 
     fun sumOfGearRatios(): Long =
-            gears
-                    .sumOf { gear -> gear.second }
+        gears
+            .sumOf { gear -> gear.second }
 
     private fun buildSchematics(input: List<String>) {
         for (y: Int in input.indices) {
@@ -44,9 +44,9 @@ class EngineSchematic(input: List<String>) {
                 val currentElement = row[x]
 
                 if (currentElement.isNumber()
-                        && ((isOnGrid(currentElement.getLeftNeighborCoordinate())
-                                && !getPosition(currentElement.getLeftNeighborCoordinate()).isNumber())
-                                || !isOnGrid(currentElement.getLeftNeighborCoordinate()))
+                    && ((isOnGrid(currentElement.getLeftNeighborCoordinate())
+                            && !getPosition(currentElement.getLeftNeighborCoordinate()).isNumber())
+                            || !isOnGrid(currentElement.getLeftNeighborCoordinate()))
                 ) {
                     val potentialPartNumber = detectPartNumber(currentElement)
 
@@ -58,6 +58,7 @@ class EngineSchematic(input: List<String>) {
         }
     }
 
+    @SuppressWarnings("kotlin:S3776")
     private fun collectGears() {
         for (y: Int in schematic.indices) {
             val row = schematic[y]
@@ -67,17 +68,17 @@ class EngineSchematic(input: List<String>) {
 
                 if (currentElement.isGearSymbol()) {
                     val neighboringPartNumbers = currentElement
-                            .getNeighboringCoordinates()
-                            .filter { coordinate -> isOnGrid(coordinate) }
-                            .map { coordinate -> getPosition(coordinate) }
-                            .filter { point -> point.isNumber() }
-                            .toSet()
+                        .getNeighboringCoordinates()
+                        .filter { coordinate -> isOnGrid(coordinate) }
+                        .map { coordinate -> getPosition(coordinate) }
+                        .filter { point -> point.isNumber() }
+                        .toSet()
 
                     val parts = HashSet<PartNumber>()
                     for (point: Point in neighboringPartNumbers) {
                         partNumbers
-                                .filter { partNumber -> partNumber.containsPoint(point) }
-                                .forEach { partNumber -> parts.add(partNumber) }
+                            .filter { partNumber -> partNumber.containsPoint(point) }
+                            .forEach { partNumber -> parts.add(partNumber) }
                     }
 
                     if (parts.size > 1) {
@@ -100,8 +101,8 @@ class EngineSchematic(input: List<String>) {
 
         do {
             if (
-                    isOnGrid(currentPoint.getRightNeighborCoordinate())
-                    && getPosition(currentPoint.getRightNeighborCoordinate()).isNumber()
+                isOnGrid(currentPoint.getRightNeighborCoordinate())
+                && getPosition(currentPoint.getRightNeighborCoordinate()).isNumber()
             ) {
                 currentPoint = getPosition(currentPoint.getRightNeighborCoordinate())
                 partNumber.add(currentPoint)
@@ -113,10 +114,10 @@ class EngineSchematic(input: List<String>) {
         var neighboringSymbol = false
         for (current: Point in partNumber) {
             neighboringSymbol = neighboringSymbol || current
-                    .getNeighboringCoordinates()
-                    .filter { position -> isOnGrid(position) }
-                    .map { position -> getPosition(position) }
-                    .any { point -> point.isSymbol() }
+                .getNeighboringCoordinates()
+                .filter { position -> isOnGrid(position) }
+                .map { position -> getPosition(position) }
+                .any { point -> point.isSymbol() }
         }
 
         if (neighboringSymbol) {
@@ -127,10 +128,10 @@ class EngineSchematic(input: List<String>) {
     }
 
     private fun isOnGrid(position: Pair<Int, Int>): Boolean =
-            position.first >= 0
-                    && position.first < schematic.size
-                    && position.second >= 0
-                    && position.second < schematic[0].size
+        position.first >= 0
+                && position.first < schematic.size
+                && position.second >= 0
+                && position.second < schematic[0].size
 
     private fun getPosition(position: Pair<Int, Int>): Point {
         if (isOnGrid(position)) {
