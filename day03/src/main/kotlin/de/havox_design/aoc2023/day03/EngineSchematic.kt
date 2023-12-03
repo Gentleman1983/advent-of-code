@@ -117,7 +117,7 @@ class EngineSchematic(input: List<String>) {
                 .getNeighboringCoordinates()
                 .filter { position -> isOnGrid(position) }
                 .map { position -> getPosition(position) }
-                .any { point -> point.isSymbol() }
+                .any { p -> p.isSymbol() }
         }
 
         if (neighboringSymbol) {
