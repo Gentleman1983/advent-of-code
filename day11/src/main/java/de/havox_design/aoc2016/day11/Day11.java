@@ -4,12 +4,15 @@ import static de.havox_design.aoc2016.day11.State.*;
 
 import de.havox_design.aoc2016.utils.DataReader;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class Day11 {
     private final List<String> input;
+
+    private int visitedNodeCount = 0;
 
     public Day11(String fileName) {
         input = readData(fileName);
@@ -30,7 +33,11 @@ public class Day11 {
     }
 
     public long solvePart2() {
-        return 0L;
+        List<String> part2Input = new ArrayList<>(input);
+        part2Input.set(0, part2Input.get(0) + " AND an elerium generator, an elerium-compatible microchip, "
+                + "a dilithium generator, a dilithium-compatible microchip.");
+
+        return solve(part2Input);
     }
 
     @SuppressWarnings({"squid:S3655", "squid:S3776"})
@@ -40,6 +47,8 @@ public class Day11 {
         PathResult<State> result = BreadthFirstSearch.run(
                         startState,
                         state -> {
+                            visitedNodeCount++;
+
                             Set<State> nextStates = new HashSet<>();
                             for (int offset : new int[]{+1, -1}) {
                                 int newElevatorPos = state.getElevator() + offset;
