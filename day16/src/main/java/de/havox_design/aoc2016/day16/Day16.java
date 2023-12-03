@@ -2,31 +2,79 @@ package de.havox_design.aoc2016.day16;
 
 import de.havox_design.aoc2016.utils.input.DataReader;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Day16 {
-    private final List<String> input;
+    private final String input;
+    private byte[] inputBytes;
 
     public Day16(String fileName) {
-        input = readData(fileName);
+        input = readData(fileName).get(0);
+        inputBytes = parseInputBytes();
     }
 
-    public static long solvePart1(String fileName) {
+    public static String solvePart1(String fileName) {
         Day16 instance = new Day16(fileName);
-        return instance.solvePart1();
+        return instance.solvePart1(272);
     }
 
-    public static long solvePart2(String fileName) {
+    public static String solvePart2(String fileName) {
         Day16 instance = new Day16(fileName);
         return instance.solvePart2();
     }
 
-    public long solvePart1() {
-        return 20L;
+    public String solvePart1(int discSize) {
+        return solve(discSize);
     }
 
-    public long solvePart2() {
-        return 0L;
+    public String solvePart2() {
+        return "";
+    }
+
+    private String solve(int size) {
+        byte[] data = inputBytes.clone();
+        while (data.length < size) {
+            data = expand(data);
+        }
+        data = Arrays.copyOf(data, size);
+
+        byte[] checksum = data.clone();
+        while (checksum.length % 2 == 0) {
+            checksum = getChecksum(checksum);
+        }
+
+        byte[] ch = checksum;
+        return IntStream.range(0, inputBytes.length)
+                .mapToObj(i -> String.valueOf(ch[i]))
+                .collect(Collectors.joining());
+    }
+
+    private byte[] expand(byte[] a) {
+        byte[] result = Arrays.copyOf(a, a.length + 1 + a.length);
+        for (int i = 0, j = result.length - 1; i < a.length; i++, j--) {
+            result[j] = (byte) (a[i] ^ 1);
+        }
+        return result;
+    }
+
+    private byte[] getChecksum(byte[] a) {
+        byte[] result = new byte[a.length / 2];
+        for (int i = 0, j = 0; i < a.length; i += 2, j++) {
+            result[j] = (byte) (a[i] ^ a[i + 1] ^ 1);
+        }
+        return result;
+    }
+
+    private byte[] parseInputBytes() {
+        byte[] b = new byte[input.length()];
+        for (int i = 0; i < b.length; i++) {
+            b[i] = (byte) (input.charAt(i) == '1' ? 1 : 0);
+        }
+
+        return b;
     }
 
     private List<String> readData(String fileName) {
