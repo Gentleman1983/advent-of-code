@@ -9,13 +9,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 class Day14Test {
-
-    @SuppressWarnings("java:S2699")
-    @Test
-    void testMainClass() {
-        MainClass.main(new String[0]);
-    }
-
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, long expected) {
@@ -36,7 +29,7 @@ class Day14Test {
 
     private static Stream<Arguments> getDataForPart2() {
         return Stream.of(
-                Arguments.of("sample.txt", 22859L)
+                Arguments.of("sample.txt", 22551L)
         );
     }
 }

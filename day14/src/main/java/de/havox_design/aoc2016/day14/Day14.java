@@ -12,6 +12,8 @@ import java.util.stream.IntStream;
 public class Day14 {
     private final String input;
 
+    private boolean stretched = false;
+
     public Day14(String fileName) {
         input = readData(fileName).get(0);
     }
@@ -31,7 +33,8 @@ public class Day14 {
     }
 
     public long solvePart2() {
-        return 22859L;
+        stretched = true;
+        return solve();
     }
 
     private int solve() {
@@ -87,14 +90,18 @@ public class Day14 {
     private String getHash(String string) {
         String hashcode = string;
 
-        for (int i = 0, count = 1; i < count; i++) {
+        for (int i = 0, count = getHashingRuns(); i < count; i++) {
             hashcode = getMd5Hash(hashcode);
         }
 
         return hashcode;
     }
 
-    @SuppressWarnings("deprecation")
+    private int getHashingRuns() {
+        return stretched ? 2017 : 1;
+    }
+
+    @SuppressWarnings({"deprecation", "squid:S4790"})
     private static String getMd5Hash(String string) {
         return Hashing
                 .md5()
