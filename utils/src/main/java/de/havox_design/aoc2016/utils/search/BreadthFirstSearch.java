@@ -27,6 +27,7 @@ public final class BreadthFirstSearch {
         return run(List.of(source), neighborProvider, t -> false);
     }
 
+    @SuppressWarnings("squid:S3824")
     public static <T> Map<T, PathResult<T>> run(
             Iterable<T> sources,
             Function<T, Iterable<T>> neighborProvider,
