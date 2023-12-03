@@ -1,13 +1,16 @@
 package de.havox_design.aoc2023.day03
 
 class Day03(private var filename: String) {
+    private val schematic = EngineSchematic(getResourceAsText(filename))
+
     fun solvePart1(): Long =
-        EngineSchematic(getResourceAsText(filename))
-            .sumOfPartNumbers()
+            schematic
+                    .sumOfPartNumbers()
 
     fun solvePart2(): Long =
-        467835L
+            schematic
+                    .sumOfGearRatios()
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+            this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
 }
