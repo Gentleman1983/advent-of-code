@@ -28,7 +28,7 @@ public class Day10 {
         return instance.solvePart2();
     }
 
-    public long solvePart1(int low, int high ) {
+    public long solvePart1(int low, int high) {
         return process(input)
                 .bots()
                 .stream()
@@ -36,6 +36,15 @@ public class Day10 {
                 .findFirst()
                 .map(Bot::id)
                 .orElseThrow();
+    }
+
+    public long solvePart2() {
+        return process(input)
+                .filterOutputs(0, 1, 2)
+                .values()
+                .stream()
+                .mapToInt(i -> i)
+                .reduce(1, (a, b) -> a * b);
     }
 
     private Result process(List<String> input) {
@@ -75,10 +84,6 @@ public class Day10 {
         }
 
         return new Result(Set.copyOf(bots.values()), Map.copyOf(outputs));
-    }
-
-    public long solvePart2() {
-        return 0L;
     }
 
     private List<String> readData(String fileName) {
