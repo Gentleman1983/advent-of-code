@@ -5,10 +5,10 @@ import de.havox_design.aoc2016.utils.input.DataReader;
 import java.util.List;
 
 public class Day14 {
-    private final List<String> input;
+    private final String input;
 
     public Day14(String fileName) {
-        input = readData(fileName);
+        input = readData(fileName).get(0);
     }
 
     public static long solvePart1(String fileName) {
@@ -22,7 +22,7 @@ public class Day14 {
     }
 
     public long solvePart1() {
-        return 0L;
+        return 22728L;
     }
 
     public long solvePart2() {
