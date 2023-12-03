@@ -23,15 +23,15 @@ public class Day16 {
 
     public static String solvePart2(String fileName) {
         Day16 instance = new Day16(fileName);
-        return instance.solvePart2();
+        return instance.solvePart2(35651584);
     }
 
     public String solvePart1(int discSize) {
         return solve(discSize);
     }
 
-    public String solvePart2() {
-        return "";
+    public String solvePart2(int discSize) {
+        return solve(discSize);
     }
 
     private String solve(int size) {
