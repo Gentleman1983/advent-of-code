@@ -19,7 +19,8 @@ class Day13Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, long expected, int startColumn, int startRow, int endColumn, int endRow) {
-        Assertions.assertEquals(expected, Day13.solvePart1(fileName));
+        Day13 instanceUnderTest = new Day13(fileName);
+        Assertions.assertEquals(expected, instanceUnderTest.solvePart1(startColumn, startRow, endColumn, endRow));
     }
 
     private static Stream<Arguments> getDataForPart1() {
