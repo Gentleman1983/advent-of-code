@@ -49,7 +49,11 @@ public class Day09 {
                     i++;
                 }
             } else {
-                length += (isNested ? process(input.substring(i, i + marker.size()), true) : marker.size()) * marker.times();
+                length += (
+                        isNested ?
+                                process(input.substring(i, i + marker.size()), true) :
+                                marker.size()
+                ) * marker.times();
                 i += marker.size();
                 marker = null;
             }
