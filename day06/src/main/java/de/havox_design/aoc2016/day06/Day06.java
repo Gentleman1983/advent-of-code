@@ -1,6 +1,6 @@
 package de.havox_design.aoc2016.day06;
 
-import de.havox_design.aoc2016.utils.DataReader;
+import de.havox_design.aoc2016.utils.input.DataReader;
 
 import static java.util.Map.Entry;
 

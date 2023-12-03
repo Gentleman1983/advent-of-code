@@ -1,4 +1,4 @@
-package de.havox_design.aoc2016.day11;
+package de.havox_design.aoc2016.utils.search;
 
 import java.util.ArrayList;
 import java.util.Collections;

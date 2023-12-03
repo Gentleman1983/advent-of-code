@@ -1,6 +1,6 @@
 package de.havox_design.aoc2016.day05;
 
-import de.havox_design.aoc2016.utils.DataReader;
+import de.havox_design.aoc2016.utils.input.DataReader;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.util.ArrayList;

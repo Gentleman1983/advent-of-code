@@ -2,7 +2,9 @@ package de.havox_design.aoc2016.day11;
 
 import static de.havox_design.aoc2016.day11.State.*;
 
-import de.havox_design.aoc2016.utils.DataReader;
+import de.havox_design.aoc2016.utils.input.DataReader;
+import de.havox_design.aoc2016.utils.search.BreadthFirstSearch;
+import de.havox_design.aoc2016.utils.search.PathResult;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,6 +1,6 @@
 package de.havox_design.aoc2016.day10;
 
-import de.havox_design.aoc2016.utils.DataReader;
+import de.havox_design.aoc2016.utils.input.DataReader;
 
 import java.util.*;
 import java.util.regex.Matcher;

@@ -1,11 +1,6 @@
-package de.havox_design.aoc2016.day11;
+package de.havox_design.aoc2016.utils.search;
 
-import java.util.ArrayDeque;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 

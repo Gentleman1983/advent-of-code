@@ -1,4 +1,4 @@
-package de.havox_design.aoc2016.utils;
+package de.havox_design.aoc2016.utils.input;
 
 import com.opensymphony.xwork2.util.ClassLoaderUtil;
 import de.havox_design.aoc2016.utils.exceptions.ReadDataException;
