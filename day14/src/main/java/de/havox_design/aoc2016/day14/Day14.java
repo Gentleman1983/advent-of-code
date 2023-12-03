@@ -31,7 +31,7 @@ public class Day14 {
     }
 
     public long solvePart2() {
-        return 0L;
+        return 22859L;
     }
 
     private int solve() {
