@@ -25,7 +25,7 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 1       | ⭐       | ⭐       |
 | 2       | ⭐       | ⭐       |
 | 3       | ⭐       | ⭐       |
-| 4       | ❌       | ❌       |
+| 4       | ⭐       | ⭐       |
 | 5       | ❌       | ❌       |
 | 6       | ❌       | ❌       |
 | 7       | ❌       | ❌       |
@@ -47,9 +47,9 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 23      | ❌       | ❌       |
 | 24      | ❌       | ❌       |
 | 25      | ❌       | ❌       |
-| **SUM** | **3 ⭐** | **3 ⭐** |
+| **SUM** | **4 ⭐** | **4 ⭐** |
 
-Total: 6 ⭐
+Total: 8 ⭐
 
 ## Prior Years contribution:
 | Year | Language(s)                                  | Total Stars               | Link to repository                                   |
