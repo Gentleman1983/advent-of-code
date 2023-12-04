@@ -1,6 +1,6 @@
 package de.havox_design.aoc2023.day04
 
-data class ScratchCard(val winningNumbers: List<Int>, val playerNumbers: List<Int>) {
+data class ScratchCard(val winningNumbers: List<Int>, val playerNumbers: List<Int>, var count: Long = 1L) {
     fun scoreV1(): Long {
         var score = 0L
         playerNumbers
@@ -13,6 +13,9 @@ data class ScratchCard(val winningNumbers: List<Int>, val playerNumbers: List<In
         }
         return score
     }
+
+    fun countMatching(): Int = playerNumbers
+        .count { it in winningNumbers }
 
     companion object {
         private const val NAME_END_DELIMITER: String = ":"
