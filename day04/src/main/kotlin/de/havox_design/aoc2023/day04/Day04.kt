@@ -2,7 +2,10 @@ package de.havox_design.aoc2023.day04
 
 class Day04(private var filename: String) {
     fun solvePart1(): Long =
-        13L
+        getResourceAsText(filename)
+            .filter(String::isNotBlank)
+            .map { ScratchCard.from(it) }
+            .sumOf { it.scoreV1() }
 
     fun solvePart2(): Long =
         0L
