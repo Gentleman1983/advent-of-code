@@ -5,6 +5,24 @@ data class Almanac(val seeds: List<Long>, val maps: List<List<Triple<Long, Long,
         seeds
         .map { seed -> computeLocation(seed) }
 
+    fun seedRangesToLowestLocation(): Long {
+        var lowest = Long.MAX_VALUE
+        val ranges = seeds
+            .chunked(2)
+            .map { it[0]..<it[0] + it[1] }
+
+        for (range in ranges) {
+            for (i in range.first..range.last) {
+                val location = computeLocation(i)
+                if (location < lowest) {
+                    lowest = location
+                }
+            }
+        }
+
+        return lowest
+    }
+
     private fun computeLocation(seed: Long): Long {
         var current = seed
 

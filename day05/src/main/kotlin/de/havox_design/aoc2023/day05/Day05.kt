@@ -8,7 +8,9 @@ class Day05(private var filename: String) {
             .min()
 
     fun solvePart2(): Long =
-        46L
+        getResourceAsText(filename)
+            .let { row -> Almanac.from(row.filter(String::isNotBlank)) }
+            .seedRangesToLowestLocation()
 
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
