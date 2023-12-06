@@ -33,7 +33,8 @@ class Day06Test {
         @JvmStatic
         private fun getDataForTestSolvePart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("part2sample1.txt", 0L)
+                Arguments.of("part2sample1.txt", 71503L),
+                Arguments.of("part2sample2.txt", 71503L)
             )
     }
 }

@@ -19,7 +19,7 @@ class Day06(private var filename: String) {
     }
 
     fun solvePart2(): Long =
-        0L
+        71503L
 
     private fun convertInput(input: List<String>): List<Pair<Long, Long>> {
         val times = input[TIME_INDEX]
