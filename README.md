@@ -52,9 +52,9 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 Total: 14 ⭐
 
 ## Prior Years contribution:
-| Year | Language(s)                                  | Total Stars               | Link to repository                                   |
-|------|----------------------------------------------|---------------------------|------------------------------------------------------|
-| 2022 | Kotlin, Gradle, GitHub Actions               | 50 ⭐ + 2 ⭐ (Meili Riddle) | [aoc2022](https://github.com/Gentleman1983/aoc2022)  |
+| Year | Language(s)                                      | Total Stars               | Link to repository                                   |
+|------|--------------------------------------------------|---------------------------|------------------------------------------------------|
+| 2022 | Kotlin, Gradle (max. JAVA 17), GitHub Actions    | 50 ⭐ + 2 ⭐ (Meili Riddle) | [aoc2022](https://github.com/Gentleman1983/aoc2022)  |
 | 2021 | JAVA 21, Gradle, GitHub Actions                  | ?? ⭐         | [aoc2021](https://github.com/Gentleman1983/aoc2021)  |
 | 2020 | JAVA 21, Gradle, GitHub Actions                  | ?? ⭐         | [aoc2020](https://github.com/Gentleman1983/aoc2020)  |
 | 2019 | JAVA 21, Gradle, GitHub Actions                  | ?? ⭐         | [aoc2019](https://github.com/Gentleman1983/aoc2019)  |
