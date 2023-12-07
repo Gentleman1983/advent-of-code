@@ -9,6 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 public class Day17 {
     private static final int SIZE = 4;
@@ -32,21 +33,31 @@ public class Day17 {
     }
 
     public String solvePart1() {
-        var resultMap = BreadthFirstSearch.run(new State(START_TILE, ""),
-                st -> getNextFeasibleStates(st, input));
-
-        return resultMap.values().stream()
+        return getResultMap()
+                .values()
+                .stream()
                 .filter(res -> res.getNode().tile().equals(TARGET_TILE))
                 .min(Comparator.comparing(PathResult::getDistance))
                 .orElseThrow()
-                .getNode().path();
+                .getNode()
+                .path();
     }
 
     public long solvePart2() {
-        return 0L;
+        return getResultMap()
+                .values()
+                .stream()
+                .filter(res -> res.getNode().tile().equals(TARGET_TILE))
+                .mapToLong(PathResult::getDistance)
+                .max()
+                .orElseThrow();
     }
 
-    private static List<State> getNextFeasibleStates(State state, String passCode) {
+    private Map<State, PathResult<State>> getResultMap() {
+        return BreadthFirstSearch.run(new State(START_TILE, ""), state -> getNextFeasibleStates(state, input));
+    }
+
+    private List<State> getNextFeasibleStates(State state, String passCode) {
         if (state.tile().equals(TARGET_TILE)) {
             return List.of();
         }
@@ -55,9 +66,10 @@ public class Day17 {
 
         var result = new ArrayList<State>(4);
         for (int i = 0; i < 4; i++) {
-            var neighbor = state.tile().neighbor(Direction.values()[i]);
+            Tile neighbor = state.tile().neighbor(Direction.values()[i]);
             boolean doorIsOpen = neighbor.isValid(SIZE, SIZE)
-                    && hash.charAt(i) >= 'b' && hash.charAt(i) <= 'f';
+                    && hash.charAt(i) >= 'b'
+                    && hash.charAt(i) <= 'f';
             if (doorIsOpen) {
                 result.add(new State(neighbor, state.path() + Direction.values()[i].getSymbol()));
             }
@@ -66,7 +78,7 @@ public class Day17 {
         return result;
     }
 
-    @SuppressWarnings({ "deprecated", "UnstableApiUsage" })
+    @SuppressWarnings({ "deprecated", "squid:S1874", "squid:S4790"})
     private static String getMd5Hash(String s) {
         return Hashing.md5().hashString(s, StandardCharsets.UTF_8).toString();
     }
