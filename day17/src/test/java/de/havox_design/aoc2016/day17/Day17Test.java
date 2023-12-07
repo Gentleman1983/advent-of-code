@@ -24,21 +24,23 @@ class Day17Test {
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("part1sample1.txt", "DDRRRD"),
-                Arguments.of("part1sample2.txt", "DDUDRLRRUDRD"),
-                Arguments.of("part1sample3.txt", "DRURDRUDDLLDLUURRDULRLDUUDDDRR")
+                Arguments.of("sample1.txt", "DDRRRD"),
+                Arguments.of("sample2.txt", "DDUDRLRRUDRD"),
+                Arguments.of("sample3.txt", "DRURDRUDDLLDLUURRDULRLDUUDDDRR")
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForPart2")
-    void testPart2(String fileName, String expected) {
+    void testPart2(String fileName, long expected) {
         Assertions.assertEquals(expected, Day17.solvePart2(fileName));
     }
 
     private static Stream<Arguments> getDataForPart2() {
         return Stream.of(
-                Arguments.of("part2sample1.txt", "")
+                Arguments.of("sample1.txt", 370L),
+                Arguments.of("sample2.txt", 492L),
+                Arguments.of("sample3.txt", 830L)
         );
     }
 }

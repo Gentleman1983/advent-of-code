@@ -26,7 +26,7 @@ public class Day17 {
         return instance.solvePart1();
     }
 
-    public static String solvePart2(String fileName) {
+    public static long solvePart2(String fileName) {
         Day17 instance = new Day17(fileName);
         return instance.solvePart2();
     }
@@ -42,8 +42,8 @@ public class Day17 {
                 .getNode().path();
     }
 
-    public String solvePart2() {
-        return "";
+    public long solvePart2() {
+        return 0L;
     }
 
     private static List<State> getNextFeasibleStates(State state, String passCode) {
