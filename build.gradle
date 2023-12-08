@@ -4,7 +4,7 @@ plugins {
 
 // project meta data
 group 'de.havox_design.aoc2016'
-version '0.22.0'
+version '0.22.1'
 
 // Switch to gradle "all" distribution.
 wrapper {
