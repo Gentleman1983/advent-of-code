@@ -32,6 +32,7 @@ public class Day20 {
                 .numberOfAllowedIPs();
     }
 
+    @SuppressWarnings("squid:S127")
     private ProcessingResult processData() {
         List<Range> ranges = input
                 .stream()
