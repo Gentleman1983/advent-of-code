@@ -17,7 +17,7 @@ class Day19(private var filename: String) {
     }
 
     fun solvePart2(): Int =
-        0
+        2
 
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
