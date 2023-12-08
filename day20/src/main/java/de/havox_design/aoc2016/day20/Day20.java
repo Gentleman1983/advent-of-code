@@ -23,20 +23,23 @@ public class Day20 {
     }
 
     public long solvePart1() {
-        return processData();
+        return processData()
+                .firstIP();
     }
 
     public long solvePart2() {
-        return 0L;
+        return processData()
+                .numberOfAllowedIPs();
     }
 
-    private long processData() {
+    private ProcessingResult processData() {
         List<Range> ranges = input
                 .stream()
                 .map(Range::new)
                 .toList();
 
         long firstIP = -1;
+        long allowedIPs = 0;
 
         for (long i = 0; i <= 4294967295L; i++) {
             var range = findRange(ranges, i);
@@ -46,13 +49,14 @@ public class Day20 {
                         .get()
                         .upperBond();
             } else {
+                allowedIPs++;
                 if (firstIP == -1) {
                     firstIP = i;
                 }
             }
         }
 
-        return firstIP;
+        return new ProcessingResult(firstIP, allowedIPs);
     }
 
     private Optional<Range> findRange(List<Range> ranges, long i) {
