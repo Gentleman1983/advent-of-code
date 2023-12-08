@@ -2,7 +2,7 @@
 
 Simple project for Advent of Code 2016.
 
-Done in JAVA 21.
+Done in JAVA 21. Some used Kotlin for easier solutions. ;)
 
 For more information see https://adventofcode.com [2016](https://adventofcode.com/2016)
 
@@ -37,16 +37,16 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 16      | ⭐        | ⭐        |
 | 17      | ⭐        | ⭐        |
 | 18      | ⭐        | ⭐        |
-| 19      | ❌        | ❌        |
+| 19      | ⭐ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png" width="10" height="10" alt="Kotlin" /> | ⭐ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png" width="10" height="10" alt="Kotlin" /> |
 | 20      | ❌        | ❌        |
 | 21      | ❌        | ❌        |
 | 22      | ❌        | ❌        |
 | 23      | ❌        | ❌        |
 | 24      | ❌        | ❌        |
 | 25      | ❌        | ❌        |
-| **SUM** | **18 ⭐** | **18 ⭐** |
+| **SUM** | **19 ⭐** | **19 ⭐** |
 
-Total: 36 ⭐
+Total: 38 ⭐
 
 ## Prior Years contribution:
 | Year | Language(s)                                       | Total Stars | Link to repository                                  |
