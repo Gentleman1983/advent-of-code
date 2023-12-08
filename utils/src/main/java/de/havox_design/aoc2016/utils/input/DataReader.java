@@ -27,4 +27,15 @@ public class DataReader {
             throw new ReadDataException(e);
         }
     }
+
+    public static String readString(String fileName, Class<?> callingClass) {
+        try {
+            URL url = ClassLoaderUtil.getResource(fileName, callingClass);
+            Path path = Paths.get(url.toURI());
+            return Files.readString(path, StandardCharsets.UTF_8);
+        }
+        catch (IOException|URISyntaxException e) {
+            throw new ReadDataException(e);
+        }
+    }
 }
