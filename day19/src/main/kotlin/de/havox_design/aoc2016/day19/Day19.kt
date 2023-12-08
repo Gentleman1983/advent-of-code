@@ -16,8 +16,26 @@ class Day19(private var filename: String) {
         return queue.first
     }
 
-    fun solvePart2(): Int =
-        2
+    fun solvePart2(): Int {
+        val numberOfElves = getResourceAsText(filename)
+            .map { it.toInt() }
+            .first()
+        val leftNeighbors = ArrayDeque((1..(numberOfElves / 2)).toList())
+        val rightNeighbors = ArrayDeque(((numberOfElves / 2) + 1..numberOfElves).toList())
+
+        while (leftNeighbors.size + rightNeighbors.size > 1) {
+            if (leftNeighbors.size > rightNeighbors.size) {
+                leftNeighbors.pollLast()
+            } else {
+                rightNeighbors.pollFirst()
+            }
+
+            rightNeighbors.add(leftNeighbors.pollFirst())
+            leftNeighbors.add(rightNeighbors.pollFirst())
+        }
+
+        return leftNeighbors.firstOrNull() ?: rightNeighbors.first()
+    }
 
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
