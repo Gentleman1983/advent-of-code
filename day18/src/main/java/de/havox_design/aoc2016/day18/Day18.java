@@ -27,7 +27,7 @@ public class Day18 {
     }
 
     public long solvePart2() {
-        return 0L;
+        return solvePart1(400000);
     }
 
     private long compute(int rowCount) {
