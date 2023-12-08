@@ -13,8 +13,8 @@ class Day25(private var filename: String) {
             .last()
     }
 
-    fun solvePart2(): Long =
-        0L
+    fun solvePart2(): String =
+        "Merry X-Mas"
 
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
