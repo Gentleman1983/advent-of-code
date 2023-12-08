@@ -4,12 +4,12 @@ import java.util.ArrayDeque
 
 class Day24(private var filename: String) {
     fun solvePart1(): Int =
-        shortestPath(parseInput())
+        shortestPath(parseInput(), false)
 
     fun solvePart2(): Int =
-        0
+        shortestPath(parseInput(), true)
 
-    private fun shortestPath(map: List<List<Position>>): Int {
+    private fun shortestPath(map: List<List<Position>>, isReturning: Boolean): Int {
         val (targets, distances) = mapDistances(map)
             .let {
                 it
@@ -20,7 +20,7 @@ class Day24(private var filename: String) {
 
         fun move(leftover: Set<Int>, current: Int, steps: Int): Int =
             if (leftover.isEmpty()) {
-                steps
+                steps + (distances.getValue(current to 0).takeIf { isReturning } ?: 0)
             } else {
                 targets
                     .filter { it in leftover }
