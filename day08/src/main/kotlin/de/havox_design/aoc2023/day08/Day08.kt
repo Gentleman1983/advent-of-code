@@ -33,8 +33,29 @@ class Day08(private var filename: String) {
         return steps
     }
 
-    fun solvePart2(): Long =
-        6L
+    fun solvePart2(): Long {
+        convertInput()
+        val startNodeSuffix = "A"
+        val endNodeSuffix = "Z"
+
+        var steps = 0L
+        var currentNodes = NODES.filter { node -> node.name.endsWith(startNodeSuffix) }
+        val endNodes = NODES.filter { node -> node.name.endsWith(endNodeSuffix) }
+        var instructionIndex = 0
+
+        while(!endNodes.containsAll(currentNodes)) {
+            val currentInstruction = INSTRUCTIONS[instructionIndex]
+            instructionIndex++
+            instructionIndex %= INSTRUCTIONS.size
+            currentNodes = currentNodes
+                .parallelStream()
+                .map{node -> node.getNode(currentInstruction)}
+                .toList()
+            steps++
+        }
+
+        return steps
+    }
 
     private fun convertInput() {
         val input = getResourceAsText(filename)

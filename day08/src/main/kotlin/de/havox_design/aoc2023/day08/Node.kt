@@ -1,6 +1,6 @@
 package de.havox_design.aoc2023.day08
 
-data class Node(val name: String, var left: Node?, var right: Node?) {
+data class Node(val name: String, var left: Node?, var right: Node?): Comparable<Node> {
     fun setNode(direction: Direction, node: Node) {
         when(direction) {
             Direction.LEFT -> left = node
@@ -18,4 +18,20 @@ data class Node(val name: String, var left: Node?, var right: Node?) {
             Direction.LEFT -> left!!
             Direction.RIGHT -> right!!
         }
+
+    override fun compareTo(other: Node): Int =
+        name.compareTo(other.name)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Node
+
+        return name == other.name
+    }
+
+    override fun hashCode(): Int {
+        return name.hashCode()
+    }
 }
