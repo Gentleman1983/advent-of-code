@@ -3,6 +3,7 @@ package de.havox_design.aoc2016.day20;
 import de.havox_design.aoc2016.utils.input.DataReader;
 
 import java.util.List;
+import java.util.Optional;
 
 public class Day20 {
     private final List<String> input;
@@ -22,11 +23,43 @@ public class Day20 {
     }
 
     public long solvePart1() {
-        return 0L;
+        return processData();
     }
 
     public long solvePart2() {
         return 0L;
+    }
+
+    private long processData() {
+        List<Range> ranges = input
+                .stream()
+                .map(Range::new)
+                .toList();
+
+        long firstIP = -1;
+
+        for (long i = 0; i <= 4294967295L; i++) {
+            var range = findRange(ranges, i);
+
+            if (range.isPresent()) {
+                i = range
+                        .get()
+                        .upperBond();
+            } else {
+                if (firstIP == -1) {
+                    firstIP = i;
+                }
+            }
+        }
+
+        return firstIP;
+    }
+
+    private Optional<Range> findRange(List<Range> ranges, long i) {
+        return ranges
+                .stream()
+                .filter(r -> r.contains(i))
+                .findAny();
     }
 
     private List<String> readData(String fileName) {
