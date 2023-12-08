@@ -7,11 +7,16 @@ import java.util.List;
 
 public class Day23 {
     private static final String NEWLINE = "\n";
+    private static final String MULTIPLICATION_ORIGINAL =
+            "cpy 0 a\ncpy b c\ninc a\ndec c\njnz c -2\ndec d\njnz d -5";
+    private static final String MULTIPLICATION_OPTIMIZED =
+            "cpy b a\nmul a d\ncpy 0 c\ncpy 0 d\ncpy 0 d\ncpy 0 d\ncpy 0 d";
 
     private final String input;
 
     public Day23(String fileName) {
-        input = readData(fileName);
+        input = readData(fileName)
+                .replace(MULTIPLICATION_ORIGINAL, MULTIPLICATION_OPTIMIZED);
     }
 
     public static long solvePart1(String fileName) {
@@ -29,7 +34,7 @@ public class Day23 {
     }
 
     public long solvePart2() {
-        return 0L;
+        return process(12);
     }
 
     private long process(long initialValue) {
