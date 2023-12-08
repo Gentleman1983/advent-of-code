@@ -37,6 +37,7 @@ public class Day23 {
         return process(12);
     }
 
+    @SuppressWarnings({"squid:S3776", "squid:S127"})
     private long process(long initialValue) {
         List<String> rows = Arrays
                 .stream(input.split(NEWLINE))
