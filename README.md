@@ -42,11 +42,11 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 21      | ⭐ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Groovy-logo.svg/200px-Groovy-logo.svg.png" width="40" height="20" alt="Groovy" /> | ⭐ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Groovy-logo.svg/200px-Groovy-logo.svg.png" width="40" height="20" alt="Groovy" /> |
 | 22      | ⭐ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png" width="10" height="10" alt="Kotlin" />     | ⭐ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png" width="10" height="10" alt="Kotlin" />     |
 | 23      | ⭐                                                                                                                                                       | ⭐                                                                                                                                                       |
-| 24      | ❌ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png" width="10" height="10" alt="Kotlin" />     | ❌ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png" width="10" height="10" alt="Kotlin" />     |
+| 24      | ⭐ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png" width="10" height="10" alt="Kotlin" />     | ⭐ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png" width="10" height="10" alt="Kotlin" />     |
 | 25      | ❌ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png" width="10" height="10" alt="Kotlin" />     | ❌ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png" width="10" height="10" alt="Kotlin" />     |
-| **SUM** | **23 ⭐**                                                                                                                                                | **23 ⭐**                                                                                                                                                |
+| **SUM** | **24 ⭐**                                                                                                                                                | **24 ⭐**                                                                                                                                                |
 
-Total: 46 ⭐
+Total: 48 ⭐
 
 ## Prior Years contribution:
 | Year | Language(s)                                       | Total Stars | Link to repository                                  |
