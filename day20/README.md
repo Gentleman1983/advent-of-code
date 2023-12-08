@@ -20,3 +20,6 @@ only IPs that this firewall allows are `3` and `9`, since those are the only num
 
 Given the list of blocked IPs you retrieved from the firewall (your puzzle input), **what is the lowest-valued IP** 
 that is not blocked?
+
+# Part Two
+**How many IPs** are allowed by the blacklist?
