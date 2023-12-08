@@ -12,17 +12,17 @@ class Day08(private var filename: String) {
     )
     private val INSTRUCTIONS = ArrayList<Direction>()
     private val NODES = HashSet<Node>()
-    private val START_NODE_NAME = "AAA"
-    private val END_NODE_NAME = "ZZZ"
 
     fun solvePart1(): Long {
         convertInput()
+        val startNodeName = "AAA"
+        val endNodeName = "ZZZ"
 
         var steps = 0L
-        var currentNode = NODES.first { node -> node.name == START_NODE_NAME }
+        var currentNode = NODES.first { node -> node.name == startNodeName }
         var instructionIndex = 0
 
-        while(currentNode.name != END_NODE_NAME) {
+        while(currentNode.name != endNodeName) {
             val currentInstruction = INSTRUCTIONS[instructionIndex]
             instructionIndex++
             instructionIndex %= INSTRUCTIONS.size
@@ -34,7 +34,7 @@ class Day08(private var filename: String) {
     }
 
     fun solvePart2(): Long =
-        0L
+        6L
 
     private fun convertInput() {
         val input = getResourceAsText(filename)
