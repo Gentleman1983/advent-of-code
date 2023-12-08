@@ -22,7 +22,7 @@ class Day08(private var filename: String) {
         var currentNode = NODES.first { node -> node.name == startNodeName }
         var instructionIndex = 0
 
-        while(currentNode.name != endNodeName) {
+        while (currentNode.name != endNodeName) {
             val currentInstruction = INSTRUCTIONS[instructionIndex]
             instructionIndex++
             instructionIndex %= INSTRUCTIONS.size
@@ -37,25 +37,38 @@ class Day08(private var filename: String) {
         convertInput()
         val startNodeSuffix = "A"
         val endNodeSuffix = "Z"
+        val startNodes = NODES.filter { node -> node.name.endsWith(startNodeSuffix) }
 
-        var steps = 0L
-        var currentNodes = NODES.filter { node -> node.name.endsWith(startNodeSuffix) }
-        val endNodes = NODES.filter { node -> node.name.endsWith(endNodeSuffix) }
-        var instructionIndex = 0
+        return startNodes
+            .map { node -> findLoop(node, endNodeSuffix) }
+            .fold(1L) { acc, i ->
+                computeLeastCommonMultiple(acc, i.toLong())
+            }
+    }
 
-        while(!endNodes.containsAll(currentNodes)) {
-            val currentInstruction = INSTRUCTIONS[instructionIndex]
-            instructionIndex++
-            instructionIndex %= INSTRUCTIONS.size
-            currentNodes = currentNodes
-                .parallelStream()
-                .map{node -> node.getNode(currentInstruction)}
-                .toList()
+    private fun findLoop(start: Node, endNodeSuffix: String): Int {
+        var index = 0
+        var current = start
+        var steps = 0
+
+        do {
+            current = current.getNode(INSTRUCTIONS[index])
+            index = (index + 1) % INSTRUCTIONS.size
             steps++
-        }
+        } while (!current.name.endsWith(endNodeSuffix))
 
         return steps
     }
+
+    private fun computeLeastCommonMultiple(a: Long, b: Long): Long =
+        a * b / computeGreatestCommonDivisor(a, b)
+
+    private fun computeGreatestCommonDivisor(a: Long, b: Long): Long =
+        if (b == 0L) {
+            a
+        } else {
+            computeGreatestCommonDivisor(b, a % b)
+        }
 
     private fun convertInput() {
         val input = getResourceAsText(filename)
@@ -89,7 +102,7 @@ class Day08(private var filename: String) {
             NODES.add(Node(nodeName, null, null))
         }
 
-        for(entry in nodeInput) {
+        for (entry in nodeInput) {
             val nodeName = entry.first
             val leftName = entry.second
             val rightName = entry.third
