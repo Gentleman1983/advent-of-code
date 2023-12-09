@@ -4,19 +4,27 @@ class Day09(private var filename: String) {
     fun solvePart1(): Long =
         convertInput()
             .sumOf { history ->
-            processOasisReport(history)
-        }
+                processOasisReport(history, false)
+            }
 
     fun solvePart2(): Long =
-        0L
+        convertInput()
+            .sumOf { history ->
+                processOasisReport(history, true)
+            }
 
-    private fun processOasisReport(oasisHistory: List<Long>): Long {
+    private fun processOasisReport(oasisHistory: List<Long>, calculateLeftHistory: Boolean): Long {
         var value = 0L
         var factor = 1
         var current = oasisHistory
 
         while (current.any { it != 0L }) {
-            value += current.last()
+            if (calculateLeftHistory) {
+                value += current.first() * factor
+                factor *= -1
+            } else {
+                value += current.last()
+            }
 
             current = current.windowed(2).map { (a, b) -> b - a }
         }
