@@ -8,18 +8,119 @@ class Day10(private var filename: String) {
     private val ICON_NORTH_WEST_BEND = 'J'
     private val ICON_SOUTH_WEST_BEND = '7'
     private val ICON_SOUTH_EAST_BEND = 'F'
-    private val ICON_FREE_GROUND = '.'
 
     fun solvePart1(): Long =
-        solvePart1(
+        (computeMazeLoop(
             getResourceAsText(filename)
                 .map { row -> row.toCharArray().toList() }
+        ).size / 2)
+            .toLong()
+
+    fun solvePart2(): Long {
+        val maze = getResourceAsText(filename)
+            .map { row -> row.toCharArray().toList() }
+
+        return computeEnclosedTiles(
+            computeMazeLoop(maze),
+            maze
         )
+    }
 
-    fun solvePart2(): Long =
-        0L
+    @SuppressWarnings("kotlin:S3776")
+    private fun computeEnclosedTiles(loop: List<Pair<Int, Int>>, maze: List<List<Char>>): Long {
+        val (startIndex, newStart) = loop
+            .withIndex()
+            .minWith(compareBy<IndexedValue<Pair<Int, Int>>> { it.value.first }.thenBy { it.value.second })
 
-    private fun solvePart1(maze: List<List<Char>>): Long {
+        val counterClockwise = loop[startIndex + 1].first > newStart.first
+                || loop[startIndex + 1].second < newStart.second
+
+        val enclosedTiles = loop
+            .indices
+            .asSequence()
+            .flatMap {
+                val index = (it + startIndex) % loop.size
+                val currentTile = loop[index]
+                val prevTile = loop[(index + loop.size - 1) % loop.size]
+                val adjacentTileDirections = setOf(
+                    currentTile.getDirectionTo(prevTile),
+                    currentTile.getDirectionTo(loop[(index + loop.size + 1) % loop.size])
+                )
+
+                when (adjacentTileDirections) {
+                    setOf(
+                        Direction.NORTH,
+                        Direction.EAST
+                    ) -> when {
+                        !counterClockwise && prevTile.first < currentTile.first || counterClockwise && prevTile.second > currentTile.second -> {
+                            left(loop, currentTile, maze).asSequence()
+                        }
+                        else -> {
+                            emptySequence()
+                        }
+                    }
+
+                    setOf(
+                        Direction.SOUTH,
+                        Direction.WEST
+                    ) -> when {
+                        !counterClockwise && prevTile.first > currentTile.first || counterClockwise && prevTile.second < currentTile.second -> {
+                            right(loop, currentTile, maze).asSequence()
+                        }
+                        else -> {
+                            emptySequence()
+                        }
+                    }
+
+                    setOf(
+                        Direction.SOUTH,
+                        Direction.EAST
+                    ) -> when {
+                        !counterClockwise && prevTile.second > currentTile.second || counterClockwise && prevTile.first > currentTile.first -> {
+                            left(loop, currentTile, maze).asSequence()
+                        }
+                        else -> {
+                            emptySequence()
+                        }
+                    }
+
+                    setOf(
+                        Direction.NORTH,
+                        Direction.WEST
+                    ) -> when {
+                        !counterClockwise && prevTile.second < currentTile.second || counterClockwise && prevTile.first < currentTile.first -> {
+                            right(loop, currentTile, maze).asSequence()
+                        }
+                        else -> {
+                            emptySequence()
+                        }
+                    }
+
+                    setOf(Direction.NORTH, Direction.SOUTH) -> {
+                        when {
+                            !counterClockwise == prevTile.first < currentTile.first -> {
+                                left(loop, currentTile, maze).asSequence()
+                            }
+                            !counterClockwise == prevTile.first > currentTile.first -> {
+                                right(loop, currentTile, maze).asSequence()
+                            }
+                            else -> {
+                                emptySequence()
+                            }
+                        }
+                    }
+
+                    else -> emptySequence()
+                }
+            }
+            .toSet()
+
+        return enclosedTiles
+            .size
+            .toLong()
+    }
+
+    private fun computeMazeLoop(maze: List<List<Char>>): List<Pair<Int, Int>> {
         var start: Pair<Int, Int>? = null
 
         out@ for (row in maze.indices) {
@@ -31,9 +132,7 @@ class Day10(private var filename: String) {
             }
         }
 
-        val loop = getLoop(start!!, maze)
-
-        return (loop.size / 2).toLong()
+        return getLoop(start!!, maze)
     }
 
     private fun getLoop(start: Pair<Int, Int>, maze: List<List<Char>>): List<Pair<Int, Int>> {
@@ -103,6 +202,67 @@ class Day10(private var filename: String) {
             Direction.WEST -> Pair(this.first, this.second - 1)
             Direction.EAST -> Pair(this.first, this.second + 1)
             Direction.NONE -> this
+        }
+    }
+
+    private fun left(
+        loop: List<Pair<Int, Int>>,
+        currentTile: Pair<Int, Int>,
+        maze: List<List<Char>>
+    ): List<Pair<Int, Int>> {
+        val rowTiles = loop
+            .filter { it.first == currentTile.first && it.second < currentTile.second }
+
+        when {
+            rowTiles.isEmpty() -> {
+                return emptyList()
+            }
+            else -> {
+                val nextTile = rowTiles
+                    .maxWith(compareBy { it.second })
+
+                return maze[currentTile.first]
+                    .withIndex()
+                    .filter { nextTile.second < it.index && it.index < currentTile.second }
+                    .map { Pair(currentTile.first, it.index) }
+            }
+        }
+    }
+
+    private fun right(
+        loop: List<Pair<Int, Int>>,
+        currentTile: Pair<Int, Int>,
+        maze: List<List<Char>>
+    ): List<Pair<Int, Int>> {
+        val rowTiles = loop
+            .filter { it.first == currentTile.first && it.second > currentTile.second }
+
+        when {
+            rowTiles.isEmpty() -> {
+                return emptyList()
+            }
+            else -> {
+                val nextTile = rowTiles
+                    .minWith(compareBy { it.second })
+
+                return maze[currentTile.first]
+                    .withIndex()
+                    .filter { currentTile.second < it.index && it.index < nextTile.second }
+                    .map { Pair(currentTile.first, it.index) }
+            }
+        }
+    }
+
+    private fun Pair<Int, Int>.getDirectionTo(location: Pair<Int, Int>): Direction {
+        when {
+            this.first != location.first && this.second != location.second -> throw IllegalArgumentException()
+            else -> return when {
+                this.first == location.first && this.second < location.second -> return Direction.EAST
+                this.first == location.first && this.second > location.second -> return Direction.WEST
+                this.second == location.second && this.first < location.first -> return Direction.SOUTH
+                this.second == location.second && this.first > location.first -> return Direction.NORTH
+                else -> Direction.NONE
+            }
         }
     }
 
