@@ -5,7 +5,7 @@ Simple project for Advent of Code 2023.
 Planned to be done primarily in [Kotlin](https://kotlinlang.org). Please beware of code quality issues, because these
 are early steps on Kotlin.
 
-If there will be major issues in solving the tasks in Kotlin these tasks may be solved in JAVA 17.
+If there will be major issues in solving the tasks in Kotlin these tasks may be solved in JAVA 21.
 
 For more information see https://adventofcode.com [2023](https://adventofcode.com/2023)
 
