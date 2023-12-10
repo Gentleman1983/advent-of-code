@@ -205,6 +205,7 @@ class Day10(private var filename: String) {
         }
     }
 
+    @SuppressWarnings("kotlin:S6510")
     private fun left(
         loop: List<Pair<Int, Int>>,
         currentTile: Pair<Int, Int>,
@@ -229,6 +230,7 @@ class Day10(private var filename: String) {
         }
     }
 
+    @SuppressWarnings("kotlin:S6510")
     private fun right(
         loop: List<Pair<Int, Int>>,
         currentTile: Pair<Int, Int>,
