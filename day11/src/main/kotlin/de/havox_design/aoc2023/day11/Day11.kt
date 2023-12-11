@@ -8,10 +8,10 @@ class Day11(private var filename: String) {
     fun solvePart1(): Long =
         processSumOfAllDistances(getResourceAsText(filename))
 
-    fun solvePart2(): Long =
-        0L
+    fun solvePart2(expansion: Long = 1000000): Long =
+        processSumOfAllDistances(getResourceAsText(filename), expansion)
 
-    private fun processSumOfAllDistances(input: List<String>): Long {
+    private fun processSumOfAllDistances(input: List<String>, expansion: Long = 2): Long {
         val galaxies = input
             .flatMapIndexed { y, s ->
                 s.mapIndexed { x, c -> if (c == ICON_GALAXY.first()) Pair(y.toLong(), x.toLong()) else null }
@@ -32,7 +32,7 @@ class Day11(private var filename: String) {
                     .contains(ICON_GALAXY)
             }
             .map { it.index.toLong() }
-        val expandedGalaxies = calculateUniverseExpansion(galaxies, emptyRows, emptyColumns)
+        val expandedGalaxies = calculateUniverseExpansion(galaxies, emptyRows, emptyColumns, expansion)
         val galaxyPairs = expandedGalaxies
             .flatMapIndexed { index, galaxy ->
                 expandedGalaxies
@@ -48,12 +48,13 @@ class Day11(private var filename: String) {
     private fun calculateUniverseExpansion(
         galaxies: List<Pair<Long, Long>>,
         emptyRows: List<Long>,
-        emptyColumns: List<Long>
+        emptyColumns: List<Long>,
+        expansion: Long = 2
     ) =
         galaxies
             .map {
-                Pair(it.first + emptyRows.count { r -> r < it.first },
-                    it.second + emptyColumns.count { c -> c < it.second })
+                Pair(it.first + emptyRows.count { r -> r < it.first } * (expansion - 1),
+                    it.second + emptyColumns.count { c -> c < it.second } * (expansion - 1))
             }
 
     private fun calculateDistance(galaxy1: Pair<Long, Long>, galaxy2: Pair<Long, Long>): Long {

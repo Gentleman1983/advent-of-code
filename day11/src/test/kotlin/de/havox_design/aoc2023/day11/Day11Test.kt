@@ -20,7 +20,7 @@ class Day11Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart2")
-    fun testSolvePart2(filename: String, expectedResult: Long, expansion: Int) =
+    fun testSolvePart2(filename: String, expectedResult: Long, expansion: Long) =
         Day11(filename).solvePart2(expansion).shouldBe(expectedResult)
 
     companion object {
@@ -33,8 +33,8 @@ class Day11Test {
         @JvmStatic
         private fun getDataForTestSolvePart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 1030L, 10),
-                Arguments.of("sample.txt", 8410L, 100)
+                Arguments.of("sample.txt", 1030L, 10L),
+                Arguments.of("sample.txt", 8410L, 100L)
             )
     }
 }
