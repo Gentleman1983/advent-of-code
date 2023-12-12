@@ -7,7 +7,7 @@ class MainClass {
             val filename = "day12.txt"
 
             println("Solution part 1: ${Day12(filename).solvePart1()}")
-            println("Solution part 2: ${Day12(filename).solvePart2()}")
+            println("Solution part 2: ${Day12(filename).quicksolvePart2()}")
         }
     }
 }

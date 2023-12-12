@@ -1,6 +1,7 @@
 package de.havox_design.aoc2023.day12
 
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -18,10 +19,16 @@ class Day12Test {
     fun testSolvePart1(filename: String, expectedResult: Long) =
         Day12(filename).solvePart1().shouldBe(expectedResult)
 
+    @Disabled("takes much toooooooooooooooooo long...")
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart2")
     fun testSolvePart2(filename: String, expectedResult: Long) =
         Day12(filename).solvePart2().shouldBe(expectedResult)
+
+    @ParameterizedTest
+    @MethodSource("getDataForTestSolvePart2")
+    fun testQuicksolvePart2(filename: String, expectedResult: Long) =
+        Day12(filename).quicksolvePart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
