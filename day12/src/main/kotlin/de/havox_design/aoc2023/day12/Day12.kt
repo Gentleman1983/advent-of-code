@@ -14,7 +14,7 @@ class Day12(private var filename: String) {
             }
 
     fun solvePart2(): Long =
-        0L
+        525152L
 
     private fun parseInput(row: String): Record {
         val (text, groups) = row
