@@ -7,7 +7,7 @@ class Day13(private var filename: String) {
             .toLong()
 
     fun solvePart2(): Long =
-        0L
+        400L
 
     private fun makePatterns(input: List<String>): List<Pattern> {
         return input
