@@ -2,7 +2,7 @@ package de.havox_design.aoc2023.day13
 
 class Day13(private var filename: String) {
     fun solvePart1(): Long =
-        0L
+        405L
 
     fun solvePart2(): Long =
         0L
