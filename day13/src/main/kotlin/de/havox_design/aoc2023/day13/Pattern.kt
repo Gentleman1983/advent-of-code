@@ -1,6 +1,8 @@
 package de.havox_design.aoc2023.day13
 
 data class Pattern(val rows: List<String>) {
+    private val ICON_ASH = '.'
+    private val ICON_ROCK = '#'
     private val numColumns = rows[0].length
 
     override fun toString(): String {
@@ -22,8 +24,26 @@ data class Pattern(val rows: List<String>) {
             .filter(::isMirrorColumn)
             .map { it + 1 }
 
-        return (rowScores + columnScores)
+        return (rowScores + columnScores + 0)
             .first { it != pleaseDoNotBe }
+    }
+
+    fun smudgeMirrorValue(): Int {
+        val originalValue = mirrorValue()
+
+        for (rowIndex in rows.indices) {
+            for (columnIndex in rows[0].indices) {
+                val pattern = Pattern(rows.flipMirror(rowIndex, columnIndex))
+                val newValue = pattern.mirrorValue(originalValue)
+
+                when {
+                    newValue != 0 && newValue != originalValue -> {
+                        return newValue
+                    }
+                }
+            }
+        }
+        return originalValue
     }
 
     @SuppressWarnings("kotlin:S6510")
@@ -74,5 +94,17 @@ data class Pattern(val rows: List<String>) {
                 return true
             }
         }
+    }
+
+    private fun List<String>.flipMirror(rowIndex: Int, columnIndex: Int): List<String> {
+        val mutableList = this.toMutableList()
+        val rowToReplace = mutableList[rowIndex].toMutableList()
+        rowToReplace[columnIndex] = when {
+            rowToReplace[columnIndex] == ICON_ASH -> ICON_ROCK
+            else -> ICON_ASH
+        }
+        mutableList[rowIndex] = rowToReplace.joinToString("")
+
+        return mutableList.toList()
     }
 }

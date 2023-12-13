@@ -7,7 +7,9 @@ class Day13(private var filename: String) {
             .toLong()
 
     fun solvePart2(): Long =
-        400L
+        makePatterns(getResourceAsText(filename))
+            .sumOf { it.smudgeMirrorValue() }
+            .toLong()
 
     private fun makePatterns(input: List<String>): List<Pattern> {
         return input
