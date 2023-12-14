@@ -7,6 +7,7 @@ class Day14(private var filename: String) {
             .northLoad()
             .toLong()
 
+    @SuppressWarnings("kotlin:S6611")
     fun solvePart2(numberOfCycles: Int = 1000000000): Long {
         val matrix = Matrix(getResourceAsText(filename))
         val cycleMap: MutableMap<Int, String> = mutableMapOf(0 to matrix.toString())
