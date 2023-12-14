@@ -4,6 +4,15 @@ data class Matrix(val matrix: MutableList<CharArray>) {
     private val ICON_ROUND_STONE = 'O'
     private val ICON_SQUARE_STONE = '#'
 
+    fun cycle(cycles: Int = 1): Matrix = apply {
+        repeat(cycles) {
+            rollNorth()
+                .rollWest()
+                .rollSouth()
+                .rollEast()
+        }
+    }
+
     fun rollNorth(): Matrix =
         apply {
             matrix
@@ -27,6 +36,66 @@ data class Matrix(val matrix: MutableList<CharArray>) {
                         .forEachIndexed { rowIndex, c ->
                             matrix[rowIndex][columnIndex] = c
                         }
+                }
+        }
+
+    fun rollSouth(): Matrix =
+        apply {
+            matrix
+                .first()
+                .indices
+                .forEach { columnIndex ->
+
+                    matrix
+                        .indices
+                        .joinToString("") { rowIndex ->
+                            matrix[rowIndex][columnIndex].toString()
+                        }
+                        .split(ICON_SQUARE_STONE)
+                        .joinToString(ICON_SQUARE_STONE.toString()) {
+                            it
+                                .toCharArray()
+                                .sorted()
+                                .joinToString("")
+                        }
+
+                        .forEachIndexed { rowIndex, c ->
+                            matrix[rowIndex][columnIndex] = c
+                        }
+                }
+        }
+
+    fun rollWest(): Matrix =
+        apply {
+            matrix
+                .forEachIndexed { rowIndex, row ->
+                    matrix[rowIndex] = row
+                        .joinToString("")
+                        .split(ICON_SQUARE_STONE)
+                        .joinToString(ICON_SQUARE_STONE.toString()) {
+                            it
+                                .toCharArray()
+                                .sortedDescending()
+                                .joinToString("")
+                        }
+                        .toCharArray()
+                }
+        }
+
+    fun rollEast(): Matrix =
+        apply {
+            matrix
+                .forEachIndexed { rowIndex, row ->
+                    matrix[rowIndex] = row
+                        .joinToString("")
+                        .split(ICON_SQUARE_STONE)
+                        .joinToString(ICON_SQUARE_STONE.toString()) {
+                            it
+                                .toCharArray()
+                                .sorted()
+                                .joinToString("")
+                        }
+                        .toCharArray()
                 }
         }
 

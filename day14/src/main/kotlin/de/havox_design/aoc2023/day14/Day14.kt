@@ -7,8 +7,39 @@ class Day14(private var filename: String) {
             .northLoad()
             .toLong()
 
-    fun solvePart2(): Long =
-        64L
+    fun solvePart2(numberOfCycles: Int = 1000000000): Long {
+        val matrix = Matrix(getResourceAsText(filename))
+        val cycleMap: MutableMap<Int, String> = mutableMapOf(0 to matrix.toString())
+        var cycleIndex = 0
+        var cycleLength = 0
+
+        for (index in 1..numberOfCycles) {
+            matrix.cycle()
+            when {
+                cycleMap.containsValue(matrix.toString()) -> {
+                    cycleIndex = cycleMap
+                        .filterValues { it == matrix.toString() }
+                        .keys
+                        .single()
+                    cycleLength = index - cycleIndex
+                    break
+                }
+
+                else -> {
+                    cycleMap[index] = matrix.toString()
+                }
+            }
+        }
+
+        val pointInCycle = (numberOfCycles - cycleIndex) % cycleLength
+        val actualIndex = cycleIndex + pointInCycle
+
+        return cycleMap[actualIndex]!!
+            .split("\n")
+            .let(::Matrix)
+            .northLoad()
+            .toLong()
+    }
 
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
