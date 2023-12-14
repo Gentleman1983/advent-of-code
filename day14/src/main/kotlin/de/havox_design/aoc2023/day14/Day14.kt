@@ -2,7 +2,10 @@ package de.havox_design.aoc2023.day14
 
 class Day14(private var filename: String) {
     fun solvePart1(): Long =
-        136L
+        Matrix(getResourceAsText(filename))
+            .rollNorth()
+            .northLoad()
+            .toLong()
 
     fun solvePart2(): Long =
         0L
