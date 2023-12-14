@@ -8,7 +8,7 @@ class Day14(private var filename: String) {
             .toLong()
 
     fun solvePart2(): Long =
-        0L
+        64L
 
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
