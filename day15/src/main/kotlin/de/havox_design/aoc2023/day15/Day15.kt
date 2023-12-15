@@ -10,7 +10,7 @@ class Day15(private var filename: String) {
             .toLong()
 
     fun solvePart2(): Long =
-        0L
+        145L
 
     private fun calculateHash(word: String): Int =
         word
