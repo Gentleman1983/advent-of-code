@@ -5,8 +5,66 @@ class Day16(private var filename: String) {
         getEnergy(parseTiles(getResourceAsText(filename)), Direction.EAST, Pair(0, 0))
             .toLong()
 
-    fun solvePart2(): Long =
-        51L
+    fun solvePart2(): Long {
+        val input = getResourceAsText(filename)
+        val startPoints = input
+            .flatMapIndexed { row, s ->
+                s
+                    .withIndex()
+                    .filter {
+                        row == 0
+                                || row == input.size - 1
+                                || it.index == 0
+                                || it.index == s.length - 1
+                    }
+                    .map { iv -> Pair(row, iv.index) }
+            }
+        val maxRow = startPoints
+            .maxOf { it.first }
+        val maxColumn = startPoints
+            .maxOf { it.second }
+        val results = startPoints
+            .flatMap {
+                when {
+                    it.first == 0 && it.second == 0 -> {
+                        listOf(
+                            Pair(it, getEnergy(parseTiles(input), Direction.EAST, it)),
+                            Pair(it, getEnergy(parseTiles(input), Direction.SOUTH, it))
+                        )
+                    }
+
+                    it.first == maxRow && it.second == maxColumn -> {
+                        listOf(
+                            Pair(it, getEnergy(parseTiles(input), Direction.WEST, it)),
+                            Pair(it, getEnergy(parseTiles(input), Direction.NORTH, it))
+                        )
+                    }
+
+                    it.first == 0 -> {
+                        listOf(Pair(it, getEnergy(parseTiles(input), Direction.SOUTH, it)))
+                    }
+
+                    it.second == 0 -> {
+                        listOf(Pair(it, getEnergy(parseTiles(input), Direction.EAST, it)))
+                    }
+
+                    it.first == maxRow -> {
+                        listOf(Pair(it, getEnergy(parseTiles(input), Direction.NORTH, it)))
+                    }
+
+                    it.second == maxColumn -> {
+                        listOf(Pair(it, getEnergy(parseTiles(input), Direction.WEST, it)))
+                    }
+
+                    else -> {
+                        emptyList()
+                    }
+                }
+            }
+        return results
+            .maxOf { it.second }
+            .toLong()
+    }
 
     private fun getEnergy(contraption: List<List<Tile>>, enteredDirection: Direction, startPoint: Pair<Int, Int>): Int {
         traceBeam(contraption, enteredDirection, contraption[startPoint.first][startPoint.second])
