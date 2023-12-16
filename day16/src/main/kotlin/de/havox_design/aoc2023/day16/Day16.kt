@@ -6,7 +6,7 @@ class Day16(private var filename: String) {
             .toLong()
 
     fun solvePart2(): Long =
-        0L
+        51L
 
     private fun getEnergy(contraption: List<List<Tile>>, enteredDirection: Direction, startPoint: Pair<Int, Int>): Int {
         traceBeam(contraption, enteredDirection, contraption[startPoint.first][startPoint.second])
