@@ -9,7 +9,7 @@ class Day17(private var filename: String) {
             .findPath()
 
     fun solvePart2(): Long =
-        0L
+        94L
 
     private fun Map<Coordinate, Int>.findPath(
         maxConsecutive: Int = 3, minConsecutive: Int = 0, minMovedForEnd: Int = 0
