@@ -1,7 +1,6 @@
 package de.havox_design.aoc2023.day17
 
 import java.util.*
-import kotlin.Comparator
 
 class Day17(private var filename: String) {
     fun solvePart1(): Long =
