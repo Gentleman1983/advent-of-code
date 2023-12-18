@@ -86,7 +86,7 @@ class Day18(private var filename: String) {
 
     private fun List<Coordinate>.polygonArea(): Double =
         abs((1..<size)
-            .sumOf { it -> crossProduct(get(it), get(it - 1)) } / 2.0)
+            .sumOf { value -> crossProduct(get(value), get(value - 1)) } / 2.0)
 
     private fun crossProduct(a: Coordinate, b: Coordinate) =
         a.x.toLong() * b.y.toLong() - b.x.toLong() * a.y.toLong()
