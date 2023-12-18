@@ -1,5 +1,7 @@
 package de.havox_design.aoc2023.day18
 
+import kotlin.math.abs
+
 class Day18(private var filename: String) {
     private val BLACK = "#000000"
     private val ICON_UP = "U"
@@ -13,8 +15,23 @@ class Day18(private var filename: String) {
             .processInstructions(origin, parseDigInstructions())
             .calculateTrench()
 
-    fun solvePart2(): Long =
-        952408144115L
+    fun solvePart2(): Long {
+        val polygon = parseDigInstructions()
+            .map { it.transformInstruction() }
+            .runningFold(origin) { current, instruction ->
+                when (instruction.direction) {
+                    FourDirectionFlipped.RIGHT -> Coordinate(current.x + instruction.amount, current.y)
+                    FourDirectionFlipped.LEFT -> Coordinate(current.x - instruction.amount, current.y)
+                    FourDirectionFlipped.DOWN -> Coordinate(current.x, current.y + instruction.amount)
+                    FourDirectionFlipped.UP -> Coordinate(current.x, current.y - instruction.amount)
+                }
+            }
+            .toList()
+        val area = polygon.polygonArea()
+        val boundary = polygon.pointsOnBoundary()
+
+        return (area - boundary / 2 + 1).toLong() + boundary
+    }
 
     private fun MutableMap<Coordinate, String>.processInstructions(
         start: Coordinate,
@@ -66,6 +83,30 @@ class Day18(private var filename: String) {
 
         return count
     }
+
+    private fun List<Coordinate>.polygonArea(): Double =
+        abs((1..<size)
+            .sumOf { it -> crossProduct(get(it), get(it - 1)) } / 2.0)
+
+    private fun crossProduct(a: Coordinate, b: Coordinate) =
+        a.x.toLong() * b.y.toLong() - b.x.toLong() * a.y.toLong()
+
+    private fun List<Coordinate>.pointsOnBoundary(): Long =
+        zipWithNext()
+            .sumOf { (a, b) ->
+                val delta = a - b
+                abs(gcd(delta.x.toLong(), delta.y.toLong()))
+            }
+            .let {
+                val delta = last() - first()
+                abs(gcd(delta.x.toLong(), delta.y.toLong())) + it
+            }
+
+    private fun gcd(number1: Long, number2: Long): Long =
+        when (number2) {
+            0L -> number1
+            else -> gcd(number2, number1 % number2)
+        }
 
     private fun parseDigInstructions() =
         getResourceAsText(filename)
