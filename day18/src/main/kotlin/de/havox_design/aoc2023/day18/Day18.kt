@@ -14,7 +14,7 @@ class Day18(private var filename: String) {
             .calculateTrench()
 
     fun solvePart2(): Long =
-        0L
+        952408144115L
 
     private fun MutableMap<Coordinate, String>.processInstructions(
         start: Coordinate,
