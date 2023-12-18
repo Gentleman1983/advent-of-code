@@ -1,5 +1,7 @@
 package de.havox_design.aoc2023.day16
 
+import de.havox_design.aoc2023.day10.Direction
+
 class Day16(private var filename: String) {
     fun solvePart1(): Long =
         getEnergy(parseTiles(getResourceAsText(filename)), Direction.EAST, Pair(0, 0))

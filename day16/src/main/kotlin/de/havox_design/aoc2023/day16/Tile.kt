@@ -1,5 +1,7 @@
 package de.havox_design.aoc2023.day16
 
+import de.havox_design.aoc2023.day10.Direction
+
 data class Tile(val row: Int, val column: Int, val type: Char) {
     private val MARKER_UP = "^"
     private val MARKER_DOWN = "V"
