@@ -1,5 +1,6 @@
 package de.havox_design.aoc2023.day18
 
+import de.havox_design.aoc2023.day17.*
 import kotlin.math.abs
 
 class Day18(private var filename: String) {
