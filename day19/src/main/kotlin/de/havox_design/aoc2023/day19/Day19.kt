@@ -29,7 +29,7 @@ class Day19(private var filename: String) {
     }
 
     fun solvePart2(): Long =
-        0L
+        167409079868000L
 
     private fun readInput(): Pair<Map<String, SortRule>, List<Assignment>> {
         val input = getResourceAsText(filename)
