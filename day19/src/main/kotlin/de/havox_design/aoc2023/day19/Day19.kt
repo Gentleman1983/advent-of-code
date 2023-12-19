@@ -30,6 +30,7 @@ class Day19(private var filename: String) {
             .sumOf { it.total() }
     }
 
+    @SuppressWarnings("kotlin:S6611")
     fun solvePart2(): Long {
         val (rules) = readInput()
         val results = mutableListOf<RangeAssignment>()
