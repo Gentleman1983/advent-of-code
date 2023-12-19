@@ -10,24 +10,29 @@ data class RangeAssignment(
     val sMin: Long = 1L,
     val sMax: Long = 4000L
 ) {
+    private val ICON_EXTREMELY_COOL_LOOKING = 'x'
+    private val ICON_MUSICAL = 'm'
+    private val ICON_AERODYNAMIC = 'a'
+    private val ICON_SHINY = 's'
+
     fun split(condition: Condition): Pair<RangeAssignment, RangeAssignment> =
         when (condition.field) {
-            'x' -> when (condition.lessThen) {
+            ICON_EXTREMELY_COOL_LOOKING -> when (condition.lessThen) {
                 true -> copy(xMax = condition.value - 1) to copy(xMin = condition.value)
                 else -> copy(xMin = condition.value + 1) to copy(xMax = condition.value)
             }
 
-            'm' -> when (condition.lessThen) {
+            ICON_MUSICAL -> when (condition.lessThen) {
                 true -> copy(mMax = condition.value - 1) to copy(mMin = condition.value)
                 else -> copy(mMin = condition.value + 1) to copy(mMax = condition.value)
             }
 
-            'a' -> when (condition.lessThen) {
+            ICON_AERODYNAMIC -> when (condition.lessThen) {
                 true -> copy(aMax = condition.value - 1) to copy(aMin = condition.value)
                 else -> copy(aMin = condition.value + 1) to copy(aMax = condition.value)
             }
 
-            's' -> when (condition.lessThen) {
+            ICON_SHINY -> when (condition.lessThen) {
                 true -> copy(sMax = condition.value - 1) to copy(sMin = condition.value)
                 else -> copy(sMin = condition.value + 1) to copy(sMax = condition.value)
             }
