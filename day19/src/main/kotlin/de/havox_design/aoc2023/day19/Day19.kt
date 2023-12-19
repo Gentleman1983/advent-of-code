@@ -1,5 +1,7 @@
 package de.havox_design.aoc2023.day19
 
+import java.util.*
+
 class Day19(private var filename: String) {
     private val ICON_ACCEPT = "A"
     private val ICON_REJECT = "R"
@@ -28,8 +30,49 @@ class Day19(private var filename: String) {
             .sumOf { it.total() }
     }
 
-    fun solvePart2(): Long =
-        167409079868000L
+    fun solvePart2(): Long {
+        val (rules) = readInput()
+        val results = mutableListOf<RangeAssignment>()
+        val queue = linkedListOf(RangeAssignment() to ICON_START)
+
+        while (queue.isNotEmpty()) {
+            val (current, label) = queue.removeFirst()
+
+            when (label) {
+                ICON_ACCEPT -> {
+                    results.add(current)
+                    continue
+                }
+
+                ICON_REJECT -> continue
+            }
+
+            val rule = rules[label]!!
+            val result = rule
+                .decisions
+                .runningFold(Triple(current, current, label)) { (_, falseValue), condition ->
+                    falseValue
+                        .split(condition)
+                        .let { (a, b) -> Triple(a, b, condition.successLabel) }
+                }
+                .drop(1)
+            result
+                .map { it.first to it.third }
+                .filter { it.first.isValid() }
+                .toCollection(queue)
+            when {
+                result.last().second.isValid() -> {
+                    queue.add(result.last().second to rule.elseRule)
+                }
+            }
+        }
+
+        return results
+            .sumOf { it.sum() }
+    }
+
+    private fun <T> linkedListOf(vararg elements: T) =
+        elements.toCollection(LinkedList())
 
     private fun readInput(): Pair<Map<String, SortRule>, List<Assignment>> {
         val input = getResourceAsText(filename)
