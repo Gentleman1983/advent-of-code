@@ -1,10 +1,14 @@
 package de.havox_design.aoc2023.day20
 
+import de.havox_design.aoc2023.day20.Module.Companion.ICON_CONJUCTION
+import de.havox_design.aoc2023.day20.Module.Companion.ICON_FLIP_FLOP
+import de.havox_design.aoc2023.day20.Module.Companion.ICON_NONE
+
 enum class ModuleType(
     val symbol: String,
     val processSignal: (high: Boolean, currentSignal: Boolean, inputs: Map<String, Boolean>) -> Pulse
 ) {
-    FLIP_FLOP("%", { high, currentSignal, _ ->
+    FLIP_FLOP(ICON_FLIP_FLOP, { high, currentSignal, _ ->
         when (high) {
             true -> Pulse.NONE
             else -> when {
@@ -13,14 +17,13 @@ enum class ModuleType(
             }
         }
     }),
-    CONJUNCTION("&", { _, _, inputs ->
+    CONJUNCTION(ICON_CONJUCTION, { _, _, inputs ->
         when (inputs.values.all { it }) {
             true -> Pulse.LOW
             else -> Pulse.HIGH
         }
     }),
-    NONE("", { _, _, _ -> Pulse.LOW });
-
+    NONE(ICON_NONE, { _, _, _ -> Pulse.LOW });
 
     companion object {
         fun processSignal(
