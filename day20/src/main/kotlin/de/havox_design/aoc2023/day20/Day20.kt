@@ -2,13 +2,15 @@ package de.havox_design.aoc2023.day20
 
 import de.havox_design.aoc2023.day20.Module.Companion.ICON_BROADCASTER
 import de.havox_design.aoc2023.day20.Module.Companion.ICON_BUTTON
-import de.havox_design.aoc2023.day20.Module.Companion.ICON_RECEIVER
+import de.havox_design.aoc2023.day20.Module.Companion.ICON_CONJUCTION
+import de.havox_design.aoc2023.day20.Module.Companion.ICON_FLIP_FLOP
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
 class Day20(private var filename: String) {
     private val SIGNAL_DELIMITER = " -> "
+    private val OUTPUTS_DELIMITER = ", "
 
     fun solvePart1(runs: Int = 1000): Long {
         val (modules, assignment, conjunctionInputs) = parseInput()
@@ -39,84 +41,163 @@ class Day20(private var filename: String) {
 
     @SuppressWarnings("kotlin:S3776", "kotlin:S6611")
     fun solvePart2(): Long {
-        val (modules, assignment, conjunctionInputs) = parseInput()
-        val parent = modules
-            .filter { it.value.connections.contains(ICON_RECEIVER) }
-            .values
-            .first()
-        val grandParents = modules
-            .filter { it.value.connections.contains(parent.name) }
-            .keys
-            .toMutableSet()
-        val cycles = mutableListOf<Long>()
-        var count = 1L
-        val countMap = grandParents
-            .associateWith { 0L }
-            .toMutableMap()
-        val cycle = mutableMapOf<String, Long>()
-        var currentAssignment = assignment
-        var currentConjugation: Map<String, Map<String, Boolean>> = conjunctionInputs
+        val parentName = "&lg"
+        val modules = HashMap<String, ArrayList<String>>()
+        var on = HashMap<String, Boolean>()
+        var conjunctions = HashMap<String, HashMap<String, Boolean>>()
 
-        while (grandParents.isNotEmpty()) {
-            var index = 0
-            val nextState = currentAssignment
-                .toMutableMap()
-            val nextConjunctionInputs = currentConjugation
-                .mapValues { it.value.toMutableMap() }
-            val queue = mutableListOf(Triple(ICON_BUTTON, Pulse.LOW, ICON_BROADCASTER))
+        for (row in getResourceAsText(filename)) {
+            val name = row.split(SIGNAL_DELIMITER)[0]
+            modules[name] = ArrayList(
+                row
+                    .split(SIGNAL_DELIMITER)[1]
+                    .split(OUTPUTS_DELIMITER)
+                    .map { it.trim() }
+                    .toList()
+            )
 
-            while (index < queue.size) {
-                val (from, pulse, target) = queue[index]
-                val isHigh = pulse == Pulse.HIGH
-                val current = modules[target]
+            when {
+                name.startsWith(ICON_FLIP_FLOP) -> on[name] = false
+            }
+        }
+
+        for (module in modules) {
+            for (i in 0..<module.value.size) {
+                when {
+                    modules.contains(ICON_FLIP_FLOP + module.value[i]) -> module.value[i] =
+                        ICON_FLIP_FLOP + module.value[i]
+
+                    modules.contains(ICON_CONJUCTION + module.value[i]) -> module.value[i] =
+                        ICON_CONJUCTION + module.value[i]
+                }
+            }
+        }
+
+        for (module in modules) {
+            when {
+                module.key.startsWith(ICON_CONJUCTION) -> conjunctions[module.key] = HashMap()
+            }
+        }
+
+        for (module in modules) {
+            for (output in module.value) {
+                when {
+                    conjunctions.contains(output) -> conjunctions[output]!![module.key] = false
+                }
+            }
+        }
+
+        val pulses = ArrayDeque<Pair<Boolean, String>>()
+        val sent = HashMap<Boolean, Long>()
+
+        sent[false] = 0
+        sent[true] = 0
+
+        fun send(from: String, to: String, value: Boolean) {
+            if (conjunctions.contains(to)) conjunctions[to]!![from] = value
+            pulses.add(Pair(value, to))
+            sent[value] = sent[value]!! + 1
+        }
+
+        for (i in 1..1000) {
+            send(ICON_BUTTON, ICON_BROADCASTER, false)
+            while (pulses.isNotEmpty()) {
+                val pulse = pulses.removeFirst()
+                val value = pulse.first
+                val to = pulse.second
 
                 when {
-                    target in grandParents && !isHigh -> {
-                        countMap[target] = countMap[target]!! + 1
+                    !modules.contains(to) -> continue
+                }
 
+                when {
+                    to == ICON_BROADCASTER -> for (output in modules[to]!!) {
+                        send(to, output, value)
+                    }
+
+                    to.startsWith(ICON_FLIP_FLOP) -> when {
+                        !value -> {
+                            on[to] = !on[to]!!
+                            for (output in modules[to]!!) {
+                                send(to, output, on[to]!!)
+                            }
+                        }
+                    }
+
+                    to.startsWith(ICON_CONJUCTION) -> {
+                        for (output in modules[to]!!) {
+                            send(to, output, !conjunctions[to]!!.all { it.value })
+                        }
+                    }
+                }
+            }
+        }
+
+        on = HashMap(
+            on
+                .map { Pair(it.key, false) }
+                .toMap()
+        )
+        conjunctions = HashMap(
+            conjunctions
+                .map { Pair(it.key, HashMap(it.value.map { dest -> Pair(dest.key, false) }.toMap())) }
+                .toMap()
+        )
+
+        val cycles = HashMap<String, Long>()
+        var buttonCounter = 1
+
+        while (true) {
+            send(ICON_BUTTON, ICON_BROADCASTER, false)
+
+            while (pulses.isNotEmpty()) {
+                val pulse = pulses.removeFirst()
+                val to = pulse.second
+                val value = pulse.first
+
+                when {
+                    conjunctions[parentName]!!.contains(to) -> {
                         when {
-                            countMap[target] == 2L -> {
-                                grandParents.remove(target)
-                                cycles.add(count - cycle[target]!!)
+                            !cycles.contains(to) && conjunctions[parentName]!![to]!! -> {
+                                cycles[to] = buttonCounter.toLong()
                             }
                         }
 
-                        cycle[target] = count
+                        when (cycles.keys) {
+                            conjunctions[parentName]!!.keys -> {
+                                return cycles.values.reduce { acc, c -> lcm(acc, c) }
+                            }
+                        }
                     }
                 }
-
-                when (current) {
-                    null -> {
-                        nextState[target] = isHigh
-                        index++
-                        continue
-                    }
-                }
-
-                nextConjunctionInputs[target]
-                    ?.set(from, isHigh)
-                val inputs = nextConjunctionInputs[target] ?: emptyMap()
-                val output = ModuleType.processSignal(current!!.type, isHigh, nextState[target] ?: false, inputs)
 
                 when {
-                    output != Pulse.NONE -> {
-                        nextState[target] = output == Pulse.HIGH
-                        current
-                            .connections
-                            .map { Triple(target, output, it) }
-                            .toCollection(queue)
+                    !modules.contains(to) -> continue
+                }
+
+                when {
+                    to == ICON_BROADCASTER -> for (output in modules[to]!!) {
+                        send(to, output, value)
+                    }
+
+                    to[0] == ICON_FLIP_FLOP.first() -> when {
+                        !value -> {
+                            on[to] = !on[to]!!
+                            for (output in modules[to]!!) {
+                                send(to, output, on[to]!!)
+                            }
+                        }
+                    }
+
+                    to[0] == ICON_CONJUCTION.first() -> for (output in modules[to]!!) {
+                        send(to, output, !conjunctions[to]!!.all { it.value })
                     }
                 }
 
-                index++
             }
 
-            count++
-            currentConjugation = nextConjunctionInputs
-            currentAssignment = nextState
+            buttonCounter++
         }
-
-        return (cycles.lcmForList())
     }
 
     private fun Map<String, Module>.pressTheButton(
@@ -166,14 +247,6 @@ class Day20(private var filename: String) {
 
         return nextState to nextConjunctionInputs
     }
-
-    private fun List<Long>.lcmForList(): Long =
-        fold(1L) { lcmOfAllNumbers, number ->
-            return when (val result = lcm(lcmOfAllNumbers, number)) {
-                0L -> 0
-                else -> result
-            }
-        }
 
     private fun lcm(number1: Long, number2: Long): Long =
         when {
