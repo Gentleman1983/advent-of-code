@@ -41,15 +41,15 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 17      | ⭐        | ⭐        |
 | 18      | ⭐        | ⭐        |
 | 19      | ⭐        | ⭐        |
-| 20      | ❌        | ❌        |
+| 20      | ⭐        | ⭐        |
 | 21      | ❌        | ❌        |
 | 22      | ❌        | ❌        |
 | 23      | ❌        | ❌        |
 | 24      | ❌        | ❌        |
 | 25      | ❌        | ❌        |
-| **SUM** | **19 ⭐** | **19 ⭐** |
+| **SUM** | **20 ⭐** | **20 ⭐** |
 
-Total: 38 ⭐
+Total: 40 ⭐
 
 ## Prior Years contribution:
 | Year | Language(s)                                     | Total Stars               | Link to repository                                   |
