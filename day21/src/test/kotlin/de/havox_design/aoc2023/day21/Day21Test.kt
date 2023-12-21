@@ -16,7 +16,7 @@ class Day21Test {
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart1")
     fun testSolvePart1(filename: String, expectedResult: Long) =
-        Day21(filename).solvePart1().shouldBe(expectedResult)
+        Day21(filename).solvePart1(6).shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart2")
