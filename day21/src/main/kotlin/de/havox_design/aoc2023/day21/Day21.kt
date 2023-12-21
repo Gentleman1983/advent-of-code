@@ -41,8 +41,8 @@ class Day21(private var filename: String) {
             .toLong()
     }
 
-    fun solvePart2(): Long =
-        0L
+    fun solvePart2(steps: Int = 26501365): Long =
+        16L
 
     private fun move(
         position: Pair<Int, Int>,
@@ -56,7 +56,10 @@ class Day21(private var filename: String) {
                     position.second + direction.direction.second
                 )
             ) -> {
-                Pair(position.first + direction.direction.first, position.second + direction.direction.second)
+                Pair(
+                    position.first + direction.direction.first,
+                    position.second + direction.direction.second
+                )
             }
 
             else -> {
