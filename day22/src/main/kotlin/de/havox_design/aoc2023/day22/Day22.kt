@@ -22,8 +22,9 @@ class Day22(private var filename: String) {
         return results!!.second
     }
 
+    @SuppressWarnings("kotlin:S3776")
     private fun calculateResults() {
-        if(results != null) {
+        if (results != null) {
             return
         }
 
@@ -53,6 +54,7 @@ class Day22(private var filename: String) {
         }
 
         var countToBeAbleToBeDisintegrated = 0L
+        var countCollapsingBricks = 0L
 
         for (i in 0..<bricks.size) {
             val save = bricks[i]
@@ -63,12 +65,26 @@ class Day22(private var filename: String) {
 
             if (bricks.all { !it.canFall }) {
                 countToBeAbleToBeDisintegrated++
+            } else {
+                val fallen = ArrayList(bricks)
+
+                for (j in (i + 1)..<fallen.size) {
+                    when {
+                        fallen[j].canFall(fallen) -> {
+                            countCollapsingBricks++
+
+                            while (fallen[j].canFall(fallen)) {
+                                fallen[j] = fallen[j].fallen
+                            }
+                        }
+                    }
+                }
             }
 
             bricks[i] = save
         }
 
-        Pair(countToBeAbleToBeDisintegrated, 7L)
+        results = Pair(countToBeAbleToBeDisintegrated, countCollapsingBricks)
     }
 
     private fun getResourceAsText(path: String): List<String> =
