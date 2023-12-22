@@ -17,6 +17,7 @@ data class Brick(val startPosition: Triple<Int, Int, Int>, val endPosition: Trip
                 position.y() >= startPosition.y() && position.y() <= endPosition.y() &&
                 position.z() >= startPosition.z() && position.z() <= endPosition.z()
 
+    @SuppressWarnings("kotlin:S3776")
     fun intersect(other: Brick): Boolean {
         return when {
             other.startPosition.z() > endPosition.z() || other.endPosition.z() < startPosition.z() -> false
