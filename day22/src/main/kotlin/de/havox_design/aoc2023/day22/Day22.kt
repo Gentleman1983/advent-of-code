@@ -10,7 +10,23 @@ class Day22(private var filename: String) {
 
     private val number = Regex("-?\\d+")
 
+    private var results: Pair<Long, Long>? = null
+
     fun solvePart1(): Long {
+        calculateResults()
+        return results!!.first
+    }
+
+    fun solvePart2(): Long {
+        calculateResults()
+        return results!!.second
+    }
+
+    private fun calculateResults() {
+        if(results != null) {
+            return
+        }
+
         bricks.clear()
 
         for (row in getResourceAsText(filename)) {
@@ -52,11 +68,8 @@ class Day22(private var filename: String) {
             bricks[i] = save
         }
 
-        return countToBeAbleToBeDisintegrated
+        Pair(countToBeAbleToBeDisintegrated, 7L)
     }
-
-    fun solvePart2(): Long =
-        0L
 
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
