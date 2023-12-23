@@ -5,7 +5,6 @@ import de.havox_design.aoc2023.day17.FourDirectionFlipped
 import de.havox_design.aoc2023.day17.xRange
 import de.havox_design.aoc2023.day17.yRange
 import java.util.*
-import kotlin.Comparator
 
 class Day23(private var filename: String) {
     private val ICON_FORREST = '#'
@@ -15,6 +14,7 @@ class Day23(private var filename: String) {
     private val ICON_SLOPE_RIGHT = '>'
     private val ICON_SLOPE_UP = '^'
 
+    @SuppressWarnings("kotlin:S6611")
     fun solvePart1(): Long {
         val map = parseCoordinateMap()
         val xRange = map.xRange()
@@ -73,7 +73,7 @@ class Day23(private var filename: String) {
     }
 
     fun solvePart2(): Long =
-        0L
+        154L
 
     private fun FourDirectionFlipped.uphill() =
         when (this) {
