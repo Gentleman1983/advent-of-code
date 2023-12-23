@@ -20,7 +20,7 @@ class Day23Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart2")
-    fun testSolvePart2(filename: String, expectedResult: Long) =
+    fun testSolvePart2(filename: String, expectedResult: Int) =
         Day23(filename).solvePart2().shouldBe(expectedResult)
 
     companion object {
@@ -33,9 +33,10 @@ class Day23Test {
         @JvmStatic
         private fun getDataForTestSolvePart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 154L)
+                Arguments.of("sample.txt", 154)
             )
     }
 }
 
+private fun Int.shouldBe(expectation: Int) = assertEquals(expectation, this)
 private fun Long.shouldBe(expectation: Long) = assertEquals(expectation, this)

@@ -39,3 +39,10 @@ fun <V> Map<Coordinate, V>.yRange() =
 fun <V> Map<Coordinate, V>.xRange() =
     keys.minByOrNull { it.x }!!.x to keys.maxByOrNull { it.x }!!.x
 
+fun adjacentCoordinates(origin: Coordinate) = sequenceOf(
+    Coordinate(origin.x + 1, origin.y),
+    Coordinate(origin.x - 1, origin.y),
+    Coordinate(origin.x, origin.y + 1),
+    Coordinate(origin.x, origin.y - 1)
+)
+
