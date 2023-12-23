@@ -4,11 +4,11 @@ import java.util.*
 
 class Day17(private var filename: String) {
     fun solvePart1(): Long =
-        parseCoodinateMap()
+        parseCoordinateMap()
             .findPath()
 
     fun solvePart2(): Long =
-        parseCoodinateMap()
+        parseCoordinateMap()
             .findPath(
                 maxConsecutive = 10,
                 minConsecutive = 4,
@@ -57,14 +57,14 @@ class Day17(private var filename: String) {
 
     }
 
-    fun <T> priorityQueueOf(comparator: Comparator<T>, vararg args: T): PriorityQueue<T> {
+    private fun <T> priorityQueueOf(comparator: Comparator<T>, vararg args: T): PriorityQueue<T> {
         val queue = PriorityQueue<T>(comparator)
         queue.addAll(args)
 
         return queue
     }
 
-    private fun parseCoodinateMap(): Map<Coordinate, Int> =
+    private fun parseCoordinateMap(): Map<Coordinate, Int> =
         getResourceAsText(filename)
             .flatMapIndexed { rowNumber, row ->
                 row.mapIndexed { columnNumber, char ->
