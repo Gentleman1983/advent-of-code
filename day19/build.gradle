@@ -72,3 +72,16 @@ afterEvaluate {
 
     compileKotlin.dependsOn(solverTask)
 }
+
+sourceSets {
+    main {
+        java {
+            srcDir project.file('src/main/python')
+        }
+    }
+}
+sonar {
+    properties {
+        property 'sonar.python.version', '3.12'
+    }
+}
