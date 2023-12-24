@@ -15,8 +15,8 @@ class Day24Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart1")
-    fun testSolvePart1(filename: String, expectedResult: Long) =
-        Day24(filename).solvePart1().shouldBe(expectedResult)
+    fun testSolvePart1(filename: String, expectedResult: Long, minWindow: Long, maxWindow: Long) =
+        Day24(filename).solvePart1(minWindow, maxWindow).shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart2")
@@ -27,7 +27,7 @@ class Day24Test {
         @JvmStatic
         private fun getDataForTestSolvePart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("part1sample.txt", 2L)
+                Arguments.of("part1sample.txt", 2L, 7L, 27L)
             )
 
         @JvmStatic
