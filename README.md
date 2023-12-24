@@ -3,9 +3,7 @@
 Simple project for Advent of Code 2023.
 
 Planned to be done primarily in [Kotlin](https://kotlinlang.org). Please beware of code quality issues, because these
-are early steps on Kotlin.
-
-If there will be major issues in solving the tasks in Kotlin these tasks may be solved in JAVA 21.
+are early steps on Kotlin. Some tasks may be solved in other languages like Python or JAVA 21.
 
 For more information see https://adventofcode.com [2023](https://adventofcode.com/2023)
 
@@ -20,36 +18,36 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 
 ## Current status:
 
-| Day     | Part 1   | Part 2   |
-|---------|----------|----------|
-| 1       | ⭐        | ⭐        |
-| 2       | ⭐        | ⭐        |
-| 3       | ⭐        | ⭐        |
-| 4       | ⭐        | ⭐        |
-| 5       | ⭐        | ⭐        |
-| 6       | ⭐        | ⭐        |
-| 7       | ⭐        | ⭐        |
-| 8       | ⭐        | ⭐        |
-| 9       | ⭐        | ⭐        |
-| 10      | ⭐        | ⭐        |
-| 11      | ⭐        | ⭐        |
-| 12      | ⭐        | ⭐        |
-| 13      | ⭐        | ⭐        |
-| 14      | ⭐        | ⭐        |
-| 15      | ⭐        | ⭐        |
-| 16      | ⭐        | ⭐        |
-| 17      | ⭐        | ⭐        |
-| 18      | ⭐        | ⭐        |
-| 19      | ⭐        | ⭐        |
-| 20      | ⭐        | ⭐        |
-| 21      | ⭐        | ⭐        |
-| 22      | ⭐        | ⭐        |
-| 23      | ⭐        | ⭐        |
-| 24      | ❌        | ❌        |
-| 25      | ❌        | ❌        |
-| **SUM** | **23 ⭐** | **23 ⭐** |
+| Day     | Part 1   | Part 2                                                                                                                                                          |
+|---------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1       | ⭐        | ⭐                                                                                                                                                               |
+| 2       | ⭐        | ⭐                                                                                                                                                               |
+| 3       | ⭐        | ⭐                                                                                                                                                               |
+| 4       | ⭐        | ⭐                                                                                                                                                               |
+| 5       | ⭐        | ⭐                                                                                                                                                               |
+| 6       | ⭐        | ⭐                                                                                                                                                               |
+| 7       | ⭐        | ⭐                                                                                                                                                               |
+| 8       | ⭐        | ⭐                                                                                                                                                               |
+| 9       | ⭐        | ⭐                                                                                                                                                               |
+| 10      | ⭐        | ⭐                                                                                                                                                               |
+| 11      | ⭐        | ⭐                                                                                                                                                               |
+| 12      | ⭐        | ⭐                                                                                                                                                               |
+| 13      | ⭐        | ⭐                                                                                                                                                               |
+| 14      | ⭐        | ⭐                                                                                                                                                               |
+| 15      | ⭐        | ⭐                                                                                                                                                               |
+| 16      | ⭐        | ⭐                                                                                                                                                               |
+| 17      | ⭐        | ⭐                                                                                                                                                               |
+| 18      | ⭐        | ⭐                                                                                                                                                               |
+| 19      | ⭐        | ⭐                                                                                                                                                               |
+| 20      | ⭐        | ⭐                                                                                                                                                               |
+| 21      | ⭐        | ⭐                                                                                                                                                               |
+| 22      | ⭐        | ⭐                                                                                                                                                               |
+| 23      | ⭐        | ⭐                                                                                                                                                               |
+| 24      | ⭐        | ⭐ <img src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png" width="10" height="12" alt="Python" /> |
+| 25      | ❌        | ❌                                                                                                                                                               |
+| **SUM** | **24 ⭐** | **24 ⭐**                                                                                                                                                        |
 
-Total: 46 ⭐
+Total: 48 ⭐
 
 ## Prior Years contribution:
 | Year | Language(s)                                     | Total Stars               | Link to repository                                   |

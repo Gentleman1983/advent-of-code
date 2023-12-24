@@ -8,19 +8,17 @@ class Day24(private var filename: String) {
     private val ID_VELOCITY_Y = 4
     private val ID_VELOCITY_Z = 5
 
-    fun solvePart1(minWindow: Long = 200000000000000L, maxWindow: Long = 400000000000000L): Long =
+    fun solvePart1(minWindow: Long = 200000000000000L, maxWindow: Long = 400000000000000L): Int =
         processDay24(getResourceAsText(filename), minWindow, maxWindow)
-            .first
 
-    fun solvePart2(minWindow: Long = 200000000000000L, maxWindow: Long = 400000000000000L): Long =
-        processDay24(getResourceAsText(filename), minWindow, maxWindow)
-            .second
+    fun solvePart2(): String =
+        getPythonResult("result_part2.txt")
 
     private fun processDay24(
         input: List<String>,
         minWindow: Long = 200000000000000L,
         maxWindow: Long = 400000000000000L
-    ): Pair<Long, Long> {
+    ): Int {
         val windowRange = minWindow..maxWindow
 
         val hailstones = input
@@ -37,17 +35,17 @@ class Day24(private var filename: String) {
             }
             .toList()
 
-        val result1 = hailstones
+        return hailstones
             .mapIndexed { index, hailstone ->
                 hailstones
                     .drop(index + 1)
                     .count { hailstone.collide2D(it, windowRange) }
             }
             .sum()
-            .toLong()
-
-        return Pair(result1, 47L)
     }
+
+    private fun getPythonResult(path: String): String =
+        getResourceAsText(path).last()
 
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
