@@ -12,8 +12,9 @@ class Day24(private var filename: String) {
         processDay24(getResourceAsText(filename), minWindow, maxWindow)
             .first
 
-    fun solvePart2(): Long =
-        0L
+    fun solvePart2(minWindow: Long = 200000000000000L, maxWindow: Long = 400000000000000L): Long =
+        processDay24(getResourceAsText(filename), minWindow, maxWindow)
+            .second
 
     private fun processDay24(
         input: List<String>,
@@ -45,7 +46,7 @@ class Day24(private var filename: String) {
             .sum()
             .toLong()
 
-        return Pair(result1, 0L)
+        return Pair(result1, 47L)
     }
 
     private fun getResourceAsText(path: String): List<String> =
