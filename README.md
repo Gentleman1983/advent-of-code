@@ -3,7 +3,8 @@
 Simple project for Advent of Code 2023.
 
 Planned to be done primarily in [Kotlin](https://kotlinlang.org). Please beware of code quality issues, because these
-are early steps on Kotlin. Some tasks may be solved in other languages like Python or JAVA 21.
+are early steps on Kotlin. Day 24 part 2 is solved in Python for better performance and easier solution instead of 
+Kotlin.
 
 For more information see https://adventofcode.com [2023](https://adventofcode.com/2023)
 
@@ -44,10 +45,10 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 22      | ⭐        | ⭐                                                                                                                                                               |
 | 23      | ⭐        | ⭐                                                                                                                                                               |
 | 24      | ⭐        | ⭐ <img src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png" width="10" height="12" alt="Python" /> |
-| 25      | ❌        | ❌                                                                                                                                                               |
-| **SUM** | **24 ⭐** | **24 ⭐**                                                                                                                                                        |
+| 25      | ⭐        | ⭐                                                                                                                                                               |
+| **SUM** | **25 ⭐** | **25 ⭐**                                                                                                                                                        |
 
-Total: 48 ⭐
+Total: 50 ⭐
 
 ## Prior Years contribution:
 | Year | Language(s)                                     | Total Stars               | Link to repository                                   |
