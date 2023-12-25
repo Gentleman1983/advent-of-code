@@ -13,8 +13,8 @@ class Day25(private var filename: String) {
         splitGroups(getResourceAsText(filename))
             .toLong()
 
-    fun solvePart2(): Long =
-        0L
+    fun solvePart2(): String =
+        "Merry X-MAS!!!"
 
     private fun splitGroups(input: List<String>): Int {
         val graph: Graph<String, DefaultEdge> = SimpleGraph(DefaultEdge::class.java)
