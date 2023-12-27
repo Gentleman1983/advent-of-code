@@ -31,7 +31,27 @@ public class Day02 {
 
     }
 
-    public long solvePart2() {return 9L;
+    public long solvePart2() {
+        return parseInput()
+                .stream()
+                .mapToInt(row ->
+                        row
+                                .stream()
+                                .flatMap(i ->
+                                        row
+                                                .stream()
+                                                .filter(j ->
+                                                        !j.equals(i)
+                                                                && j % i == 0
+                                                )
+                                                .map(j ->
+                                                        j / i
+                                                )
+                                )
+                                .findFirst()
+                                .orElseThrow(() -> new IllegalStateException("This should never happen!"))
+                )
+                .sum();
     }
 
     private int calculateChecksum(List<Integer> integers) {
@@ -52,7 +72,7 @@ public class Day02 {
     private List<List<Integer>> parseInput() {
         List<List<Integer>> result = new ArrayList<>();
 
-        for(String row : input) {
+        for (String row : input) {
             String[] splittedRow = row.split("\\s+");
 
             List<Integer> numbers = Arrays
