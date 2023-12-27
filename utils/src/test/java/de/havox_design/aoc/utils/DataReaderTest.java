@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class DataReaderTest {
+class DataReaderTest {
     @ParameterizedTest
     @MethodSource("getDataForReadFile")
     void testReadFile(String fileName, List<String> expectedEntries) {
