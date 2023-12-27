@@ -2,6 +2,7 @@ package de.havox_design.aoc2017.day01;
 
 import de.havox_design.aoc.utils.DataReader;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Day01 {
@@ -22,10 +23,33 @@ public class Day01 {
     }
 
     public long solvePart1() {
+        List<Integer> data = parseInput();
+        data.add(data.get(0));
+
+        long sum = 0L;
+
+        for (int i = 0; i < data.size() - 1; i++) {
+            if (data.get(i).equals(data.get(i + 1))) {
+                sum += data.get(i);
+            }
+        }
+
+        return sum;
+    }
+
+    public long solvePart2() {
         return 0L;
     }
 
-    public long solvePart2() {return 0L;
+    private List<Integer> parseInput() {
+        List<Integer> data = new ArrayList<>();
+
+        for (char c : input.get(0).toCharArray()) {
+            int number = Integer.parseInt(String.valueOf(c));
+            data.add(number);
+        }
+
+        return data;
     }
 
     private List<String> readData(String fileName) {
