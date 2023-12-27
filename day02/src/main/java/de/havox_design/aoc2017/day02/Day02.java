@@ -5,6 +5,9 @@ import de.havox_design.aoc.utils.DataReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.ToIntFunction;
+import java.util.stream.Stream;
 
 public class Day02 {
     private final List<String> input;
@@ -34,24 +37,30 @@ public class Day02 {
     public long solvePart2() {
         return parseInput()
                 .stream()
-                .mapToInt(row ->
-                        row
-                                .stream()
-                                .flatMap(i ->
-                                        row
-                                                .stream()
-                                                .filter(j ->
-                                                        !j.equals(i)
-                                                                && j % i == 0
-                                                )
-                                                .map(j ->
-                                                        j / i
-                                                )
-                                )
-                                .findFirst()
-                                .orElseThrow(() -> new IllegalStateException("This should never happen!"))
-                )
+                .mapToInt(calculateRow())
                 .sum();
+    }
+
+    private static ToIntFunction<List<Integer>> calculateRow() {
+        return row ->
+                row
+                        .stream()
+                        .flatMap(rowHasEvenDivisor(row))
+                        .findFirst()
+                        .orElseThrow(() -> new IllegalStateException("This should never happen!"));
+    }
+
+    private static Function<Integer, Stream<Integer>> rowHasEvenDivisor(List<Integer> row) {
+        return firstNumber ->
+                row
+                        .stream()
+                        .filter(otherNumber ->
+                                !otherNumber.equals(firstNumber)
+                                        && otherNumber % firstNumber == 0
+                        )
+                        .map(otherNumber ->
+                                otherNumber / firstNumber
+                        );
     }
 
     private int calculateChecksum(List<Integer> integers) {
