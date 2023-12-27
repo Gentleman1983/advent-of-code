@@ -1,2 +1,8 @@
+plugins {
+    id 'scala'
+}
+
 dependencies {
+    implementation 'org.scala-lang:scala-library:2.13.12'
+    testImplementation 'org.scalatest:scalatest_3:3.2.17'
 }
