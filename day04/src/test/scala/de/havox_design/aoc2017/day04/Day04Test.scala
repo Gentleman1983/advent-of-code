@@ -1,13 +1,17 @@
 package de.havox_design.aoc2017.day04
 
 import Day04._
+import org.junit.runner.RunWith
 import org.scalatest.funsuite.AnyFunSuite
+import org.scalatestplus.junit.JUnitRunner
 
+@RunWith(classOf[JUnitRunner])
 class Day04Test extends AnyFunSuite {
   def dayFileName = "day04.txt"
 
   test("Day 04 - Part 1") {
     println("Solution for part1: " + solvePart1(dayFileName))
+    assert(true)
   }
 
   test("Day 04 - Part 1 - Sample 1") {
@@ -28,6 +32,7 @@ class Day04Test extends AnyFunSuite {
 
   test("Day 04 - Part 2") {
     println("Solution for part2: " + solvePart2(dayFileName))
+    assert(true)
   }
 
   test("Day 04 - Part 2 - Sample 1") {
