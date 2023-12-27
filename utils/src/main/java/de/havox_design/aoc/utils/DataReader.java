@@ -1,7 +1,7 @@
-package de.havox_design.aoc2017.utils;
+package de.havox_design.aoc.utils;
 
 import com.opensymphony.xwork2.util.ClassLoaderUtil;
-import de.havox_design.aoc2017.utils.exceptions.ReadDataException;
+import de.havox_design.aoc.utils.exceptions.ReadDataException;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -25,6 +25,9 @@ public class DataReader {
         }
         catch (IOException|URISyntaxException e) {
             throw new ReadDataException(e);
+        }
+        catch (NullPointerException e) {
+            throw new ReadDataException("The file " + fileName + " could not be found.", e);
         }
     }
 }
