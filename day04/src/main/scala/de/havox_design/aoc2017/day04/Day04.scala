@@ -25,6 +25,6 @@ object Day04 {
         rowElements.distinct.length == rowElements.length
       }
 
-  def readData(filename: String): Iterator[String] =
+  private def readData(filename: String): Iterator[String] =
     scala.io.Source.fromResource(filename).getLines()
 }
