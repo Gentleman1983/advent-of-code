@@ -6,5 +6,8 @@ case class OffsetState(offsets: Seq[Int], index: Int = 0) {
     OffsetState(offsets.updated(index, offset + 1), index + offset)
   }
 
-  def exited: Boolean = !offsets.indices.contains(index)
+  def exited: Boolean =
+    !offsets
+      .indices
+      .contains(index)
 }

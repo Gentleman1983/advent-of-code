@@ -4,13 +4,15 @@ import scala.collection.AbstractIterator
 
 class OffsetIterator(private var offsetState: OffsetState) extends AbstractIterator[OffsetState] {
   override def hasNext: Boolean = {
-    !offsetState.exited
+    !offsetState
+      .exited
   }
 
   override def next(): OffsetState = {
     val returnState = offsetState
 
-    offsetState = offsetState.jump
+    offsetState = offsetState
+      .jump
 
     returnState
   }

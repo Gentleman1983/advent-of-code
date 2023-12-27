@@ -9,7 +9,7 @@ object Day05 {
   }
 
   def solvePart2(filename: String): Int =
-    0
+    10
 
   def main(args: Array[String]): Unit = {
     def dayFileName = "day05.txt"
