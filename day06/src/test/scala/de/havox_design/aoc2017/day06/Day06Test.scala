@@ -11,7 +11,6 @@ class Day06Test extends AnyFunSuite {
 
   test("Day 06 - Part 1") {
     println("Solution for part1: " + solvePart1(dayFileName))
-    assert(true)
   }
 
   test("Day 06 - Part 1 - Sample 1") {
@@ -20,7 +19,6 @@ class Day06Test extends AnyFunSuite {
 
   test("Day 06 - Part 2") {
     println("Solution for part2: " + solvePart2(dayFileName))
-    assert(true)
   }
 
   test("Day 06 - Part 2 - Sample 1") {

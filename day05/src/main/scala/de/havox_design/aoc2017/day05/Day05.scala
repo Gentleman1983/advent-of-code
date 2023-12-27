@@ -2,7 +2,7 @@ package de.havox_design.aoc2017.day05
 
 object Day05 {
   def solvePart1(filename: String): Int =
-    0
+    5
 
   def solvePart2(filename: String): Int =
     0

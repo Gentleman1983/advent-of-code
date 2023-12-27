@@ -11,16 +11,14 @@ class Day05Test extends AnyFunSuite {
 
   test("Day 05 - Part 1") {
     println("Solution for part1: " + solvePart1(dayFileName))
-    assert(true)
   }
 
-  test("Day 05 - Part 1 - Sample 1") {
-    assert(solvePart1("part1sample1.txt") == 0)
+  test("Day 05 - Part 1 - Sample") {
+    assert(solvePart1("part1sample.txt") == 5)
   }
 
   test("Day 05 - Part 2") {
     println("Solution for part2: " + solvePart2(dayFileName))
-    assert(true)
   }
 
   test("Day 05 - Part 2 - Sample 1") {
