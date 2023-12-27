@@ -31,26 +31,26 @@ class Day04Test extends AnyFunSuite {
   }
 
   test("Day 04 - Part 2 - Sample 1") {
-    assert(solvePart1("part2sample1.txt") == 1)
+    assert(solvePart2("part2sample1.txt") == 1)
   }
 
   test("Day 04 - Part 2 - Sample 2") {
-    assert(solvePart1("part2sample2.txt") == 0)
+    assert(solvePart2("part2sample2.txt") == 0)
   }
 
   test("Day 04 - Part 2 - Sample 3") {
-    assert(solvePart1("part2sample3.txt") == 1)
+    assert(solvePart2("part2sample3.txt") == 1)
   }
 
   test("Day 04 - Part 2 - Sample 4") {
-    assert(solvePart1("part2sample4.txt") == 1)
+    assert(solvePart2("part2sample4.txt") == 1)
   }
 
   test("Day 04 - Part 2 - Sample 5") {
-    assert(solvePart1("part2sample5.txt") == 0)
+    assert(solvePart2("part2sample5.txt") == 0)
   }
 
   test("Day 04 - Part 2 - Sample 6") {
-    assert(solvePart1("part2sample6.txt") == 3)
+    assert(solvePart2("part2sample6.txt") == 3)
   }
 }
