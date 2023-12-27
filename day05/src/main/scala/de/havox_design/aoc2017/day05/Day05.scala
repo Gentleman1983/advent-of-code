@@ -8,8 +8,12 @@ object Day05 {
     iterator.size
   }
 
-  def solvePart2(filename: String): Int =
-    10
+  def solvePart2(filename: String): Int = {
+    val initialState = OffsetState(parseData(filename), true)
+    val iterator = new OffsetIterator(initialState)
+
+    iterator.size
+  }
 
   def main(args: Array[String]): Unit = {
     def dayFileName = "day05.txt"
