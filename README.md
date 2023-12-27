@@ -10,7 +10,7 @@ For more information see https://adventofcode.com [2017](https://adventofcode.co
 ![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2017%3Aadvent_of_code_2017&metric=coverage "The current coverage")
 ![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2017%3Aadvent_of_code_2017&metric=bugs "The current number of SonarQube bugs")
 ![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2017%3Aadvent_of_code_2017&metric=vulnerabilities "The current number of SonarQube vulnerabilities")
-![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2017%3Aadvent_of_code_2017&metric=code_smells "The current number of SonarQube code smells")](https://sonarcloud.io/dashboard?id=de.havox_design.aoc2016%3Aadvent_of_code_2016)
+![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2017%3Aadvent_of_code_2017&metric=code_smells "The current number of SonarQube code smells")](https://sonarcloud.io/dashboard?id=de.havox_design.aoc2017%3Aadvent_of_code_2017)
 
 To run all solutions, simply run `./gradlew run`. If you want to run the solution for day 5, simply run
 `./gradlew :day05:run`.
