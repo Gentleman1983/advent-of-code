@@ -2,7 +2,9 @@ package de.havox_design.aoc2017.day03;
 
 import de.havox_design.aoc.utils.DataReader;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Day03 {
     private final int input;
@@ -27,17 +29,50 @@ public class Day03 {
     }
 
     public long solvePart2() {
-        return 0L;
+        return calculateValueLargerThanInput(2);
+    }
+
+    private int calculateValueLargerThanInput(int value) {
+        Point origin = new Point(0, 0);
+        Map<Point, Integer> map = new HashMap<>();
+
+        map.put(origin, 1);
+
+        return calculateValueLargerThanInput(value, map);
+    }
+
+    private int calculateValueLargerThanInput(int value, Map<Point, Integer> map) {
+        Point point = calculatePosition(value);
+        int result = point
+                .neighbors()
+                .stream()
+                .map(p -> {
+                            if (map.containsKey(p)) {
+                                return map.get(p);
+                            } else {
+                                return 0;
+                            }
+                        }
+                )
+                .reduce(Integer::sum)
+                .orElseThrow(() -> new IllegalStateException("This should not happen."));
+
+        if (result > input) {
+            return result;
+        } else {
+            map.put(point, result);
+            return calculateValueLargerThanInput(value + 1, map);
+        }
     }
 
     private Point calculatePosition(int input) {
-        if(input == 1) {
+        if (input == 1) {
             return new Point(0, 0);
         }
 
         int n = 1;
 
-        while(StrictMath.pow(n, 2) < input) {
+        while (StrictMath.pow(n, 2) < input) {
             n += 2;
         }
 
