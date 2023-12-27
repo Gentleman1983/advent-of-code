@@ -16,7 +16,7 @@ class DataReaderTest {
     @ParameterizedTest
     @MethodSource("getDataForReadFile")
     void testReadFile(String fileName, List<String> expectedEntries) {
-        List<String> testData = DataReader.readData(fileName, this.getClass());
+        List<String> testData = DataReader.readData(fileName, DataReaderTest.class);
 
         assertAll(
                 () -> assertThat(testData.size(), is(expectedEntries.size())),
@@ -48,7 +48,7 @@ class DataReaderTest {
     @ParameterizedTest
     @MethodSource("getDataForReadFileException")
     void testReadFileException(String fileName) {
-        assertThrows(ReadDataException.class, () -> DataReader.readData(fileName, this.getClass()));
+        assertThrows(ReadDataException.class, () -> DataReader.readData(fileName, DataReaderTest.class));
     }
 
     private static Stream<Arguments> getDataForReadFileException() {
