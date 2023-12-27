@@ -5,9 +5,11 @@ import scala.annotation.tailrec
 object Day06 {
   def solvePart1(filename: String): Int =
     findCycle(parseData(filename))
+      ._1
 
   def solvePart2(filename: String): Int =
-    4
+    findCycle(parseData(filename))
+      ._2
 
   def main(args: Array[String]): Unit = {
     def dayFileName = "day06.txt"
@@ -16,13 +18,13 @@ object Day06 {
     println("Solution for part2: " + solvePart2(dayFileName))
   }
 
-  private def findCycle(data: Seq[Int]): Int =
+  private def findCycle(data: Seq[Int]): (Int, Int) =
     calculateCycle(data, Map(), 0)
 
   @tailrec
-  private def calculateCycle(current: Seq[Int], previous: Map[Seq[Int], Int], depth: Int): Int =
+  private def calculateCycle(current: Seq[Int], previous: Map[Seq[Int], Int], depth: Int): (Int, Int) =
     if (previous.contains(current)) {
-      depth
+      (depth, depth - previous(current))
     }
     else {
       calculateCycle(calculateStep(current), previous.updated(current, depth), depth + 1)
