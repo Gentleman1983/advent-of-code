@@ -2,6 +2,8 @@ package de.havox_design.aoc2017.day02;
 
 import de.havox_design.aoc.utils.DataReader;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Day02 {
@@ -22,10 +24,47 @@ public class Day02 {
     }
 
     public long solvePart1() {
-        return 18L;
+        return parseInput()
+                .stream()
+                .map(this::calculateChecksum)
+                .reduce(0, Integer::sum);
+
     }
 
     public long solvePart2() {return 0L;
+    }
+
+    private int calculateChecksum(List<Integer> integers) {
+        String errorMessage = "No data in row " + integers;
+
+        int min = integers
+                .stream()
+                .min(Integer::compare)
+                .orElseThrow(() -> new IllegalStateException(errorMessage));
+        int max = integers
+                .stream()
+                .max(Integer::compare)
+                .orElseThrow(() -> new IllegalStateException(errorMessage));
+
+        return max - min;
+    }
+
+    private List<List<Integer>> parseInput() {
+        List<List<Integer>> result = new ArrayList<>();
+
+        for(String row : input) {
+            String[] splittedRow = row.split("\\s+");
+
+            List<Integer> numbers = Arrays
+                    .stream(splittedRow)
+                    .map(String::trim)
+                    .map(Integer::parseInt)
+                    .toList();
+
+            result.add(numbers);
+        }
+
+        return result;
     }
 
     private List<String> readData(String fileName) {
