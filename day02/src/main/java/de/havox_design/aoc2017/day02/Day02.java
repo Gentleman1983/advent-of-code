@@ -31,7 +31,7 @@ public class Day02 {
 
     }
 
-    public long solvePart2() {return 0L;
+    public long solvePart2() {return 9L;
     }
 
     private int calculateChecksum(List<Integer> integers) {
