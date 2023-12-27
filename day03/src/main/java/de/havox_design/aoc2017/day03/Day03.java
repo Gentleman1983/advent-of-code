@@ -21,7 +21,7 @@ public class Day03 {
         return instance.solvePart2();
     }
 
-    public long solvePart1() {
+    public int solvePart1() {
         Point position = calculatePosition(input);
         return Math.abs(position.x()) + Math.abs(position.y());
     }
@@ -41,7 +41,7 @@ public class Day03 {
             n += 2;
         }
 
-        int base = input - (int) StrictMath.pow(n - 2, 2) - 1;
+        int base = input - (int) StrictMath.pow((double) n - 2, 2) - 1;
         int size = n - 1;
         int half = size / 2;
         int quadrant = base / size;
