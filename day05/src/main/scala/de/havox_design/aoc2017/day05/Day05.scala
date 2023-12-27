@@ -1,8 +1,12 @@
 package de.havox_design.aoc2017.day05
 
 object Day05 {
-  def solvePart1(filename: String): Int =
-    5
+  def solvePart1(filename: String): Int = {
+    val initialState = OffsetState(parseData(filename))
+    val iterator = new OffsetIterator(initialState)
+
+    iterator.size
+  }
 
   def solvePart2(filename: String): Int =
     0
@@ -14,6 +18,15 @@ object Day05 {
     println("Solution for part2: " + solvePart2(dayFileName))
   }
 
+  private def parseData(filename: String): Seq[Int] =
+    readData(filename)
+      .map(_.toInt)
+      .toIndexedSeq
+
   private def readData(filename: String): Iterator[String] =
-    scala.io.Source.fromResource(filename).getLines()
+    scala
+      .io
+      .Source
+      .fromResource(filename)
+      .getLines()
 }

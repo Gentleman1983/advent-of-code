@@ -7,7 +7,7 @@ import org.scalatestplus.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Day05Test extends AnyFunSuite {
-  def dayFileName = "day04.txt"
+  def dayFileName = "day05.txt"
 
   test("Day 05 - Part 1") {
     println("Solution for part1: " + solvePart1(dayFileName))

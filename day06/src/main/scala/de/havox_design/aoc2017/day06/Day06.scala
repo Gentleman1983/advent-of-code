@@ -15,5 +15,9 @@ object Day06 {
   }
 
   private def readData(filename: String): Iterator[String] =
-    scala.io.Source.fromResource(filename).getLines()
+    scala
+      .io
+      .Source
+      .fromResource(filename)
+      .getLines()
 }
