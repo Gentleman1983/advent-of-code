@@ -25,6 +25,13 @@ object Day04 {
         rowElements.distinct.length == rowElements.length
       }
 
+  def main(args: Array[String]): Unit = {
+    def dayFileName = "day04.txt"
+
+    println("Solution for part1: " + solvePart1(dayFileName))
+    println("Solution for part2: " + solvePart2(dayFileName))
+  }
+
   private def readData(filename: String): Iterator[String] =
     scala.io.Source.fromResource(filename).getLines()
 }

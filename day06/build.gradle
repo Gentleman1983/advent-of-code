@@ -1,2 +1,21 @@
+plugins {
+    id 'scala'
+}
+
 dependencies {
+    implementation 'org.scala-lang:scala-library:2.13.12'
+    testImplementation 'org.scalatest:scalatest_2.13:2.13.12'
+    testImplementation 'org.scalatestplus:scalatestplus-junit_2.13:1.0.0-SNAP9'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.junit.vintage:junit-vintage-engine:5.10.1'
+}
+
+application {
+    mainClass = "de.havox_design.${rootProject.name}.${project.name}.Day06"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': "de.havox_design.${rootProject.name}.${project.name}.Day06"
+    }
 }

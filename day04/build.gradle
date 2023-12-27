@@ -9,3 +9,13 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.junit.vintage:junit-vintage-engine:5.10.1'
 }
+
+application {
+    mainClass = "de.havox_design.${rootProject.name}.${project.name}.Day04"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': "de.havox_design.${rootProject.name}.${project.name}.Day04"
+    }
+}
