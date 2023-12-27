@@ -4,6 +4,7 @@ import de.havox_design.aoc.utils.DataReader;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Day01 {
     private final List<String> input;
@@ -38,7 +39,17 @@ public class Day01 {
     }
 
     public long solvePart2() {
-        return 0L;
+        List<Integer> data = parseInput();
+
+        return IntStream
+                .range(0, data.size())
+                .mapToLong(index -> {
+                            int digit = data.get(index);
+                            int otherDigit = data.get((index + (data.size() / 2)) % data.size());
+                            return digit == otherDigit ? digit : 0;
+                        }
+                )
+                .sum();
     }
 
     private List<Integer> parseInput() {
