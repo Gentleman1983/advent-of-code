@@ -7,7 +7,7 @@ object Day06 {
     findCycle(parseData(filename))
 
   def solvePart2(filename: String): Int =
-    0
+    4
 
   def main(args: Array[String]): Unit = {
     def dayFileName = "day06.txt"
