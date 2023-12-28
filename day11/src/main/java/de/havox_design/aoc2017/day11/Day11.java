@@ -3,15 +3,19 @@ package de.havox_design.aoc2017.day11;
 import de.havox_design.aoc.utils.DataReader;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Day11 {
-    private final List<String> input;
+    private static final Pattern INSTRUCTION_SPLITTER = Pattern.compile(",");
+
+    private final String input;
 
     public Day11(String fileName) {
-        input = readData(fileName);
+        input = readData(fileName)
+                .get(0);
     }
 
-    public static long solvePart1(String fileName) {
+    public static int solvePart1(String fileName) {
         Day11 instance = new Day11(fileName);
         return instance.solvePart1();
     }
@@ -21,11 +25,22 @@ public class Day11 {
         return instance.solvePart2();
     }
 
-    public long solvePart1() {
+    public int solvePart1() {
+        return traceSteps()
+                .countStepsFromOrigin();
+    }
+
+    public long solvePart2() {
         return 0L;
     }
 
-    public long solvePart2() {return 0L;
+    public Counter traceSteps() {
+        return INSTRUCTION_SPLITTER
+                .splitAsStream(input)
+                .map(step -> Cardinal.valueOf(step.toUpperCase()))
+                .reduce(new Counter(), Counter::moveTo, (a, b) -> {
+                    throw new UnsupportedOperationException();
+                });
     }
 
     private List<String> readData(String fileName) {
