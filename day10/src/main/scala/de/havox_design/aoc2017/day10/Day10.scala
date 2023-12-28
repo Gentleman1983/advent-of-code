@@ -4,8 +4,8 @@ object Day10 {
   def solvePart1(filename: String, elements: Int = 256): Int =
     calculateProductOfFirstTwoElements(readData(filename).next(), elements)
 
-  def solvePart2(filename: String): Int =
-    0
+  def solvePart2(filename: String): String =
+    ""
 
   def main(args: Array[String]): Unit = {
     def dayFileName = "day07.txt"
