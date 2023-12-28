@@ -9,7 +9,9 @@ object Day08 {
       .max
 
   def solvePart2(filename: String): Int =
-    10
+    compute(readData(filename)
+      .toIndexedSeq)
+      ._2
 
   def main(args: Array[String]): Unit = {
     def dayFileName = "day07.txt"
