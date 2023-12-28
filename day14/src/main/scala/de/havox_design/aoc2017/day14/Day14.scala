@@ -9,36 +9,63 @@ object Day14 {
   def solvePart1(filename: String): Int =
     squaresUsed(readData(filename).next())
 
-  def solvePart2(filename: String): Int = {
-    1242
-  }
+  def solvePart2(filename: String): Int =
+    countRegions(readData(filename).next())
 
   def main(args: Array[String]): Unit = {
     def dayFileName = "day14.txt"
 
     println("Solution for part1: " + solvePart1(dayFileName))
-    println("Solution for part2: " + solvePart2(dayFileName))
+    println("Solution for part1: " + solvePart2(dayFileName))
   }
 
-  def squaresUsed(key: String): Int =
-    hashGrid(key)
+  private def squaresUsed(input: String): Int = {
+    hashGrid(input)
       .map(_.count(x => x))
       .sum
+  }
 
-  def hashGrid(key: String): Grid[Boolean] = {
+  private def countRegions(input: String): Int = {
+    val points = binary(input)
+      .zipWithIndex
+      .flatMap { case (row, y) =>
+      for x <- 0 to 127 if row(x) == '1' yield Point(x, y)
+    }
+    
+    val cliques = points
+      .foldLeft(Set.empty[Set[Point]]) { (groups, point) =>
+      val (other, linked) = groups
+        .partition(_.intersect(point.neighbours).isEmpty)
+      
+        other + (linked.flatten + point)
+    }
+    
+    cliques
+      .size
+  }
+
+  private def binary(input: String): Seq[String] =
+    (0 to 127)
+      .map(index => 
+        knotHash(s"$input-$index")
+        .map(s => "%08d".format(s.toBinaryString.toInt))
+        .mkString
+      )
+
+  private def hashGrid(input: String): Grid[Boolean] = {
     (0 until 128)
-      .map(row => bytes2bits(hashRow(key, row)))
+      .map(row => bytes2bits(hashRow(input, row)))
       .toVector
   }
 
-  def hashRow(key: String, row: Int): Seq[Byte] =
-    knotHash(s"$key-$row")
+  private def hashRow(input: String, row: Int): Seq[Byte] =
+    knotHash(s"$input-$row")
       .map(_.toByte)
 
-  def knotHash(input: String): Seq[Int] =
+  private def knotHash(input: String): Seq[Int] =
     transformSparseHashesToDenseHash(process(KnotState(), asciiLengths(input), 64).elements)
 
-  def bytes2bits(bytes: Seq[Byte]): Vector[Boolean] =
+  private def bytes2bits(bytes: Seq[Byte]): Vector[Boolean] =
     bytes
       .flatMap(byte =>
         (0 until 8)
