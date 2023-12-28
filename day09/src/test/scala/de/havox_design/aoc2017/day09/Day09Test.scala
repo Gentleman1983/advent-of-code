@@ -10,8 +10,36 @@ class Day09Test extends AnyFunSuite {
     println("Solution for part1: " + solvePart1(dayFileName))
   }
 
-  test("Day 09 - Part 1 - Sample") {
-    assert(solvePart1("sample.txt") == 0)
+  test("Day 09 - Part 1 - Sample 1") {
+    assert(solvePart1("part1sample1.txt") == 1)
+  }
+
+  test("Day 09 - Part 1 - Sample 2") {
+    assert(solvePart1("part1sample2.txt") == 6)
+  }
+
+  test("Day 09 - Part 1 - Sample 3") {
+    assert(solvePart1("part1sample3.txt") == 5)
+  }
+
+  test("Day 09 - Part 1 - Sample 4") {
+    assert(solvePart1("part1sample4.txt") == 16)
+  }
+
+  test("Day 09 - Part 1 - Sample 5") {
+    assert(solvePart1("part1sample5.txt") == 1)
+  }
+
+  test("Day 09 - Part 1 - Sample 6") {
+    assert(solvePart1("part1sample6.txt") == 9)
+  }
+
+  test("Day 09 - Part 1 - Sample 7") {
+    assert(solvePart1("part1sample7.txt") == 9)
+  }
+
+  test("Day 09 - Part 1 - Sample 8") {
+    assert(solvePart1("part1sample8.txt") == 3)
   }
 
   test("Day 09 - Part 2") {
