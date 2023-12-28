@@ -70,6 +70,7 @@ public class Day12 {
         return visited;
     }
 
+    @SuppressWarnings("squid:S3864")
     private void aggregate(Stream<Program> stream, Set<Program> seen) {
         stream
                 .peek(seen::add)
