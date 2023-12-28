@@ -28,7 +28,7 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 7       | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> |
 | 8       | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> |
 | 9       | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> |
-| 10      | ❌ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> | ❌ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> |
+| 10      | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> |
 | 11      | ❌                                                                                                                        | ❌                                                                                                                        |
 | 12      | ❌                                                                                                                        | ❌                                                                                                                        |
 | 13      | ❌                                                                                                                        | ❌                                                                                                                        |
@@ -44,9 +44,9 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 23      | ❌                                                                                                                        | ❌                                                                                                                        |
 | 24      | ❌                                                                                                                        | ❌                                                                                                                        |
 | 25      | ❌                                                                                                                        | ❌                                                                                                                        |
-| **SUM** | **9 ⭐**                                                                                                                  | **9 ⭐**                                                                                                                  |
+| **SUM** | **10 ⭐**                                                                                                                 | **10 ⭐**                                                                                                                 |
 
-Total: 18 ⭐
+Total: 20 ⭐
 
 ## Prior Years contribution:
 | Year | Language(s)                                     | Total Stars | Link to repository                                   |
