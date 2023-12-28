@@ -6,7 +6,7 @@ object Day07 {
       .name
 
   def solvePart2(filename: String): Int =
-    0
+    60
 
   def main(args: Array[String]): Unit = {
     def dayFileName = "day07.txt"
