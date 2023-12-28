@@ -29,12 +29,35 @@ public class Day12 {
     }
 
     public long solvePart2() {
-        return 2L;
+        return calculateTotalNumberOfGroups(input);
     }
 
     private long calculateGroupSize(Collection<String> programs, int groupId) {
         return getTargets(generateMap(programs), groupId)
                 .size();
+    }
+
+    private long calculateTotalNumberOfGroups(Collection<String> programs) {
+        long counter = 0L;
+
+        for (
+                Map<Integer, Program> map = generateMap(programs);
+                !map.isEmpty();
+                getTargets(
+                        map,
+                        map
+                                .keySet()
+                                .iterator()
+                                .next()
+                )
+                        .stream()
+                        .map(Program::getId)
+                        .forEach(map::remove)
+        ) {
+            counter++;
+        }
+
+        return counter;
     }
 
     private Set<Program> getTargets(Map<Integer, Program> map, int groupId) {
