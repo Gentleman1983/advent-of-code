@@ -1,11 +1,8 @@
 package de.havox_design.aoc2017.day05
 
 import Day05._
-import org.junit.runner.RunWith
 import org.scalatest.funsuite.AnyFunSuite
-import org.scalatestplus.junit.JUnitRunner
 
-@RunWith(classOf[JUnitRunner])
 class Day05Test extends AnyFunSuite {
   def dayFileName = "day05.txt"
 
