@@ -14,7 +14,7 @@ object Day08 {
       ._2
 
   def main(args: Array[String]): Unit = {
-    def dayFileName = "day07.txt"
+    def dayFileName = "day08.txt"
 
     println("Solution for part1: " + solvePart1(dayFileName))
     println("Solution for part2: " + solvePart2(dayFileName))

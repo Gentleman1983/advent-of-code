@@ -16,13 +16,13 @@ object Day10 {
   }
 
   def main(args: Array[String]): Unit = {
-    def dayFileName = "day07.txt"
+    def dayFileName = "day10.txt"
 
     println("Solution for part1: " + solvePart1(dayFileName))
     println("Solution for part2: " + solvePart2(dayFileName))
   }
 
-  private def process(initialKnotState: KnotState, lengths: Seq[Int], rounds: Int = 1): KnotState =
+  def process(initialKnotState: KnotState, lengths: Seq[Int], rounds: Int = 1): KnotState =
     (0 until rounds).foldLeft(initialKnotState) { (knotState, round) =>
       lengths
         .foldLeft(knotState)(_.reversed(_))
@@ -46,7 +46,7 @@ object Day10 {
   private def calculateKnotHash(input: String): String =
     convertToHexString(transformSparseHashesToDenseHash(process(KnotState(), asciiLengths(input), 64).elements))
 
-  private def transformSparseHashesToDenseHash(sparse: Seq[Int]): Seq[Int] =
+  def transformSparseHashesToDenseHash(sparse: Seq[Int]): Seq[Int] =
     sparse
       .grouped(16)
       .map(_.reduce(_ ^ _))
@@ -57,7 +57,7 @@ object Day10 {
       .map("%02x".format(_))
       .mkString
 
-  private def asciiLengths(input: String): Seq[Int] =
+  def asciiLengths(input: String): Seq[Int] =
     input.map(_.toInt) ++ Seq(17, 31, 73, 47, 23)
 
   private def readData(filename: String): Iterator[String] =

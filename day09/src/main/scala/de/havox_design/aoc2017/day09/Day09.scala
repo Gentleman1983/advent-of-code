@@ -10,7 +10,7 @@ object Day09 {
       .garbageScore
 
   def main(args: Array[String]): Unit = {
-    def dayFileName = "day07.txt"
+    def dayFileName = "day09.txt"
 
     println("Solution for part1: " + solvePart1(dayFileName))
     println("Solution for part2: " + solvePart2(dayFileName))
