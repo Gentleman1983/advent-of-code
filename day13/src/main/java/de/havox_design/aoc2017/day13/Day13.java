@@ -3,6 +3,8 @@ package de.havox_design.aoc2017.day13;
 import de.havox_design.aoc.utils.DataReader;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Day13 {
     private final List<String> input;
@@ -30,7 +32,18 @@ public class Day13 {
     }
 
     public long solvePart2() {
-        return 10L;
+        int maxDelay = Integer.MAX_VALUE;
+        List<Layer> layers = input
+                .stream()
+                .map(Layer::parse)
+                .collect(Collectors.toUnmodifiableList());
+
+        return IntStream
+                .range(1, maxDelay)
+                .filter(i -> layers.stream()
+                        .allMatch(v -> v.getSeverityPlusDelay(i) == 0))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Expected delay less than " + maxDelay));
     }
 
     private List<String> readData(String fileName) {
