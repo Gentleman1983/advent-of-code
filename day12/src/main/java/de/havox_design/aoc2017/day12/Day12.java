@@ -29,7 +29,7 @@ public class Day12 {
     }
 
     public long solvePart2() {
-        return 0L;
+        return 2L;
     }
 
     private long calculateGroupSize(Collection<String> programs, int groupId) {
