@@ -6,7 +6,8 @@ object Day09 {
       .groupScore
 
   def solvePart2(filename: String): Int =
-    0
+    calculate(readData(filename).next().trim)
+      .garbageScore
 
   def main(args: Array[String]): Unit = {
     def dayFileName = "day07.txt"
