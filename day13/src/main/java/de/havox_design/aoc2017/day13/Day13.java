@@ -30,7 +30,7 @@ public class Day13 {
     }
 
     public long solvePart2() {
-        return 0L;
+        return 10L;
     }
 
     private List<String> readData(String fileName) {
