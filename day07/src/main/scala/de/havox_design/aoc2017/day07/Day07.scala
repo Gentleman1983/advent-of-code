@@ -6,7 +6,19 @@ object Day07 {
       .name
 
   def solvePart2(filename: String): Int =
-    60
+    def helper(node: Node): Int =
+      node
+        .children
+        .find(_.unbalanced) match
+        case Some(unbalanced) => helper(unbalanced)
+        case None => node
+          .children
+          .partition(_.total == node.children.head.total) match
+          case (Seq(other), Seq(same, _*)) => other.weight + same.total - other.total
+          case (Seq(same, _*), Seq(other)) => other.weight + same.total - other.total
+
+    helper(parseTree(readData(filename).toIndexedSeq))
+  end solvePart2
 
   def main(args: Array[String]): Unit = {
     def dayFileName = "day07.txt"
