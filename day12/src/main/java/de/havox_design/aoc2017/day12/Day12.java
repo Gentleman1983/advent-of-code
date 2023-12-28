@@ -2,7 +2,10 @@ package de.havox_design.aoc2017.day12;
 
 import de.havox_design.aoc.utils.DataReader;
 
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Day12 {
     private final List<String> input;
@@ -22,10 +25,45 @@ public class Day12 {
     }
 
     public long solvePart1() {
-        return 6L;
+        return calculateGroupSize(input, 0);
     }
 
-    public long solvePart2() {return 0L;
+    public long solvePart2() {
+        return 0L;
+    }
+
+    private long calculateGroupSize(Collection<String> programs, int groupId) {
+        return getTargets(generateMap(programs), groupId)
+                .size();
+    }
+
+    private Set<Program> getTargets(Map<Integer, Program> map, int groupId) {
+        Program target = map
+                .get(groupId);
+        Set<Program> visited = new HashSet<>(Set.of(target));
+
+        aggregate(target.streamTargetsExcluding(visited), visited);
+
+        return visited;
+    }
+
+    private void aggregate(Stream<Program> stream, Set<Program> seen) {
+        stream
+                .peek(seen::add)
+                .forEach(v -> aggregate(v.streamTargetsExcluding(seen), seen));
+    }
+
+    private Map<Integer, Program> generateMap(Collection<String> programs) {
+        Map<Integer, Program> map = programs
+                .stream()
+                .map(Program::parse)
+                .collect(Collectors.toMap(Program::getId, Function.identity()));
+
+        map
+                .values()
+                .forEach(p -> p.setTargets(map));
+
+        return map;
     }
 
     private List<String> readData(String fileName) {
