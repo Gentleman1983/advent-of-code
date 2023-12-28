@@ -22,10 +22,15 @@ public class Day13 {
     }
 
     public long solvePart1() {
-        return 24L;
+        return input
+                .stream()
+                .map(Layer::parse)
+                .mapToInt(Layer::getSeverityPlusDelay)
+                .sum();
     }
 
-    public long solvePart2() {return 0L;
+    public long solvePart2() {
+        return 0L;
     }
 
     private List<String> readData(String fileName) {
