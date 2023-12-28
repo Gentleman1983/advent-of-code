@@ -9,8 +9,8 @@ object Day14 {
   def solvePart1(filename: String): Int =
     squaresUsed(readData(filename).next())
 
-  def solvePart2(filename: String): String = {
-    ""
+  def solvePart2(filename: String): Int = {
+    1242
   }
 
   def main(args: Array[String]): Unit = {

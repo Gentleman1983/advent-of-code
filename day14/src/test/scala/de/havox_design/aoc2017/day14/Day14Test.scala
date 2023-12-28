@@ -11,7 +11,7 @@ class Day14Test extends AnyFunSuite {
   }
 
   test("Day 10 - Part 1 - Sample") {
-    assert(solvePart1("part1sample.txt") == 8108)
+    assert(solvePart1("sample.txt") == 8108)
   }
 
   test("Day 10 - Part 2") {
@@ -19,6 +19,6 @@ class Day14Test extends AnyFunSuite {
   }
 
   test("Day 10 - Part 2 - Sample") {
-    assert(solvePart2("part2sample1.txt") == "")
+    assert(solvePart2("sample.txt") == 1242)
   }
 }
