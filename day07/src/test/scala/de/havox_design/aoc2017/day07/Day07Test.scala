@@ -11,7 +11,7 @@ class Day07Test extends AnyFunSuite {
   }
 
   test("Day 07 - Part 1 - Sample") {
-    assert(solvePart1("sample.txt") == 0)
+    assert(solvePart1("part1sample.txt") == "tknk")
   }
 
   test("Day 07 - Part 2") {
