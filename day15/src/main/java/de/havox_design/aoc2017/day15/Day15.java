@@ -3,10 +3,14 @@ package de.havox_design.aoc2017.day15;
 import de.havox_design.aoc.utils.DataReader;
 
 import java.util.List;
+import java.util.function.IntPredicate;
 
 public class Day15 {
     private static final int ID_A = 0;
     private static final int ID_B = 1;
+    private static final IntPredicate PREDICATE_A = a -> a % 4 == 0;
+    private static final IntPredicate PREDICATE_B = b -> b % 8 == 0;
+
     private final List<String> input;
 
     public Day15(String fileName) {
@@ -28,18 +32,27 @@ public class Day15 {
 
         GeneratorPair generatorPair = GeneratorPair.of(data[ID_A], data[ID_B]);
 
-        return countMatchingPairs(generatorPair, 40000000);
+        return countMatchingPairs(generatorPair, 40000000, false);
     }
 
     public long solvePart2() {
-        return 1056L;
+        int[] data = parseInput();
+
+        GeneratorPair generatorPair = GeneratorPair.of(data[ID_A], data[ID_B]);
+
+        return countMatchingPairs(generatorPair, 5000000, true);
     }
 
-    private long countMatchingPairs(GeneratorPair generatorPair, int iterations) {
+    private long countMatchingPairs(GeneratorPair generatorPair, int iterations, boolean isPart2) {
         long counter = 0L;
 
         for (int i = 0; i < iterations; i++) {
-            generatorPair = generatorPair.next();
+            if(isPart2) {
+                generatorPair = generatorPair.next(PREDICATE_A, PREDICATE_B);
+            }
+            else {
+                generatorPair = generatorPair.next();
+            }
 
             if (generatorPair.matches()) {
                 counter++;
