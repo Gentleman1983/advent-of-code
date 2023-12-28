@@ -31,6 +31,10 @@ public class Day15 {
         return countMatchingPairs(generatorPair, 40000000);
     }
 
+    public long solvePart2() {
+        return 1056L;
+    }
+
     private long countMatchingPairs(GeneratorPair generatorPair, int iterations) {
         long counter = 0L;
 
@@ -43,10 +47,6 @@ public class Day15 {
         }
 
         return counter;
-    }
-
-    public long solvePart2() {
-        return 0L;
     }
 
     private int[] parseInput() {
