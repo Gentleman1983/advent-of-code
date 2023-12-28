@@ -30,8 +30,9 @@ public class Day11 {
                 .countStepsFromOrigin();
     }
 
-    public long solvePart2() {
-        return 0L;
+    public int solvePart2() {
+        return traceSteps()
+                .getFurthest();
     }
 
     public Counter traceSteps() {
