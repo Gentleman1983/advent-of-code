@@ -63,7 +63,7 @@ public class Day20 {
         return input
                 .stream()
                 .map(Particle::from)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private List<String> readData(String fileName) {
