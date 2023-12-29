@@ -5,7 +5,6 @@ import de.havox_design.aoc2017.day18.token.Token;
 import de.havox_design.aoc2017.day18.token.TokenProvider;
 
 public class Send implements Instruction {
-
     private final Token token;
 
     public Send(final String value) {

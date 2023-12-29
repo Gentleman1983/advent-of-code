@@ -7,9 +7,7 @@ import de.havox_design.aoc2017.day18.token.TokenProvider;
 import java.math.BigInteger;
 
 public class Multiply implements Instruction {
-
     private final Token factor;
-
     private final String variableName;
 
     public Multiply(final String variableName, final String value) {

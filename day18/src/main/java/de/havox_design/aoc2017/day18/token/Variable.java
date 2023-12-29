@@ -5,7 +5,6 @@ import de.havox_design.aoc2017.day18.State;
 import java.math.BigInteger;
 
 public class Variable implements Token {
-
     private final String name;
 
     public Variable(final String name) {

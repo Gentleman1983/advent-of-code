@@ -7,9 +7,7 @@ import de.havox_design.aoc2017.day18.token.TokenProvider;
 import java.math.BigInteger;
 
 public class JumpIfGreaterZero implements Instruction {
-
     private final Token condition;
-
     private final Token offset;
 
     public JumpIfGreaterZero(final String condition, final String offset) {

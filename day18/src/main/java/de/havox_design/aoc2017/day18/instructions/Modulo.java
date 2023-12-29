@@ -7,21 +7,19 @@ import de.havox_design.aoc2017.day18.token.TokenProvider;
 import java.math.BigInteger;
 
 public class Modulo implements Instruction {
-
-    private final Token modulo;
-
+    private final Token modulus;
     private final String variableName;
 
     public Modulo(final String variableName, final String value) {
         this.variableName = variableName;
-        this.modulo = TokenProvider.createToken(value);
+        this.modulus = TokenProvider.createToken(value);
     }
 
     @Override
     public void execute(final State state) {
         BigInteger currentValue = state.getValue(variableName);
 
-        currentValue = currentValue.mod(modulo.intValue(state));
+        currentValue = currentValue.mod(modulus.intValue(state));
         state.setValue(variableName, currentValue);
     }
 }

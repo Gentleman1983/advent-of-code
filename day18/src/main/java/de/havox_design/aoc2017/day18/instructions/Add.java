@@ -7,9 +7,7 @@ import de.havox_design.aoc2017.day18.token.TokenProvider;
 import java.math.BigInteger;
 
 public class Add implements Instruction {
-
     private final Token addend;
-
     private final String variableName;
 
     public Add(final String variableName, final String value) {

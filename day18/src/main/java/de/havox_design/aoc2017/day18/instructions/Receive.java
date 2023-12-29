@@ -5,9 +5,7 @@ import de.havox_design.aoc2017.day18.State;
 import java.math.BigInteger;
 
 public class Receive implements Instruction {
-
     private final String varName;
-
     public Receive(final String value) {
         varName = value;
     }

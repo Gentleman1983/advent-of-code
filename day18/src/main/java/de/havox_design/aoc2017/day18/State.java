@@ -7,25 +7,15 @@ import java.util.Queue;
 import java.util.TreeMap;
 
 public class State {
-
     private final int programId;
-
     private State otherState;
-
     private boolean running = true;
-
     private BigInteger sentCount = BigInteger.ZERO;
-
     private final Map<String, BigInteger> register = new TreeMap<>();
-
     private BigInteger currentSound;
-
     private int position;
-
     private BigInteger recoveredSound;
-
     private final Queue<BigInteger> queue = new LinkedList<>();
-
     private int multiplicationInstructionCount;
 
     public State(final int programId) {
