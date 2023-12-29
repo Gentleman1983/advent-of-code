@@ -3,7 +3,6 @@ package de.havox_design.aoc2017.day13;
 import de.havox_design.aoc.utils.DataReader;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Day13 {
