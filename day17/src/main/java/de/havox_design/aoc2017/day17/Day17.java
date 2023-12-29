@@ -29,10 +29,10 @@ public class Day17 {
         return calculateValueAfter2017Iterations(input);
     }
 
-    public long solvePart2() {return 0L;
+    public long solvePart2() {return calculateValueAfter0After50MillionIterations(input);
     }
 
-    int calculateValueAfter2017Iterations(int initialSteps) {
+    private int calculateValueAfter2017Iterations(int initialSteps) {
         int[] values = new int[]{0};
 
         for (int i = 1, index = 1; ;i++, index = (index + initialSteps) % i + 1) {
@@ -49,6 +49,18 @@ public class Day17 {
                 return values[index + 1];
             }
         }
+    }
+
+    private int calculateValueAfter0After50MillionIterations(int initialSteps) {
+        int result = 0;
+
+        for (int i = 1, index = 1; i <= 50000000; i++, index = (index + initialSteps) % i + 1) {
+            if (index == 1) {
+                result = i;
+            }
+        }
+
+        return result;
     }
 
     private List<String> readData(String fileName) {
