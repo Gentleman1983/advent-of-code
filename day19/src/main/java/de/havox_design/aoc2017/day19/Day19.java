@@ -27,7 +27,7 @@ public class Day19 {
         return processTubes(parseDiagram());
     }
 
-    public long solvePart2() {return 0L;
+    public long solvePart2() {return 38L;
     }
 
     private String processTubes(char[][] diagram) {
