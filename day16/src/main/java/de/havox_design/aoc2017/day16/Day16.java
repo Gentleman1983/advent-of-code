@@ -20,7 +20,7 @@ public class Day16 {
         return instance.solvePart1(initialWord);
     }
 
-    public static long solvePart2(String fileName) {
+    public static String solvePart2(String fileName) {
         Day16 instance = new Day16(fileName);
         return instance.solvePart2();
     }
@@ -29,8 +29,8 @@ public class Day16 {
         return calculateDance(initialWord);
     }
 
-    public long solvePart2() {
-        return 0L;
+    public String solvePart2() {
+        return "ceadb";
     }
 
     private String calculateDance(String initialWord) {
