@@ -2,13 +2,17 @@ package de.havox_design.aoc2017.day17;
 
 import de.havox_design.aoc.utils.DataReader;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Day17 {
-    private final List<String> input;
+    private final int input;
 
     public Day17(String fileName) {
-        input = readData(fileName);
+        input = Integer.parseInt(readData(fileName).get(0));
     }
 
     public static long solvePart1(String fileName) {
@@ -22,10 +26,29 @@ public class Day17 {
     }
 
     public long solvePart1() {
-        return 0L;
+        return calculateValueAfter2017Iterations(input);
     }
 
     public long solvePart2() {return 0L;
+    }
+
+    int calculateValueAfter2017Iterations(int initialSteps) {
+        int[] values = new int[]{0};
+
+        for (int i = 1, index = 1; ;i++, index = (index + initialSteps) % i + 1) {
+            values = Stream
+                    .of(
+                            Arrays.stream(values, 0, index),
+                            IntStream.of(i),
+                            Arrays.stream(values, index, i)
+                    )
+                    .flatMapToInt(Function.identity())
+                    .toArray();
+
+            if (i == 2017) {
+                return values[index + 1];
+            }
+        }
     }
 
     private List<String> readData(String fileName) {
