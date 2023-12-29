@@ -24,25 +24,30 @@ public class Day19 {
     }
 
     public String solvePart1() {
-        return processTubes(parseDiagram());
+        return processTubes(parseDiagram()).word();
     }
 
-    public long solvePart2() {return 38L;
+    public long solvePart2() {
+        return processTubes(parseDiagram()).steps();
     }
 
-    private String processTubes(char[][] diagram) {
-        final StringBuilder result = new StringBuilder();
+    private Result processTubes(char[][] diagram) {
+        final StringBuilder word = new StringBuilder();
+        long stepCounter = 1L;
         Position currentPosition = detectStartPosition(diagram[0]);
         
         while (canMove(diagram, currentPosition)) {
             final Position nextPosition = detectNextPosition(diagram, currentPosition);
             currentPosition = nextPosition;
+
             if (Character.isLetter(diagram[currentPosition.getY()][currentPosition.getX()])) {
-                result.append(diagram[currentPosition.getY()][currentPosition.getX()]);
+                word.append(diagram[currentPosition.getY()][currentPosition.getX()]);
             }
+
+            stepCounter++;
         }
         
-        return result.toString();
+        return new Result(word.toString(), stepCounter);
     }
 
     private boolean canMove(final char[][] diagram, final Position pos) {
@@ -82,7 +87,10 @@ public class Day19 {
         final int height = diagram.length;
         final int width = diagram[0].length;
 
-        return position.getX() >= 0 && position.getY() >= 0 && position.getX() < width && position.getY() < height;
+        return position.getX() >= 0
+                && position.getY() >= 0
+                && position.getX() < width
+                && position.getY() < height;
     }
 
     private Position detectStartPosition(final char... firstLine) {
