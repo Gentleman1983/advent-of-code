@@ -8,10 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Day18 {
-    private final List<Instruction> input;
+    private final List<Instruction> program1;
+    private final List<Instruction> program2;
 
     public Day18(String fileName) {
-        input = parseProgram(readData(fileName));
+        program1 = parseProgram(readData(fileName));
+        program2 = parseProgram(readData(fileName), true);
     }
 
     public static BigInteger solvePart1(String fileName) {
@@ -30,7 +32,7 @@ public class Day18 {
         while (state.getRecoveredSound() == null) {
             final int pos = state
                     .getPosition();
-            final Instruction instruction = input
+            final Instruction instruction = program1
                     .get(pos);
 
             instruction
@@ -44,15 +46,42 @@ public class Day18 {
     }
 
     public BigInteger solvePart2() {
-        return BigInteger.ZERO;
+        final State state0 = new State(0);
+        final State state1 = new State(1);
+
+        state0.setOtherState(state1);
+
+        while (state0.isRunning() || state1.isRunning()) {
+            executeStep(program2, state0);
+            executeStep(program2, state1);
+        }
+
+        return state1.getSentCount();
+    }
+
+    private void executeStep(final List<Instruction> program, final State state) {
+        if (state.isRunning()) {
+            final int position = state.getPosition();
+            final Instruction instruction = program.get(position);
+
+            instruction.execute(state);
+
+            if (state.isRunning()) {
+                state.incrementPosition();
+            }
+        }
     }
 
     private List<Instruction> parseProgram(List<String> programCode) {
+        return parseProgram(programCode, false);
+    }
+
+    private List<Instruction> parseProgram(List<String> programCode, boolean isPart2) {
         final List<Instruction> program = new ArrayList<>();
 
         for (String row : programCode) {
             program
-                    .add(InstructionProvider.createInstruction(row));
+                    .add(InstructionProvider.createInstruction(row, isPart2));
         }
 
         return program;

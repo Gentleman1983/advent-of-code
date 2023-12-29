@@ -6,11 +6,11 @@ import de.havox_design.aoc2017.day18.token.TokenProvider;
 
 import java.math.BigInteger;
 
-public class RecoverInstruction implements Instruction {
+public class Recover implements Instruction {
 
     private final Token value;
 
-    public RecoverInstruction(final String value) {
+    public Recover(final String value) {
         this.value = TokenProvider.createToken(value);
     }
 

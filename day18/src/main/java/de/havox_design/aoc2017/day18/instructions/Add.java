@@ -6,22 +6,21 @@ import de.havox_design.aoc2017.day18.token.TokenProvider;
 
 import java.math.BigInteger;
 
-public class ModInstruction implements Instruction {
+public class Add implements Instruction {
 
-    private final Token modulus;
+    private final Token addend;
 
     private final String variableName;
 
-    public ModInstruction(final String variableName, final String value) {
+    public Add(final String variableName, final String value) {
         this.variableName = variableName;
-        this.modulus = TokenProvider.createToken(value);
+        this.addend = TokenProvider.createToken(value);
     }
 
     @Override
     public void execute(final State state) {
         BigInteger currentValue = state.getValue(variableName);
-
-        currentValue = currentValue.mod(modulus.intValue(state));
+        currentValue = currentValue.add(addend.intValue(state));
         state.setValue(variableName, currentValue);
     }
 }

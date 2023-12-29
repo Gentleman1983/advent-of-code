@@ -6,23 +6,22 @@ import de.havox_design.aoc2017.day18.token.TokenProvider;
 
 import java.math.BigInteger;
 
-public class MulInstruction implements Instruction {
+public class Modulo implements Instruction {
 
-    private final Token factor;
+    private final Token modulo;
 
     private final String variableName;
 
-    public MulInstruction(final String variableName, final String value) {
+    public Modulo(final String variableName, final String value) {
         this.variableName = variableName;
-        this.factor = TokenProvider.createToken(value);
+        this.modulo = TokenProvider.createToken(value);
     }
 
     @Override
     public void execute(final State state) {
         BigInteger currentValue = state.getValue(variableName);
 
-        currentValue = currentValue.multiply(factor.intValue(state));
+        currentValue = currentValue.mod(modulo.intValue(state));
         state.setValue(variableName, currentValue);
-        state.countMultiplicationInstruction();
     }
 }

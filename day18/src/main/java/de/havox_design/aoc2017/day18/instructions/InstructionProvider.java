@@ -10,6 +10,10 @@ public class InstructionProvider {
     }
 
     public static Instruction createInstruction(String row) {
+        return createInstruction(row, false);
+    }
+
+    public static Instruction createInstruction(String row, boolean isPart2) {
         final Matcher matcher = REGEX.matcher(row);
 
         if (!matcher.matches()) {
@@ -17,13 +21,13 @@ public class InstructionProvider {
         }
 
         return switch (matcher.group(1)) {
-            case "snd" -> new SoundInstruction(matcher.group(2));
-            case "add" -> new AddInstruction(matcher.group(2), matcher.group(3));
-            case "mul" -> new MulInstruction(matcher.group(2), matcher.group(3));
-            case "mod" -> new ModInstruction(matcher.group(2), matcher.group(3));
-            case "set" -> new SetInstruction(matcher.group(2), matcher.group(3));
-            case "rcv" -> new RecoverInstruction(matcher.group(2));
-            case "jgz" -> new JgzInstruction(matcher.group(2), matcher.group(3));
+            case "snd" -> isPart2 ? new Send(matcher.group(2)) : new Sound(matcher.group(2));
+            case "add" -> new Add(matcher.group(2), matcher.group(3));
+            case "mul" -> new Multiply(matcher.group(2), matcher.group(3));
+            case "mod" -> new Modulo(matcher.group(2), matcher.group(3));
+            case "set" -> new Set(matcher.group(2), matcher.group(3));
+            case "rcv" -> isPart2 ? new Receive(matcher.group(2)) : new Recover(matcher.group(2));
+            case "jgz" -> new JumpIfGreaterZero(matcher.group(2), matcher.group(3));
             default -> throw new IllegalArgumentException(matcher.toString());
         };
     }
