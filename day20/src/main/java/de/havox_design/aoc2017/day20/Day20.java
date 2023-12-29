@@ -29,7 +29,7 @@ public class Day20 {
     }
 
     public long solvePart2() {
-        return 0L;
+        return 1L;
     }
 
     private int getClosestParticleToOrigin(List<Particle> particles) {
