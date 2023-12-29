@@ -29,7 +29,7 @@ public class Day20 {
     }
 
     public long solvePart2() {
-        return 1L;
+        return countParticlesNotCollided(parseParticles(), 1000);
     }
 
     private int getClosestParticleToOrigin(List<Particle> particles) {
@@ -38,6 +38,25 @@ public class Day20 {
                 .boxed()
                 .min(Comparator.comparing(i -> particles.get(i).getTotalAcceleration()))
                 .orElseThrow(() -> new IllegalArgumentException("Expected particle"));
+    }
+
+    private int countParticlesNotCollided(List<Particle> particles, int iterations) {
+        int lastCount = -1;
+        for (int i = 1; lastCount != particles.size() || i <= iterations; i++) {
+            int t = i;
+
+            lastCount = particles.size();
+            particles
+                    .stream()
+                    .collect(Collectors.groupingBy(p -> p.positionAt(t)))
+                    .values()
+                    .stream()
+                    .filter(v -> v.size() > 1)
+                    .forEach(particles::removeAll);
+        }
+
+        return particles
+                .size();
     }
 
     private List<Particle> parseParticles() {
