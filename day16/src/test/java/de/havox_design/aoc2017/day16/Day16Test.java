@@ -33,7 +33,7 @@ class Day16Test {
     @ParameterizedTest
     @MethodSource("getDataForPart2")
     void testPart2(String fileName, String expected) {
-        Assertions.assertEquals(expected, Day16.solvePart2(fileName));
+        Assertions.assertEquals(expected, Day16.solvePart2(fileName, "abcde", 2));
     }
 
     private static Stream<Arguments> getDataForPart2() {
