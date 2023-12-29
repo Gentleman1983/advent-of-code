@@ -59,11 +59,12 @@ public class Day20 {
                 .size();
     }
 
+    @SuppressWarnings("squid:S6204")
     private List<Particle> parseParticles() {
         return input
                 .stream()
                 .map(Particle::from)
-                .toList();
+                .collect(Collectors.toList());
     }
 
     private List<String> readData(String fileName) {
