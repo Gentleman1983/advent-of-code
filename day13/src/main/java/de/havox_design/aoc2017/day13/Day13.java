@@ -36,7 +36,7 @@ public class Day13 {
         List<Layer> layers = input
                 .stream()
                 .map(Layer::parse)
-                .collect(Collectors.toUnmodifiableList());
+                .toList();
 
         return IntStream
                 .range(1, maxDelay)
