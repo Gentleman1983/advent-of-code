@@ -6,6 +6,7 @@ import java.util.Map.Entry;
 import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("squid:S4276")
 public class State implements BiFunction<Integer, Integer, Integer> {
     private final Map<Integer, Step> conditions;
 
