@@ -3,8 +3,8 @@ plugins {
 }
 
 // project meta data
-group 'de.havox_design.aoc2023'
-version '2023.26.1'
+group 'de.havox_design.aoc'
+version '2023.26.2'
 
 // Switch to gradle "all" distribution.
 wrapper {
