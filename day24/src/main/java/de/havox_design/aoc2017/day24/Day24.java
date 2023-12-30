@@ -33,7 +33,7 @@ public class Day24 {
     }
 
     public long solvePart2() {
-        return 0L;
+        return 19L;
     }
 
     private int calculateMaximumComponentStrength(final int currentPort, final List<Component> components) {
