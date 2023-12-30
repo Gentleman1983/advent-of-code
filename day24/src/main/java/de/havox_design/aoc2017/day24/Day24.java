@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Day24 {
-    private final static Pattern COMPONENT_REGEX = Pattern.compile("(\\d+)/(\\d+)");
+    private static final Pattern COMPONENT_REGEX = Pattern.compile("(\\d+)/(\\d+)");
 
     private final List<String> input;
     private final List<Component> components;
@@ -29,14 +29,14 @@ public class Day24 {
     }
 
     public long solvePart1() {
-        return calculateMaximumComponentStrength(0, components);
+        return calculateMaximumBridgeStrength(0, components);
     }
 
     public long solvePart2() {
-        return 19L;
+        return calculateLongestBridge(0).getStrength();
     }
 
-    private int calculateMaximumComponentStrength(final int currentPort, final List<Component> components) {
+    private int calculateMaximumBridgeStrength(final int currentPort, final List<Component> components) {
         int maxComponentStrength = 0;
 
         for (int index = components.size() - 1; index >= 0; index--) {
@@ -47,7 +47,7 @@ public class Day24 {
                 components.remove(index);
                 maxComponentStrength = Math.max(
                         maxComponentStrength,
-                        rotated.getStrength() + calculateMaximumComponentStrength(rotated.getPortB(), components)
+                        rotated.getStrength() + calculateMaximumBridgeStrength(rotated.getPortB(), components)
                 );
                 components.add(index, component);
             }
@@ -56,8 +56,44 @@ public class Day24 {
         return maxComponentStrength;
     }
 
+    private Bridge calculateLongestBridge(final int currentPort) {
+        Bridge longestAndStrongestBridge = new Bridge(0, 0);
+
+        for (int i = components.size() - 1; i >= 0; i--) {
+            final Component component = components.get(i);
+            final Component rotated = component.rotateToFit(currentPort);
+
+            if (rotated != null) {
+                components.remove(i);
+
+                final Bridge subBridge = calculateLongestBridge(rotated.getPortB());
+
+                subBridge.incStrength(rotated.getStrength());
+                subBridge.incLength();
+                longestAndStrongestBridge = detectStrongerBridge(longestAndStrongestBridge, subBridge);
+                components.add(i, component);
+            }
+        }
+        return longestAndStrongestBridge;
+    }
+
+    private Bridge detectStrongerBridge(final Bridge bridgeA, final Bridge bridgeB) {
+        if (bridgeA.getLength() > bridgeB.getLength()) {
+            return bridgeA;
+        }
+        else if (bridgeA.getLength() < bridgeB.getLength()) {
+            return bridgeB;
+        }
+        else if (bridgeA.getStrength() > bridgeB.getStrength()) {
+            return bridgeA;
+        }
+        else {
+            return bridgeB;
+        }
+    }
+
     private List<Component> parseComponents() {
-        final List<Component> components = new ArrayList<>();
+        final List<Component> componentList = new ArrayList<>();
         for (String row : input) {
             final Matcher matcher = COMPONENT_REGEX.matcher(row);
 
@@ -65,9 +101,9 @@ public class Day24 {
                 throw new IllegalArgumentException("Expected a component definition, but found '" + row + "'.");
             }
 
-            components.add(new Component(Integer.parseInt(matcher.group(1)), Integer.parseInt(matcher.group(2))));
+            componentList.add(new Component(Integer.parseInt(matcher.group(1)), Integer.parseInt(matcher.group(2))));
         }
-        return components;
+        return componentList;
     }
 
     private List<String> readData(String fileName) {
