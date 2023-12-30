@@ -41,6 +41,7 @@ public class Day23 {
     private long process(long initialValue) {
         List<String> rows = Arrays
                 .stream(input.split(NEWLINE))
+                .map(String::trim)
                 .toList();
         CounterMap<String> mem = new CounterMap<>();
         mem.put("a", initialValue);
