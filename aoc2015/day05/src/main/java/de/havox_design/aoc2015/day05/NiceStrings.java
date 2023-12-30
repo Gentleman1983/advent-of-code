@@ -1,6 +1,6 @@
 package de.havox_design.aoc2015.day05;
 
-import de.havox_design.aoc2015.utils.DataReader;
+import de.havox_design.aoc.utils.java.input.DataReader;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;

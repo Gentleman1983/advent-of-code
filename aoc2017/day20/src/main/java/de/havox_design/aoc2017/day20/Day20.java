@@ -1,6 +1,6 @@
 package de.havox_design.aoc2017.day20;
 
-import de.havox_design.aoc.utils.DataReader;
+import de.havox_design.aoc.utils.java.input.DataReader;
 
 import java.util.Comparator;
 import java.util.List;

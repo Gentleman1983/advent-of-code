@@ -1,8 +1,8 @@
 package de.havox_design.aoc2015.day11;
 
-import static de.havox_design.aoc2015.day11.PasswordValidator.*;
+import de.havox_design.aoc.utils.java.input.DataReader;
 
-import de.havox_design.aoc2015.utils.DataReader;
+import static de.havox_design.aoc2015.day11.PasswordValidator.*;
 
 import java.util.List;
 

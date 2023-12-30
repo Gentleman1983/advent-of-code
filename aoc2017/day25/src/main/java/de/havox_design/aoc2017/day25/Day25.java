@@ -1,6 +1,6 @@
 package de.havox_design.aoc2017.day25;
 
-import de.havox_design.aoc.utils.DataReader;
+import de.havox_design.aoc.utils.java.input.DataReader;
 
 import static de.havox_design.aoc2017.day25.Helper.*;
 

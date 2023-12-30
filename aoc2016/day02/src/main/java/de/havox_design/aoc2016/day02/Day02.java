@@ -1,8 +1,8 @@
 package de.havox_design.aoc2016.day02;
 
-import static de.havox_design.aoc2016.day02.Direction.*;
+import de.havox_design.aoc.utils.java.input.DataReader;
 
-import de.havox_design.aoc2016.utils.input.DataReader;
+import static de.havox_design.aoc2016.day02.Direction.*;
 
 import java.util.List;
 

@@ -26,18 +26,15 @@ subDirs.each { File dir ->
             expectedFolderName += '0'
         }
         expectedFolderName += i
-        String utilsFolderName = 'utils'
 
         File dayFolder = new File(dir, expectedFolderName)
         if(dayFolder.exists() && dayFolder.isDirectory()) {
             include "${dir.name}:${expectedFolderName}"
         }
-
-        File utilsFolder = new File(dir, utilsFolderName)
-        if(utilsFolder.exists() && utilsFolder.isDirectory()) {
-            include "${dir.name}:${utilsFolderName}"
-        }
     }
 }
 
 include 'meilisearch:meili'
+include 'utils'
+include 'utils:utils-java'
+include 'utils:utils-kotlin'

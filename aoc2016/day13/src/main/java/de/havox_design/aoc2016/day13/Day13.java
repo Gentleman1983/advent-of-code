@@ -1,8 +1,8 @@
 package de.havox_design.aoc2016.day13;
 
-import de.havox_design.aoc2016.utils.input.DataReader;
-import de.havox_design.aoc2016.utils.search.BreadthFirstSearch;
-import de.havox_design.aoc2016.utils.search.PathResult;
+import de.havox_design.aoc.utils.java.input.DataReader;
+import de.havox_design.aoc.utils.java.search.BreadthFirstSearch;
+import de.havox_design.aoc.utils.java.search.PathResult;
 
 import java.util.List;
 import java.util.Map;

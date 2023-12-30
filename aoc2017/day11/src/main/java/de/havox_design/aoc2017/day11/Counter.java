@@ -3,7 +3,6 @@ package de.havox_design.aoc2017.day11;
 import java.util.stream.IntStream;
 
 public class Counter {
-
     private int x = 0;
     private int y = 0;
     private int z = 0;

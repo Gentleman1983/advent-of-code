@@ -1,6 +1,6 @@
 package de.havox_design.aoc2017.day22;
 
-import de.havox_design.aoc.utils.DataReader;
+import de.havox_design.aoc.utils.java.input.DataReader;
 import de.havox_design.aoc2017.day19.Direction;
 import de.havox_design.aoc2017.day19.Position;
 

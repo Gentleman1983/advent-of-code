@@ -1,6 +1,6 @@
 package de.havox_design.aoc2017.day23;
 
-import de.havox_design.aoc.utils.DataReader;
+import de.havox_design.aoc.utils.java.input.DataReader;
 import de.havox_design.aoc2017.day18.Day18;
 import de.havox_design.aoc2017.day18.State;
 import de.havox_design.aoc2017.day18.instructions.Instruction;

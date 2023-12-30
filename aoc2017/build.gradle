@@ -4,9 +4,7 @@ subprojects {
     apply plugin: 'application'
 
     dependencies {
-        if(project.name != 'utils') {
-            implementation project(":aoc${year}:utils")
-        }
+        implementation project(":utils")
 
         testImplementation 'org.hamcrest:hamcrest:2.2'
         testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'

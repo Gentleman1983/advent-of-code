@@ -1,7 +1,7 @@
 package de.havox_design.aoc2016.day14;
 
 import com.google.common.hash.Hashing;
-import de.havox_design.aoc2016.utils.input.DataReader;
+import de.havox_design.aoc.utils.java.input.DataReader;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
