@@ -6,6 +6,7 @@ public class Bridge {
 
     public Bridge(final int length, final int strength) {
         super();
+
         this.length = length;
         this.strength = strength;
     }
@@ -18,11 +19,11 @@ public class Bridge {
         return length;
     }
 
-    public void incLength() {
+    public void increaseLength() {
         length++;
     }
 
-    public void incStrength(final int additionalStrength) {
+    public void increaseStrength(final int additionalStrength) {
         this.strength += additionalStrength;
     }
 }

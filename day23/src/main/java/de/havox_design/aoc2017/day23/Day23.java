@@ -6,11 +6,7 @@ import de.havox_design.aoc2017.day18.State;
 import de.havox_design.aoc2017.day18.instructions.Instruction;
 
 import java.math.BigInteger;
-import java.util.AbstractList;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
 
 public class Day23 {
     private final List<String> input;

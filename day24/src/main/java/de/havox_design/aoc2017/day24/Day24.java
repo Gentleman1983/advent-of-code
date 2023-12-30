@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Day24 {
+    @SuppressWarnings("squid:S5852")
     private static final Pattern COMPONENT_REGEX = Pattern.compile("(\\d+)/(\\d+)");
 
     private final List<String> input;
@@ -68,8 +69,8 @@ public class Day24 {
 
                 final Bridge subBridge = calculateLongestBridge(rotated.getPortB());
 
-                subBridge.incStrength(rotated.getStrength());
-                subBridge.incLength();
+                subBridge.increaseStrength(rotated.getStrength());
+                subBridge.increaseLength();
                 longestAndStrongestBridge = detectStrongerBridge(longestAndStrongestBridge, subBridge);
                 components.add(i, component);
             }

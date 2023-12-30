@@ -28,14 +28,14 @@ public class Component {
     }
 
     public int getStrength() {
-        return portA + portB;
+        return getPortA() + getPortB();
     }
 
     public Component rotateToFit(final int currentPort) {
-        if (portA == currentPort) {
+        if (getPortA() == currentPort) {
             return this;
-        } else if (portB == currentPort) {
-            return turned;
+        } else if (getPortB() == currentPort) {
+            return turn();
         } else {
             return null;
         }
