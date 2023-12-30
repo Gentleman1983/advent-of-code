@@ -103,4 +103,8 @@ public class State {
     public void countMultiplicationInstruction() {
         multiplicationInstructionCount++;
     }
+
+    public int getMultiplicationInstructionCount() {
+        return multiplicationInstructionCount;
+    }
 }

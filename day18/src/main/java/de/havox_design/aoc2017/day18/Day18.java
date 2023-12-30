@@ -72,7 +72,7 @@ public class Day18 {
         }
     }
 
-    private List<Instruction> parseProgram(List<String> programCode) {
+    public List<Instruction> parseProgram(List<String> programCode) {
         return parseProgram(programCode, false);
     }
 
