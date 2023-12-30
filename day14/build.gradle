@@ -1,0 +1,27 @@
+plugins {
+    id 'scala'
+}
+
+dependencies {
+    implementation project(":day10")
+    implementation 'org.scala-lang:scala3-library_3:3.3.1'
+
+    testImplementation 'org.scalatest:scalatest_3:3.3.0-SNAP4'
+    testImplementation 'org.scalatestplus:junit-5-10_3:3.2.17.0'
+}
+
+application {
+    mainClass = "de.havox_design.${rootProject.name}.${project.name}.Day10"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': "de.havox_design.${rootProject.name}.${project.name}.Day10"
+    }
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform {
+        includeEngines("junit-jupiter", "scalatest")
+    }
+}
