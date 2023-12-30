@@ -24,7 +24,8 @@ class Day23Test {
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("part1sample1.txt", 0L)
+                Arguments.of("sample1.txt", 0L),
+                Arguments.of("sample2.txt", 0L)
         );
     }
 
@@ -36,7 +37,8 @@ class Day23Test {
 
     private static Stream<Arguments> getDataForPart2() {
         return Stream.of(
-                Arguments.of("part2sample1.txt", 0L)
+                Arguments.of("sample1.txt", 0L),
+                Arguments.of("sample2.txt", 0L)
         );
     }
 }
