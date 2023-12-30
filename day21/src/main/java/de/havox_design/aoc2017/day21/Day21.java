@@ -32,7 +32,7 @@ public class Day21 {
     }
 
     public long solvePart2() {
-        return 0L;
+        return countNumberOfPixelsTurnedOnAfter(18);
     }
 
     long countNumberOfPixelsTurnedOnAfter(int iterations) {
