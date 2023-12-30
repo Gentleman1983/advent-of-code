@@ -20,9 +20,9 @@ public class Day22 {
         return instance.solvePart1(iterations);
     }
 
-    public static long solvePart2(String fileName) {
+    public static long solvePart2(String fileName, int iterations) {
         Day22 instance = new Day22(fileName);
-        return instance.solvePart2();
+        return instance.solvePart2(iterations);
     }
 
     public long solvePart1(int iterations) {
@@ -41,7 +41,7 @@ public class Day22 {
         return calc(iterations, virus);
     }
 
-    public long solvePart2() {
+    public long solvePart2(int iterations) {
         return 0L;
     }
 
