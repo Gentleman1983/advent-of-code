@@ -40,13 +40,13 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 19      | ⭐                                                                                                                        | ⭐                                                                                                                        |
 | 20      | ⭐                                                                                                                        | ⭐                                                                                                                        |
 | 21      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 22      | ❌                                                                                                                        | ❌                                                                                                                        |
+| 22      | ⭐                                                                                                                        | ⭐                                                                                                                        |
 | 23      | ❌                                                                                                                        | ❌                                                                                                                        |
 | 24      | ❌                                                                                                                        | ❌                                                                                                                        |
 | 25      | ❌                                                                                                                        | ❌                                                                                                                        |
-| **SUM** | **21 ⭐**                                                                                                                 | **21 ⭐**                                                                                                                 |
+| **SUM** | **22 ⭐**                                                                                                                 | **22 ⭐**                                                                                                                 |
 
-Total: 42 ⭐
+Total: 44 ⭐
 
 ## Prior Years contribution:
 | Year | Language(s)                                     | Total Stars | Link to repository                                   |
