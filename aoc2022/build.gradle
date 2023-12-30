@@ -5,10 +5,6 @@ subprojects {
     apply plugin: 'jacoco'
 
     dependencies {
-        if(project.name != 'utils') {
-            implementation project(":aoc${year}:utils")
-        }
-
         testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
