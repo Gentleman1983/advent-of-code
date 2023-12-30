@@ -58,6 +58,6 @@ Total: 0 ⭐
 | 2020 | JAVA 21, Gradle, GitHub Actions                      | ?? ⭐                      | [aoc2020](https://github.com/Gentleman1983/aoc2020) |
 | 2019 | JAVA 21, Gradle, GitHub Actions                      | ?? ⭐                      | [aoc2019](https://github.com/Gentleman1983/aoc2019) |
 | 2018 | JAVA 21, Gradle, GitHub Actions                      | ?? ⭐                      | [aoc2018](https://github.com/Gentleman1983/aoc2018) |
-| 2017 | JAVA 21, Gradle, GitHub Actions                      | ?? ⭐                      | [aoc2017](https://github.com/Gentleman1983/aoc2017) |
+| 2017 | JAVA 21, Scala 3, Gradle, GitHub Actions             | 50 ⭐                      | [aoc2017](https://github.com/Gentleman1983/aoc2017)  |
 | 2016 | JAVA 21, Kotlin, Groovy, Gradle, GitHub Actions      | 50 ⭐                      | [aoc2016](https://github.com/Gentleman1983/aoc2016) |
 | 2015 | JAVA 17, Kotlin, Python, Gradle, GitHub Actions      | 50 ⭐                      | [aoc2015](https://github.com/Gentleman1983/aoc2015) |
