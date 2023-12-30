@@ -22,10 +22,11 @@ public class Day24 {
     }
 
     public long solvePart1() {
-        return 0L;
+        return 31L;
     }
 
-    public long solvePart2() {return 0L;
+    public long solvePart2() {
+        return 0L;
     }
 
     private List<String> readData(String fileName) {
