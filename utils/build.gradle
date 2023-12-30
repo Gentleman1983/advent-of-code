@@ -1,0 +1,3 @@
+dependencies {
+    implementation 'org.apache.struts.xwork:xwork-core:2.3.37'
+}
