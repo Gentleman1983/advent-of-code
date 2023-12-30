@@ -4,16 +4,7 @@ Simple project for Advent of Code 2017.
 
 Done in JAVA 21. Some are done in Scala.
 
-For more information see https://adventofcode.com [2017](https://adventofcode.com/2017)
-
-[![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2017%3Aadvent_of_code_2017&metric=alert_status "The current SonarQube analysis status")
-![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2017%3Aadvent_of_code_2017&metric=coverage "The current coverage")
-![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2017%3Aadvent_of_code_2017&metric=bugs "The current number of SonarQube bugs")
-![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2017%3Aadvent_of_code_2017&metric=vulnerabilities "The current number of SonarQube vulnerabilities")
-![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc2017%3Aadvent_of_code_2017&metric=code_smells "The current number of SonarQube code smells")](https://sonarcloud.io/dashboard?id=de.havox_design.aoc2017%3Aadvent_of_code_2017)
-
-To run all solutions, simply run `./gradlew run`. If you want to run the solution for day 5, simply run
-`./gradlew :day05:run`.
+For more information see https://adventofcode.com [2017](https://adventofcode.com/2017).
 
 ## Current status:
 
@@ -47,9 +38,3 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | **SUM** | **25 ⭐**                                                                                                                 | **25 ⭐**                                                                                                                 |
 
 Total: 50 ⭐
-
-## Prior Years contribution:
-| Year | Language(s)                                     | Total Stars | Link to repository                                   |
-|------|-------------------------------------------------|-------------|------------------------------------------------------|
-| 2016 | JAVA 21, Kotlin, Groovy, Gradle, GitHub Actions | 50 ⭐        | [aoc2016](https://github.com/Gentleman1983/aoc2016)  |
-| 2015 | JAVA 17, Kotlin, Python, Gradle, GitHub Actions | 50 ⭐        | [aoc2015](https://github.com/Gentleman1983/aoc2015)  |
