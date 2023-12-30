@@ -1,3 +1,3 @@
 dependencies {
-    implementation project(':day19')
+    implementation project(':aoc2017:day19')
 }

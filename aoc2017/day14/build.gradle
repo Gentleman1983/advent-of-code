@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation project(":day10")
+    implementation project(":aoc2017:day10")
     implementation 'org.scala-lang:scala3-library_3:3.3.1'
 
     testImplementation 'org.scalatest:scalatest_3:3.3.0-SNAP4'
