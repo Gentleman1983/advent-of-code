@@ -10,9 +10,11 @@ public class Day22 {
     private static final char ICON_INFECTED = '#';
 
     private final List<String> input;
+    private final VirusCollection viruses;
 
     public Day22(String fileName) {
         input = readData(fileName);
+        viruses = buildViruses();
     }
 
     public static long solvePart1(String fileName, int iterations) {
@@ -26,26 +28,15 @@ public class Day22 {
     }
 
     public long solvePart1(int iterations) {
-        final VirusFunction virus = (currentPosition, currentState, currentRow, counter) -> {
-            if (currentState == State.INFECTED) {
-                currentPosition = currentPosition.right();
-                currentRow.put(currentPosition.getX(), State.CLEAN);
-            } else {
-                currentPosition = currentPosition.left();
-                currentRow.put(currentPosition.getX(), State.INFECTED);
-                counter.increment();
-            }
-            return currentPosition.forward();
-        };
-
-        return calc(iterations, virus);
+        return calculateInfectedNodes(iterations, viruses.virus1());
     }
 
     public long solvePart2(int iterations) {
-        return 0L;
+        return calculateInfectedNodes(iterations, viruses.virus2());
     }
 
-    Integer calc(final int iterations, final VirusFunction virusFunction) {
+    @SuppressWarnings("squid:S1121")
+    private long calculateInfectedNodes(final int iterations, final VirusFunction virusFunction) {
         final BidirectionalGrowingArray<BidirectionalGrowingArray<State>> array = parseGrid();
         Position currentPosition = getStartPosition(array);
         final Counter infections = new Counter();
@@ -69,8 +60,54 @@ public class Day22 {
         return infections.getValue();
     }
 
-    private static Position getStartPosition(BidirectionalGrowingArray<BidirectionalGrowingArray<State>> array) {
+    private Position getStartPosition(BidirectionalGrowingArray<BidirectionalGrowingArray<State>> array) {
         return new Position(array.get(0).size() / 2, array.size() / 2, Direction.UP);
+    }
+
+    private VirusCollection buildViruses() {
+        return new VirusCollection(buildVirus1(), buildVirus2());
+    }
+
+    private VirusFunction buildVirus1() {
+        return (currentPosition, currentState, currentRow, counter) -> {
+            if (currentState == State.INFECTED) {
+                currentPosition = currentPosition.right();
+                currentRow.put(currentPosition.getX(), State.CLEAN);
+            } else {
+                currentPosition = currentPosition.left();
+                currentRow.put(currentPosition.getX(), State.INFECTED);
+                counter.increment();
+            }
+
+            return currentPosition.forward();
+        };
+    }
+
+    private VirusFunction buildVirus2() {
+        return (currentPosition, currentState, currentRow, counter) -> {
+            switch (currentState) {
+                case CLEAN:
+                    currentRow.put(currentPosition.getX(), State.WEAKENED);
+                    currentPosition = currentPosition.left();
+                    break;
+                case FLAGGED:
+                    currentRow.put(currentPosition.getX(), State.CLEAN);
+                    currentPosition = currentPosition.left().left();
+                    break;
+                case INFECTED:
+                    currentRow.put(currentPosition.getX(), State.FLAGGED);
+                    currentPosition = currentPosition.right();
+                    break;
+                case WEAKENED:
+                    currentRow.put(currentPosition.getX(), State.INFECTED);
+                    counter.increment();
+                    break;
+                default:
+                    throw new IllegalStateException();
+            }
+
+            return currentPosition.forward();
+        };
     }
 
     private BidirectionalGrowingArray<BidirectionalGrowingArray<State>> parseGrid() {
