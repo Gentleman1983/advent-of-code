@@ -11,9 +11,9 @@ public class Day21 {
         input = readData(fileName);
     }
 
-    public static long solvePart1(String fileName) {
+    public static long solvePart1(String fileName, int iterations) {
         Day21 instance = new Day21(fileName);
-        return instance.solvePart1();
+        return instance.solvePart1(iterations);
     }
 
     public static long solvePart2(String fileName) {
@@ -21,7 +21,7 @@ public class Day21 {
         return instance.solvePart2();
     }
 
-    public long solvePart1() {
+    public long solvePart1(int iterations) {
         return 0L;
     }
 
