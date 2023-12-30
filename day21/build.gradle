@@ -1,0 +1,9 @@
+plugins {
+    // Native SonarCloud support of Groovy is not currently available, so we have to wait for something to change or
+    // miss that data.
+    id 'groovy'
+}
+
+dependencies {
+    implementation 'org.apache.groovy:groovy-all:4.0.16'
+}
