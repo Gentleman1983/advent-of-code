@@ -2,9 +2,15 @@ package de.havox_design.aoc2017.day21;
 
 import de.havox_design.aoc.utils.DataReader;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Day21 {
+    private static final Supplier<Area> AREA_SUPPLIER = () -> new Area(Arrays.asList(".#.", "..#", "###"));
+
     private final List<String> input;
 
     public Day21(String fileName) {
@@ -22,10 +28,25 @@ public class Day21 {
     }
 
     public long solvePart1(int iterations) {
+        return countNumberOfPixelsTurnedOnAfter(iterations);
+    }
+
+    public long solvePart2() {
         return 0L;
     }
 
-    public long solvePart2() {return 0L;
+    long countNumberOfPixelsTurnedOnAfter(int iterations) {
+        var rules = input
+                .stream()
+                .map(Rule::from)
+                .toList();
+
+        return Stream
+                .iterate(AREA_SUPPLIER.get(), a -> a.next(rules))
+                .skip(iterations)
+                .findFirst()
+                .map(Area::countPixelsOn)
+                .orElseThrow(() -> new IllegalArgumentException("Expected number of pixels."));
     }
 
     private List<String> readData(String fileName) {
