@@ -1,4 +1,4 @@
-package de.havox_design.aoc2022.meili
+package de.havox_design.meilisearch.meili
 
 import nl.jqno.equalsverifier.EqualsVerifier
 import nl.jqno.equalsverifier.Warning

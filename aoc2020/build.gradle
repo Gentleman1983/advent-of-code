@@ -2,7 +2,6 @@ subprojects {
     int year = 2020
 
     apply plugin: 'application'
-    apply plugin: 'jacoco'
 
     dependencies {
         if(project.name != 'utils') {

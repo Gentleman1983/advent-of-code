@@ -1,4 +1,4 @@
-package de.havox_design.aoc2022.meili
+package de.havox_design.meilisearch.meili
 
 class MainClass {
     companion object {

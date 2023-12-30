@@ -2,7 +2,6 @@ subprojects {
     int year = 2022
 
     apply plugin: 'application'
-    apply plugin: 'jacoco'
 
     dependencies {
         testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'

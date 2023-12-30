@@ -1,4 +1,4 @@
-package de.havox_design.aoc2022.meili
+package de.havox_design.meilisearch.meili
 
 import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
