@@ -1,0 +1,1 @@
+Comet can fly 14 km/s for 10 seconds, but then must rest for 127 seconds.
