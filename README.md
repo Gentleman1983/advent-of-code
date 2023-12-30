@@ -43,10 +43,10 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 22      | ⭐                                                                                                                        | ⭐                                                                                                                        |
 | 23      | ⭐                                                                                                                        | ⭐                                                                                                                        |
 | 24      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 25      | ❌                                                                                                                        | ❌                                                                                                                        |
-| **SUM** | **24 ⭐**                                                                                                                 | **24 ⭐**                                                                                                                 |
+| 25      | ⭐                                                                                                                        | ⭐                                                                                                                        |
+| **SUM** | **25 ⭐**                                                                                                                 | **25 ⭐**                                                                                                                 |
 
-Total: 48 ⭐
+Total: 50 ⭐
 
 ## Prior Years contribution:
 | Year | Language(s)                                     | Total Stars | Link to repository                                   |
