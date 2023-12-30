@@ -27,16 +27,4 @@ class Day25Test {
                 Arguments.of("part1sample.txt", 3L)
         );
     }
-
-    @ParameterizedTest
-    @MethodSource("getDataForPart2")
-    void testPart2(String fileName, long expected) {
-        Assertions.assertEquals(expected, Day25.solvePart2(fileName));
-    }
-
-    private static Stream<Arguments> getDataForPart2() {
-        return Stream.of(
-                Arguments.of("part2sample1.txt", 0L)
-        );
-    }
 }

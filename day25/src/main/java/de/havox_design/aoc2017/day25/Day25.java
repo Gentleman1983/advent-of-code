@@ -21,17 +21,8 @@ public class Day25 {
         return instance.solvePart1();
     }
 
-    public static long solvePart2(String fileName) {
-        Day25 instance = new Day25(fileName);
-        return instance.solvePart2();
-    }
-
     public long solvePart1() {
         return getDiagnosticChecksum();
-    }
-
-    public long solvePart2() {
-        return 0L;
     }
 
     private long getDiagnosticChecksum() {
