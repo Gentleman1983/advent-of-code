@@ -1,10 +1,11 @@
 package de.havox_design.aoc2015.day17;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.List;
 
-public class NotEnoughEggnod {
+public class NotEnoughEggnod implements AoCFunctionality {
     private final List<Integer> input;
 
     public NotEnoughEggnod(String fileName) {
@@ -86,9 +87,5 @@ public class NotEnoughEggnod {
             }
             return count;
         }
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 }

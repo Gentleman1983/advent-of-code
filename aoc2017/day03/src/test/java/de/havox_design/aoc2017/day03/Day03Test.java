@@ -19,31 +19,31 @@ class Day03Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, long expected) {
-        Assertions.assertEquals(expected, Day03.solvePart1(fileName));
+        Assertions.assertEquals(expected, SpiralMemory.solvePart1(fileName));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("part1sample1.txt", 0L),
-                Arguments.of("part1sample2.txt", 3L),
-                Arguments.of("part1sample3.txt", 2L),
-                Arguments.of("part1sample4.txt", 31L)
+                Arguments.of("day03Part1sample1.txt", 0L),
+                Arguments.of("day03Part1sample2.txt", 3L),
+                Arguments.of("day03Part1sample3.txt", 2L),
+                Arguments.of("day03Part1sample4.txt", 31L)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForPart2")
     void testPart2(String fileName, long expected) {
-        Assertions.assertEquals(expected, Day03.solvePart2(fileName));
+        Assertions.assertEquals(expected, SpiralMemory.solvePart2(fileName));
     }
 
     private static Stream<Arguments> getDataForPart2() {
         return Stream.of(
-                Arguments.of("part2sample1.txt", 1L),
-                Arguments.of("part2sample2.txt", 2L),
-                Arguments.of("part2sample3.txt", 4L),
-                Arguments.of("part2sample4.txt", 4L),
-                Arguments.of("part2sample5.txt", 5L)
+                Arguments.of("day03Part2sample1.txt", 1L),
+                Arguments.of("day03Part2sample2.txt", 2L),
+                Arguments.of("day03Part2sample3.txt", 4L),
+                Arguments.of("day03Part2sample4.txt", 4L),
+                Arguments.of("day03Part2sample5.txt", 5L)
         );
     }
 }

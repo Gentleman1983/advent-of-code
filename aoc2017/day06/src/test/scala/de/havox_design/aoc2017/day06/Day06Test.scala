@@ -1,6 +1,6 @@
 package de.havox_design.aoc2017.day06
 
-import Day06._
+import MemoryReallocation._
 import org.scalatest.funsuite.AnyFunSuite
 
 class Day06Test extends AnyFunSuite {
@@ -11,7 +11,7 @@ class Day06Test extends AnyFunSuite {
   }
 
   test("Day 06 - Part 1 - Sample") {
-    assert(solvePart1("sample.txt") == 5)
+    assert(solvePart1("day06Sample.txt") == 5)
   }
 
   test("Day 06 - Part 2") {
@@ -19,6 +19,6 @@ class Day06Test extends AnyFunSuite {
   }
 
   test("Day 06 - Part 2 - Sample") {
-    assert(solvePart2("sample.txt") == 4)
+    assert(solvePart2("day06Sample.txt") == 4)
   }
 }

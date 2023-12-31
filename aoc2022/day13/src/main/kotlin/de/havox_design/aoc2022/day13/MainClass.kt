@@ -4,8 +4,8 @@ class MainClass {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            println("Sum of indices with right order: ${DistressSignal("input.txt").processPart1()}")
-            println("Decoder key: ${DistressSignal("input.txt").processPart2()}")
+            println("Sum of indices with right order: ${DistressSignal("day13.txt").processPart1()}")
+            println("Decoder key: ${DistressSignal("day13.txt").processPart2()}")
         }
     }
 }

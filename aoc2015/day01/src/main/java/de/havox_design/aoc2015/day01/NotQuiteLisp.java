@@ -1,10 +1,10 @@
 package de.havox_design.aoc2015.day01;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.List;
 
-public class NotQuiteLisp {
+public class NotQuiteLisp implements AoCFunctionality {
     private final String input;
 
     public NotQuiteLisp(String fileName) {
@@ -55,9 +55,5 @@ public class NotQuiteLisp {
         } else {
             throw new IllegalArgumentException("Illegal character found.");
         }
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 }

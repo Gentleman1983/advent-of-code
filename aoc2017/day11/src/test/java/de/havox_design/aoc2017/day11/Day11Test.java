@@ -19,15 +19,15 @@ class Day11Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, int expected) {
-        Assertions.assertEquals(expected, Day11.solvePart1(fileName));
+        Assertions.assertEquals(expected, HexEd.solvePart1(fileName));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("part1sample1.txt", 3),
-                Arguments.of("part1sample2.txt", 0),
-                Arguments.of("part1sample3.txt", 2),
-                Arguments.of("part1sample4.txt", 3)
+                Arguments.of("day11Part1sample1.txt", 3),
+                Arguments.of("day11Part1sample2.txt", 0),
+                Arguments.of("day11Part1sample3.txt", 2),
+                Arguments.of("day11Part1sample4.txt", 3)
         );
     }
 }

@@ -1,6 +1,6 @@
 package de.havox_design.aoc2017.day08
 
-import Day08._
+import IHeardYouLikeRegisters._
 import org.scalatest.funsuite.AnyFunSuite
 
 class Day08Test extends AnyFunSuite {
@@ -11,7 +11,7 @@ class Day08Test extends AnyFunSuite {
   }
 
   test("Day 08 - Part 1 - Sample") {
-    assert(solvePart1("sample.txt") == 1)
+    assert(solvePart1("day08Sample.txt") == 1)
   }
 
   test("Day 08 - Part 2") {
@@ -19,6 +19,6 @@ class Day08Test extends AnyFunSuite {
   }
 
   test("Day 08 - Part 2 - Sample") {
-    assert(solvePart2("sample.txt") == 10)
+    assert(solvePart2("day08Sample.txt") == 10)
   }
 }

@@ -10,12 +10,12 @@ dependencies {
 }
 
 application {
-    mainClass = "de.havox_design.${rootProject.name}.${project.name}.Day09"
+    mainClass = "de.havox_design.${rootProject.name}.${project.name}.StreamProcessing"
 }
 
 jar {
     manifest {
-        attributes 'Main-Class': "de.havox_design.${rootProject.name}.${project.name}.Day09"
+        attributes 'Main-Class': "de.havox_design.${rootProject.name}.${project.name}.StreamProcessing"
     }
 }
 

@@ -63,13 +63,13 @@ class Day17Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 3068)
+                Arguments.of("day17Sample.txt", 3068)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 1514285714288)
+                Arguments.of("day17Sample.txt", 1514285714288)
             )
 
         @JvmStatic
@@ -96,7 +96,7 @@ class Day17Test {
         @JvmStatic
         private fun getDataForTestReadData(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", toJetList(">>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>"))
+                Arguments.of("day17Sample.txt", toJetList(">>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>"))
             )
 
         @JvmStatic
@@ -109,12 +109,12 @@ class Day17Test {
         private fun getDataForTestStatusAfterStone(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample.txt",
+                    "day17Sample.txt",
                     1,
                     getBlockedFieldsForString("..####.")
                 ),
                 Arguments.of(
-                    "sample.txt",
+                    "day17Sample.txt",
                     2,
                     getBlockedFieldsForString(
                         "...#...\n" +
@@ -124,7 +124,7 @@ class Day17Test {
                     )
                 ),
                 Arguments.of(
-                    "sample.txt",
+                    "day17Sample.txt",
                     3,
                     getBlockedFieldsForString(
                         "..#....\n" +
@@ -136,7 +136,7 @@ class Day17Test {
                     )
                 ),
                 Arguments.of(
-                    "sample.txt",
+                    "day17Sample.txt",
                     4,
                     getBlockedFieldsForString(
                         "....#..\n" +
@@ -149,7 +149,7 @@ class Day17Test {
                     )
                 ),
                 Arguments.of(
-                    "sample.txt",
+                    "day17Sample.txt",
                     5,
                     getBlockedFieldsForString(
                         "....##.\n" +
@@ -164,7 +164,7 @@ class Day17Test {
                     )
                 ),
                 Arguments.of(
-                    "sample.txt",
+                    "day17Sample.txt",
                     6,
                     getBlockedFieldsForString(
                         ".####..\n" +
@@ -180,7 +180,7 @@ class Day17Test {
                     )
                 ),
                 Arguments.of(
-                    "sample.txt",
+                    "day17Sample.txt",
                     7,
                     getBlockedFieldsForString(
                         "..#....\n" +
@@ -199,7 +199,7 @@ class Day17Test {
                     )
                 ),
                 Arguments.of(
-                    "sample.txt",
+                    "day17Sample.txt",
                     8,
                     getBlockedFieldsForString(
                         ".....#.\n" +
@@ -220,7 +220,7 @@ class Day17Test {
                     )
                 ),
                 Arguments.of(
-                    "sample.txt",
+                    "day17Sample.txt",
                     9,
                     getBlockedFieldsForString(
                         "....#..\n" +
@@ -243,7 +243,7 @@ class Day17Test {
                     )
                 ),
                 Arguments.of(
-                    "sample.txt",
+                    "day17Sample.txt",
                     10,
                     getBlockedFieldsForString(
                         "....#..\n" +

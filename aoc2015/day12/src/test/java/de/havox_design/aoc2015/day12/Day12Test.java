@@ -24,14 +24,14 @@ class Day12Test {
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("part1sample1.txt", 6),
-                Arguments.of("part1sample2.txt", 6),
-                Arguments.of("part1sample3.txt", 3),
-                Arguments.of("part1sample4.txt", 3),
-                Arguments.of("part1sample5.txt", 0),
-                Arguments.of("part1sample6.txt", 0),
-                Arguments.of("part1sample7.txt", 0),
-                Arguments.of("part1sample8.txt", 0)
+                Arguments.of("day12Part1sample1.txt", 6),
+                Arguments.of("day12Part1sample2.txt", 6),
+                Arguments.of("day12Part1sample3.txt", 3),
+                Arguments.of("day12Part1sample4.txt", 3),
+                Arguments.of("day12Part1sample5.txt", 0),
+                Arguments.of("day12Part1sample6.txt", 0),
+                Arguments.of("day12Part1sample7.txt", 0),
+                Arguments.of("day12Part1sample8.txt", 0)
         );
     }
 
@@ -43,10 +43,10 @@ class Day12Test {
 
     private static Stream<Arguments> getDataForPart2() {
         return Stream.of(
-                Arguments.of("part2sample1.txt", 6),
-                Arguments.of("part2sample2.txt", 4),
-                Arguments.of("part2sample3.txt", 0),
-                Arguments.of("part2sample4.txt", 6)
+                Arguments.of("day12Part2sample1.txt", 6),
+                Arguments.of("day12Part2sample2.txt", 4),
+                Arguments.of("day12Part2sample3.txt", 0),
+                Arguments.of("day12Part2sample4.txt", 6)
         );
     }
 }

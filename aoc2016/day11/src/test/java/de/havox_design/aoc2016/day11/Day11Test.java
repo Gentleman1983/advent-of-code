@@ -19,12 +19,12 @@ class Day11Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, long expected) {
-        Assertions.assertEquals(expected, Day11.solvePart1(fileName));
+        Assertions.assertEquals(expected, RadioisotopeThermoelectricGenerators.solvePart1(fileName));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("sample.txt", 11L)
+                Arguments.of("day11Sample.txt", 11L)
         );
     }
 }

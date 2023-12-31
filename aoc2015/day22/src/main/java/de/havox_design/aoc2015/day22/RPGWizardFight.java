@@ -1,6 +1,7 @@
 package de.havox_design.aoc2015.day22;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RPGWizardFight {
+public class RPGWizardFight implements AoCFunctionality {
     private final List<String> input;
 
     public RPGWizardFight(String fileName) {
@@ -81,9 +82,5 @@ public class RPGWizardFight {
         } else {
             throw new IllegalArgumentException("Input '" + input + "' does not match pattern " + pattern.pattern());
         }
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 }

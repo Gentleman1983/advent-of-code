@@ -1,10 +1,11 @@
 package de.havox_design.aoc2015.day08;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.List;
 
-public class Matchsticks {
+public class Matchsticks implements AoCFunctionality {
     private final List<String> input;
 
     public Matchsticks(String fileName) {
@@ -92,9 +93,5 @@ public class Matchsticks {
         }
         builder.append("\\\"");
         return builder.toString().length();
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 }

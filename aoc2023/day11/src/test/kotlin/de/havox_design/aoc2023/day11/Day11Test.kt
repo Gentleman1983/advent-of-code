@@ -16,25 +16,25 @@ class Day11Test {
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart1")
     fun testSolvePart1(filename: String, expectedResult: Long) =
-        Day11(filename).solvePart1().shouldBe(expectedResult)
+        CosmicExpansion(filename).solvePart1().shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart2")
     fun testSolvePart2(filename: String, expectedResult: Long, expansion: Long) =
-        Day11(filename).solvePart2(expansion).shouldBe(expectedResult)
+        CosmicExpansion(filename).solvePart2(expansion).shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestSolvePart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 374L)
+                Arguments.of("day11Sample.txt", 374L)
             )
 
         @JvmStatic
         private fun getDataForTestSolvePart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 1030L, 10L),
-                Arguments.of("sample.txt", 8410L, 100L)
+                Arguments.of("day11Sample.txt", 1030L, 10L),
+                Arguments.of("day11Sample.txt", 8410L, 100L)
             )
     }
 }

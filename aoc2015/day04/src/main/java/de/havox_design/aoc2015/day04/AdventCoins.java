@@ -1,11 +1,11 @@
 package de.havox_design.aoc2015.day04;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.util.List;
 
-public class AdventCoins {
+public class AdventCoins implements AoCFunctionality {
     private final String input;
 
     public AdventCoins(String fileName) {
@@ -41,9 +41,5 @@ public class AdventCoins {
         }
 
         throw new IllegalStateException("An valid hash should be able to be found.");
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 }

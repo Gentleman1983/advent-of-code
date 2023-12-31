@@ -1,10 +1,11 @@
 package de.havox_design.aoc2015.day06;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.List;
 
-public class HouseDecoratingContest {
+public class HouseDecoratingContest implements AoCFunctionality {
     private static final int FROM_X = 0;
     private static final int FROM_Y = 1;
     private static final int TO_X = 2;
@@ -130,9 +131,5 @@ public class HouseDecoratingContest {
                 setLight(x, y, value, brightnessChange);
             }
         }
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 }

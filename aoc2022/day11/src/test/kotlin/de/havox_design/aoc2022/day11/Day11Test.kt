@@ -77,7 +77,7 @@ class Day11Test {
         private fun getDataForTestReadData(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     listOf(
                         createMonkey(
                             0,
@@ -119,7 +119,7 @@ class Day11Test {
         private fun getDataForTestProcessPart1ItemMovement(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     1,
                     mapOf(
                         Pair(0, toItemList(20, 23, 27, 26)),
@@ -129,7 +129,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     2,
                     mapOf(
                         Pair(0, toItemList(695, 10, 71, 135, 350)),
@@ -139,7 +139,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     3,
                     mapOf(
                         Pair(0, toItemList(16, 18, 21, 20, 122)),
@@ -149,7 +149,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     4,
                     mapOf(
                         Pair(0, toItemList(491, 9, 52, 97, 248, 34)),
@@ -159,7 +159,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     5,
                     mapOf(
                         Pair(0, toItemList(15, 17, 16, 88, 1037)),
@@ -169,7 +169,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     6,
                     mapOf(
                         Pair(0, toItemList(8, 70, 176, 26, 34)),
@@ -179,7 +179,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     7,
                     mapOf(
                         Pair(0, toItemList(162, 12, 14, 64, 732, 17)),
@@ -189,7 +189,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     8,
                     mapOf(
                         Pair(0, toItemList(51, 126, 20, 26, 136)),
@@ -199,7 +199,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     9,
                     mapOf(
                         Pair(0, toItemList(116, 10, 12, 517, 14)),
@@ -209,7 +209,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     10,
                     mapOf(
                         Pair(0, toItemList(91, 16, 20, 98)),
@@ -219,7 +219,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     15,
                     mapOf(
                         Pair(0, toItemList(83, 44, 8, 184, 9, 20, 26, 102)),
@@ -229,7 +229,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     20,
                     mapOf(
                         Pair(0, toItemList(10, 12, 14, 26, 34)),
@@ -244,7 +244,7 @@ class Day11Test {
         private fun getDataForTestProcessPart1Inspections(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     1,
                     mapOf(
                         Pair(0, BigInteger.valueOf(2)),
@@ -254,7 +254,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     20,
                     mapOf(
                         Pair(0, BigInteger.valueOf(101)),
@@ -269,12 +269,12 @@ class Day11Test {
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     1,
                     BigInteger.valueOf(20)
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     20,
                     BigInteger.valueOf(10605)
                 )
@@ -285,7 +285,7 @@ class Day11Test {
         private fun getDataForTestProcessPart2Inspections(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     1,
                     mapOf(
                         Pair(0, BigInteger.valueOf(2)),
@@ -295,7 +295,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     20,
                     mapOf(
                         Pair(0, BigInteger.valueOf(99)),
@@ -305,7 +305,7 @@ class Day11Test {
                     )
                 )/*,
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     1000,
                     mapOf(
                         Pair(0, BigInteger.valueOf(5204)),
@@ -315,7 +315,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     2000,
                     mapOf(
                         Pair(0, BigInteger.valueOf(10419)),
@@ -325,7 +325,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     3000,
                     mapOf(
                         Pair(0, BigInteger.valueOf(15638)),
@@ -335,7 +335,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     4000,
                     mapOf(
                         Pair(0, BigInteger.valueOf(20858)),
@@ -345,7 +345,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     5000,
                     mapOf(
                         Pair(0, BigInteger.valueOf(26075)),
@@ -355,7 +355,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     6000,
                     mapOf(
                         Pair(0, BigInteger.valueOf(31294)),
@@ -365,7 +365,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     7000,
                     mapOf(
                         Pair(0, BigInteger.valueOf(36508)),
@@ -375,7 +375,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     8000,
                     mapOf(
                         Pair(0, BigInteger.valueOf(41728)),
@@ -385,7 +385,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     9000,
                     mapOf(
                         Pair(0, BigInteger.valueOf(46945)),
@@ -395,7 +395,7 @@ class Day11Test {
                     )
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     10000,
                     mapOf(
                         Pair(0, BigInteger.valueOf(52166)),
@@ -411,62 +411,62 @@ class Day11Test {
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     1,
                     BigInteger.valueOf(24)
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     20,
                     BigInteger.valueOf(99*103)
                 )/*,
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     1000,
                     BigInteger.valueOf(5204*5192)
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     2000,
                     BigInteger.valueOf(10419*10391)
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     3000,
                     BigInteger.valueOf(15638*15593)
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     4000,
                     BigInteger.valueOf(20858*20797)
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     5000,
                     BigInteger.valueOf(26075*26000)
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     6000,
                     BigInteger.valueOf(31294*36400)
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     7000,
                     BigInteger.valueOf(36508*36400)
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     8000,
                     BigInteger.valueOf(41728L*41606L)
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     9000,
                     BigInteger.valueOf(46945L*46807L)
                 ),
                 Arguments.of(
-                    "sample1.txt",
+                    "day11Sample.txt",
                     10000,
                     BigInteger.valueOf(52166L*52013L)
                 )*/

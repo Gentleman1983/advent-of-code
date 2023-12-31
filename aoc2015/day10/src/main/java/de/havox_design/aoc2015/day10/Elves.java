@@ -1,10 +1,11 @@
 package de.havox_design.aoc2015.day10;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.List;
 
-public class Elves {
+public class Elves implements AoCFunctionality {
     private final String input;
 
     public Elves(String fileName) {
@@ -58,9 +59,5 @@ public class Elves {
         }
 
         return newInput;
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 }

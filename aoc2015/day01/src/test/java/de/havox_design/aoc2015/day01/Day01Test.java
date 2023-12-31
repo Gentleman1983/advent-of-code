@@ -24,15 +24,15 @@ class Day01Test {
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("task1sample1.txt", 0),
-                Arguments.of("task1sample2.txt", 0),
-                Arguments.of("task1sample3.txt", 3),
-                Arguments.of("task1sample4.txt", 3),
-                Arguments.of("task1sample5.txt", 3),
-                Arguments.of("task1sample6.txt", -1),
-                Arguments.of("task1sample7.txt", -1),
-                Arguments.of("task1sample8.txt", -3),
-                Arguments.of("task1sample9.txt", -3)
+                Arguments.of("day01part1sample1.txt", 0),
+                Arguments.of("day01part1sample2.txt", 0),
+                Arguments.of("day01part1sample3.txt", 3),
+                Arguments.of("day01part1sample4.txt", 3),
+                Arguments.of("day01part1sample5.txt", 3),
+                Arguments.of("day01part1sample6.txt", -1),
+                Arguments.of("day01part1sample7.txt", -1),
+                Arguments.of("day01part1sample8.txt", -3),
+                Arguments.of("day01part1sample9.txt", -3)
         );
     }
 
@@ -44,8 +44,8 @@ class Day01Test {
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("task2sample1.txt", 1),
-                Arguments.of("task2sample2.txt", 5)
+                Arguments.of("day01part2sample1.txt", 1),
+                Arguments.of("day01part2sample2.txt", 5)
         );
     }
 }

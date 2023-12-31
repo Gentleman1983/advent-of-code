@@ -4,8 +4,8 @@ class MainClass {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            println("Number of visible trees: ${TreetopTreeHouse("input.txt").processPart1()}")
-            println("Top scenic score: ${TreetopTreeHouse("input.txt").processPart2()}")
+            println("Number of visible trees: ${TreetopTreeHouse("day08.txt").processPart1()}")
+            println("Top scenic score: ${TreetopTreeHouse("day08.txt").processPart2()}")
         }
     }
 }

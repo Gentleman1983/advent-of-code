@@ -16,13 +16,13 @@ class Day21Test {
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart1")
     fun testSolvePart1(filename: String, expectedResult: Long) =
-        Day21(filename).solvePart1(6).shouldBe(expectedResult)
+        StepCounter(filename).solvePart1(6).shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestSolvePart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 16L)
+                Arguments.of("day21Sample.txt", 16L)
             )
     }
 }

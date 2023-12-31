@@ -16,13 +16,13 @@ class Day24Test {
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart1")
     fun testSolvePart1(filename: String, expectedResult: Int) =
-        Day24(filename).solvePart1().shouldBe(expectedResult)
+        AirDuctSpelunking(filename).solvePart1().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestSolvePart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 14)
+                Arguments.of("day24Sample.txt", 14)
             )
     }
 }

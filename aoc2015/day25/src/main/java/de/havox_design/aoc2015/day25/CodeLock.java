@@ -1,13 +1,14 @@
 package de.havox_design.aoc2015.day25;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.math.BigInteger;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CodeLock {
+public class CodeLock implements AoCFunctionality {
     public static final Pattern PATTERN = Pattern.compile(".+row (\\d+), column (\\d+).");
 
     private final List<String> input;
@@ -50,9 +51,5 @@ public class CodeLock {
 
     public int solvePart2() {
         return 49;
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 }

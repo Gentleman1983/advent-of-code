@@ -13,16 +13,16 @@ class Day02Test {
 
     @ParameterizedTest
     @CsvSource(
-        "rock_rock.txt, 4",
-        "rock_paper.txt, 8",
-        "rock_scissors.txt, 3",
-        "paper_rock.txt, 1",
-        "paper_paper.txt, 5",
-        "paper_scissors.txt, 9",
-        "scissors_rock.txt, 7",
-        "scissors_paper.txt, 3",
-        "scissors_scissors.txt, 6",
-        "sample.txt, 15"
+        "day02Rock_rock.txt, 4",
+        "day02Rock_paper.txt, 8",
+        "day02Rock_scissors.txt, 3",
+        "day02Paper_rock.txt, 1",
+        "day02Paper_paper.txt, 5",
+        "day02Paper_scissors.txt, 9",
+        "day02Scissors_rock.txt, 7",
+        "day02Scissors_paper.txt, 3",
+        "day02Scissors_scissors.txt, 6",
+        "day02Sample.txt, 15"
     )
     fun testPlaybooks(filename: String, expectedScore: Int) {
         RockPaperScissorsGame(filename)
@@ -32,16 +32,16 @@ class Day02Test {
 
     @ParameterizedTest
     @CsvSource(
-        "rock_win.txt, 8",
-        "rock_draw.txt, 4",
-        "rock_loss.txt, 3",
-        "paper_win.txt, 9",
-        "paper_draw.txt, 5",
-        "paper_loss.txt, 1",
-        "scissors_win.txt, 7",
-        "scissors_draw.txt, 6",
-        "scissors_loss.txt, 2",
-        "sample.txt, 12"
+        "day02Rock_win.txt, 8",
+        "day02Rock_draw.txt, 4",
+        "day02Rock_loss.txt, 3",
+        "day02Paper_win.txt, 9",
+        "day02Paper_draw.txt, 5",
+        "day02Paper_loss.txt, 1",
+        "day02Scissors_win.txt, 7",
+        "day02Scissors_draw.txt, 6",
+        "day02Scissors_loss.txt, 2",
+        "day02Sample.txt, 12"
     )
     fun testGameByExpectedResults(filename: String, expectedScore: Int) {
         RockPaperScissorsGame(filename)

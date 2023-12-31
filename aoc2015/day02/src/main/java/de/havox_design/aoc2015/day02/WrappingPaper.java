@@ -1,10 +1,10 @@
 package de.havox_design.aoc2015.day02;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.List;
 
-public class WrappingPaper {
+public class WrappingPaper implements AoCFunctionality {
     private final List<String> input;
 
     public WrappingPaper(String fileName) {
@@ -55,9 +55,5 @@ public class WrappingPaper {
 
     private Dimensions parseDimensions(String dataRow) {
         return Dimensions.getForDataRow(dataRow);
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 }

@@ -48,22 +48,22 @@ class Day06Test {
 
     @ParameterizedTest
     @CsvSource(
-        "sample1.txt,7",
-        "sample2.txt,5",
-        "sample3.txt,6",
-        "sample4.txt,10",
-        "sample5.txt,11"
+        "day06Sample1.txt,7",
+        "day06Sample2.txt,5",
+        "day06Sample3.txt,6",
+        "day06Sample4.txt,10",
+        "day06Sample5.txt,11"
     )
     fun testProcessPart1(filename: String, expectedValue: Int) =
         TuningTrouble(filename).processPart1().shouldBe(expectedValue)
 
     @ParameterizedTest
     @CsvSource(
-        "sample1.txt,19",
-        "sample2.txt,23",
-        "sample3.txt,23",
-        "sample4.txt,29",
-        "sample5.txt,26"
+        "day06Sample1.txt,19",
+        "day06Sample2.txt,23",
+        "day06Sample3.txt,23",
+        "day06Sample4.txt,29",
+        "day06Sample5.txt,26"
     )
     fun testProcessPart2(filename: String, expectedValue: Int) =
         TuningTrouble(filename).processPart2().shouldBe(expectedValue)

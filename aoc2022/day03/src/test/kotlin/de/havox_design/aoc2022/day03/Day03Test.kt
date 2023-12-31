@@ -240,13 +240,13 @@ class Day03Test {
 
     @ParameterizedTest
     @CsvSource(
-        "sampleRow1.txt,16",
-        "sampleRow2.txt,38",
-        "sampleRow3.txt,42",
-        "sampleRow4.txt,22",
-        "sampleRow5.txt,20",
-        "sampleRow6.txt,19",
-        "sample.txt,157"
+        "day03SampleRow1.txt,16",
+        "day03SampleRow2.txt,38",
+        "day03SampleRow3.txt,42",
+        "day03SampleRow4.txt,22",
+        "day03SampleRow5.txt,20",
+        "day03SampleRow6.txt,19",
+        "day03Sample.txt,157"
     )
     fun testGetScoresForFile(filename: String, expectedScore: Int) =
         RucksackReorganization(filename)
@@ -300,14 +300,14 @@ class Day03Test {
         @JvmStatic
         private fun getDataForTestGetDuplicatesForFile(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sampleRow1.txt", listOf(Item("p"))),
-                Arguments.of("sampleRow2.txt", listOf(Item("L"))),
-                Arguments.of("sampleRow3.txt", listOf(Item("P"))),
-                Arguments.of("sampleRow4.txt", listOf(Item("v"))),
-                Arguments.of("sampleRow5.txt", listOf(Item("t"))),
-                Arguments.of("sampleRow6.txt", listOf(Item("s"))),
+                Arguments.of("day03SampleRow1.txt", listOf(Item("p"))),
+                Arguments.of("day03SampleRow2.txt", listOf(Item("L"))),
+                Arguments.of("day03SampleRow3.txt", listOf(Item("P"))),
+                Arguments.of("day03SampleRow4.txt", listOf(Item("v"))),
+                Arguments.of("day03SampleRow5.txt", listOf(Item("t"))),
+                Arguments.of("day03SampleRow6.txt", listOf(Item("s"))),
                 Arguments.of(
-                    "sample.txt", listOf(
+                    "day03Sample.txt", listOf(
                         Item("p"),
                         Item("L"),
                         Item("P"),
@@ -321,10 +321,10 @@ class Day03Test {
         @JvmStatic
         private fun getDataForTestGetBadgesFromFile(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("badges1.txt", listOf(Item("r"))),
-                Arguments.of("badges2.txt", listOf(Item("Z"))),
+                Arguments.of("day03Badges1.txt", listOf(Item("r"))),
+                Arguments.of("day03Badges2.txt", listOf(Item("Z"))),
                 Arguments.of(
-                    "sample.txt", listOf(
+                    "day03Sample.txt", listOf(
                         Item("r"),
                         Item("Z")
                     )
@@ -334,9 +334,9 @@ class Day03Test {
         @JvmStatic
         private fun getDataForTestGetBadgeScoreFromFile(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("badges1.txt", 18),
-                Arguments.of("badges2.txt", 52),
-                Arguments.of("sample.txt", 70)
+                Arguments.of("day03Badges1.txt", 18),
+                Arguments.of("day03Badges2.txt", 52),
+                Arguments.of("day03Sample.txt", 70)
             )
     }
 }

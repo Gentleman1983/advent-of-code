@@ -33,5 +33,5 @@ if __name__ == "__main__":
     solution = sympy.solve(equations)[0]
     part2 = solution[x] + solution[y] + solution[z]
     print(f"Solution for part 2 via Python: {part2}")
-    with open("result_part2.txt", 'a') as out:
+    with open("day24result_part2.txt", 'a') as out:
         print(part2, file=out)

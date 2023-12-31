@@ -19,7 +19,7 @@ object Day17 {
   }
 
   def main(args: Array[String]): Unit = {
-    println("Solution for part2: " + solvePart2("input.txt"))
+    println("Solution for part2: " + solvePart2("day17.txt"))
   }
 
   private def simulate(jets: String): Iterator[Int] =

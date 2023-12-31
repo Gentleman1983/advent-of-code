@@ -1,19 +1,20 @@
 package de.havox_design.aoc2015.day14;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ReindeerOlympics {
+public class ReindeerOlympics implements AoCFunctionality {
     private static final String DATA_PATTERN = "^(\\w+) can fly (\\d+) km/s for (\\d+) seconds, but then must rest for (\\d+) seconds.$";
     
     private final List<Reindeer> input;
 
     public ReindeerOlympics(String fileName) {
-        input = readData(fileName);
+        input = parseData(fileName);
     }
 
     public static int solvePart1(String fileName) {
@@ -75,8 +76,8 @@ public class ReindeerOlympics {
                 .get();
     }
 
-    private List<Reindeer> readData(String fileName) {
-        List<String> data = DataReader.readData(fileName, MainClass.class);
+    private List<Reindeer> parseData(String fileName) {
+        List<String> data = readData(fileName);
         List<Reindeer> reindeers = new ArrayList<>();
 
         for(String r : data) {

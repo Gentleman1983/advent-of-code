@@ -1,11 +1,12 @@
 package de.havox_design.aoc2015.day21;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class RPGBossFight {
+public class RPGBossFight implements AoCFunctionality {
     private final List<String> input;
     private final RPGPlayer boss;
     private final List<RPGItem> weapons;
@@ -100,10 +101,6 @@ public class RPGBossFight {
                 return false;
             }
         }
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 
     private RPGPlayer parseBoss() {

@@ -26,20 +26,20 @@ class Day18Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 11, 1),
-                Arguments.of("sample.txt", 8, 2),
-                Arguments.of("sample.txt", 4, 3),
-                Arguments.of("sample.txt", 4, 4)
+                Arguments.of("day18Sample.txt", 11, 1),
+                Arguments.of("day18Sample.txt", 8, 2),
+                Arguments.of("day18Sample.txt", 4, 3),
+                Arguments.of("day18Sample.txt", 4, 4)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 18, 1),
-                Arguments.of("sample.txt", 18, 2),
-                Arguments.of("sample.txt", 18, 3),
-                Arguments.of("sample.txt", 14, 4),
-                Arguments.of("sample.txt", 17, 5)
+                Arguments.of("day18Sample.txt", 18, 1),
+                Arguments.of("day18Sample.txt", 18, 2),
+                Arguments.of("day18Sample.txt", 18, 3),
+                Arguments.of("day18Sample.txt", 14, 4),
+                Arguments.of("day18Sample.txt", 17, 5)
             )
     }
 }

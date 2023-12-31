@@ -1,11 +1,12 @@
 package de.havox_design.aoc2015.day24;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BalancedQuantumEntanglement {
+public class BalancedQuantumEntanglement implements AoCFunctionality {
     private final List<String> input;
 
     public BalancedQuantumEntanglement(String fileName) {
@@ -105,9 +106,5 @@ public class BalancedQuantumEntanglement {
             result *= list[i];
         }
         return result;
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 }

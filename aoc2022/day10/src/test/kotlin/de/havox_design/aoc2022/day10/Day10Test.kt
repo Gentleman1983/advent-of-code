@@ -55,7 +55,7 @@ class Day10Test {
         private fun getDataForReadFile(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample1.txt",
+                    "day10Sample1.txt",
                     listOf(
                         Instruction(Order.NOOP),
                         Instruction(Order.ADDX, 3),
@@ -67,15 +67,15 @@ class Day10Test {
         @JvmStatic
         private fun getDataForProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample1.txt", 0),
-                Arguments.of("sample2.txt", 13140)
+                Arguments.of("day10Sample1.txt", 0),
+                Arguments.of("day10Sample2.txt", 13140)
             )
 
         @JvmStatic
         private fun getDataForProcessPart2(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample2.txt",
+                    "day10Sample2.txt",
                     "##..##..##..##..##..##..##..##..##..##..\n" +
                             "###...###...###...###...###...###...###.\n" +
                             "####....####....####....####....####....\n" +

@@ -6,8 +6,8 @@ class MainClass {
         fun main(args: Array<String>) {
             val filename = "day11.txt"
 
-            println("Solution part 1: ${Day11(filename).solvePart1()}")
-            println("Solution part 2: ${Day11(filename).solvePart2()}")
+            println("Solution part 1: ${CosmicExpansion(filename).solvePart1()}")
+            println("Solution part 2: ${CosmicExpansion(filename).solvePart2()}")
         }
     }
 }

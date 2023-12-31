@@ -19,26 +19,26 @@ class Day16Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, String expected) {
-        Assertions.assertEquals(expected, Day16.solvePart1(fileName, "abcde"));
+        Assertions.assertEquals(expected, PermutationPromenade.solvePart1(fileName, "abcde"));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("part1sample1.txt", "eabcd"),
-                Arguments.of("part1sample2.txt", "eabdc"),
-                Arguments.of("part1sample3.txt", "baedc")
+                Arguments.of("day16Part1sample1.txt", "eabcd"),
+                Arguments.of("day16Part1sample2.txt", "eabdc"),
+                Arguments.of("day16Part1sample3.txt", "baedc")
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForPart2")
     void testPart2(String fileName, String expected) {
-        Assertions.assertEquals(expected, Day16.solvePart2(fileName, "abcde", 2));
+        Assertions.assertEquals(expected, PermutationPromenade.solvePart2(fileName, "abcde", 2));
     }
 
     private static Stream<Arguments> getDataForPart2() {
         return Stream.of(
-                Arguments.of("part2sample.txt", "ceadb")
+                Arguments.of("day16Part2sample.txt", "ceadb")
         );
     }
 }

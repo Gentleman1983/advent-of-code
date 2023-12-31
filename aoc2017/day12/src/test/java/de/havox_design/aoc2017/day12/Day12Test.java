@@ -19,24 +19,24 @@ class Day12Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, long expected) {
-        Assertions.assertEquals(expected, Day12.solvePart1(fileName));
+        Assertions.assertEquals(expected, DigitalPlumber.solvePart1(fileName));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("sample.txt", 6L)
+                Arguments.of("day12Sample.txt", 6L)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForPart2")
     void testPart2(String fileName, long expected) {
-        Assertions.assertEquals(expected, Day12.solvePart2(fileName));
+        Assertions.assertEquals(expected, DigitalPlumber.solvePart2(fileName));
     }
 
     private static Stream<Arguments> getDataForPart2() {
         return Stream.of(
-                Arguments.of("sample.txt", 2L)
+                Arguments.of("day12Sample.txt", 2L)
         );
     }
 }

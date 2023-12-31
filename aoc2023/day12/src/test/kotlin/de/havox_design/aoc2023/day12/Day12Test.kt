@@ -17,30 +17,30 @@ class Day12Test {
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart1")
     fun testSolvePart1(filename: String, expectedResult: Long) =
-        Day12(filename).solvePart1().shouldBe(expectedResult)
+        HotSprings(filename).solvePart1().shouldBe(expectedResult)
 
     @Disabled("takes much toooooooooooooooooo long...")
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart2")
     fun testSolvePart2(filename: String, expectedResult: Long) =
-        Day12(filename).solvePart2().shouldBe(expectedResult)
+        HotSprings(filename).solvePart2().shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart2")
     fun testQuicksolvePart2(filename: String, expectedResult: Long) =
-        Day12(filename).quicksolvePart2().shouldBe(expectedResult)
+        HotSprings(filename).quicksolvePart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestSolvePart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 21L)
+                Arguments.of("day12Sample.txt", 21L)
             )
 
         @JvmStatic
         private fun getDataForTestSolvePart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 525152L)
+                Arguments.of("day12Sample.txt", 525152L)
             )
     }
 }

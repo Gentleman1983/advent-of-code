@@ -130,7 +130,7 @@ class Day12Test {
         private fun getDataForTestReadFile(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample.txt",
+                    "day12Sample.txt",
                     mapOf(
                         Pair(Position(0, 0), Field("S")),
                         Pair(Position(1, 0), Field("a")),
@@ -179,13 +179,13 @@ class Day12Test {
         @JvmStatic
         private fun getDataForTestPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 31)
+                Arguments.of("day12Sample.txt", 31)
             )
 
         @JvmStatic
         private fun getDataForTestPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 29)
+                Arguments.of("day12Sample.txt", 29)
             )
     }
 }

@@ -19,13 +19,13 @@ class Day13Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, long expected, int startColumn, int startRow, int endColumn, int endRow) {
-        Day13 instanceUnderTest = new Day13(fileName);
+        AMazeOfTwistyLittleCubicles instanceUnderTest = new AMazeOfTwistyLittleCubicles(fileName);
         Assertions.assertEquals(expected, instanceUnderTest.solvePart1(startColumn, startRow, endColumn, endRow));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("sample.txt", 11L, 1, 1, 7, 4)
+                Arguments.of("day13Sample.txt", 11L, 1, 1, 7, 4)
         );
     }
 }

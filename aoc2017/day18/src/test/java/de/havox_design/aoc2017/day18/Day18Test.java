@@ -20,12 +20,12 @@ class Day18Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, BigInteger expected) {
-        Assertions.assertEquals(expected, Day18.solvePart1(fileName));
+        Assertions.assertEquals(expected, Duet.solvePart1(fileName));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("sample.txt", BigInteger.valueOf(4))
+                Arguments.of("day18Sample.txt", BigInteger.valueOf(4))
         );
     }
 }

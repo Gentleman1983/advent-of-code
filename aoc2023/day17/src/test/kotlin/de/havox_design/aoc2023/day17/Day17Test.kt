@@ -16,26 +16,26 @@ class Day17Test {
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart1")
     fun testSolvePart1(filename: String, expectedResult: Long) =
-        Day17(filename).solvePart1().shouldBe(expectedResult)
+        ClumsyCrucible(filename).solvePart1().shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart2")
     fun testSolvePart2(filename: String, expectedResult: Long) =
-        Day17(filename).solvePart2().shouldBe(expectedResult)
+        ClumsyCrucible(filename).solvePart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestSolvePart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample1.txt", 102L),
-                Arguments.of("sample2.txt", 59L)
+                Arguments.of("day17Sample1.txt", 102L),
+                Arguments.of("day17Sample2.txt", 59L)
             )
 
         @JvmStatic
         private fun getDataForTestSolvePart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample1.txt", 94L),
-                Arguments.of("sample2.txt", 71L)
+                Arguments.of("day17Sample1.txt", 94L),
+                Arguments.of("day17Sample2.txt", 71L)
             )
     }
 }

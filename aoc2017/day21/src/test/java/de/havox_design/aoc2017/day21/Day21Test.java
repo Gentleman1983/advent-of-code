@@ -19,12 +19,12 @@ class Day21Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, long expected, int numberOfIterations) {
-        Assertions.assertEquals(expected, Day21.solvePart1(fileName, numberOfIterations));
+        Assertions.assertEquals(expected, FractalArt.solvePart1(fileName, numberOfIterations));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("sample.txt", 12L, 2)
+                Arguments.of("day21Sample.txt", 12L, 2)
         );
     }
 }

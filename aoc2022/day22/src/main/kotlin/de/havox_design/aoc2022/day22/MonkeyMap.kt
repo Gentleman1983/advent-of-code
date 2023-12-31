@@ -26,7 +26,7 @@ class MonkeyMap(private var filename: String) {
     }
 
     fun processPart2(): Int =
-        MonkeyCubeSolver().solvePart2(File("src/main/resources/input.txt"))
+        MonkeyCubeSolver().solvePart2(File("src/main/resources/day22.txt"))
 
     private fun readFile(): List<String> {
         val input = getResourceAsText(filename).toMutableList()

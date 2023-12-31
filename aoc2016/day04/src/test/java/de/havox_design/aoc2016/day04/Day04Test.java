@@ -19,16 +19,16 @@ class Day04Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, long expected) {
-        Assertions.assertEquals(expected, Day04.solvePart1(fileName));
+        Assertions.assertEquals(expected, SecurityThroughObscurity.solvePart1(fileName));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("part1sample1.txt", 123L),
-                Arguments.of("part1sample2.txt", 987L),
-                Arguments.of("part1sample3.txt", 404L),
-                Arguments.of("part1sample4.txt", 0L),
-                Arguments.of("part1sample5.txt", 1514L)
+                Arguments.of("day04Part1sample1.txt", 123L),
+                Arguments.of("day04Part1sample2.txt", 987L),
+                Arguments.of("day04Part1sample3.txt", 404L),
+                Arguments.of("day04Part1sample4.txt", 0L),
+                Arguments.of("day04Part1sample5.txt", 1514L)
         );
     }
 }

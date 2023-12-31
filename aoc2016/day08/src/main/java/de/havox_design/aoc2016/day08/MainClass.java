@@ -7,7 +7,7 @@ public class MainClass {
     private static final String FILENAME = "day08.txt";
 
     public static void main(String[] args) {
-        LOGGER.info(() -> "Solution for part 1: " + Day08.solvePart1(FILENAME));
-        LOGGER.info(() -> "Solution for part 2: " + Day08.solvePart2(FILENAME));
+        LOGGER.info(() -> "Solution for part 1: " + TwoFactorAuthentication.solvePart1(FILENAME));
+        LOGGER.info(() -> "Solution for part 2: " + TwoFactorAuthentication.solvePart2(FILENAME));
     }
 }

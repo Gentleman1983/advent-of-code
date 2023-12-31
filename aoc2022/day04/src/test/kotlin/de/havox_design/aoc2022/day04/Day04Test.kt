@@ -137,13 +137,13 @@ class Day04Test {
         @JvmStatic
         private fun getDataForTestFindAssignmentPairsWithOneAssignmentContainingTheOther(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sampleRow1.txt", 0, 0),
-                Arguments.of("sampleRow2.txt", 0, 0),
-                Arguments.of("sampleRow3.txt", 0, 1),
-                Arguments.of("sampleRow4.txt", 1, 1),
-                Arguments.of("sampleRow5.txt", 1, 1),
-                Arguments.of("sampleRow6.txt", 0, 1),
-                Arguments.of("sample.txt", 2, 4)
+                Arguments.of("day04SampleRow1.txt", 0, 0),
+                Arguments.of("day04SampleRow2.txt", 0, 0),
+                Arguments.of("day04SampleRow3.txt", 0, 1),
+                Arguments.of("day04SampleRow4.txt", 1, 1),
+                Arguments.of("day04SampleRow5.txt", 1, 1),
+                Arguments.of("day04SampleRow6.txt", 0, 1),
+                Arguments.of("day04Sample.txt", 2, 4)
             )
     }
 }

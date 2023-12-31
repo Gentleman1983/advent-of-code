@@ -19,12 +19,12 @@ class Day21Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, String expected, String input) {
-        Assertions.assertEquals(expected, Day21.solvePart1(fileName, input));
+        Assertions.assertEquals(expected, ScrambledLettersAndHash.solvePart1(fileName, input));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("sample.txt", "decab", "abcde")
+                Arguments.of("day21Sample.txt", "decab", "abcde")
         );
     }
 }

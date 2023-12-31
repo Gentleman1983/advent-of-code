@@ -1,11 +1,11 @@
 package de.havox_design.aoc2015.day05;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
-public class NiceStrings {
+public class NiceStrings implements AoCFunctionality {
     private final List<String> input;
 
     public NiceStrings(String fileName) {
@@ -99,9 +99,5 @@ public class NiceStrings {
 
     private boolean containsAnyString(String string) {
         return StringUtils.containsAny(string, "ab", "cd", "pq", "xy");
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 }

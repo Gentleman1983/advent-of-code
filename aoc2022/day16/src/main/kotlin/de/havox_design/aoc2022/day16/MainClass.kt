@@ -4,10 +4,10 @@ class MainClass {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            println("Pressure: ${ProboscideaVolcanium("input.txt").processPart1()}")
+            println("Pressure: ${ProboscideaVolcanium("day16.txt").processPart1()}")
 
             if(!args.contains("testing")) {
-                println("Pressure (elephant helping): ${ProboscideaVolcanium("input.txt").processPart2()}")
+                println("Pressure (elephant helping): ${ProboscideaVolcanium("day16.txt").processPart2()}")
             }
         }
     }

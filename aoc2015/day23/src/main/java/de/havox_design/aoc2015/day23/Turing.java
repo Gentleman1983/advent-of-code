@@ -1,6 +1,7 @@
 package de.havox_design.aoc2015.day23;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.List;
 import java.util.function.Function;
@@ -8,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-public class Turing {
+public class Turing implements AoCFunctionality {
     private static final Pattern PATTERN = Pattern.compile("(\\w{3}) ([ab]|[+-]?\\d+)(, ([+-]?\\d+))?");
 
     private final List<String> input;
@@ -43,10 +44,6 @@ public class Turing {
             operation.operate(state);
         }
         return state.registerB;
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 
     private Operation parseOperation(Matcher matcher) {

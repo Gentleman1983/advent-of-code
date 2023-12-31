@@ -1,6 +1,7 @@
 package de.havox_design.aoc2015.day15;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +10,7 @@ import java.util.function.ToIntFunction;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ScienceForHungryPeople {
+public class ScienceForHungryPeople implements AoCFunctionality {
     private static final String DATA_PATTERN = "^(\\w+)\\: capacity (-?\\d+), durability (-?\\d+), flavor (-?\\d+), texture (-?\\d+), calories (-?\\d+)$";
 
     private final List<Ingredient> input;
@@ -17,7 +18,7 @@ public class ScienceForHungryPeople {
 
     @SuppressWarnings("javabugs:S6466")
     public ScienceForHungryPeople(String fileName) {
-        input = readData(fileName);
+        input = parseData(fileName);
         distributions = cutToPieces(100, input.size());
     }
 
@@ -94,8 +95,8 @@ public class ScienceForHungryPeople {
         }
     }
 
-    private List<Ingredient> readData(String fileName) {
-        List<String> data = DataReader.readData(fileName, MainClass.class);
+    private List<Ingredient> parseData(String fileName) {
+        List<String> data = readData(fileName);
         List<Ingredient> ingredient = new ArrayList<>();
 
         for(String r : data) {

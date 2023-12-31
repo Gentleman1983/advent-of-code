@@ -24,9 +24,9 @@ class Day14Test {
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("sample1.txt", 1120, 1000),
-                Arguments.of("sample2.txt", 1056, 1000),
-                Arguments.of("sample3.txt", 1120, 1000)
+                Arguments.of("day14Sample1.txt", 1120, 1000),
+                Arguments.of("day14Sample2.txt", 1056, 1000),
+                Arguments.of("day14Sample3.txt", 1120, 1000)
         );
     }
 
@@ -38,9 +38,9 @@ class Day14Test {
 
     private static Stream<Arguments> getDataForPart2() {
         return Stream.of(
-                Arguments.of("sample1.txt", 1000, 1000),
-                Arguments.of("sample2.txt", 1000, 1000),
-                Arguments.of("sample3.txt", 689, 1000)
+                Arguments.of("day14Sample1.txt", 1000, 1000),
+                Arguments.of("day14Sample2.txt", 1000, 1000),
+                Arguments.of("day14Sample3.txt", 689, 1000)
         );
     }
 }

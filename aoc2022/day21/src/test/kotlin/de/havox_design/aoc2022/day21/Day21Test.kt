@@ -54,22 +54,22 @@ class Day21Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("samplePart1.txt", 152),
-                Arguments.of("samplePart2.txt", 0)
+                Arguments.of("day21SamplePart1.txt", 152),
+                Arguments.of("day21SamplePart2.txt", 0)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("samplePart1.txt", Long.MIN_VALUE),
-                Arguments.of("samplePart2.txt", 301)
+                Arguments.of("day21SamplePart1.txt", Long.MIN_VALUE),
+                Arguments.of("day21SamplePart2.txt", 301)
             )
 
         @JvmStatic
         private fun getDataForTestReadData(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "samplePart1.txt",
+                    "day21SamplePart1.txt",
                     listOf(
                         Monkey("root", Riddle("pppw", PLUS, "sjmn")),
                         Monkey("dbpl", number = 5),
@@ -89,7 +89,7 @@ class Day21Test {
                     )
                 ),
                 Arguments.of(
-                    "samplePart2.txt",
+                    "day21SamplePart2.txt",
                     listOf(
                         Monkey("root", Riddle("pppw", EQUALS, "sjmn")),
                         Monkey("dbpl", number = 5),
@@ -114,7 +114,7 @@ class Day21Test {
         private fun getDataForTestMonkeysHaveRiddle(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "samplePart1.txt",
+                    "day21SamplePart1.txt",
                     true,
                     listOf(
                         Monkey("root", Riddle("pppw", PLUS, "sjmn")),
@@ -127,7 +127,7 @@ class Day21Test {
                     )
                 ),
                 Arguments.of(
-                    "samplePart1.txt",
+                    "day21SamplePart1.txt",
                     false,
                     listOf(
                         Monkey("dbpl", number = 5),
@@ -141,7 +141,7 @@ class Day21Test {
                     )
                 ),
                 Arguments.of(
-                    "samplePart2.txt",
+                    "day21SamplePart2.txt",
                     true,
                     listOf(
                         Monkey("root", Riddle("pppw", EQUALS, "sjmn")),
@@ -154,7 +154,7 @@ class Day21Test {
                     )
                 ),
                 Arguments.of(
-                    "samplePart2.txt",
+                    "day21SamplePart2.txt",
                     false,
                     listOf(
                         Monkey("dbpl", number = 5),
@@ -172,36 +172,36 @@ class Day21Test {
         @JvmStatic
         private fun getDataForTestCalculateMonkeyValues(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("samplePart1.txt", "root", 152),
-                Arguments.of("samplePart1.txt", "dbpl", 5),
-                Arguments.of("samplePart1.txt", "cczh", 8),
-                Arguments.of("samplePart1.txt", "zczc", 2),
-                Arguments.of("samplePart1.txt", "ptdq", 2),
-                Arguments.of("samplePart1.txt", "dvpt", 3),
-                Arguments.of("samplePart1.txt", "lfqf", 4),
-                Arguments.of("samplePart1.txt", "humn", 5),
-                Arguments.of("samplePart1.txt", "ljgn", 2),
-                Arguments.of("samplePart1.txt", "sjmn", 150),
-                Arguments.of("samplePart1.txt", "sllz", 4),
-                Arguments.of("samplePart1.txt", "pppw", 2),
-                Arguments.of("samplePart1.txt", "lgvd", 4),
-                Arguments.of("samplePart1.txt", "drzm", 30),
-                Arguments.of("samplePart1.txt", "hmdt", 32),
-                Arguments.of("samplePart2.txt", "root", 0),
-                Arguments.of("samplePart2.txt", "dbpl", 5),
-                Arguments.of("samplePart2.txt", "cczh", 600),
-                Arguments.of("samplePart2.txt", "zczc", 2),
-                Arguments.of("samplePart2.txt", "ptdq", 298),
-                Arguments.of("samplePart2.txt", "dvpt", 3),
-                Arguments.of("samplePart2.txt", "lfqf", 4),
-                Arguments.of("samplePart2.txt", "humn", 301),
-                Arguments.of("samplePart2.txt", "ljgn", 2),
-                Arguments.of("samplePart2.txt", "sjmn", 150),
-                Arguments.of("samplePart2.txt", "sllz", 4),
-                Arguments.of("samplePart2.txt", "pppw", 150),
-                Arguments.of("samplePart2.txt", "lgvd", 596),
-                Arguments.of("samplePart2.txt", "drzm", 30),
-                Arguments.of("samplePart2.txt", "hmdt", 32)
+                Arguments.of("day21SamplePart1.txt", "root", 152),
+                Arguments.of("day21SamplePart1.txt", "dbpl", 5),
+                Arguments.of("day21SamplePart1.txt", "cczh", 8),
+                Arguments.of("day21SamplePart1.txt", "zczc", 2),
+                Arguments.of("day21SamplePart1.txt", "ptdq", 2),
+                Arguments.of("day21SamplePart1.txt", "dvpt", 3),
+                Arguments.of("day21SamplePart1.txt", "lfqf", 4),
+                Arguments.of("day21SamplePart1.txt", "humn", 5),
+                Arguments.of("day21SamplePart1.txt", "ljgn", 2),
+                Arguments.of("day21SamplePart1.txt", "sjmn", 150),
+                Arguments.of("day21SamplePart1.txt", "sllz", 4),
+                Arguments.of("day21SamplePart1.txt", "pppw", 2),
+                Arguments.of("day21SamplePart1.txt", "lgvd", 4),
+                Arguments.of("day21SamplePart1.txt", "drzm", 30),
+                Arguments.of("day21SamplePart1.txt", "hmdt", 32),
+                Arguments.of("day21SamplePart2.txt", "root", 0),
+                Arguments.of("day21SamplePart2.txt", "dbpl", 5),
+                Arguments.of("day21SamplePart2.txt", "cczh", 600),
+                Arguments.of("day21SamplePart2.txt", "zczc", 2),
+                Arguments.of("day21SamplePart2.txt", "ptdq", 298),
+                Arguments.of("day21SamplePart2.txt", "dvpt", 3),
+                Arguments.of("day21SamplePart2.txt", "lfqf", 4),
+                Arguments.of("day21SamplePart2.txt", "humn", 301),
+                Arguments.of("day21SamplePart2.txt", "ljgn", 2),
+                Arguments.of("day21SamplePart2.txt", "sjmn", 150),
+                Arguments.of("day21SamplePart2.txt", "sllz", 4),
+                Arguments.of("day21SamplePart2.txt", "pppw", 150),
+                Arguments.of("day21SamplePart2.txt", "lgvd", 596),
+                Arguments.of("day21SamplePart2.txt", "drzm", 30),
+                Arguments.of("day21SamplePart2.txt", "hmdt", 32)
             )
     }
 }

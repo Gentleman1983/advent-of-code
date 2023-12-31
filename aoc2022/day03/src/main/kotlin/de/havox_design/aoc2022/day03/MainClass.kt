@@ -4,8 +4,8 @@ class MainClass {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            println("Sum of priorities: ${RucksackReorganization("input.txt").getDuplicatesScoreFromList()}")
-            println("Badgesscore: ${RucksackReorganization("input.txt").getBadgesScoreFromList()}")
+            println("Sum of priorities: ${RucksackReorganization("day03.txt").getDuplicatesScoreFromList()}")
+            println("Badgesscore: ${RucksackReorganization("day03.txt").getBadgesScoreFromList()}")
         }
     }
 }

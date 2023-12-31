@@ -1,14 +1,15 @@
 package de.havox_design.aoc2015.day20;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.Arrays;
 
-public class PacketDelivery {
+public class PacketDelivery implements AoCFunctionality {
     private final Integer input;
 
     public PacketDelivery(String fileName) {
-        input = readData(fileName);
+        input = parseData(fileName);
     }
 
     public static int solvePart1(String fileName) {
@@ -55,7 +56,7 @@ public class PacketDelivery {
         return houseNumber;
     }
 
-    private Integer readData(String fileName) {
-        return Integer.parseInt(DataReader.readData(fileName, MainClass.class).get(0));
+    private Integer parseData(String fileName) {
+        return Integer.parseInt(readData(fileName).get(0));
     }
 }

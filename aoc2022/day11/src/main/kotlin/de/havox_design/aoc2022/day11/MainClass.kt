@@ -9,10 +9,10 @@ class MainClass {
 
         @JvmStatic
         fun main(runningTests: Boolean) {
-            println("Monkey Business: ${MonkeyInTheMiddle("input.txt").processPart1(20)}")
+            println("Monkey Business: ${MonkeyInTheMiddle("day11.txt").processPart1(20)}")
             val numberOfRuns = if (runningTests) 100 else 10000
             println("If running many iterations this may take some time... Current runs: $numberOfRuns")
-            println("Monkey Business without relief: ${MonkeyInTheMiddle("input.txt").processPart2(numberOfRuns)}")
+            println("Monkey Business without relief: ${MonkeyInTheMiddle("day11.txt").processPart2(numberOfRuns)}")
         }
     }
 }

@@ -1,4 +1,4 @@
-# Day 20: Particle Swarm ---
+# Day 20: Particle Swarm
 Suddenly, the GPU contacts you, asking for help. Someone has asked it to simulate **too many particles**, and it won't 
 be able to finish them all in time to render the next frame at this rate.
 

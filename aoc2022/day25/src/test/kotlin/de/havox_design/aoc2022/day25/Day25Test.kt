@@ -43,7 +43,7 @@ class Day25Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 4890, SNAFUNumber.toSnafu("2=-1=0"))
+                Arguments.of("day25Sample.txt", 4890, SNAFUNumber.toSnafu("2=-1=0"))
             )
 
         @JvmStatic

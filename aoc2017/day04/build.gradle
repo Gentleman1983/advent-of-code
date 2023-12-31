@@ -10,12 +10,12 @@ dependencies {
 }
 
 application {
-    mainClass = "de.havox_design.${rootProject.name}.${project.name}.Day04"
+    mainClass = "de.havox_design.${rootProject.name}.${project.name}.HighEntropyPassphrases"
 }
 
 jar {
     manifest {
-        attributes 'Main-Class': "de.havox_design.${rootProject.name}.${project.name}.Day04"
+        attributes 'Main-Class': "de.havox_design.${rootProject.name}.${project.name}.HighEntropyPassphrases"
     }
 }
 

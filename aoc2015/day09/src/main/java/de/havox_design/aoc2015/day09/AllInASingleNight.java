@@ -1,16 +1,17 @@
 package de.havox_design.aoc2015.day09;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.*;
 import java.util.regex.Pattern;
 
-public class AllInASingleNight {
+public class AllInASingleNight implements AoCFunctionality {
     private static final Pattern DISTANCE_PATTERN = Pattern.compile("(\\S+) to (\\S+) = (\\d+)");
     private final Map<String, Map<String, Integer>> input;
 
     public AllInASingleNight(String fileName) {
-        input = readData(fileName);
+        input = parseData(fileName);
     }
 
     public static int solvePart1(String fileName) {
@@ -48,8 +49,8 @@ public class AllInASingleNight {
         return queue.peek().getDistance();
     }
 
-    private Map<String, Map<String, Integer>> readData(String fileName) {
-        List<String> fileDataRows = DataReader.readData(fileName, MainClass.class);
+    private Map<String, Map<String, Integer>> parseData(String fileName) {
+        List<String> fileDataRows = readData(fileName);
 
         Map<String, Map<String, Integer>> landscape = new HashMap<>();
         for (String line : fileDataRows) {

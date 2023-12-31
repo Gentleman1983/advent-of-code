@@ -1,6 +1,5 @@
 package de.havox_design.aoc2022.day22
 
-import de.havox_design.aoc2022.day22.Map
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
@@ -55,7 +54,7 @@ class Day22Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 6032)
+                Arguments.of("day22Sample.txt", 6032)
             )
 
         @JvmStatic
@@ -68,7 +67,7 @@ class Day22Test {
         private fun getDataForTestReadMapData(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample.txt",
+                    "day22Sample.txt",
                     listOf(
                         "        ...#",
                         "        .#..",
@@ -90,7 +89,7 @@ class Day22Test {
         private fun getDataForTestReadOrders(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample.txt",
+                    "day22Sample.txt",
                     listOf(
                         "10",
                         "R",
@@ -113,7 +112,7 @@ class Day22Test {
         private fun getDataForTestStartMap(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample.txt",
+                    "day22Sample.txt",
                     arrayOf(
                         "                  ".toMapRow(),
                         "         >..#     ".toMapRow(),
@@ -137,7 +136,7 @@ class Day22Test {
         private fun getDataForTestStartingField(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample.txt",
+                    "day22Sample.txt",
                     Position(9, 1),
                     Field.RIGHT
                 )

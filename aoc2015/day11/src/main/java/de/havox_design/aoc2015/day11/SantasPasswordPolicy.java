@@ -1,12 +1,13 @@
 package de.havox_design.aoc2015.day11;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import static de.havox_design.aoc2015.day11.PasswordValidator.*;
 
 import java.util.List;
 
-public class SantasPasswordPolicy {
+public class SantasPasswordPolicy implements AoCFunctionality {
     private final String input;
 
     public SantasPasswordPolicy(String fileName) {
@@ -70,9 +71,5 @@ public class SantasPasswordPolicy {
             password.append((char) (FIRST_VALID_LETTER + b));
         }
         return password.toString();
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 }

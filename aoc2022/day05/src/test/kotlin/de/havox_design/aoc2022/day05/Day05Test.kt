@@ -31,7 +31,7 @@ class Day05Test {
     @Test
     fun testReadStacks() {
         val expectedData = getDataForTestReadStacks()
-        val objectUnderTest = SupplyStacks("sample.txt")
+        val objectUnderTest = SupplyStacks("day05Sample.txt")
 
         objectUnderTest.readData()
 
@@ -62,7 +62,7 @@ class Day05Test {
 
     @Test
     fun testReadProcedures() {
-        val objectUnderTest = SupplyStacks("sample.txt")
+        val objectUnderTest = SupplyStacks("day05Sample.txt")
 
         objectUnderTest.readData()
         val expectedData = getDataForTestReadProcedures(objectUnderTest.data)
@@ -81,7 +81,7 @@ class Day05Test {
     @Test
     fun testRunProcedure() {
         val expectedData = getDataForTestRunProcedure()
-        val objectUnderTest = SupplyStacks("sample.txt")
+        val objectUnderTest = SupplyStacks("day05Sample.txt")
 
         objectUnderTest.readData()
         objectUnderTest.followProcedure()
@@ -116,7 +116,7 @@ class Day05Test {
     @Test
     fun testRunProcedureCratemaster9001() {
         val expectedData = getDataForTestRunProcedureCratemaster9001()
-        val objectUnderTest = SupplyStacks("sample.txt")
+        val objectUnderTest = SupplyStacks("day05Sample.txt")
 
         objectUnderTest.readData()
         objectUnderTest.followProcedureCratemaster9001()
@@ -150,11 +150,11 @@ class Day05Test {
 
     @Test
     fun testSolutionPart1() =
-        SupplyStacks("sample.txt").evaluateTask1().shouldBe("CMZ")
+        SupplyStacks("day05Sample.txt").evaluateTask1().shouldBe("CMZ")
 
     @Test
     fun testSolutionPart2() =
-        SupplyStacks("sample.txt").evaluateTask2().shouldBe("MCD")
+        SupplyStacks("day05Sample.txt").evaluateTask2().shouldBe("MCD")
 
     private fun getDataForTestReadStacks(): Map<Int, Stack> {
         val stack1 = Stack.emptyStackWithId(1)

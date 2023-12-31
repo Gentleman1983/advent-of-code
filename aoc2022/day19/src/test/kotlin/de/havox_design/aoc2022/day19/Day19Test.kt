@@ -199,20 +199,20 @@ class Day19Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 33)
+                Arguments.of("day19Sample.txt", 33)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 56)
+                Arguments.of("day19Sample.txt", 56)
             )
 
         @JvmStatic
         private fun getDataForTestReadFile(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample.txt",
+                    "day19Sample.txt",
                     listOf(
                         Blueprint(
                             id = 1,
@@ -236,13 +236,13 @@ class Day19Test {
         private fun getDataForTestBlueprintSimulation(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample.txt",
+                    "day19Sample.txt",
                     1,
                     24,
                     9
                 ),
                 Arguments.of(
-                    "sample.txt",
+                    "day19Sample.txt",
                     2,
                     24,
                     24

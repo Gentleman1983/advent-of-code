@@ -60,7 +60,7 @@ class Day07Test {
 
     @ParameterizedTest
     @CsvSource(
-        "sample.txt,48381165"
+        "day07Sample.txt,48381165"
     )
     fun testSumAllFiles(filename: String, expectedSize: Int) {
         val data = NoSpaceLeftOnDevice(filename)
@@ -71,7 +71,7 @@ class Day07Test {
 
     @ParameterizedTest
     @CsvSource(
-        "sample.txt,24933642"
+        "day07Sample.txt,24933642"
     )
     fun testFindSmallestDirLargerThanLimit(filename: String, expectedSize: Int) {
         val missingSpace = 8381165
@@ -83,14 +83,14 @@ class Day07Test {
 
     @ParameterizedTest
     @CsvSource(
-        "sample.txt,95437"
+        "day07Sample.txt,95437"
     )
     fun testProcessPart1(filename: String, expectedSize: Int) =
         NoSpaceLeftOnDevice(filename).processPart1().shouldBe(expectedSize)
 
     @ParameterizedTest
     @CsvSource(
-        "sample.txt,24933642"
+        "day07Sample.txt,24933642"
     )
     fun testProcessPart2(filename: String, expectedSize: Int) =
         NoSpaceLeftOnDevice(filename).processPart2().shouldBe(expectedSize)
@@ -155,7 +155,7 @@ class Day07Test {
             dirA.parent = rootDir
             dirD.parent = rootDir
 
-            return Stream.of(Arguments.of("sample.txt", rootDir))
+            return Stream.of(Arguments.of("day07Sample.txt", rootDir))
         }
     }
 }

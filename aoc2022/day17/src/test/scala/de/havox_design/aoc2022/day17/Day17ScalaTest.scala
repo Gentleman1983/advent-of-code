@@ -5,10 +5,10 @@ import org.scalatest.funsuite.AnyFunSuite
 
 class Day17ScalaTest extends AnyFunSuite {
   test("Day 17 - Part 2") {
-    println("Solution for part2: " + solvePart2("input.txt"))
+    println("Solution for part2: " + solvePart2("day17.txt"))
   }
 
   test("Day 17 - Part 2 - Sample") {
-    assert(solvePart2("sample.txt") == 1514285714288L)
+    assert(solvePart2("day17Sample.txt") == 1514285714288L)
   }
 }

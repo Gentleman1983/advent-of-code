@@ -16,24 +16,24 @@ class Day15Test {
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart1")
     fun testSolvePart1(filename: String, expectedResult: Long) =
-        Day15(filename).solvePart1().shouldBe(expectedResult)
+        LensLibrary(filename).solvePart1().shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart2")
     fun testSolvePart2(filename: String, expectedResult: Long) =
-        Day15(filename).solvePart2().shouldBe(expectedResult)
+        LensLibrary(filename).solvePart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestSolvePart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 1320L)
+                Arguments.of("day15Sample.txt", 1320L)
             )
 
         @JvmStatic
         private fun getDataForTestSolvePart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 145L)
+                Arguments.of("day15Sample.txt", 145L)
             )
     }
 }

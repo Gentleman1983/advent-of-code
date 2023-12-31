@@ -4,7 +4,7 @@ class MainClass {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            val inputFileName = "input.txt"
+            val inputFileName = "day25.txt"
 
             val part1Result = FullOfHotAir(inputFileName).processPart1()
             println("SNAFU number: ${SNAFUNumber.toSnafu(part1Result).toReadableString()} ($part1Result)")

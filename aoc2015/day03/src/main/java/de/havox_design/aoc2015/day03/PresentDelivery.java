@@ -1,12 +1,13 @@
 package de.havox_design.aoc2015.day03;
 
-import de.havox_design.aoc.utils.java.input.DataReader;
+
+import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class PresentDelivery {
+public class PresentDelivery implements AoCFunctionality {
     private final String input;
 
     public PresentDelivery(String fileName) {
@@ -73,9 +74,5 @@ public class PresentDelivery {
         } else {
             throw new IllegalArgumentException("Illegal character found.");
         }
-    }
-
-    private List<String> readData(String fileName) {
-        return DataReader.readData(fileName, MainClass.class);
     }
 }

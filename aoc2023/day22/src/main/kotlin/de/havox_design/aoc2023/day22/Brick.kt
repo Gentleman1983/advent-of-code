@@ -10,7 +10,7 @@ data class Brick(val startPosition: Triple<Int, Int, Int>, val endPosition: Trip
 
     val canFall: Boolean
         get() =
-            canFall(Day22.getBricks())
+            canFall(SandSlabs.getBricks())
 
     fun contains(position: Triple<Int, Int, Int>): Boolean =
         position.x() >= startPosition.x() && position.x() <= endPosition.x() &&

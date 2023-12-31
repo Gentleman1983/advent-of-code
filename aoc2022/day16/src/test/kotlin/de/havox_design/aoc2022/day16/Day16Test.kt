@@ -37,13 +37,13 @@ class Day16Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 1651)
+                Arguments.of("day16Sample.txt", 1651)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 1707)
+                Arguments.of("day16Sample.txt", 1707)
             )
 
         @JvmStatic
@@ -96,7 +96,7 @@ class Day16Test {
         private fun getDataForTestImportValves(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample.txt",
+                    "day16Sample.txt",
                     mapOf(
                         Pair("AA", Valve("AA", 0, listOf("DD", "II", "BB"))),
                         Pair("BB", Valve("BB", 13, listOf("CC", "AA"))),

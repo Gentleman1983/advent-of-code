@@ -12,7 +12,7 @@ object Day16 {
   }
 
   def main(args: Array[String]): Unit = {
-    println("Solution for part2: " + solvePart2("input.txt"))
+    println("Solution for part2: " + solvePart2("day16.txt"))
   }
 
   private def explore(input: Seq[String], initial: Int): Map[Set[String], Int] =

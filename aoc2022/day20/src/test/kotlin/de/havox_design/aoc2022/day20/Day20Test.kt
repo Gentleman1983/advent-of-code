@@ -32,20 +32,20 @@ class Day20Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 3L)
+                Arguments.of("day20Sample.txt", 3L)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample.txt", 1623178306L)
+                Arguments.of("day20Sample.txt", 1623178306L)
             )
 
         @JvmStatic
         private fun getDataForTestReadData(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "sample.txt",
+                    "day20Sample.txt",
                     listOf(
                         Element(1),
                         Element(2),

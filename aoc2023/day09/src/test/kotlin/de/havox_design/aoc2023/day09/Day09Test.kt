@@ -16,30 +16,30 @@ class Day09Test {
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart1")
     fun testSolvePart1(filename: String, expectedResult: Long) =
-        Day09(filename).solvePart1().shouldBe(expectedResult)
+        MirageMaintenance(filename).solvePart1().shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart2")
     fun testSolvePart2(filename: String, expectedResult: Long) =
-        Day09(filename).solvePart2().shouldBe(expectedResult)
+        MirageMaintenance(filename).solvePart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestSolvePart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample1.txt", 18L),
-                Arguments.of("sample2.txt", 28L),
-                Arguments.of("sample3.txt", 68L),
-                Arguments.of("sample4.txt", 114L)
+                Arguments.of("day09Sample1.txt", 18L),
+                Arguments.of("day09Sample2.txt", 28L),
+                Arguments.of("day09Sample3.txt", 68L),
+                Arguments.of("day09Sample4.txt", 114L)
             )
 
         @JvmStatic
         private fun getDataForTestSolvePart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sample1.txt", -3L),
-                Arguments.of("sample2.txt", 0L),
-                Arguments.of("sample3.txt", 5L),
-                Arguments.of("sample4.txt", 2L)
+                Arguments.of("day09Sample1.txt", -3L),
+                Arguments.of("day09Sample2.txt", 0L),
+                Arguments.of("day09Sample3.txt", 5L),
+                Arguments.of("day09Sample4.txt", 2L)
             )
     }
 }

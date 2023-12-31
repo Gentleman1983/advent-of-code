@@ -10,7 +10,7 @@ object Day11 {
   }
 
   def main(args: Array[String]): Unit = {
-    println("Solution for part2: " + solvePart2("input.txt"))
+    println("Solution for part2: " + solvePart2("day11.txt"))
   }
 
   private def play(monkeys: Seq[ScalaMonkey], rounds: Int): Long =

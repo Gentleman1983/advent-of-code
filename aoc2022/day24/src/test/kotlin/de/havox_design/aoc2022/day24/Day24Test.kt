@@ -52,22 +52,22 @@ class Day24Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sampleEasy.txt", 10),
-                Arguments.of("sampleComplex.txt", 18)
+                Arguments.of("day24SampleEasy.txt", 10),
+                Arguments.of("day24SampleComplex.txt", 18)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sampleEasy.txt", 10, 10, 10, 30),
-                Arguments.of("sampleComplex.txt", 18, 23, 13, 54)
+                Arguments.of("day24SampleEasy.txt", 10, 10, 10, 30),
+                Arguments.of("day24SampleComplex.txt", 18, 23, 13, 54)
             )
 
         @JvmStatic
         private fun getDataForTestStartAndEnd(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("sampleEasy.txt", Position(1, 0), Position(5, 6)),
-                Arguments.of("sampleComplex.txt", Position(1, 0), Position(6, 5))
+                Arguments.of("day24SampleEasy.txt", Position(1, 0), Position(5, 6)),
+                Arguments.of("day24SampleComplex.txt", Position(1, 0), Position(6, 5))
             )
 
         @JvmStatic

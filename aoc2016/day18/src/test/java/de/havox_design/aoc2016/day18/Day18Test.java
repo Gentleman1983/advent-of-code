@@ -19,14 +19,14 @@ class Day18Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, long expected, int rowCount) {
-        Day18 instanceUnderTest = new Day18(fileName);
+        LikeARogue instanceUnderTest = new LikeARogue(fileName);
         Assertions.assertEquals(expected, instanceUnderTest.solvePart1(rowCount));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("sample1.txt", 6L, 3),
-                Arguments.of("sample2.txt", 38L, 10)
+                Arguments.of("day18Sample1.txt", 6L, 3),
+                Arguments.of("day18Sample2.txt", 38L, 10)
         );
     }
 }

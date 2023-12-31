@@ -19,12 +19,12 @@ class Day17Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, long expected) {
-        Assertions.assertEquals(expected, Day17.solvePart1(fileName));
+        Assertions.assertEquals(expected, SpinLock.solvePart1(fileName));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("sample.txt", 638L)
+                Arguments.of("day17Sample.txt", 638L)
         );
     }
 }

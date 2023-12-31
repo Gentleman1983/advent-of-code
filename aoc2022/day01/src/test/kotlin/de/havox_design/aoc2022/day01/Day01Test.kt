@@ -11,26 +11,26 @@ class Day01Test {
 
     @Test
     fun singleEntry() =
-        CaloriesCounter("singleEntry.txt")
+        CaloriesCounter("day01SingleEntry.txt")
             .processFile()
             .shouldBe("42")
 
 
     @Test
     fun singleSum() =
-        CaloriesCounter("singleSum.txt")
+        CaloriesCounter("day01SingleSum.txt")
             .processFile()
             .shouldBe("797")
 
     @Test
     fun sample() =
-        CaloriesCounter("sample.txt")
+        CaloriesCounter("day01Sample.txt")
             .processFile()
             .shouldBe("24000")
 
     @Test
     fun sampleTopThree() =
-        CaloriesCounter("sample.txt")
+        CaloriesCounter("day01Sample.txt")
             .processFileTopThree()
             .shouldBe("45000")
 }

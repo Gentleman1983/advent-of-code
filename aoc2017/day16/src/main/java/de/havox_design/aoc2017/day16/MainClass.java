@@ -9,7 +9,7 @@ public class MainClass {
     private static final int ITERATIONS = 1000000000;
 
     public static void main(String[] args) {
-        LOGGER.info(() -> "Solution for part 1: " + Day16.solvePart1(FILENAME, INITIAL_WORD));
-        LOGGER.info(() -> "Solution for part 2: " + Day16.solvePart2(FILENAME, INITIAL_WORD, ITERATIONS));
+        LOGGER.info(() -> "Solution for part 1: " + PermutationPromenade.solvePart1(FILENAME, INITIAL_WORD));
+        LOGGER.info(() -> "Solution for part 2: " + PermutationPromenade.solvePart2(FILENAME, INITIAL_WORD, ITERATIONS));
     }
 }

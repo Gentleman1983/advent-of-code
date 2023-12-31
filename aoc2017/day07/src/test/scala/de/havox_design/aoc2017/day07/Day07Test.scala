@@ -1,6 +1,6 @@
 package de.havox_design.aoc2017.day07
 
-import Day07._
+import RecursiveCircus._
 import org.scalatest.funsuite.AnyFunSuite
 
 class Day07Test extends AnyFunSuite {
@@ -11,7 +11,7 @@ class Day07Test extends AnyFunSuite {
   }
 
   test("Day 07 - Part 1 - Sample") {
-    assert(solvePart1("sample.txt") == "tknk")
+    assert(solvePart1("day07Sample.txt") == "tknk")
   }
 
   test("Day 07 - Part 2") {
@@ -19,6 +19,6 @@ class Day07Test extends AnyFunSuite {
   }
 
   test("Day 07 - Part 2 - Sample") {
-    assert(solvePart2("sample.txt") == 60)
+    assert(solvePart2("day07Sample.txt") == 60)
   }
 }

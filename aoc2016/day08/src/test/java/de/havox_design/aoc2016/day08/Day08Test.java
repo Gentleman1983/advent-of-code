@@ -19,15 +19,15 @@ class Day08Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, long expected) {
-        Assertions.assertEquals(expected, Day08.solvePart1(fileName));
+        Assertions.assertEquals(expected, TwoFactorAuthentication.solvePart1(fileName));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("part1sample1.txt", 6L),
-                Arguments.of("part1sample2.txt", 6L),
-                Arguments.of("part1sample3.txt", 6L),
-                Arguments.of("part1sample4.txt", 6L)
+                Arguments.of("day08Part1sample1.txt", 6L),
+                Arguments.of("day08Part1sample2.txt", 6L),
+                Arguments.of("day08Part1sample3.txt", 6L),
+                Arguments.of("day08Part1sample4.txt", 6L)
         );
     }
 }

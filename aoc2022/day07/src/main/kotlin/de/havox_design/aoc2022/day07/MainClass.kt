@@ -4,8 +4,8 @@ class MainClass {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            println("Total folder size: ${NoSpaceLeftOnDevice("input.txt").processPart1()}")
-            println("Smallest folder size: ${NoSpaceLeftOnDevice("input.txt").processPart2()}")
+            println("Total folder size: ${NoSpaceLeftOnDevice("day07.txt").processPart1()}")
+            println("Smallest folder size: ${NoSpaceLeftOnDevice("day07.txt").processPart2()}")
         }
     }
 }

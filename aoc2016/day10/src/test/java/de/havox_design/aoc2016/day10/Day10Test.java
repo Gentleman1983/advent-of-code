@@ -19,26 +19,26 @@ class Day10Test {
     @ParameterizedTest
     @MethodSource("getDataForPart1")
     void testPart1(String fileName, long expected, int low, int high) {
-        Day10 instanceUnderTest = new Day10(fileName);
+        BalanceBots instanceUnderTest = new BalanceBots(fileName);
 
         Assertions.assertEquals(expected, instanceUnderTest.solvePart1(low, high));
     }
 
     private static Stream<Arguments> getDataForPart1() {
         return Stream.of(
-                Arguments.of("sample.txt", 2L, 2, 5)
+                Arguments.of("day10Sample.txt", 2L, 2, 5)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForPart2")
     void testPart2(String fileName, long expected) {
-        Assertions.assertEquals(expected, Day10.solvePart2(fileName));
+        Assertions.assertEquals(expected, BalanceBots.solvePart2(fileName));
     }
 
     private static Stream<Arguments> getDataForPart2() {
         return Stream.of(
-                Arguments.of("sample.txt", 30L)
+                Arguments.of("day10Sample.txt", 30L)
         );
     }
 }

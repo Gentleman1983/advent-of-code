@@ -10,12 +10,12 @@ dependencies {
 }
 
 application {
-    mainClass = "de.havox_design.${rootProject.name}.${project.name}.Day06"
+    mainClass = "de.havox_design.${rootProject.name}.${project.name}.MemoryReallocation"
 }
 
 jar {
     manifest {
-        attributes 'Main-Class': "de.havox_design.${rootProject.name}.${project.name}.Day06"
+        attributes 'Main-Class': "de.havox_design.${rootProject.name}.${project.name}.MemoryReallocation"
     }
 }
 

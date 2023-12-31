@@ -4,7 +4,7 @@ class MainClass {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            val inputFileName = "input.txt"
+            val inputFileName = "day24.txt"
 
             println("Minutes needed: ${BlizzardBasin(inputFileName).processPart1()}")
             println("------------- PART 2 -----------------------------------------------")
