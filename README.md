@@ -12,7 +12,7 @@ on interest and learning about languages. All projects are build using build man
 ![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=de.havox_design.aoc%3Aadvent_of_code&metric=code_smells "The current number of SonarQube code smells")](https://sonarcloud.io/dashboard?id=de.havox_design.aoc:advent_of_code)
 
 To run all solutions, simply run `./gradlew run`. If you want to run the solution for day 5, simply run
-`./gradlew aoc2023:day05:run`.
+`./gradlew aoc2023:run day05`.
 
 ## Contributions:
 | Year    | Language(s)          | Total Stars | Link to repository                                                                 |

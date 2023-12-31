@@ -1,5 +1,6 @@
 package de.havox_design.aoc2023.day16
 
+import de.havox_design.aoc2023.MainClass
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
@@ -10,7 +11,7 @@ import java.util.stream.Stream
 class Day16Test {
     @Test
     fun testMainClass() {
-        MainClass.main(arrayOf())
+        MainClass.main(arrayOf("day16"))
     }
 
     @ParameterizedTest
@@ -27,13 +28,13 @@ class Day16Test {
         @JvmStatic
         private fun getDataForTestSolvePart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("day16Sample.txt", 46L)
+                Arguments.of("de/havox_design/aoc2023/day16/day16Sample.txt", 46L)
             )
 
         @JvmStatic
         private fun getDataForTestSolvePart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("day16Sample.txt", 51L)
+                Arguments.of("de/havox_design/aoc2023/day16/day16Sample.txt", 51L)
             )
     }
 }

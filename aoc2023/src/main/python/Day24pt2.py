@@ -2,7 +2,7 @@ import sympy
 
 
 def read_input():
-    f = open('../../../src/main/resources/day24.txt', 'r')
+    f = open('de/havox_design/aoc2023/day24/day24.txt', 'r')
     for line in f.readlines():
         p, v = line.split(' @ ')
         p = list(map(int, p.split(', ')))
@@ -33,5 +33,5 @@ if __name__ == "__main__":
     solution = sympy.solve(equations)[0]
     part2 = solution[x] + solution[y] + solution[z]
     print(f"Solution for part 2 via Python: {part2}")
-    with open("day24result_part2.txt", 'a') as out:
+    with open("de/havox_design/aoc2023/day24/day24result_part2.txt", 'a') as out:
         print(part2, file=out)

@@ -12,7 +12,7 @@ class NeverTellMeTheOdds(private var filename: String) {
         processDay24(getResourceAsText(filename), minWindow, maxWindow)
 
     fun solvePart2(): String =
-        getPythonResult("day24result_part2.txt")
+        getPythonResult("de/havox_design/aoc2023/day24/day24result_part2.txt")
 
     private fun processDay24(
         input: List<String>,

@@ -1,5 +1,6 @@
 package de.havox_design.aoc2023.day05
 
+import de.havox_design.aoc2023.MainClass
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
@@ -12,7 +13,7 @@ class Day05Test {
     @Disabled("Long computation, 9min 15secs on Ryzen 7 5700G")
     @Test
     fun testMainClass() {
-        MainClass.main(arrayOf())
+        MainClass.main(arrayOf("day05"))
     }
 
     @ParameterizedTest
@@ -29,13 +30,13 @@ class Day05Test {
         @JvmStatic
         private fun getDataForTestSolvePart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("day05Sample.txt", 35L)
+                Arguments.of("de/havox_design/aoc2023/day05/day05Sample.txt", 35L)
             )
 
         @JvmStatic
         private fun getDataForTestSolvePart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("day05Sample.txt", 46L)
+                Arguments.of("de/havox_design/aoc2023/day05/day05Sample.txt", 46L)
             )
     }
 }
