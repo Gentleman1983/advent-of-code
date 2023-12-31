@@ -97,7 +97,7 @@ class SupplyStacks(private val filename: String) {
         followProcedure()
 
         for (index in data.keys) {
-            solution += data[index]!!.stack.last.content
+            solution += data[index]!!.stack.last().content
         }
 
         return solution
@@ -111,7 +111,7 @@ class SupplyStacks(private val filename: String) {
         followProcedureCratemaster9001()
 
         for (index in data.keys) {
-            solution += data[index]!!.stack.last.content
+            solution += data[index]!!.stack.last().content
         }
 
         return solution
