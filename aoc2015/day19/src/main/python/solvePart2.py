@@ -22,5 +22,5 @@ while target != 'e':
         shuffle(reps)
 
 print(f"Solution for part 2 via Python: {part2}")
-with open("result_part2.txt", 'a') as out:
+with open("day19result_part2.txt", 'a') as out:
     print(part2, file=out)
