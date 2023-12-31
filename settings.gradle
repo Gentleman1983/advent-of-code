@@ -32,7 +32,6 @@ subDirs.each { File dir ->
     }
 }
 
-include 'meilisearch:meili'
 include 'utils'
 include 'utils:utils-java'
 include 'utils:utils-kotlin'
