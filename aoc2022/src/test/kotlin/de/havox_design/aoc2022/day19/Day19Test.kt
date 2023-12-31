@@ -1,5 +1,6 @@
 package de.havox_design.aoc2022.day19
 
+import de.havox_design.aoc2022.MainClass
 import nl.jqno.equalsverifier.EqualsVerifier
 import nl.jqno.equalsverifier.Warning
 import org.junit.jupiter.api.Assertions
@@ -14,7 +15,7 @@ import java.util.stream.Stream
 class Day19Test {
     @Test
     fun testMainClass() {
-        MainClass.main(arrayOf("testing"))
+        MainClass.main(arrayOf("day19", "testing"))
     }
 
     @Disabled

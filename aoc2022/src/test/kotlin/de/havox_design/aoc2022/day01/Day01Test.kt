@@ -1,12 +1,13 @@
 package de.havox_design.aoc2022.day01
 
+import de.havox_design.aoc2022.MainClass
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class Day01Test {
     @Test
     fun testMainClass() {
-        MainClass.main(arrayOf())
+        MainClass.main(arrayOf("day01"))
     }
 
     @Test

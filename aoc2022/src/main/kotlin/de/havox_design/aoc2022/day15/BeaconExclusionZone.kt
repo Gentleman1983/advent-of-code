@@ -3,12 +3,12 @@ package de.havox_design.aoc2022.day15
 class BeaconExclusionZone(private var filename: String) {
     private val data = readFile()
 
-    fun processPart1(desiredRow: Int): Int =
+    fun processPart1(desiredRow: Int = 2000000): Int =
         data.mapNotNull { it.findRange(desiredRow) }
             .reduce()
             .sumOf { it.last - it.first }
 
-    fun processPart2(caveSize: Int): Long {
+    fun processPart2(caveSize: Int = 4000000): Long {
         val cave = (0..caveSize)
 
         return data.firstNotNullOf { sensor ->

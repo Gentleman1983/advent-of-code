@@ -5,7 +5,7 @@ import java.math.BigInteger
 class MonkeyInTheMiddle(private var filename: String) {
     val monkeys = readData()
 
-    fun processPart1(rounds: Int): BigInteger {
+    fun processPart1(rounds: Int = 20): BigInteger {
         for (round in 0 until rounds) {
             for (monkey in monkeys) {
                 monkey.inspectItems()
@@ -31,7 +31,7 @@ class MonkeyInTheMiddle(private var filename: String) {
         return mostInspections * secondMostInspections
     }
 
-    fun processPart2(rounds: Int): BigInteger {
+    fun processPart2(rounds: Int = 10000): BigInteger {
         for (monkey in monkeys) {
             monkey.modificationOfWorryLevelIfBoredActive = false
         }

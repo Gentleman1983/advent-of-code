@@ -1,5 +1,6 @@
 package de.havox_design.aoc2022.day21
 
+import de.havox_design.aoc2022.MainClass
 import de.havox_design.aoc2022.day21.Operator.*
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -11,7 +12,7 @@ import java.util.stream.Stream
 class Day21Test {
     @Test
     fun testMainClass() {
-        MainClass.main(arrayOf())
+        MainClass.main(arrayOf("day21"))
     }
 
     @ParameterizedTest

@@ -79,3 +79,13 @@ enum class SNAFUNumber(private var symbol: Char, private var value: Long) {
 }
 
 private fun Long.pow(e: Int): Long = this.toDouble().pow(e.toDouble()).toLong()
+
+fun List<SNAFUNumber>.toReadableString(): String {
+    var result = ""
+
+    for(digit in this) {
+        result += digit.toSnafuSymbol()
+    }
+
+    return result
+}

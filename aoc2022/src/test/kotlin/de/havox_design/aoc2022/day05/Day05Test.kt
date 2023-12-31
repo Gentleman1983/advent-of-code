@@ -1,5 +1,6 @@
 package de.havox_design.aoc2022.day05
 
+import de.havox_design.aoc2022.MainClass
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
@@ -8,7 +9,7 @@ import kotlin.test.assertNotNull
 class Day05Test {
     @Test
     fun testMainClass() {
-        MainClass.main(arrayOf())
+        MainClass.main(arrayOf("day05"))
     }
 
     @Test

@@ -19,6 +19,9 @@ class PyroclasticFlow(private var filename: String) {
         return chamber.getMaxHeight()
     }
 
+    fun processPart2(): Long =
+        processPart1(1000000000000)
+
     private fun performRock(rock: Rock) {
         var currentPosition = chamber.getStartPositionForRock()
         var currentJet = jetPattern[(numberOfJetsPerformed % jetPattern.size).toInt()]

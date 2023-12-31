@@ -1,5 +1,6 @@
 package de.havox_design.aoc2022.day11
 
+import de.havox_design.aoc2022.MainClass
 import nl.jqno.equalsverifier.EqualsVerifier
 import nl.jqno.equalsverifier.Warning
 import org.junit.jupiter.api.Assertions
@@ -13,7 +14,7 @@ import java.util.stream.Stream
 class Day11Test {
     @Test
     fun testMainClass() {
-        MainClass.main(true)
+        MainClass.main(arrayOf("day11", "testing"))
     }
 
     @ParameterizedTest
