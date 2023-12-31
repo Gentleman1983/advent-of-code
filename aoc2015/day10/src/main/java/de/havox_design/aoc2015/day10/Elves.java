@@ -3,8 +3,6 @@ package de.havox_design.aoc2015.day10;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
-import java.util.List;
-
 public class Elves implements AoCFunctionality {
     private final String input;
 

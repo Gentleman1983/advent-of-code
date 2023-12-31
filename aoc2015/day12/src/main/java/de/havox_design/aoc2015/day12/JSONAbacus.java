@@ -4,7 +4,6 @@ package de.havox_design.aoc2015.day12;
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 public class JSONAbacus implements AoCFunctionality {

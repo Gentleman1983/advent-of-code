@@ -5,8 +5,6 @@ import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import static de.havox_design.aoc2015.day11.PasswordValidator.*;
 
-import java.util.List;
-
 public class SantasPasswordPolicy implements AoCFunctionality {
     private final String input;
 

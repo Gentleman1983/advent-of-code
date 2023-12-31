@@ -2,8 +2,6 @@ package de.havox_design.aoc2015.day01;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
-import java.util.List;
-
 public class NotQuiteLisp implements AoCFunctionality {
     private final String input;
 

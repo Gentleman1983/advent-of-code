@@ -3,8 +3,6 @@ package de.havox_design.aoc2015.day04;
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 import org.apache.commons.codec.digest.DigestUtils;
 
-import java.util.List;
-
 public class AdventCoins implements AoCFunctionality {
     private final String input;
 

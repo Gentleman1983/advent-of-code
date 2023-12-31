@@ -4,7 +4,6 @@ package de.havox_design.aoc2015.day03;
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class PresentDelivery implements AoCFunctionality {
