@@ -1,4 +1,4 @@
-# --- SOS GPS ---
+# SOS GPS
 from [https://aoc.meilisearch.com]
 
 Hey fellow,
@@ -67,7 +67,7 @@ To determine who is first in the structure, you must use the
 between their path. In this case, `LLL` appears before `RLRLR`. In case a path is a subset of another, the shorter 
 wins.
 
-# --- Part2 ---
+# Part2
 
 You are able to find the closest kids! But what about the others? The old GPS became so slow that we would not have 
 been able to deliver all the gifts on time!
