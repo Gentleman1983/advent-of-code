@@ -1,5 +1,3 @@
-import java.nio.file.Files
-
 rootProject.name = 'advent-of-code'
 
 // Find the directories containing a "build.gradle" file in the root directory
