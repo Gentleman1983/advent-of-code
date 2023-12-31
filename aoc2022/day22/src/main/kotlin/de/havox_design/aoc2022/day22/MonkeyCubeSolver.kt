@@ -6,7 +6,7 @@ import java.io.File
 class MonkeyCubeSolver() {
     // Hacked solution for task 2 riddle - does not work for sample because of sample structure!
     // Maybe refactor to proper 3D mapping of my initial data structure... ;)
-    @SuppressWarnings("kotlin:S6511")
+    @SuppressWarnings("kotlin:S3776", "kotlin:S6511")
     fun solvePart2(inputFile: File): Int {
 
         val input = inputFile.readLines()

@@ -6,7 +6,7 @@ class SupplyStacks(private val filename: String) {
     var data: Map<Int, Stack> = emptyMap()
     var procedure: List<Step> = emptyList()
 
-    @SuppressWarnings("kotlin:S6611")
+    @SuppressWarnings("kotlin:S3776", "kotlin:S6611")
     fun readData() {
         val rows = getResourceAsText(filename)
 

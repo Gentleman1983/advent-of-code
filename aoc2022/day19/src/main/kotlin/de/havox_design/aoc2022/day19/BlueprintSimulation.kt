@@ -10,6 +10,7 @@ class BlueprintSimulation(var blueprint: Blueprint, var minutes: Int = 24) {
             findMaxNumberOfGeodes(blueprint, minutes)
         }
 
+    @SuppressWarnings("kotlin:S3776")
     private fun findMaxNumberOfGeodes(blueprint: Blueprint, initialTimeLeft: Int): Int {
         val queue = ArrayDeque<State>()
         queue.add(State(initialTimeLeft))
