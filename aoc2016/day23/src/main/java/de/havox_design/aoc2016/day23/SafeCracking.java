@@ -16,7 +16,7 @@ public class SafeCracking implements AoCFunctionality {
     private final String input;
 
     public SafeCracking(String fileName) {
-        input = readData(fileName)
+        input = readString(fileName)
                 .replace(MULTIPLICATION_ORIGINAL, MULTIPLICATION_OPTIMIZED);
     }
 
