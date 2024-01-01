@@ -8,33 +8,33 @@ For more information see https://adventofcode.com [2017](https://adventofcode.co
 
 ## Current status:
 
-| Day     | Part 1                                                                                                                   | Part 2                                                                                                                   |
-|---------|--------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| 1       | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 2       | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 3       | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 4       | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> |
-| 5       | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> |
-| 6       | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> |
-| 7       | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> |
-| 8       | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> |
-| 9       | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> |
-| 10      | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> |
-| 11      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 12      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 13      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 14      | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> | ⭐ <img src="https://scalacenter.github.io/scala-advent-of-code/img/scala-icon.png" width="15" height="15" alt="Scala" /> |
-| 15      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 16      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 17      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 18      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 19      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 20      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 21      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 22      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 23      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 24      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| 25      | ⭐                                                                                                                        | ⭐                                                                                                                        |
-| **SUM** | **25 ⭐**                                                                                                                 | **25 ⭐**                                                                                                                 |
+| Day     | Part 1                        | Part 2                       |
+|---------|-------------------------------|------------------------------|
+| 1       | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 2       | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 3       | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 4       | ⭐ ![Scala](../img/scala.png)  | ⭐ ![Scala](../img/scala.png) |
+| 5       | ⭐ ![Scala](../img/scala.png)  | ⭐ ![Scala](../img/scala.png) |
+| 6       | ⭐ ![Scala](../img/scala.png)  | ⭐ ![Scala](../img/scala.png) |
+| 7       | ⭐ ![Scala](../img/scala.png)  | ⭐ ![Scala](../img/scala.png) |
+| 8       | ⭐ ![Scala](../img/scala.png)  | ⭐ ![Scala](../img/scala.png) |
+| 9       | ⭐ ![Scala](../img/scala.png)  | ⭐ ![Scala](../img/scala.png) |
+| 10      | ⭐ ![Scala](../img/scala.png)  | ⭐ ![Scala](../img/scala.png) |
+| 11      | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 12      | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 13      | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 14      | ⭐ ![Scala](../img/scala.png)  | ⭐ ![Scala](../img/scala.png) |
+| 15      | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 16      | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 17      | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 18      | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 19      | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 20      | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 21      | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 22      | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 23      | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 24      | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| 25      | ⭐ ![JAVA](../img/java.png)    | ⭐ ![JAVA](../img/java.png)   |
+| **SUM** | **25 ⭐**                      | **25 ⭐**                     |
 
 Total: 50 ⭐

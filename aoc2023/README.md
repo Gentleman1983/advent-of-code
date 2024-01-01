@@ -10,33 +10,33 @@ For more information see https://adventofcode.com [2023](https://adventofcode.co
 
 ## Current status:
 
-| Day     | Part 1   | Part 2                                                                                                                                                          |
-|---------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1       | ⭐        | ⭐                                                                                                                                                               |
-| 2       | ⭐        | ⭐                                                                                                                                                               |
-| 3       | ⭐        | ⭐                                                                                                                                                               |
-| 4       | ⭐        | ⭐                                                                                                                                                               |
-| 5       | ⭐        | ⭐                                                                                                                                                               |
-| 6       | ⭐        | ⭐                                                                                                                                                               |
-| 7       | ⭐        | ⭐                                                                                                                                                               |
-| 8       | ⭐        | ⭐                                                                                                                                                               |
-| 9       | ⭐        | ⭐                                                                                                                                                               |
-| 10      | ⭐        | ⭐                                                                                                                                                               |
-| 11      | ⭐        | ⭐                                                                                                                                                               |
-| 12      | ⭐        | ⭐                                                                                                                                                               |
-| 13      | ⭐        | ⭐                                                                                                                                                               |
-| 14      | ⭐        | ⭐                                                                                                                                                               |
-| 15      | ⭐        | ⭐                                                                                                                                                               |
-| 16      | ⭐        | ⭐                                                                                                                                                               |
-| 17      | ⭐        | ⭐                                                                                                                                                               |
-| 18      | ⭐        | ⭐                                                                                                                                                               |
-| 19      | ⭐        | ⭐                                                                                                                                                               |
-| 20      | ⭐        | ⭐                                                                                                                                                               |
-| 21      | ⭐        | ⭐                                                                                                                                                               |
-| 22      | ⭐        | ⭐                                                                                                                                                               |
-| 23      | ⭐        | ⭐                                                                                                                                                               |
-| 24      | ⭐        | ⭐ <img src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png" width="10" height="12" alt="Python" /> |
-| 25      | ⭐        | ⭐                                                                                                                                                               |
-| **SUM** | **25 ⭐** | **25 ⭐**                                                                                                                                                        |
+| Day     | Part 1                          | Part 2                         |
+|---------|---------------------------------|--------------------------------|
+| 1       | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 2       | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 3       | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 4       | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 5       | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 6       | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 7       | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 8       | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 9       | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 10      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 11      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 12      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 13      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 14      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 15      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 16      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 17      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 18      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 19      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 20      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 21      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 22      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 23      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| 24      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Python](../img/python.png) |
+| 25      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
+| **SUM** | **25 ⭐**                        | **25 ⭐**                       |
 
 Total: 50 ⭐
