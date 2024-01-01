@@ -1,7 +1,6 @@
 package de.havox_design.aoc2022.day22
 
 import java.awt.Point
-import java.io.File
 
 class MonkeyCubeSolver() {
     // Hacked solution for task 2 riddle - does not work for sample because of sample structure!

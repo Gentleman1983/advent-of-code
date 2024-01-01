@@ -1,7 +1,5 @@
 package de.havox_design.aoc2017.day03;
 
-import static de.havox_design.aoc2017.day03.Direction.*;
-
 import java.util.Set;
 
 public record Point(int x, int y) {

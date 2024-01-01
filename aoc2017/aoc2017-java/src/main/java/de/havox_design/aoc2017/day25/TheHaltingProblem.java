@@ -3,8 +3,6 @@ package de.havox_design.aoc2017.day25;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
-import static de.havox_design.aoc2017.day25.Helper.*;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
