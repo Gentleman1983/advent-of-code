@@ -2,7 +2,6 @@ package de.havox_design.aoc2023.day05
 
 import de.havox_design.aoc2023.MainClass
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -10,10 +9,9 @@ import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
 class Day05Test {
-    @Disabled("Long computation, 9min 15secs on Ryzen 7 5700G")
     @Test
     fun testMainClass() {
-        MainClass.main(arrayOf("day05"))
+        MainClass.main(arrayOf("day05", "testing"))
     }
 
     @ParameterizedTest

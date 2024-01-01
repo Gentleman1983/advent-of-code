@@ -17,7 +17,7 @@ class Day22Test {
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
     fun testProcessPart2(expectedResult: Int) =
-        MonkeyMap("").processPart2().shouldBe(expectedResult)
+        MonkeyMap("de/havox_design/aoc2022/day22/day22.txt").processPart2().shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestReadOrders")

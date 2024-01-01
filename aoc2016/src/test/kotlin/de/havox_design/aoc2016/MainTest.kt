@@ -27,7 +27,7 @@ class MainTest {
                 Arguments.of(arrayOf("day09")),
                 Arguments.of(arrayOf("day10")),
                 Arguments.of(arrayOf("day11")),
-                Arguments.of(arrayOf("day12")),
+                Arguments.of(arrayOf("day12", "testing")),
                 Arguments.of(arrayOf("day13")),
                 Arguments.of(arrayOf("day14")),
                 Arguments.of(arrayOf("day15")),

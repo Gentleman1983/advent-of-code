@@ -133,13 +133,15 @@ class MainClass {
             )
 
             day = 12
-            day(
-                getDayString(day),
-                LeonardosMonorail(getFileName(day))::solvePart1,
-                LeonardosMonorail(getFileName(day))::solvePart2,
-                daysSelected,
-                args
-            )
+            if (!args.contains("testing")) {
+                day(
+                    getDayString(day),
+                    LeonardosMonorail(getFileName(day))::solvePart1,
+                    LeonardosMonorail(getFileName(day))::solvePart2,
+                    daysSelected,
+                    args
+                )
+            }
 
             day = 13
             day(
@@ -325,12 +327,14 @@ class MainClass {
         }
 
         private fun getFileName(day: Int): String {
+            val year = 2016
             var dayString = day.toString()
+
             if (day < 10) {
                 dayString = "0$dayString"
             }
 
-            return "de/havox_design/aoc2016/day${dayString}/day${dayString}.txt"
+            return "de/havox_design/aoc${year}/day${dayString}/day${dayString}.txt"
         }
 
         private fun getDayString(day: Int): String {

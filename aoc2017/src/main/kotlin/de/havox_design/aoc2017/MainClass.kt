@@ -408,12 +408,14 @@ class MainClass {
         }
 
         private fun getFileName(day: Int): String {
+            val year = 2017
             var dayString = day.toString()
+
             if (day < 10) {
                 dayString = "0$dayString"
             }
 
-            return "de/havox_design/aoc2017/day${dayString}/day${dayString}.txt"
+            return "de/havox_design/aoc${year}/day${dayString}/day${dayString}.txt"
         }
 
         private fun getDayString(day: Int): String {

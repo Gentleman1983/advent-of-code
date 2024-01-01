@@ -70,16 +70,18 @@ class MainClass {
             )
 
             day = 5
-            if(args.contains("day05")) { // 9min 15sec on Ryzen 7 5700G
-                println("Calculation of solution 2 may take some minutes...")
+            if (!args.contains("testing")) {
+                if (args.contains("day05")) { // 9min 15sec on Ryzen 7 5700G
+                    println("Calculation of solution 2 may take some minutes...")
+                }
+                day(
+                    getDayString(day),
+                    IfYouGiveASeedAFertilizer(getFileName(day))::solvePart1,
+                    IfYouGiveASeedAFertilizer(getFileName(day))::solvePart2,
+                    daysSelected,
+                    args
+                )
             }
-            day(
-                getDayString(day),
-                IfYouGiveASeedAFertilizer(getFileName(day))::solvePart1,
-                IfYouGiveASeedAFertilizer(getFileName(day))::solvePart2,
-                daysSelected,
-                args
-            )
 
             day = 6
             day(
@@ -139,7 +141,7 @@ class MainClass {
             day(
                 getDayString(day),
                 HotSprings(getFileName(day))::solvePart1,
-                HotSprings(getFileName(day))::solvePart2,
+                HotSprings(getFileName(day))::quicksolvePart2,
                 daysSelected,
                 args
             )
@@ -226,22 +228,26 @@ class MainClass {
             )
 
             day = 22
-            day(
-                getDayString(day),
-                SandSlabs(getFileName(day))::solvePart1,
-                SandSlabs(getFileName(day))::solvePart2,
-                daysSelected,
-                args
-            )
+            if (!args.contains("testing")) {
+                day(
+                    getDayString(day),
+                    SandSlabs(getFileName(day))::solvePart1,
+                    SandSlabs(getFileName(day))::solvePart2,
+                    daysSelected,
+                    args
+                )
+            }
 
             day = 23
-            day(
-                getDayString(day),
-                ALongWalk(getFileName(day))::solvePart1,
-                ALongWalk(getFileName(day))::solvePart2,
-                daysSelected,
-                args
-            )
+            if (!args.contains("testing")) {
+                day(
+                    getDayString(day),
+                    ALongWalk(getFileName(day))::solvePart1,
+                    ALongWalk(getFileName(day))::solvePart2,
+                    daysSelected,
+                    args
+                )
+            }
 
             day = 24
             day(
@@ -262,7 +268,13 @@ class MainClass {
             )
         }
 
-        private fun day(day: String, solutionPart1: () -> Any, solutionPart2: () -> Any, daysSelected: Boolean, args: Array<String>) {
+        private fun day(
+            day: String,
+            solutionPart1: () -> Any,
+            solutionPart2: () -> Any,
+            daysSelected: Boolean,
+            args: Array<String>
+        ) {
             if (!daysSelected || args.contains(day.lowercase())) {
                 solveDay(day, solutionPart1.invoke(), solutionPart2.invoke())
             }
