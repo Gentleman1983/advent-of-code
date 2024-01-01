@@ -1,38 +1,21 @@
 rootProject.name = 'advent-of-code'
 
-// Find the directories containing a "build.gradle" file in the root directory
-// of the project. That is, every directory containing a "build.gradle" will
-// be automatically the subproject of this project.
-def subDirs = rootDir.listFiles(new FileFilter() {
-    boolean accept(File file) {
-        if (!file.isDirectory()) {
-            return false
-        }
-        if (file.name == 'buildSrc') {
-            return false
-        }
-        return new File(file, 'build.gradle').isFile() || new File(file, 'build.gradle.kts').isFile()
-    }
-})
-
-subDirs.each { File dir ->
-    include dir.name
-
-    for(int i = 1; i <= 25; i++) {
-        String expectedFolderName = 'day'
-        if(i < 10) {
-            expectedFolderName += '0'
-        }
-        expectedFolderName += i
-
-        File dayFolder = new File(dir, expectedFolderName)
-        if(dayFolder.exists() && dayFolder.isDirectory()) {
-            include "${dir.name}:${expectedFolderName}"
-        }
-    }
-}
-
-include 'meilisearch:meili'
+include 'aoc2015'
+include 'aoc2015:aoc2015-java'
+include 'aoc2015:aoc2015-kotlin'
+include 'aoc2016'
+include 'aoc2016:aoc2016-groovy'
+include 'aoc2016:aoc2016-java'
+include 'aoc2016:aoc2016-kotlin'
+include 'aoc2017'
+include 'aoc2017:aoc2017-java'
+include 'aoc2017:aoc2017-scala'
+include 'aoc2022'
+include 'aoc2022:aoc2022-kotlin'
+include 'aoc2022:aoc2022-scala'
+include 'aoc2022'
+include 'aoc2023'
+include 'meilisearch'
 include 'utils'
 include 'utils:utils-java'
 include 'utils:utils-kotlin'

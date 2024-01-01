@@ -1,51 +1,63 @@
-subprojects {
-    int year = 2015
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
-    apply plugin: 'application'
+plugins {
+    id 'application'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.22'
+}
 
-    dependencies {
-        implementation project(":utils")
+dependencies {
+    api project(":aoc2015:aoc2015-java")
+    api project(":aoc2015:aoc2015-kotlin")
 
-        testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
-        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+application {
+    mainClass = 'de.havox_design.aoc2015.MainClass'
+}
+
+jacocoTestReport {
+    reports {
+        html.required.set(true)
+        xml.required.set(true)
+        xml.outputLocation.set(file("${project.layout.buildDirectory}/jacoco/jacoco.xml"))
     }
 
-    application {
-        mainClass = "de.havox_design.aoc${year}.${project.name}.MainClass"
+    rootProject.tasks.sonar.dependsOn(it)
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': project.name
+        attributes 'Implementation-Version': project.version
+        attributes 'Main-Class': 'de.havox_design.aoc2015.MainClass'
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.coverage.jacoco.xmlReportPath", "${project.layout.buildDirectory}/jacoco/jacoco.xml"
+    }
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+
+    testLogging {
+        exceptionFormat = TestExceptionFormat.FULL
+        events("passed", "failed", "skipped")
     }
 
-    jacocoTestReport {
-        reports {
-            html.required.set(true)
-            xml.required.set(true)
-            xml.outputLocation.set(file("${project.layout.buildDirectory}/jacoco/jacoco.xml"))
-        }
-
-        rootProject.tasks.sonar.dependsOn(it)
+    reports {
+        junitXml.required = true
+        html.required = true
     }
 
-    jar {
-        manifest {
-            attributes 'Implementation-Title': project.name
-            attributes 'Implementation-Version': project.version
-            attributes 'Main-Class': "de.havox_design.aoc${year}.${project.name}.MainClass"
-        }
-    }
-
-    sonarqube {
-        properties {
-            property "sonar.coverage.jacoco.xmlReportPath", "${project.layout.buildDirectory}/jacoco/jacoco.xml"
-        }
-    }
-
-    tasks.withType(Test).configureEach {
-        useJUnitPlatform()
-
-        reports {
-            junitXml.required = true
-            html.required = true
-        }
-
-        jacocoTestReport.dependsOn(it)
-    }
+    jacocoTestReport.dependsOn(it)
 }

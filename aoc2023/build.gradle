@@ -1,51 +1,95 @@
-subprojects {
-    int year = 2023
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import com.pswidersk.gradle.python.VenvTask
 
-    apply plugin: 'application'
+plugins {
+    id 'application'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.22'
+    id 'com.pswidersk.python-plugin' version '2.4.0'
+}
 
-    dependencies {
-        implementation project(":utils")
+dependencies {
+    api project(":utils")
 
-        testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
-        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    implementation("org.jgrapht:jgrapht-core:1.5.2")
+
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+application {
+    mainClass = 'de.havox_design.aoc2023.MainClass'
+}
+
+jacocoTestReport {
+    reports {
+        html.required.set(true)
+        xml.required.set(true)
+        xml.outputLocation.set(file("${project.layout.buildDirectory}/jacoco/jacoco.xml"))
     }
 
-    application {
-        mainClass = "de.havox_design.aoc${year}.${project.name}.MainClass"
+    rootProject.tasks.sonar.dependsOn(it)
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': project.name
+        attributes 'Implementation-Version': project.version
+        attributes 'Main-Class': 'de.havox_design.aoc2023.MainClass'
+    }
+}
+
+pythonPlugin {
+    pythonVersion = "3.12"
+    condaVersion = "latest"
+    installDir = file(project.layout.buildDirectory.file("python"))
+}
+
+afterEvaluate {
+    def pipTask = tasks.register('pipInstall', VenvTask) {
+        venvExec = "pip"
+        args = ["install", "--isolated", "-r", "requirements.txt"]
     }
 
-    jacocoTestReport {
-        reports {
-            html.required.set(true)
-            xml.required.set(true)
-            xml.outputLocation.set(file("${project.layout.buildDirectory}/jacoco/jacoco.xml"))
+    def solverTask = tasks.register('solveDay24Part2', VenvTask) {
+        workingDir = project.file('src/main/resources')
+        args = [project.file("src/main/python/Day24pt2.py").toString()]
+        dependsOn(pipTask)
+    }
+
+    compileKotlin.dependsOn(solverTask)
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir project.file('src/main/python')
         }
+    }
+}
 
-        rootProject.tasks.sonar.dependsOn(it)
+sonarqube {
+    properties {
+        property "sonar.coverage.jacoco.xmlReportPath", "${project.layout.buildDirectory}/jacoco/jacoco.xml"
+        property 'sonar.python.version', '3.12'
+    }
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+
+    testLogging {
+        exceptionFormat = TestExceptionFormat.FULL
+        events("passed", "failed", "skipped")
     }
 
-    jar {
-        manifest {
-            attributes 'Implementation-Title': project.name
-            attributes 'Implementation-Version': project.version
-            attributes 'Main-Class': "de.havox_design.aoc${year}.${project.name}.MainClass"
-        }
+    reports {
+        junitXml.required = true
+        html.required = true
     }
 
-    sonarqube {
-        properties {
-            property "sonar.coverage.jacoco.xmlReportPath", "${project.layout.buildDirectory}/jacoco/jacoco.xml"
-        }
-    }
-
-    tasks.withType(Test).configureEach {
-        useJUnitPlatform()
-
-        reports {
-            junitXml.required = true
-            html.required = true
-        }
-
-        jacocoTestReport.dependsOn(it)
-    }
+    jacocoTestReport.dependsOn(it)
 }

@@ -33,5 +33,5 @@ hs_err_pid*
 
 # Helper files
 ## Data export for python solver script
-aoc2015/day19/src/main/resources/day19result_part2.txt
-aoc2023/day24/src/main/resources/day24result_part2.txt
+aoc2015/aoc2015-kotlin/src/main/resources/day19result_part2.txt
+aoc2023/src/main/resources/de/havox_design/aoc2023/day24/day24result_part2.txt
