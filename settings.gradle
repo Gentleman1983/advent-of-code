@@ -32,6 +32,9 @@ subDirs.each { File dir ->
     }
 }
 
+include 'aoc2017'
+include 'aoc2017:aoc2017-java'
+include 'aoc2017:aoc2017-scala'
 include 'aoc2022'
 include 'aoc2022:aoc2022-kotlin'
 include 'aoc2022:aoc2022-scala'

@@ -3,9 +3,17 @@ package de.havox_design.aoc2017;
 import de.havox_design.aoc2017.day01.InverseCaptcha;
 import de.havox_design.aoc2017.day02.CorruptionChecksum;
 import de.havox_design.aoc2017.day03.SpiralMemory;
+import de.havox_design.aoc2017.day04.HighEntropyPassphrases;
+import de.havox_design.aoc2017.day05.AMazeOfTwistyTrampolinesAllAlike;
+import de.havox_design.aoc2017.day06.MemoryReallocation;
+import de.havox_design.aoc2017.day07.RecursiveCircus;
+import de.havox_design.aoc2017.day08.IHeardYouLikeRegisters;
+import de.havox_design.aoc2017.day09.StreamProcessing;
+import de.havox_design.aoc2017.day10.KnotHash;
 import de.havox_design.aoc2017.day11.HexEd;
 import de.havox_design.aoc2017.day12.DigitalPlumber;
 import de.havox_design.aoc2017.day13.PacketScanners;
+import de.havox_design.aoc2017.day14.DiskDefragmentation;
 import de.havox_design.aoc2017.day15.DuelingGenerators;
 import de.havox_design.aoc2017.day16.PermutationPromenade;
 import de.havox_design.aoc2017.day17.SpinLock;
@@ -57,6 +65,69 @@ public class MainClass {
                 args
         );
 
+        day = 4;
+        solveDay(
+                day,
+                d -> String.valueOf(HighEntropyPassphrases.solvePart1(getFileName(d))),
+                d -> String.valueOf(HighEntropyPassphrases.solvePart2(getFileName(d))),
+                daysSelected,
+                args
+        );
+
+        day = 5;
+        solveDay(
+                day,
+                d -> String.valueOf(AMazeOfTwistyTrampolinesAllAlike.solvePart1(getFileName(d))),
+                d -> String.valueOf(AMazeOfTwistyTrampolinesAllAlike.solvePart2(getFileName(d))),
+                daysSelected,
+                args
+        );
+
+        day = 6;
+        solveDay(
+                day,
+                d -> String.valueOf(MemoryReallocation.solvePart1(getFileName(d))),
+                d -> String.valueOf(MemoryReallocation.solvePart2(getFileName(d))),
+                daysSelected,
+                args
+        );
+
+        day = 7;
+        solveDay(
+                day,
+                d -> String.valueOf(RecursiveCircus.solvePart1(getFileName(d))),
+                d -> String.valueOf(RecursiveCircus.solvePart2(getFileName(d))),
+                daysSelected,
+                args
+        );
+
+        day = 8;
+        solveDay(
+                day,
+                d -> String.valueOf(IHeardYouLikeRegisters.solvePart1(getFileName(d))),
+                d -> String.valueOf(IHeardYouLikeRegisters.solvePart2(getFileName(d))),
+                daysSelected,
+                args
+        );
+
+        day = 9;
+        solveDay(
+                day,
+                d -> String.valueOf(StreamProcessing.solvePart1(getFileName(d))),
+                d -> String.valueOf(StreamProcessing.solvePart2(getFileName(d))),
+                daysSelected,
+                args
+        );
+
+        day = 10;
+        solveDay(
+                day,
+                d -> String.valueOf(KnotHash.solvePart1(getFileName(d), 256)),
+                d -> String.valueOf(KnotHash.solvePart2(getFileName(d))),
+                daysSelected,
+                args
+        );
+
         day = 11;
         solveDay(
                 day,
@@ -80,6 +151,15 @@ public class MainClass {
                 day,
                 d -> String.valueOf(PacketScanners.solvePart1(getFileName(d))),
                 d -> String.valueOf(PacketScanners.solvePart2(getFileName(d))),
+                daysSelected,
+                args
+        );
+
+        day = 14;
+        solveDay(
+                day,
+                d -> String.valueOf(DiskDefragmentation.solvePart1(getFileName(d))),
+                d -> String.valueOf(DiskDefragmentation.solvePart2(getFileName(d))),
                 daysSelected,
                 args
         );
