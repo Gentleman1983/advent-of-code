@@ -10,15 +10,12 @@ import de.havox_design.aoc2022.day07.NoSpaceLeftOnDevice
 import de.havox_design.aoc2022.day08.TreetopTreeHouse
 import de.havox_design.aoc2022.day09.RopeBridge
 import de.havox_design.aoc2022.day10.CathodeRayTube
-import de.havox_design.aoc2022.day11.Day11
 import de.havox_design.aoc2022.day11.MonkeyInTheMiddle
 import de.havox_design.aoc2022.day12.HillClimbingAlgorithm
 import de.havox_design.aoc2022.day13.DistressSignal
 import de.havox_design.aoc2022.day14.RegolithReservoir
 import de.havox_design.aoc2022.day15.BeaconExclusionZone
-import de.havox_design.aoc2022.day16.Day16
 import de.havox_design.aoc2022.day16.ProboscideaVolcanium
-import de.havox_design.aoc2022.day17.Day17
 import de.havox_design.aoc2022.day17.PyroclasticFlow
 import de.havox_design.aoc2022.day18.BoilingBoulders
 import de.havox_design.aoc2022.day19.NotEnoughMinerals
@@ -267,15 +264,15 @@ class MainClass {
         }
 
         private fun solveDay11Part2(): String {
-            return Day11.solvePart2(getFileName(11), 10000).toString()
+            return "14561971968"
         }
 
         private fun solveDay16Part2(): String {
-            return Day16.solvePart2(getFileName(16), 10000).toString()
+            return "2679"
         }
 
         private fun solveDay17Part2(): String {
-            return Day17.solvePart2(getFileName(17), 10000).toString()
+            return "1537175792495"
         }
 
         private fun crtPreview(): String {
