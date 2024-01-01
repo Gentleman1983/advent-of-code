@@ -1,6 +1,6 @@
 package de.havox_design.aoc2022.day11
 
-object Day11 {
+object ScalaMonkeyInTheMiddle {
   def solvePart2(filename: String, runs: Int = 10000): Long = {
     val monkeys = parseMonkeys(readData(filename).toIndexedSeq)
     val product = monkeys.map(_.test).product

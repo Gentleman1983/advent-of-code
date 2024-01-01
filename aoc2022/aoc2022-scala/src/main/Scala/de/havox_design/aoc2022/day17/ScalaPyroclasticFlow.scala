@@ -1,5 +1,5 @@
 package de.havox_design.aoc2022.day17;
-object Day17 {
+object ScalaPyroclasticFlow {
         def solvePart2(filename: String, runs: Int = 10000): Long = {
                 val guess = 1000
                 val height = simulate(readData(filename).next())

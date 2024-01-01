@@ -1,6 +1,6 @@
 package de.havox_design.aoc2022.day17
 
-import Day17._
+import ScalaPyroclasticFlow._
 import org.scalatest.funsuite.AnyFunSuite
 
 class Day17ScalaTest extends AnyFunSuite {

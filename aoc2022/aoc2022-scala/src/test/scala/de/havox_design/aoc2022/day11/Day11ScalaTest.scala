@@ -1,6 +1,6 @@
 package de.havox_design.aoc2022.day11
 
-import Day11._
+import ScalaMonkeyInTheMiddle._
 import org.scalatest.funsuite.AnyFunSuite
 
 class Day11ScalaTest extends AnyFunSuite {

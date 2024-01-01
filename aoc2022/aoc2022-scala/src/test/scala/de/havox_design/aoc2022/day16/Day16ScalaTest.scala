@@ -1,6 +1,6 @@
 package de.havox_design.aoc2022.day16
 
-import Day16._
+import ScalaProboscideaVolcanium._
 import org.scalatest.funsuite.AnyFunSuite
 
 class Day16ScalaTest extends AnyFunSuite {

@@ -1,6 +1,6 @@
 package de.havox_design.aoc2022.day16
 
-object Day16 {
+object ScalaProboscideaVolcanium {
   def solvePart2(filename: String, runs: Int = 10000): Long = {
     val sets = explore(readData(filename).toIndexedSeq, 26)
     val disjoint = for
