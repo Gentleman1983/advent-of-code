@@ -42,6 +42,11 @@ jar {
     }
 }
 
+pythonPlugin {
+    pythonVersion.set("3.12")
+    installDir.set(file(project.layout.buildDirectory.file("python")))
+}
+
 afterEvaluate {
     def pipTask = tasks.register('pipInstall', VenvTask) {
         venvExec = "pip"

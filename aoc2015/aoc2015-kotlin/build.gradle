@@ -37,7 +37,7 @@ jar {
 
 pythonPlugin {
     pythonVersion.set("3.12")
-    installDir.set(file(rootProject.layout.buildDirectory.file("python")))
+    installDir.set(file(project.layout.buildDirectory.file("python")))
 }
 
 afterEvaluate {
