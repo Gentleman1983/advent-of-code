@@ -6,8 +6,8 @@ plugins {
 }
 
 dependencies {
-    implementation project(":aoc2022:aoc2022-kotlin")
-    implementation project(":aoc2022:aoc2022-scala")
+    api project(":aoc2022:aoc2022-kotlin")
+    api project(":aoc2022:aoc2022-scala")
 
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'

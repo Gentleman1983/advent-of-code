@@ -6,9 +6,9 @@ plugins {
 }
 
 dependencies {
-    implementation project(":aoc2016:aoc2016-groovy")
-    implementation project(":aoc2016:aoc2016-java")
-    implementation project(":aoc2016:aoc2016-kotlin")
+    api project(":aoc2016:aoc2016-groovy")
+    api project(":aoc2016:aoc2016-java")
+    api project(":aoc2016:aoc2016-kotlin")
 
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
