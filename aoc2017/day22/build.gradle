@@ -1,3 +1,0 @@
-dependencies {
-    implementation project(':aoc2017:day19')
-}
