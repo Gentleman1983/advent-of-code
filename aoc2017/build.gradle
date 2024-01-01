@@ -2,20 +2,24 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
     id 'application'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.22'
 }
 
 dependencies {
     implementation project(":aoc2017:aoc2017-java")
     implementation project(":aoc2017:aoc2017-scala")
 
-    testImplementation 'org.hamcrest:hamcrest:2.2'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
 
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 application {
-    mainClass = "de.havox_design.aoc2017.MainClass"
+    mainClass = 'de.havox_design.aoc2016.MainClass'
 }
 
 jacocoTestReport {
@@ -32,7 +36,7 @@ jar {
     manifest {
         attributes 'Implementation-Title': project.name
         attributes 'Implementation-Version': project.version
-        attributes 'Main-Class': "de.havox_design.aoc2017.MainClass"
+        attributes 'Main-Class': 'de.havox_design.aoc2016.MainClass'
     }
 }
 
