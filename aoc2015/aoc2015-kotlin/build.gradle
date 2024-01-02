@@ -1,4 +1,3 @@
-import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import com.pswidersk.gradle.python.VenvTask
 
 plugins {
@@ -16,16 +15,6 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
 
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-}
-
-jacocoTestReport {
-    reports {
-        html.required.set(true)
-        xml.required.set(true)
-        xml.outputLocation.set(file("${project.layout.buildDirectory}/jacoco/jacoco.xml"))
-    }
-
-    rootProject.tasks.sonar.dependsOn(it)
 }
 
 jar {
@@ -58,23 +47,10 @@ afterEvaluate {
 
 sonarqube {
     properties {
-        property "sonar.coverage.jacoco.xmlReportPath", "${project.layout.buildDirectory}/jacoco/jacoco.xml"
         property 'sonar.python.version', '3.12'
     }
 }
 
 tasks.withType(Test).configureEach {
     useJUnitPlatform()
-
-    testLogging {
-        exceptionFormat = TestExceptionFormat.FULL
-        events("passed", "failed", "skipped")
-    }
-
-    reports {
-        junitXml.required = true
-        html.required = true
-    }
-
-    jacocoTestReport.dependsOn(it)
 }
