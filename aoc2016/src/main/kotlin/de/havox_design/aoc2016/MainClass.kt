@@ -234,13 +234,15 @@ class MainClass {
             )
 
             day = 23
-            day(
-                getDayString(day),
-                SafeCracking(getFileName(day))::solvePart1,
-                SafeCracking(getFileName(day))::solvePart2,
-                daysSelected,
-                args
-            )
+            if (!args.contains("testing")) {
+                day(
+                    getDayString(day),
+                    SafeCracking(getFileName(day))::solvePart1,
+                    SafeCracking(getFileName(day))::solvePart2,
+                    daysSelected,
+                    args
+                )
+            }
 
             day = 24
             day(

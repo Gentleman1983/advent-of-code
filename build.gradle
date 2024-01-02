@@ -6,7 +6,7 @@ plugins {
 
 // project meta data
 group 'de.havox_design.aoc'
-version '2023.27.3'
+version '2023.27.4'
 
 // Switch to gradle "all" distribution.
 wrapper {
@@ -30,9 +30,9 @@ if (hasProperty('buildScan')) {
     }
 }
 
-// Add maven central for all projects
 allprojects {
     apply plugin: 'jacoco'
+    apply plugin: 'jacoco-report-aggregation'
     apply plugin: 'java-library'
 
     repositories {
@@ -47,7 +47,6 @@ allprojects {
         reports {
             html.required.set(true)
             xml.required.set(true)
-            xml.outputLocation.set(file("${project.layout.buildDirectory}/jacoco/jacoco.xml"))
         }
 
         rootProject.tasks.sonar.dependsOn(it)
@@ -59,6 +58,10 @@ allprojects {
         }
     }
 
+    tasks.named('check') {
+        dependsOn tasks.named('testCodeCoverageReport', JacocoReport)
+    }
+
     tasks.withType(Test).configureEach {
         testLogging {
             exceptionFormat = TestExceptionFormat.FULL
@@ -67,19 +70,11 @@ allprojects {
 
         reports {
             jacoco {
-                append=true
-                destinationFile = file( "${rootProject.layout.buildDirectory}/jacoco/combinedJacocoTest.exec" )
+                //destinationFile = file( "${rootProject.layout.buildDirectory}/jacoco/combinedJacocoTest.exec" )
             }
 
             junitXml.required = true
             html.required = true
         }
-
-        jacocoTestReport.dependsOn(it)
     }
-}
-
-// Add tasks to subprojects
-subprojects {
-
 }
