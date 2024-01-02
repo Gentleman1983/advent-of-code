@@ -8,7 +8,7 @@ plugins {
 
 // project meta data
 group 'de.havox_design.aoc'
-version '2023.27.7'
+version '2023.27.8'
 
 dependencies {
     jacocoAggregation project(":aoc2015")
@@ -86,10 +86,6 @@ allprojects {
         rootProject.tasks.sonar.dependsOn(it)
     }
 
-    tasks.named('check') {
-        dependsOn tasks.named(JacocoReport)
-    }
-
     tasks.withType(Test).configureEach {
         useJUnitPlatform()
 
@@ -105,6 +101,12 @@ allprojects {
 
             junitXml.required = true
             html.required = true
+        }
+    }
+
+    subprojects {
+        tasks.named('check') {
+            dependsOn tasks.named(JacocoReport)
         }
     }
 }
