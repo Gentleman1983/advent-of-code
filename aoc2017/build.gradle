@@ -27,7 +27,3 @@ jar {
         attributes 'Main-Class': 'de.havox_design.aoc2016.MainClass'
     }
 }
-
-tasks.withType(Test).configureEach {
-    useJUnitPlatform()
-}

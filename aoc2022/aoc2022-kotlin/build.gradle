@@ -22,7 +22,3 @@ jar {
         attributes 'Implementation-Version': project.version
     }
 }
-
-tasks.withType(Test).configureEach {
-    useJUnitPlatform()
-}

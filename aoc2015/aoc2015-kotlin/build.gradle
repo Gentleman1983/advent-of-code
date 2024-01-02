@@ -50,7 +50,3 @@ sonarqube {
         property 'sonar.python.version', '3.12'
     }
 }
-
-tasks.withType(Test).configureEach {
-    useJUnitPlatform()
-}
