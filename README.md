@@ -17,7 +17,7 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 ## Contributions:
 | Year    | Language(s)          | Total Stars | Link to repository                                                                 |
 |---------|----------------------|-------------|------------------------------------------------------------------------------------|
-| 2024    | ??                   | ?? ⭐        | [aoc2023](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2024)       |
+| 2024    | ??                   | ?? ⭐        | [aoc2024](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2024)       |
 | 2023    | Kotlin, Python       | 50 ⭐        | [aoc2023](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2023)       |
 | 2022    | Kotlin, Scala        | 50 ⭐        | [aoc2022](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2021)       |
 | 2022    | Kotlin               | 2 ⭐         | [meilisearch](https://github.com/Gentleman1983/advent-of-code/tree/main/meili2022) |
