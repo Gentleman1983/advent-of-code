@@ -66,6 +66,11 @@ allprojects {
         }
 
         reports {
+            jacoco {
+                append=true
+                destinationFile = file( "${rootProject.layout.buildDirectory}/jacoco/combinedJacocoTest.exec" )
+            }
+
             junitXml.required = true
             html.required = true
         }
