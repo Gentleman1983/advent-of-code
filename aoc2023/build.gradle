@@ -35,7 +35,7 @@ jar {
 pythonPlugin {
     pythonVersion = "3.12"
     condaVersion = "latest"
-    installDir = file(project.layout.buildDirectory.file("python"))
+    installDir = file(rootProject.layout.buildDirectory.file("python"))
 }
 
 afterEvaluate {
