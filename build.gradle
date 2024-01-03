@@ -1,14 +1,16 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
+    id 'com.pswidersk.python-plugin' version '2.4.0' apply false
     id 'jacoco-report-aggregation'
     id 'java-library'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.22' apply false
     id 'org.sonarqube' version '4.4.1.3373'
 }
 
 // project meta data
 group 'de.havox_design.aoc'
-version '2023.27.20'
+version '2023.28.0'
 
 dependencies {
     jacocoAggregation project(":aoc2015")
