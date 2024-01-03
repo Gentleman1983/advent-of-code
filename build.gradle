@@ -8,7 +8,7 @@ plugins {
 
 // project meta data
 group 'de.havox_design.aoc'
-version '2023.27.16'
+version '2023.27.17'
 
 dependencies {
     jacocoAggregation project(":aoc2015")
@@ -44,7 +44,7 @@ sonarqube {
         property "sonar.organization", "havox"
         property "sonar.sourceEncoding", "UTF-8"
 
-        property "sonar.coverage.jacoco.xmlReportPaths", "${rootProject.layout.buildDirectory.get().asFile.absolutePath}/build/reports/jacoco/testCodeCoverageReport/testCodeCoverageReport.xml"
+        //property "sonar.coverage.jacoco.xmlReportPaths", "${rootProject.layout.buildDirectory.get().asFile.absolutePath}/build/reports/jacoco/testCodeCoverageReport/testCodeCoverageReport.xml"
     }
 }
 
@@ -88,6 +88,12 @@ allprojects {
         }
 
         rootProject.tasks.sonar.dependsOn(it)
+    }
+
+    sonar {
+        properties {
+            property "sonar.coverage.jacoco.xmlReportPaths", "${rootProject.layout.buildDirectory.get().asFile.absolutePath}/build/reports/jacoco/testCodeCoverageReport/testCodeCoverageReport.xml"
+        }
     }
 
     tasks.named('check') {
