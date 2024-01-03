@@ -1,6 +1,5 @@
 plugins {
     id 'scala'
-    id 'org.scoverage' version '8.0.3'
 }
 
 dependencies {
@@ -20,16 +19,6 @@ jar {
         attributes 'Implementation-Title': project.name
         attributes 'Implementation-Version': project.version
     }
-}
-
-sonar {
-    properties {
-        property "sonar.scala.coverage.reportPaths", "build/reports/scoverage/scoverage.xml"
-    }
-}
-
-tasks.named('check') {
-    dependsOn 'reportScoverage'
 }
 
 tasks.withType(Test).configureEach {
