@@ -8,7 +8,7 @@ plugins {
 
 // project meta data
 group 'de.havox_design.aoc'
-version '2023.27.11'
+version '2023.27.12'
 
 dependencies {
     jacocoAggregation project(":aoc2015")
@@ -110,7 +110,7 @@ allprojects {
 
         reports {
             jacoco {
-                //destinationFile = file( "${rootProject.layout.buildDirectory}/jacoco/combinedJacocoTest.exec" )
+                destinationFile = file( "${rootProject.layout.buildDirectory.asFile.get().absolutePath}/jacoco/combinedJacocoTest.exec" )
             }
 
             junitXml.required = true
