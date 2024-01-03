@@ -91,7 +91,7 @@ allprojects {
     }
 
     tasks.named('check') {
-        dependsOn tasks.named(JacocoReport)
+        dependsOn 'jacocoTestReport'
     }
 
     tasks.withType(Test).configureEach {
