@@ -44,10 +44,7 @@ sonarqube {
         property "sonar.organization", "havox"
         property "sonar.sourceEncoding", "UTF-8"
 
-        property "sonar.coverage.jacoco.xmlReportPath", "${rootProject.layout.buildDirectory.asFile.get().absolutePath}/reports/jacoco/testCodeCoverageReport.xml"
-        property "sonar.coverage.jacoco.xmlReportPaths", "${rootProject.layout.buildDirectory.asFile.get().absolutePath}/reports/jacoco/testCodeCoverageReport.xml"
-        property "sonar.jacoco.reportPath", "${rootProject.layout.buildDirectory.asFile.get().absolutePath}/jacoco/combinedJacocoTest.exec"
-        property "sonar.jacoco.reportPaths", "${rootProject.layout.buildDirectory.asFile.get().absolutePath}/jacoco/combinedJacocoTest.exec"
+        property "sonar.coverage.jacoco.xmlReportPaths", "**/build/reports/jacoco/testCodeCoverageReport.xml"
     }
 }
 
@@ -106,10 +103,6 @@ allprojects {
         }
 
         reports {
-            jacoco {
-                destinationFile = file( "${rootProject.layout.buildDirectory.asFile.get().absolutePath}/jacoco/combinedJacocoTest.exec" )
-            }
-
             junitXml.required = true
             html.required = true
         }
