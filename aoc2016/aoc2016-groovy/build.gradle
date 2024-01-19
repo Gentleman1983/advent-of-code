@@ -7,7 +7,7 @@ plugins {
 dependencies {
     api project(":utils")
 
-    api 'org.apache.groovy:groovy-all:4.0.17'
+    api 'org.apache.groovy:groovy-all:4.0.18'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
 
