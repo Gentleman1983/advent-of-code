@@ -84,6 +84,6 @@ sourceSets {
 sonarqube {
     properties {
         property 'sonar.python.version', '3.12'
-        property 'sonar.python.coverage.reportPaths', 'build/python-cov/coverage.xml'
+        property 'sonar.python.coverage.reportPaths', 'build/reports/pytest-cov/coverage.xml'
     }
 }
