@@ -263,7 +263,7 @@ class MainClass {
             val filename = getFileName(19)
 
             return MedicineForRudolph(filename)
-                .getPythonResult("day19result_part2.txt")
+                .getPythonResult("de/havox_design/aoc2015/day19/day19result_part2.txt")
         }
 
         private fun day(

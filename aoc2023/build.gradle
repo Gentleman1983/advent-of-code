@@ -50,7 +50,27 @@ afterEvaluate {
         dependsOn(pipTask)
     }
 
+    def testSolverTask = tasks.register('testSolveDay24Part2', VenvTask) {
+        venvExec = "pytest"
+        workingDir = project.file('src/test/resources')
+        args = [
+                "--cov-report", "term",
+                "--cov-report", "html:${project.layout.buildDirectory.file('reports/pytest-cov').get().asFile.canonicalPath}",
+                "--cov-report", "xml:${project.layout.buildDirectory.file('reports/pytest-cov/coverage.xml').get().asFile.canonicalPath}",
+                "--cov-report", "json:${project.layout.buildDirectory.file('reports/pytest-cov/coverage.json').get().asFile.canonicalPath}",
+                "--cov-report", "lcov:${project.layout.buildDirectory.file('reports/pytest-cov/coverage.lcov').get().asFile.canonicalPath}",
+                "--cov=Day24pt2",
+                project.file("src/test/python/testDay24Part2.py").toString()
+        ]
+        environment = Map.of(
+                "PYTHONPATH", project.file('src/main/python').getCanonicalPath(),
+
+        )
+        dependsOn(pipTask)
+    }
+
     compileKotlin.dependsOn(solverTask)
+    check.dependsOn(testSolverTask)
 }
 
 sourceSets {
@@ -64,5 +84,6 @@ sourceSets {
 sonarqube {
     properties {
         property 'sonar.python.version', '3.12'
+        property 'sonar.python.coverage.reportPaths', 'build/python-cov/coverage.xml'
     }
 }
