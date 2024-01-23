@@ -1,10 +1,9 @@
-import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import com.pswidersk.gradle.python.VenvTask
 
 plugins {
     id 'application'
-    id 'org.jetbrains.kotlin.jvm'
-    id 'com.pswidersk.python-plugin'
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.python.plugin)
 }
 
 dependencies {
@@ -12,10 +11,9 @@ dependencies {
 
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
-    implementation("org.jgrapht:jgrapht-core:1.5.2")
+    implementation libs.jgraph.core
 
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
 
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
@@ -77,6 +75,11 @@ sourceSets {
     main {
         java {
             srcDir project.file('src/main/python')
+        }
+    }
+    test {
+        java {
+            srcDir project.file('src/test/python')
         }
     }
 }

@@ -1,6 +1,6 @@
 plugins {
     id 'application'
-    id 'org.jetbrains.kotlin.jvm' version '1.9.22'
+    alias(libs.plugins.kotlin.jvm)
 }
 
 dependencies {
@@ -11,7 +11,6 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
 
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
 
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }

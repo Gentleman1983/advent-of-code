@@ -1,0 +1,37 @@
+[versions]
+commons-codec = "1.16.0"
+commons-lang3 = "3.14.0"
+equalsverifier = "3.15.6"
+guava = "33.0.0-jre"
+gradle = "8.5"
+groovy = "4.0.18"
+hamcrest = "2.2"
+jacoco = "0.8.11"
+jgraph = "1.5.2"
+junit5 = "5.10.1"
+kotlin-jvm = "1.9.22"
+python-plugin = "2.4.0"
+scala3-library = "3.3.1"
+scala3-scalatest = "3.3.0-SNAP4"
+scala3-scalatestplus-junit = "3.2.17.0"
+sonarqube-plugin = "4.4.1.3373"
+xwork = "2.3.37"
+
+[libraries]
+commons-codec = { group = "commons-codec", name = "commons-codec", version.ref = "commons-codec" }
+commons-lang3 = { group = "org.apache.commons", name = "commons-lang3", version.ref = "commons-lang3" }
+equalsverifier = { group = "nl.jqno.equalsverifier", name = "equalsverifier", version.ref = "equalsverifier" }
+guava = { group = "com.google.guava", name = "guava", version.ref = "guava" }
+groovy-all = { group = "org.apache.groovy", name = "groovy-all", version.ref = "groovy" }
+hamcrest = { group = "org.hamcrest", name = "hamcrest", version.ref = "hamcrest" }
+jgraph-core = { group = "org.jgrapht", name = "jgrapht-core", version.ref = "jgraph" }
+junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit5" }
+scala3-library = { group = "org.scala-lang", name = "scala3-library_3", version.ref = "scala3-library" }
+scala3-scalatest = { group = "org.scalatest", name = "scalatest_3", version.ref = "scala3-scalatest" }
+scala3-scalatestplus-junit = { group = "org.scalatestplus", name = "junit-5-10_3", version.ref = "scala3-scalatestplus-junit" }
+xwork-core = { group = "org.apache.struts.xwork", name = "xwork-core", version.ref = "xwork" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-jvm" }
+python-plugin = { id = "com.pswidersk.python-plugin", version.ref = "python-plugin" }
+sonarqube-plugin = { id = "org.sonarqube", version.ref = "sonarqube-plugin" }
