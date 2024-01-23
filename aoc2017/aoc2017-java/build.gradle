@@ -1,9 +1,6 @@
 dependencies {
     api project(":utils")
 
-    testImplementation 'org.hamcrest:hamcrest:2.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
-
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 

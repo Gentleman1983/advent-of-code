@@ -1,16 +1,16 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
-    id 'com.pswidersk.python-plugin' version '2.4.0' apply false
+    alias(libs.plugins.python.plugin) apply false
     id 'jacoco-report-aggregation'
     id 'java-library'
-    id 'org.jetbrains.kotlin.jvm' version '1.9.22' apply false
-    id 'org.sonarqube' version '4.4.1.3373'
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.sonarqube.plugin)
 }
 
 // project meta data
 group 'de.havox_design.aoc'
-version '2024.0.2'
+version '2024.0.3'
 
 dependencies {
     jacocoAggregation project(":aoc2015")
@@ -59,7 +59,7 @@ tasks.named('check') {
 // Switch to gradle "all" distribution.
 wrapper {
     distributionType = Wrapper.DistributionType.ALL
-    gradleVersion '8.5'
+    gradleVersion libs.versions.gradle.get()
 }
 
 if (hasProperty('buildScan')) {
@@ -77,8 +77,13 @@ allprojects {
         mavenCentral()
     }
 
+    dependencies {
+        testImplementation libs.hamcrest
+        testImplementation libs.junit.jupiter
+    }
+
     jacoco {
-        toolVersion = '0.8.11'
+        toolVersion = libs.versions.jacoco.get()
     }
 
     jacocoTestReport {
