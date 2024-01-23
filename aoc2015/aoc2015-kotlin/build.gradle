@@ -1,8 +1,8 @@
 import com.pswidersk.gradle.python.VenvTask
 
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.9.22'
-    id 'com.pswidersk.python-plugin' version '2.4.0'
+    id 'org.jetbrains.kotlin.jvm'
+    id 'com.pswidersk.python-plugin'
 }
 
 dependencies {
@@ -36,17 +36,38 @@ afterEvaluate {
         args = ["install", "--isolated", "-r", "requirements.txt"]
     }
 
-    def solverTask = tasks.register('solvePart2', VenvTask) {
+    def solverTask = tasks.register('solveDay19Part2', VenvTask) {
         workingDir = project.file('src/main/resources')
-        args = [project.file("src/main/python/solvePart2.py").toString()]
+        args = [project.file("src/main/python/solveDay19Part2.py").toString()]
+        dependsOn(pipTask)
+    }
+
+    def testSolverTask = tasks.register('testSolveDay19Part2', VenvTask) {
+        venvExec = "pytest"
+        workingDir = project.file('src/test/resources')
+        args = [
+                "--cov-report", "term",
+                "--cov-report", "html:${project.layout.buildDirectory.file('reports/pytest-cov').get().asFile.canonicalPath}",
+                "--cov-report", "xml:${project.layout.buildDirectory.file('reports/pytest-cov/coverage.xml').get().asFile.canonicalPath}",
+                "--cov-report", "json:${project.layout.buildDirectory.file('reports/pytest-cov/coverage.json').get().asFile.canonicalPath}",
+                "--cov-report", "lcov:${project.layout.buildDirectory.file('reports/pytest-cov/coverage.lcov').get().asFile.canonicalPath}",
+                "--cov=solveDay19Part2",
+                project.file("src/test/python/testSolveDay19Part2.py").toString()
+        ]
+        environment = Map.of(
+                "PYTHONPATH", project.file('src/main/python').getCanonicalPath(),
+
+        )
         dependsOn(pipTask)
     }
 
     compileKotlin.dependsOn(solverTask)
+    check.dependsOn(testSolverTask)
 }
 
 sonarqube {
     properties {
         property 'sonar.python.version', '3.12'
+        property 'sonar.python.coverage.reportPaths', 'build/reports/pytest-cov/coverage.xml'
     }
 }
