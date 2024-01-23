@@ -8,7 +8,7 @@ def read_input():
         v = list(map(int, v.split(', ')))
         yield p, v
 
-def solve(arr):
+def solve():
     if __name__ == "__main__":
         parsed = read_input()
         x = sympy.var('x')
@@ -32,7 +32,7 @@ def solve(arr):
         solution = sympy.solve(equations)[0]
         return solution[x] + solution[y] + solution[z]
 
-part2 = solve([])
+part2 = solve()
 print(f"Solution for part 2 via Python: {part2}")
 with open("de/havox_design/aoc2023/day24/day24result_part2.txt", 'a') as out:
     print(part2, file=out)
