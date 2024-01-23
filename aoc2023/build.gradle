@@ -79,6 +79,11 @@ sourceSets {
             srcDir project.file('src/main/python')
         }
     }
+    test {
+        java {
+            srcDir project.file('src/test/python')
+        }
+    }
 }
 
 sonarqube {

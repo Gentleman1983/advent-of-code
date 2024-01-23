@@ -65,6 +65,19 @@ afterEvaluate {
     check.dependsOn(testSolverTask)
 }
 
+sourceSets {
+    main {
+        java {
+            srcDir project.file('src/main/python')
+        }
+    }
+    test {
+        java {
+            srcDir project.file('src/test/python')
+        }
+    }
+}
+
 sonarqube {
     properties {
         property 'sonar.python.version', '3.12'
