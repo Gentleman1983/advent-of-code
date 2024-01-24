@@ -14,7 +14,10 @@ dependencies {
 
     testImplementation libs.equalsverifier
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
+
 jar {
     manifest {
         attributes 'Implementation-Title': project.name
