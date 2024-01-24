@@ -10,7 +10,7 @@ plugins {
 
 // project meta data
 group 'de.havox_design.aoc'
-version '2024.0.4'
+version '2024.0.5'
 
 dependencies {
     jacocoAggregation project(":aoc2015")
