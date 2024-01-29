@@ -1,4 +1,4 @@
-package de.havox_design.aoc.utils.kotlin
+package de.havox_design.aoc.utils.kotlin.helpers
 
 interface AocMainClassHelper {
     fun day(

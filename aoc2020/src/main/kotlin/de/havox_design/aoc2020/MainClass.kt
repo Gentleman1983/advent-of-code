@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020
 
-import de.havox_design.aoc.utils.kotlin.AocMainClassHelper
+import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
 import de.havox_design.aoc2020.day01.Day01
 import de.havox_design.aoc2020.day02.Day02
 import de.havox_design.aoc2020.day03.Day03

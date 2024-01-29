@@ -1,6 +1,6 @@
 package de.havox_design.aoc2022
 
-import de.havox_design.aoc.utils.kotlin.AocMainClassHelper
+import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
 import de.havox_design.aoc2022.day01.CaloriesCounter
 import de.havox_design.aoc2022.day02.RockPaperScissorsGame
 import de.havox_design.aoc2022.day03.RucksackReorganization
