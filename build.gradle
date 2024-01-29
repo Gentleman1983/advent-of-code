@@ -10,7 +10,7 @@ plugins {
 
 // project meta data
 group 'de.havox_design.aoc'
-version '2024.0.6'
+version '2024.0.7'
 
 dependencies {
     jacocoAggregation project(":aoc2015")
@@ -26,11 +26,26 @@ dependencies {
     jacocoAggregation project(":aoc2017:aoc2017-java")
     jacocoAggregation project(":aoc2017:aoc2017-scala")
 
+    jacocoAggregation project(":aoc2018")
+    jacocoAggregation project(":aoc2018:aoc2018-java")
+
+    jacocoAggregation project(":aoc2019")
+    jacocoAggregation project(":aoc2019:aoc2019-java")
+
+    jacocoAggregation project(":aoc2020")
+    jacocoAggregation project(":aoc2020:aoc2020-kotlin")
+
+    jacocoAggregation project(":aoc2021")
+    jacocoAggregation project(":aoc2021:aoc2021-kotlin")
+
     jacocoAggregation project(":aoc2022")
     jacocoAggregation project(":aoc2022:aoc2022-kotlin")
     jacocoAggregation project(":aoc2022:aoc2022-scala")
 
     jacocoAggregation project(":aoc2023")
+
+    jacocoAggregation project(":aoc2024")
+    jacocoAggregation project(":aoc2024:aoc2024-kotlin")
 
     jacocoAggregation project(":meilisearch")
 
