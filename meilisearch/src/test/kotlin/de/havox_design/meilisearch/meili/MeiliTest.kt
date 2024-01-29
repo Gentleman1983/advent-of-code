@@ -3,7 +3,6 @@ package de.havox_design.meilisearch.meili
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import nl.jqno.equalsverifier.EqualsVerifier
 import nl.jqno.equalsverifier.Warning
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -165,5 +164,3 @@ class MeiliTest {
         }
     }
 }
-
-private fun Node.shouldBe(expectation: Node) = Assertions.assertEquals(expectation, this)

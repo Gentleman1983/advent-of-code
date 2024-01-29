@@ -2,7 +2,6 @@ package de.havox_design.aoc2022.day05
 
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldContainAll
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
 import kotlin.test.assertNotNull
@@ -228,6 +227,3 @@ class Day05Test {
         return testData
     }
 }
-
-private fun Crate.shouldBe(expectation: Crate) = Assertions.assertEquals(expectation, this)
-private fun Step.shouldBe(expectation: Step) = Assertions.assertEquals(expectation, this)

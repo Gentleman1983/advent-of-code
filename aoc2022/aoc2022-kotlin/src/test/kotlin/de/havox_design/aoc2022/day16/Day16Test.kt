@@ -1,7 +1,6 @@
 package de.havox_design.aoc2022.day16
 
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
@@ -109,5 +108,3 @@ class Day16Test {
             )
     }
 }
-
-private fun Valve.shouldBe(expectation: Valve) = Assertions.assertEquals(expectation, this)

@@ -2,7 +2,6 @@ package de.havox_design.aoc2022.day17
 
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldContainAll
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.params.ParameterizedTest
@@ -295,6 +294,3 @@ class Day17Test {
         }
     }
 }
-
-private fun Jet.shouldBe(expectation: Jet) = Assertions.assertEquals(expectation, this)
-private fun Position.shouldBe(expectation: Position) = Assertions.assertEquals(expectation, this)

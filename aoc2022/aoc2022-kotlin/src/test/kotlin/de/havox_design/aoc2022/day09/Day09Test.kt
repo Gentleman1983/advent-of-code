@@ -184,5 +184,4 @@ class Day09Test {
     }
 }
 
-private fun Direction.shouldBe(expectation: Direction) = Assertions.assertEquals(expectation, this)
 private fun Knot?.shouldBe(expectation: Knot?) = Assertions.assertEquals(expectation, this)

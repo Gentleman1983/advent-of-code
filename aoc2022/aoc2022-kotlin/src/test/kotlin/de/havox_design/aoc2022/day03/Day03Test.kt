@@ -337,5 +337,3 @@ class Day03Test {
             )
     }
 }
-
-private fun ItemValue.shouldBe(expectation: ItemValue) = Assertions.assertEquals(expectation, this)

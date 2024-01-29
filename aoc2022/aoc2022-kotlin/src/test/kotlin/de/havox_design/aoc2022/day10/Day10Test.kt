@@ -2,7 +2,6 @@ package de.havox_design.aoc2022.day10
 
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldContainAll
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -83,5 +82,3 @@ class Day10Test {
             )
     }
 }
-
-private fun Order?.shouldBe(expectation: Order?) = Assertions.assertEquals(expectation, this)
