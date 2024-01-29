@@ -33,7 +33,7 @@ class Day22Test {
     @ParameterizedTest
     @MethodSource("getDataForTestStartMap")
     fun testStartMap(filename: String, expectedResult: Array<Array<Field>>) =
-        Map(MonkeyMap(filename).data).map.shouldBe(expectedResult)
+        Map(MonkeyMap(filename).data).map.shouldExactlyBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestStartingField")
@@ -140,9 +140,7 @@ class Day22Test {
     }
 }
 
-private fun Field.shouldBe(expectation: Field) = Assertions.assertEquals(expectation, this)
-private fun Position.shouldBe(expectation: Position) = Assertions.assertEquals(expectation, this)
-private fun Array<Array<Field>>.shouldBe(expectation: Array<Array<Field>>) =
+private fun Array<Array<Field>>.shouldExactlyBe(expectation: Array<Array<Field>>) =
     assertAll(
         { this.size.shouldBe(expectation.size) },
         {
