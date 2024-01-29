@@ -1,5 +1,6 @@
 package de.havox_design.aoc2022.day19
 
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import nl.jqno.equalsverifier.EqualsVerifier
 import nl.jqno.equalsverifier.Warning
 import org.junit.jupiter.api.Assertions
@@ -978,8 +979,5 @@ class Day19Test {
     }
 }
 
-private fun Boolean.shouldBe(expectation: Boolean) = Assertions.assertEquals(expectation, this)
-private fun Int.shouldBe(expectation: Int) = Assertions.assertEquals(expectation, this)
 private fun RobotWorkers.shouldBe(expectation: RobotWorkers) = Assertions.assertEquals(expectation, this)
 private fun RobotCurrency.shouldBe(expectation: RobotCurrency) = Assertions.assertEquals(expectation, this)
-private fun List<*>.shouldBe(expectation: List<*>) = Assertions.assertEquals(expectation, this)

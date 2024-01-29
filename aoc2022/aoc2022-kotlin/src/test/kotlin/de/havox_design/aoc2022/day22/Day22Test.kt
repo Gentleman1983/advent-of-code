@@ -1,5 +1,6 @@
 package de.havox_design.aoc2022.day22
 
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.params.ParameterizedTest
@@ -140,7 +141,6 @@ class Day22Test {
 }
 
 private fun Field.shouldBe(expectation: Field) = Assertions.assertEquals(expectation, this)
-private fun Int.shouldBe(expectation: Int) = Assertions.assertEquals(expectation, this)
 private fun Position.shouldBe(expectation: Position) = Assertions.assertEquals(expectation, this)
 private fun Array<Array<Field>>.shouldBe(expectation: Array<Array<Field>>) =
     assertAll(
@@ -158,8 +158,6 @@ private fun Array<Array<Field>>.shouldBe(expectation: Array<Array<Field>>) =
             }
         }
     )
-private fun Collection<*>.shouldBe(expectation: Collection<*>) = Assertions.assertEquals(expectation, this)
-
 private fun String.toMapRow(): Array<Field> {
     val data = emptyList<Field>().toMutableList()
 

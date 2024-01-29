@@ -1,5 +1,6 @@
 package de.havox_design.aoc2022.day24
 
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.params.ParameterizedTest
@@ -81,6 +82,4 @@ private fun Array<Int>.get1stWayToGoalResult(): Int = this[0]
 private fun Array<Int>.getWayBackToStartResult(): Int = this[1]
 private fun Array<Int>.get2ndWayToGoalResult(): Int = this[2]
 private fun Array<Int>.getTotalWayResult(): Int = this[3]
-
-private fun Int.shouldBe(expectation: Int) = Assertions.assertEquals(expectation, this)
 private fun Position.shouldBe(expectation: Position) = Assertions.assertEquals(expectation, this)

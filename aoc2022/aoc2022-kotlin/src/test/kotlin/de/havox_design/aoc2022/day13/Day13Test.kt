@@ -1,5 +1,6 @@
 package de.havox_design.aoc2022.day13
 
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import de.havox_design.aoc2022.day13.Packet.PacketLiteral
 import de.havox_design.aoc2022.day13.Packet.PacketList
 import org.junit.jupiter.api.Assertions
@@ -276,6 +277,4 @@ class Day13Test {
             )
     }
 }
-
-private fun Int.shouldBe(expectation: Int) = Assertions.assertEquals(expectation, this)
 private fun Packet.shouldBe(expectation: Packet) = Assertions.assertEquals(expectation, this)

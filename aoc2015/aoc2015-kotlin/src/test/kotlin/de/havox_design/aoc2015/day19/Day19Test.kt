@@ -1,6 +1,6 @@
 package de.havox_design.aoc2015.day19
 
-import org.junit.jupiter.api.Assertions
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
@@ -36,5 +36,3 @@ class Day19Test {
             )
     }
 }
-
-private fun Int.shouldBe(expectation: Int) = Assertions.assertEquals(expectation, this)

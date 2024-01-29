@@ -1,6 +1,6 @@
 package de.havox_design.aoc2022.day06
 
-import org.junit.jupiter.api.Assertions
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 
@@ -63,6 +63,3 @@ class Day06Test {
     fun testProcessPart2(filename: String, expectedValue: Int) =
         TuningTrouble(filename).processPart2().shouldBe(expectedValue)
 }
-
-private fun Boolean.shouldBe(expectation: Boolean) = Assertions.assertEquals(expectation, this)
-private fun Int.shouldBe(expectation: Int) = Assertions.assertEquals(expectation, this)

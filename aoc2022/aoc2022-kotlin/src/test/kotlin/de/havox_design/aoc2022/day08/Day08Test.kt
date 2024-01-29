@@ -1,5 +1,6 @@
 package de.havox_design.aoc2022.day08
 
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.params.ParameterizedTest
@@ -281,10 +282,4 @@ class Day08Test {
     }
 }
 
-private fun Boolean.shouldBe(expectation: Boolean) = Assertions.assertEquals(expectation, this)
-private fun Boolean.shouldBe(expectation: Boolean, message: String) =
-    Assertions.assertEquals(expectation, this, message)
-
-private fun Int.shouldBe(expectation: Int) = Assertions.assertEquals(expectation, this)
-private fun Int.shouldBe(expectation: Int, message: String) = Assertions.assertEquals(expectation, this, message)
 private fun Tree.shouldBe(expectation: Tree) = Assertions.assertEquals(expectation, this)

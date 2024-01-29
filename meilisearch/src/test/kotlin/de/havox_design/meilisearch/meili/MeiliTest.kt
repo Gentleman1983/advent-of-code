@@ -1,5 +1,6 @@
 package de.havox_design.meilisearch.meili
 
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import nl.jqno.equalsverifier.EqualsVerifier
 import nl.jqno.equalsverifier.Warning
 import org.junit.jupiter.api.Assertions
@@ -165,7 +166,4 @@ class MeiliTest {
     }
 }
 
-private fun Int.shouldBe(expectation: Int) = Assertions.assertEquals(expectation, this)
-private fun String.shouldBe(expectation: String) = Assertions.assertEquals(expectation, this)
-private fun Map<*, *>.shouldBe(expectation: Map<*, *>) = Assertions.assertEquals(expectation, this)
 private fun Node.shouldBe(expectation: Node) = Assertions.assertEquals(expectation, this)

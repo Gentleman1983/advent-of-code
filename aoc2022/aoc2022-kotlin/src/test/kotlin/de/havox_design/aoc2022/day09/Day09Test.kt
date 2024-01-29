@@ -1,5 +1,7 @@
 package de.havox_design.aoc2022.day09
 
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldContainAll
 import nl.jqno.equalsverifier.EqualsVerifier
 import nl.jqno.equalsverifier.Warning
 import org.junit.jupiter.api.Assertions
@@ -182,10 +184,5 @@ class Day09Test {
     }
 }
 
-private fun Boolean.shouldBe(expectation: Boolean) = Assertions.assertEquals(expectation, this)
 private fun Direction.shouldBe(expectation: Direction) = Assertions.assertEquals(expectation, this)
 private fun Knot?.shouldBe(expectation: Knot?) = Assertions.assertEquals(expectation, this)
-private fun Int.shouldBe(expectation: Int) = Assertions.assertEquals(expectation, this)
-private fun Collection<*>?.shouldBe(expectation: Collection<*>?) = Assertions.assertEquals(expectation, this)
-private fun Collection<*>.shouldContainAll(expectation: Collection<*>) =
-    Assertions.assertTrue(this.containsAll(expectation))

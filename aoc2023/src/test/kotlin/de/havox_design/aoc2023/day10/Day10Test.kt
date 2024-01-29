@@ -1,7 +1,7 @@
 package de.havox_design.aoc2023.day10
 
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import de.havox_design.aoc2023.MainClass
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -42,5 +42,3 @@ class Day10Test {
             )
     }
 }
-
-private fun Long.shouldBe(expectation: Long) = assertEquals(expectation, this)
