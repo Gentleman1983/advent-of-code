@@ -1,6 +1,8 @@
 package de.havox_design.aoc2023.day05
 
-data class Almanac(val seeds: List<Long>, val maps: List<List<Triple<Long, Long, Long>>>) {
+import de.havox_design.aoc.utils.kotlin.model.positions.Position3d
+
+data class Almanac(val seeds: List<Long>, val maps: List<List<Position3d<Long>>>) {
     fun seedsToLocation(): List<Long> =
         seeds
         .map { seed -> computeLocation(seed) }
@@ -46,15 +48,15 @@ data class Almanac(val seeds: List<Long>, val maps: List<List<Triple<Long, Long,
                 .filter(String::isNotBlank)
                 .map(String::toLong)
             val sublist = input.subList(1, input.size)
-            val maps = mutableListOf<List<Triple<Long, Long, Long>>>()
-            var submap = mutableListOf<Triple<Long, Long, Long>>()
+            val maps = mutableListOf<List<Position3d<Long>>>()
+            var submap = mutableListOf<Position3d<Long>>()
             for (i in sublist.indices) {
                 if ("map:" in sublist[i]) {
                     if (submap.isNotEmpty()) maps.add(submap)
                     submap = mutableListOf()
                 } else {
                     submap.add(
-                        Triple(
+                        Position3d(
                             sublist[i].substringBefore(" ").toLong(),
                             sublist[i].substringAfter(" ").substringBefore(" ").toLong(),
                             sublist[i].substringAfterLast(" ").toLong()
