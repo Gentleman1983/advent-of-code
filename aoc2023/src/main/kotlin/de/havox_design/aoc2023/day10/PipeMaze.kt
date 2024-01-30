@@ -1,5 +1,7 @@
 package de.havox_design.aoc2023.day10
 
+import de.havox_design.aoc.utils.kotlin.model.directions.GeoDirection
+
 class PipeMaze(private var filename: String) {
     private val ICON_START = 'S'
     private val ICON_VERTICAL_PIPE = '|'
@@ -49,8 +51,8 @@ class PipeMaze(private var filename: String) {
 
                 when (adjacentTileDirections) {
                     setOf(
-                        Direction.NORTH,
-                        Direction.EAST
+                        GeoDirection.NORTH,
+                        GeoDirection.EAST
                     ) -> when {
                         !counterClockwise && prevTile.first < currentTile.first || counterClockwise && prevTile.second > currentTile.second -> {
                             left(loop, currentTile, maze).asSequence()
@@ -61,8 +63,8 @@ class PipeMaze(private var filename: String) {
                     }
 
                     setOf(
-                        Direction.SOUTH,
-                        Direction.WEST
+                        GeoDirection.SOUTH,
+                        GeoDirection.WEST
                     ) -> when {
                         !counterClockwise && prevTile.first > currentTile.first || counterClockwise && prevTile.second < currentTile.second -> {
                             right(loop, currentTile, maze).asSequence()
@@ -73,8 +75,8 @@ class PipeMaze(private var filename: String) {
                     }
 
                     setOf(
-                        Direction.SOUTH,
-                        Direction.EAST
+                        GeoDirection.SOUTH,
+                        GeoDirection.EAST
                     ) -> when {
                         !counterClockwise && prevTile.second > currentTile.second || counterClockwise && prevTile.first > currentTile.first -> {
                             left(loop, currentTile, maze).asSequence()
@@ -85,8 +87,8 @@ class PipeMaze(private var filename: String) {
                     }
 
                     setOf(
-                        Direction.NORTH,
-                        Direction.WEST
+                        GeoDirection.NORTH,
+                        GeoDirection.WEST
                     ) -> when {
                         !counterClockwise && prevTile.second < currentTile.second || counterClockwise && prevTile.first < currentTile.first -> {
                             right(loop, currentTile, maze).asSequence()
@@ -96,7 +98,7 @@ class PipeMaze(private var filename: String) {
                         }
                     }
 
-                    setOf(Direction.NORTH, Direction.SOUTH) -> {
+                    setOf(GeoDirection.NORTH, GeoDirection.SOUTH) -> {
                         when {
                             !counterClockwise == prevTile.first < currentTile.first -> {
                                 left(loop, currentTile, maze).asSequence()
@@ -153,40 +155,40 @@ class PipeMaze(private var filename: String) {
     private fun List<List<Char>>.connectedCells(currentLocation: Pair<Int, Int>): List<Pair<Int, Int>> {
         return when (this[currentLocation.first][currentLocation.second]) {
             ICON_VERTICAL_PIPE -> listOf(
-                currentLocation.getAdjacentField(Direction.NORTH),
-                currentLocation.getAdjacentField(Direction.SOUTH)
+                currentLocation.getAdjacentField(GeoDirection.NORTH),
+                currentLocation.getAdjacentField(GeoDirection.SOUTH)
             )
 
             ICON_HORIZONTAL_PIPE -> listOf(
-                currentLocation.getAdjacentField(Direction.WEST),
-                currentLocation.getAdjacentField(Direction.EAST)
+                currentLocation.getAdjacentField(GeoDirection.WEST),
+                currentLocation.getAdjacentField(GeoDirection.EAST)
             )
 
             ICON_NORTH_EAST_BEND -> listOf(
-                currentLocation.getAdjacentField(Direction.NORTH),
-                currentLocation.getAdjacentField(Direction.EAST)
+                currentLocation.getAdjacentField(GeoDirection.NORTH),
+                currentLocation.getAdjacentField(GeoDirection.EAST)
             )
 
             ICON_NORTH_WEST_BEND -> listOf(
-                currentLocation.getAdjacentField(Direction.NORTH),
-                currentLocation.getAdjacentField(Direction.WEST)
+                currentLocation.getAdjacentField(GeoDirection.NORTH),
+                currentLocation.getAdjacentField(GeoDirection.WEST)
             )
 
             ICON_SOUTH_WEST_BEND -> listOf(
-                currentLocation.getAdjacentField(Direction.WEST),
-                currentLocation.getAdjacentField(Direction.SOUTH)
+                currentLocation.getAdjacentField(GeoDirection.WEST),
+                currentLocation.getAdjacentField(GeoDirection.SOUTH)
             )
 
             ICON_SOUTH_EAST_BEND -> listOf(
-                currentLocation.getAdjacentField(Direction.EAST),
-                currentLocation.getAdjacentField(Direction.SOUTH)
+                currentLocation.getAdjacentField(GeoDirection.EAST),
+                currentLocation.getAdjacentField(GeoDirection.SOUTH)
             )
 
             ICON_START -> listOf(
-                currentLocation.getAdjacentField(Direction.NORTH),
-                currentLocation.getAdjacentField(Direction.WEST),
-                currentLocation.getAdjacentField(Direction.EAST),
-                currentLocation.getAdjacentField(Direction.SOUTH)
+                currentLocation.getAdjacentField(GeoDirection.NORTH),
+                currentLocation.getAdjacentField(GeoDirection.WEST),
+                currentLocation.getAdjacentField(GeoDirection.EAST),
+                currentLocation.getAdjacentField(GeoDirection.SOUTH)
             )
                 .filter { (it.first in indices) && (it.second in this[it.first].indices) }
                 .filter { this.connectedCells(it).any { next -> next == currentLocation } }
@@ -195,13 +197,13 @@ class PipeMaze(private var filename: String) {
         }.filter { (it.first in indices) && (it.second in this[it.first].indices) }
     }
 
-    private fun Pair<Int, Int>.getAdjacentField(direction: Direction): Pair<Int, Int> {
+    private fun Pair<Int, Int>.getAdjacentField(direction: GeoDirection): Pair<Int, Int> {
         return when (direction) {
-            Direction.NORTH -> Pair(this.first - 1, this.second)
-            Direction.SOUTH -> Pair(this.first + 1, this.second)
-            Direction.WEST -> Pair(this.first, this.second - 1)
-            Direction.EAST -> Pair(this.first, this.second + 1)
-            Direction.NONE -> this
+            GeoDirection.NORTH -> Pair(this.first - 1, this.second)
+            GeoDirection.SOUTH -> Pair(this.first + 1, this.second)
+            GeoDirection.WEST -> Pair(this.first, this.second - 1)
+            GeoDirection.EAST -> Pair(this.first, this.second + 1)
+            GeoDirection.NONE -> this
         }
     }
 
@@ -255,15 +257,15 @@ class PipeMaze(private var filename: String) {
         }
     }
 
-    private fun Pair<Int, Int>.getDirectionTo(location: Pair<Int, Int>): Direction {
+    private fun Pair<Int, Int>.getDirectionTo(location: Pair<Int, Int>): GeoDirection {
         when {
             this.first != location.first && this.second != location.second -> throw IllegalArgumentException()
             else -> return when {
-                this.first == location.first && this.second < location.second -> return Direction.EAST
-                this.first == location.first && this.second > location.second -> return Direction.WEST
-                this.second == location.second && this.first < location.first -> return Direction.SOUTH
-                this.second == location.second && this.first > location.first -> return Direction.NORTH
-                else -> Direction.NONE
+                this.first == location.first && this.second < location.second -> return GeoDirection.EAST
+                this.first == location.first && this.second > location.second -> return GeoDirection.WEST
+                this.second == location.second && this.first < location.first -> return GeoDirection.SOUTH
+                this.second == location.second && this.first > location.first -> return GeoDirection.NORTH
+                else -> GeoDirection.NONE
             }
         }
     }
