@@ -1,22 +1,24 @@
 package de.havox_design.aoc2023.day08
 
-data class Node(val name: String, var left: Node?, var right: Node?): Comparable<Node> {
-    fun setNode(direction: Direction, node: Node) {
-        when(direction) {
-            Direction.LEFT -> left = node
-            Direction.RIGHT -> right = node
+import de.havox_design.aoc.utils.kotlin.model.directions.LeftRightDirection
+
+data class Node(val name: String, var left: Node?, var right: Node?) : Comparable<Node> {
+    fun setNode(direction: LeftRightDirection, node: Node) {
+        when (direction) {
+            LeftRightDirection.LEFT -> left = node
+            LeftRightDirection.RIGHT -> right = node
         }
     }
 
     fun setNodes(left: Node, right: Node) {
-        setNode(Direction.LEFT, left)
-        setNode(Direction.RIGHT, right)
+        setNode(LeftRightDirection.LEFT, left)
+        setNode(LeftRightDirection.RIGHT, right)
     }
 
-    fun getNode(direction: Direction): Node =
-        when(direction) {
-            Direction.LEFT -> left!!
-            Direction.RIGHT -> right!!
+    fun getNode(direction: LeftRightDirection): Node =
+        when (direction) {
+            LeftRightDirection.LEFT -> left!!
+            LeftRightDirection.RIGHT -> right!!
         }
 
     override fun compareTo(other: Node): Int =
