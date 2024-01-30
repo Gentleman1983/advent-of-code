@@ -1,8 +1,9 @@
 package de.havox_design.aoc2023.day16
 
 import de.havox_design.aoc.utils.kotlin.model.directions.GeoDirection
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 
-data class Tile(val row: Int, val column: Int, val type: Char) {
+data class Tile(val position: Position2d<Int>, val type: Char) {
     private val MARKER_UP = "^"
     private val MARKER_DOWN = "V"
     private val MARKER_LEFT = "<"
