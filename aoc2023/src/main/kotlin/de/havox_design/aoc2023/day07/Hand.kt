@@ -1,5 +1,7 @@
 package de.havox_design.aoc2023.day07
 
+import de.havox_design.aoc.utils.kotlin.model.cards.Card
+
 class Hand(val cards: List<Card>, private val isPartOne: Boolean) : Comparable<Hand> {
     override fun compareTo(other: Hand): Int =
         compare(this, other, isPartOne)

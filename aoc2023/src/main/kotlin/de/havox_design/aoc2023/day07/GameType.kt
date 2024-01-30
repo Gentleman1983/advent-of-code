@@ -1,5 +1,7 @@
 package de.havox_design.aoc2023.day07
 
+import de.havox_design.aoc.utils.kotlin.model.cards.Card
+
 enum class GameType(private var order: Int) {
     FIVE_OF_A_KIND(6),
     FOUR_OF_A_KIND(5),

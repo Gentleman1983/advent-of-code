@@ -1,4 +1,4 @@
-package de.havox_design.aoc2023.day07
+package de.havox_design.aoc.utils.kotlin.model.cards
 
 enum class Card(val symbol: Char, private val orderPartOne: Int, private val orderPartTwo: Int) {
     TWO('2', 2, 2),
