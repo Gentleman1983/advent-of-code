@@ -1,5 +1,6 @@
 package de.havox_design.aoc2023.day03
 
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 import java.lang.IllegalArgumentException
 
 class EngineSchematic(input: List<String>) {
@@ -29,7 +30,7 @@ class EngineSchematic(input: List<String>) {
             for (x: Int in dataRow.indices) {
                 val symbol = dataRow[x]
 
-                row.add(Point(row = y, col = x, value = symbol))
+                row.add(Point(Position2d(x,y), symbol))
             }
 
             schematic.add(row)
@@ -127,15 +128,15 @@ class EngineSchematic(input: List<String>) {
         return null
     }
 
-    private fun isOnGrid(position: Pair<Int, Int>): Boolean =
-        position.first >= 0
-                && position.first < schematic.size
-                && position.second >= 0
-                && position.second < schematic[0].size
+    private fun isOnGrid(position: Position2d<Int>): Boolean =
+        position.y >= 0
+                && position.y < schematic.size
+                && position.x >= 0
+                && position.x < schematic[0].size
 
-    private fun getPosition(position: Pair<Int, Int>): Point {
+    private fun getPosition(position: Position2d<Int>): Point {
         if (isOnGrid(position)) {
-            return schematic[position.first][position.second]
+            return schematic[position.y][position.x]
         }
         throw IllegalArgumentException("Position '$position' not on schematic.")
     }
