@@ -1,5 +1,7 @@
 package de.havox_design.aoc2023.day24
 
+import de.havox_design.aoc.utils.kotlin.model.positions.Position3d
+
 class NeverTellMeTheOdds(private var filename: String) {
     private val ID_POSITION_X = 0
     private val ID_POSITION_Y = 1

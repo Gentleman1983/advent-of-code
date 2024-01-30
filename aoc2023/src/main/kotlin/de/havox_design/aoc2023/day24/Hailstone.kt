@@ -1,6 +1,8 @@
 package de.havox_design.aoc2023.day24
 
-data class Hailstone(val start: Position3d, val velocity: Position3d) {
+import de.havox_design.aoc.utils.kotlin.model.positions.Position3d
+
+data class Hailstone(val start: Position3d<Long>, val velocity: Position3d<Long>) {
     private val slope = velocity.y.toDouble() / velocity.x
     private val intersectionYaxis = start.y.toDouble() - slope * start.x
     private fun findCollisionTime(xValue: Double) =
