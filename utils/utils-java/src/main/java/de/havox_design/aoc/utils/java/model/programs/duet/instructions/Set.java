@@ -1,8 +1,8 @@
-package de.havox_design.aoc.utils.java.model.programs.duet.duet.instructions;
+package de.havox_design.aoc.utils.java.model.programs.duet.instructions;
 
-import de.havox_design.aoc.utils.java.model.programs.duet.duet.State;
-import de.havox_design.aoc.utils.java.model.programs.duet.duet.token.Token;
-import de.havox_design.aoc.utils.java.model.programs.duet.duet.token.TokenProvider;
+import de.havox_design.aoc.utils.java.model.programs.duet.State;
+import de.havox_design.aoc.utils.java.model.programs.duet.token.Token;
+import de.havox_design.aoc.utils.java.model.programs.duet.token.TokenProvider;
 
 public class Set implements Instruction {
     private final Token value;

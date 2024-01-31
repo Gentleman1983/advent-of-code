@@ -1,4 +1,4 @@
-package de.havox_design.aoc.utils.java.model.programs.duet.duet.instructions;
+package de.havox_design.aoc.utils.java.model.programs.duet.instructions;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
