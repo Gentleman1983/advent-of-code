@@ -1,6 +1,6 @@
-package de.havox_design.aoc2017.day18.token;
+package de.havox_design.aoc.utils.java.programs.duet.token;
 
-import de.havox_design.aoc2017.day18.State;
+import de.havox_design.aoc.utils.java.programs.duet.State;
 
 import java.math.BigInteger;
 

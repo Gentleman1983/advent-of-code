@@ -1,6 +1,6 @@
-package de.havox_design.aoc2017.day18.instructions;
+package de.havox_design.aoc.utils.java.programs.duet.instructions;
 
-import de.havox_design.aoc2017.day18.State;
+import de.havox_design.aoc.utils.java.programs.duet.State;
 
 public class Sound implements Instruction {
     private final String variableName;

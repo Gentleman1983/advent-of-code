@@ -1,7 +1,8 @@
 package de.havox_design.aoc2017.day18;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
-import de.havox_design.aoc2017.day18.instructions.*;
+import de.havox_design.aoc.utils.java.programs.duet.State;
+import de.havox_design.aoc.utils.java.programs.duet.instructions.*;
 
 import java.math.BigInteger;
 import java.util.ArrayList;

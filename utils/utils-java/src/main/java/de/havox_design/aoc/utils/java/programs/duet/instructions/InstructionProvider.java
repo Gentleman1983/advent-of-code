@@ -1,4 +1,4 @@
-package de.havox_design.aoc2017.day18.instructions;
+package de.havox_design.aoc.utils.java.programs.duet.instructions;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
