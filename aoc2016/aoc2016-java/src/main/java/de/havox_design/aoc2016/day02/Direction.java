@@ -1,5 +1,7 @@
 package de.havox_design.aoc2016.day02;
 
+import de.havox_design.aoc.utils.java.model.keypad.Key;
+
 public enum Direction {
     UP,
     DOWN,

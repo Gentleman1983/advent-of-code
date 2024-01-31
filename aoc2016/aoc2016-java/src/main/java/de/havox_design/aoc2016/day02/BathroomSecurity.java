@@ -2,6 +2,10 @@ package de.havox_design.aoc2016.day02;
 
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
+import de.havox_design.aoc.utils.java.model.keypad.ComplexKeyPad;
+import de.havox_design.aoc.utils.java.model.keypad.Key;
+import de.havox_design.aoc.utils.java.model.keypad.KeyPad;
+import de.havox_design.aoc.utils.java.model.keypad.SimpleKeyPad;
 
 import static de.havox_design.aoc2016.day02.Direction.*;
 

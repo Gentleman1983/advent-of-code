@@ -1,4 +1,4 @@
-package de.havox_design.aoc2016.day02;
+package de.havox_design.aoc.utils.java.model.keypad;
 
 import java.util.NoSuchElementException;
 import java.util.Set;
