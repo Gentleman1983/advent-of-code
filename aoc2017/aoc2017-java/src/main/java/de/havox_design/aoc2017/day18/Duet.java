@@ -2,8 +2,8 @@ package de.havox_design.aoc2017.day18;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 import de.havox_design.aoc.utils.java.model.programs.duet.duet.State;
-import de.havox_design.aoc.utils.java.model.programs.duet.duet.instructions.Instruction;
-import de.havox_design.aoc.utils.java.model.programs.duet.duet.instructions.InstructionProvider;
+import de.havox_design.aoc.utils.java.model.programs.duet.instructions.Instruction;
+import de.havox_design.aoc.utils.java.model.programs.duet.instructions.InstructionProvider;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
