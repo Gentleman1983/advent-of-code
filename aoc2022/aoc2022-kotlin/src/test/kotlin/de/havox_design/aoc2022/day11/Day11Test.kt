@@ -1,8 +1,9 @@
 package de.havox_design.aoc2022.day11
 
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldContainAll
 import nl.jqno.equalsverifier.EqualsVerifier
 import nl.jqno.equalsverifier.Warning
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -496,10 +497,3 @@ class Day11Test {
         }
     }
 }
-
-private fun BigInteger.shouldBe(expectation: BigInteger) = Assertions.assertEquals(expectation, this)
-private fun Collection<*>.shouldContainAll(expectation: Collection<*>) =
-    Assertions.assertTrue(this.containsAll(expectation))
-
-private fun Collection<*>.shouldContainAll(expectation: Collection<*>, message: String) =
-    Assertions.assertTrue(this.containsAll(expectation), message)

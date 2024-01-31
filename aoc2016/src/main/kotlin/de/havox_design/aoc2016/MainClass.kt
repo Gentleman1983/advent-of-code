@@ -1,6 +1,6 @@
 package de.havox_design.aoc2016
 
-import de.havox_design.aoc.utils.kotlin.AocMainClassHelper
+import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
 import de.havox_design.aoc2016.day01.NoTimeForATaxicab
 import de.havox_design.aoc2016.day02.BathroomSecurity
 import de.havox_design.aoc2016.day03.SquaresWithThreeSides

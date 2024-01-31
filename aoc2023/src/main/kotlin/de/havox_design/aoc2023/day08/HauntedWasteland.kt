@@ -1,5 +1,6 @@
 package de.havox_design.aoc2023.day08
 
+import de.havox_design.aoc.utils.kotlin.model.directions.LeftRightDirection
 import java.util.regex.Pattern
 
 class HauntedWasteland(private var filename: String) {
@@ -10,7 +11,7 @@ class HauntedWasteland(private var filename: String) {
         "^(?<${PATTERN_GROUP_NODE_NAME}>\\w+) = " +
                 "\\((?<${PATTERN_GROUP_LEFT_NODE_NAME}>\\w+), (?<${PATTERN_GROUP_RIGHT_NODE_NAME}>\\w+)\\)$"
     )
-    private val INSTRUCTIONS = ArrayList<Direction>()
+    private val INSTRUCTIONS = ArrayList<LeftRightDirection>()
     private val NODES = HashSet<Node>()
 
     fun solvePart1(): Long {
@@ -79,7 +80,7 @@ class HauntedWasteland(private var filename: String) {
 
     private fun parseInstructions(input: String) {
         for (char in input.toCharArray()) {
-            INSTRUCTIONS.add(Direction.from(char))
+            INSTRUCTIONS.add(LeftRightDirection.from(char))
         }
     }
 

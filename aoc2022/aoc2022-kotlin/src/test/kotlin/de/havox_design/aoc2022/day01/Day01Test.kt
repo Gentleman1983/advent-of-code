@@ -1,6 +1,6 @@
 package de.havox_design.aoc2022.day01
 
-import org.junit.jupiter.api.Assertions.assertEquals
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import org.junit.jupiter.api.Test
 
 class Day01Test {
@@ -29,5 +29,3 @@ class Day01Test {
             .processFileTopThree()
             .shouldBe("45000")
 }
-
-private fun String.shouldBe(expectation: String) = assertEquals(expectation, this)

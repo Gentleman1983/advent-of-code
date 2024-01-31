@@ -3,6 +3,8 @@ plugins {
 }
 
 dependencies {
+    compileOnly libs.junit.jupiter
+
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
 

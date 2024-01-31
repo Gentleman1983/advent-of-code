@@ -1,5 +1,7 @@
 package de.havox_design.aoc2022.day22
 
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.params.ParameterizedTest
@@ -32,11 +34,11 @@ class Day22Test {
     @ParameterizedTest
     @MethodSource("getDataForTestStartMap")
     fun testStartMap(filename: String, expectedResult: Array<Array<Field>>) =
-        Map(MonkeyMap(filename).data).map.shouldBe(expectedResult)
+        Map(MonkeyMap(filename).data).map.shouldExactlyBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestStartingField")
-    fun testStartingField(filename: String, expectedField: Position, expectedDirection: Field) {
+    fun testStartingField(filename: String, expectedField: Position2d<Int>, expectedDirection: Field) {
         val map = Map(MonkeyMap(filename).data)
 
         assertAll(
@@ -132,17 +134,14 @@ class Day22Test {
             Stream.of(
                 Arguments.of(
                     "de/havox_design/aoc2022/day22/day22Sample.txt",
-                    Position(9, 1),
+                    Position2d(9, 1),
                     Field.RIGHT
                 )
             )
     }
 }
 
-private fun Field.shouldBe(expectation: Field) = Assertions.assertEquals(expectation, this)
-private fun Int.shouldBe(expectation: Int) = Assertions.assertEquals(expectation, this)
-private fun Position.shouldBe(expectation: Position) = Assertions.assertEquals(expectation, this)
-private fun Array<Array<Field>>.shouldBe(expectation: Array<Array<Field>>) =
+private fun Array<Array<Field>>.shouldExactlyBe(expectation: Array<Array<Field>>) =
     assertAll(
         { this.size.shouldBe(expectation.size) },
         {
@@ -158,8 +157,6 @@ private fun Array<Array<Field>>.shouldBe(expectation: Array<Array<Field>>) =
             }
         }
     )
-private fun Collection<*>.shouldBe(expectation: Collection<*>) = Assertions.assertEquals(expectation, this)
-
 private fun String.toMapRow(): Array<Field> {
     val data = emptyList<Field>().toMutableList()
 

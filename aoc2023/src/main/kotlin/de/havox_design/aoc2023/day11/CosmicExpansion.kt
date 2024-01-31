@@ -1,5 +1,6 @@
 package de.havox_design.aoc2023.day11
 
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 import kotlin.math.abs
 
 class CosmicExpansion(private var filename: String) {
@@ -14,7 +15,7 @@ class CosmicExpansion(private var filename: String) {
     private fun processSumOfAllDistances(input: List<String>, expansion: Long = 2): Long {
         val galaxies = input
             .flatMapIndexed { y, s ->
-                s.mapIndexed { x, c -> if (c == ICON_GALAXY.first()) Pair(y.toLong(), x.toLong()) else null }
+                s.mapIndexed { x, c -> if (c == ICON_GALAXY.first()) Position2d(x.toLong(), y.toLong()) else null }
             }
             .filterNotNull()
         val emptyRows = input
@@ -46,19 +47,20 @@ class CosmicExpansion(private var filename: String) {
     }
 
     private fun calculateUniverseExpansion(
-        galaxies: List<Pair<Long, Long>>,
+        galaxies: List<Position2d<Long>>,
         emptyRows: List<Long>,
         emptyColumns: List<Long>,
         expansion: Long = 2
     ) =
         galaxies
             .map {
-                Pair(it.first + emptyRows.count { r -> r < it.first } * (expansion - 1),
-                    it.second + emptyColumns.count { c -> c < it.second } * (expansion - 1))
+                Position2d(it.x + emptyColumns.count { c -> c < it.x } * (expansion - 1),
+                    it.y + emptyRows.count { r -> r < it.y } * (expansion - 1)
+                )
             }
 
-    private fun calculateDistance(galaxy1: Pair<Long, Long>, galaxy2: Pair<Long, Long>): Long {
-        return abs(galaxy2.first - galaxy1.first) + abs(galaxy2.second - galaxy1.second)
+    private fun calculateDistance(galaxy1: Position2d<Long>, galaxy2: Position2d<Long>): Long {
+        return abs(galaxy2.y - galaxy1.y) + abs(galaxy2.x - galaxy1.x)
     }
 
     private fun <T> List<List<T>>.transpose(): List<List<T>> {

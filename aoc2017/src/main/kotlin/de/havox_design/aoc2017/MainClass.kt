@@ -1,6 +1,6 @@
 package de.havox_design.aoc2017
 
-import de.havox_design.aoc.utils.kotlin.AocMainClassHelper
+import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
 import de.havox_design.aoc2017.day01.InverseCaptcha
 import de.havox_design.aoc2017.day02.CorruptionChecksum
 import de.havox_design.aoc2017.day03.SpiralMemory

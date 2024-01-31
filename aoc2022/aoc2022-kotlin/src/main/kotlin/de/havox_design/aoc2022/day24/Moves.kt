@@ -1,13 +1,15 @@
 package de.havox_design.aoc2022.day24
 
-enum class Moves(private val function: (Pair<Int, Int>) -> Pair<Int, Int>) {
-    WAIT({ pos -> Position(pos.getX(), pos.getY()) }),
-    NORTH({ pos -> Position(pos.getX(), pos.getY() - 1) }),
-    EAST({ pos -> Position(pos.getX() + 1, pos.getY()) }),
-    SOUTH({ pos -> Position(pos.getX(), pos.getY() + 1) }),
-    WEST({ pos -> Position(pos.getX() - 1, pos.getY()) });
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 
-    fun getDirection(pos: Position): Position =
+enum class Moves(private val function: (Position2d<Int>) -> Position2d<Int>) {
+    WAIT({ pos -> Position2d(pos.x, pos.y) }),
+    NORTH({ pos -> Position2d(pos.x, pos.y - 1) }),
+    EAST({ pos -> Position2d(pos.x + 1, pos.y) }),
+    SOUTH({ pos -> Position2d(pos.x, pos.y + 1) }),
+    WEST({ pos -> Position2d(pos.x - 1, pos.y) });
+
+    fun getDirection(pos: Position2d<Int>): Position2d<Int> =
         function(pos)
 }
 

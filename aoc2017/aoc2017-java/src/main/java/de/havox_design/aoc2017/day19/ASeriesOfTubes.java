@@ -2,6 +2,9 @@ package de.havox_design.aoc2017.day19;
 
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
+import de.havox_design.aoc.utils.kotlin.model.directed_position.DirectedPosition;
+import de.havox_design.aoc.utils.kotlin.model.coordinates.FourDirections;
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d;
 
 import java.util.List;
 
@@ -35,10 +38,10 @@ public class ASeriesOfTubes implements AoCFunctionality {
     private Result processTubes(char[][] diagram) {
         final StringBuilder word = new StringBuilder();
         long stepCounter = 1L;
-        Position currentPosition = detectStartPosition(diagram[0]);
+        DirectedPosition currentPosition = detectStartPosition(diagram[0]);
         
         while (canMove(diagram, currentPosition)) {
-            final Position nextPosition = detectNextPosition(diagram, currentPosition);
+            final DirectedPosition nextPosition = detectNextPosition(diagram, currentPosition);
             currentPosition = nextPosition;
 
             if (Character.isLetter(diagram[currentPosition.getY()][currentPosition.getX()])) {
@@ -51,14 +54,14 @@ public class ASeriesOfTubes implements AoCFunctionality {
         return new Result(word.toString(), stepCounter);
     }
 
-    private boolean canMove(final char[][] diagram, final Position pos) {
+    private boolean canMove(final char[][] diagram, final DirectedPosition pos) {
         return isNextPosition(diagram, pos.forward())
                 || isNextPosition(diagram, pos.left().forward())
                 || isNextPosition(diagram, pos.right().forward());
     }
 
-    private Position detectNextPosition(final char[][] diagram, final Position position) {
-        Position nextPosition = position.forward();
+    private DirectedPosition detectNextPosition(final char[][] diagram, final DirectedPosition position) {
+        DirectedPosition nextPosition = position.forward();
         if (isNextPosition(diagram, nextPosition)) {
             return nextPosition;
         }
@@ -76,15 +79,15 @@ public class ASeriesOfTubes implements AoCFunctionality {
         throw new IllegalStateException("Not able to detect a way to go from '" + position + "'.");
     }
 
-    private boolean isNextPosition(char[][] diagram, Position target) {
+    private boolean isNextPosition(char[][] diagram, DirectedPosition target) {
         return getDiagramPosition(diagram, target) != ICON_EMPTY;
     }
 
-    private char getDiagramPosition(final char[][] diagram, final Position position) {
+    private char getDiagramPosition(final char[][] diagram, final DirectedPosition position) {
         return isOnDiagram(diagram, position) ? diagram[position.getY()][position.getX()] : ICON_EMPTY;
     }
 
-    private boolean isOnDiagram(final char[][] diagram, final Position position) {
+    private boolean isOnDiagram(final char[][] diagram, final DirectedPosition position) {
         final int height = diagram.length;
         final int width = diagram[0].length;
 
@@ -94,10 +97,10 @@ public class ASeriesOfTubes implements AoCFunctionality {
                 && position.getY() < height;
     }
 
-    private Position detectStartPosition(final char... firstLine) {
+    private DirectedPosition detectStartPosition(final char... firstLine) {
         for (int x = 0; x < firstLine.length; x++) {
             if (firstLine[x] == ICON_PIPE_DOWN) {
-                return new Position(x, 0, Direction.DOWN);
+                return new DirectedPosition(new Position2d<>(x, 0), FourDirections.DOWN);
             }
         }
 

@@ -1,5 +1,6 @@
 package de.havox_design.aoc2022.day22
 
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 import java.lang.IllegalArgumentException
 
 class Map(private var import: List<String>) {
@@ -78,7 +79,7 @@ class Map(private var import: List<String>) {
 
         if (targetField != Field.BLOCKED && targetField != Field.UNAVAILABLE) {
             map[targetY][targetX] = targetDirection
-            currentPosition = Position(targetX, targetY)
+            currentPosition = Position2d(targetX, targetY)
         }
         if(targetField == Field.UNAVAILABLE) {
             when(targetDirection) {
@@ -91,14 +92,14 @@ class Map(private var import: List<String>) {
         }
     }
 
-    private fun setStartPosition(): Position {
+    private fun setStartPosition(): Position2d<Int> {
         for(fieldIndex in map[1].indices) {
             val field = map[1][fieldIndex]
             if(field != Field.BLOCKED
                 && field != Field.UNAVAILABLE
             ) {
                 map[1][fieldIndex] = Field.RIGHT
-                return Position(y = 1, x = fieldIndex)
+                return Position2d(y = 1, x = fieldIndex)
             }
         }
 

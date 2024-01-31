@@ -1,6 +1,6 @@
 package de.havox_design.aoc2023.day18
 
-import de.havox_design.aoc2023.day17.*
+import de.havox_design.aoc.utils.kotlin.model.coordinates.*
 import kotlin.math.abs
 
 class LavaductLagoon(private var filename: String) {
@@ -21,10 +21,10 @@ class LavaductLagoon(private var filename: String) {
             .map { it.transformInstruction() }
             .runningFold(origin) { current, instruction ->
                 when (instruction.direction) {
-                    FourDirectionFlipped.RIGHT -> Coordinate(current.x + instruction.amount, current.y)
-                    FourDirectionFlipped.LEFT -> Coordinate(current.x - instruction.amount, current.y)
-                    FourDirectionFlipped.DOWN -> Coordinate(current.x, current.y + instruction.amount)
-                    FourDirectionFlipped.UP -> Coordinate(current.x, current.y - instruction.amount)
+                    FourDirectionsFlipped.RIGHT -> Coordinate(current.x + instruction.amount, current.y)
+                    FourDirectionsFlipped.LEFT -> Coordinate(current.x - instruction.amount, current.y)
+                    FourDirectionsFlipped.DOWN -> Coordinate(current.x, current.y + instruction.amount)
+                    FourDirectionsFlipped.UP -> Coordinate(current.x, current.y - instruction.amount)
                 }
             }
             .toList()
@@ -61,7 +61,7 @@ class LavaductLagoon(private var filename: String) {
                 a..b
             }
         val connectNorth = keys
-            .filter { FourDirectionFlipped.UP + it in this }
+            .filter { FourDirectionsFlipped.UP + it in this }
             .toSet()
         var count = 0L
 
@@ -117,10 +117,10 @@ class LavaductLagoon(private var filename: String) {
                     .let { (direction, steps, color) ->
                         DigInstruction(
                             when (direction) {
-                                ICON_RIGHT -> FourDirectionFlipped.RIGHT
-                                ICON_LEFT -> FourDirectionFlipped.LEFT
-                                ICON_UP -> FourDirectionFlipped.UP
-                                ICON_DOWN -> FourDirectionFlipped.DOWN
+                                ICON_RIGHT -> FourDirectionsFlipped.RIGHT
+                                ICON_LEFT -> FourDirectionsFlipped.LEFT
+                                ICON_UP -> FourDirectionsFlipped.UP
+                                ICON_DOWN -> FourDirectionsFlipped.DOWN
                                 else -> error("Invalid input : $direction $steps $color")
                             },
                             steps.toInt(),

@@ -1,8 +1,9 @@
 package de.havox_design.aoc2023.day16
 
-import de.havox_design.aoc2023.day10.Direction
+import de.havox_design.aoc.utils.kotlin.model.directions.GeoDirection
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 
-data class Tile(val row: Int, val column: Int, val type: Char) {
+data class Tile(val position: Position2d<Int>, val type: Char) {
     private val MARKER_UP = "^"
     private val MARKER_DOWN = "V"
     private val MARKER_LEFT = "<"
@@ -13,43 +14,43 @@ data class Tile(val row: Int, val column: Int, val type: Char) {
     private val MARKER_ROW_SPLITTER = '|'
     private val MARKER_COL_SPLITTER = '-'
 
-    private val enteredDirections = mutableSetOf<Direction>()
+    private val enteredDirections = mutableSetOf<GeoDirection>()
 
     fun isEnergized(): Boolean = enteredDirections.isNotEmpty()
 
-    fun getNextDirections(enteredDirection: Direction): List<Direction> {
-        if (enteredDirection == Direction.NONE || !enteredDirections.add(enteredDirection)) {
-            return listOf(Direction.NONE)
+    fun getNextDirections(enteredDirection: GeoDirection): List<GeoDirection> {
+        if (enteredDirection == GeoDirection.NONE || !enteredDirections.add(enteredDirection)) {
+            return listOf(GeoDirection.NONE)
         }
         return when (type) {
             MARKER_EMPTY -> listOf(enteredDirection)
             MARKER_SOUTH_EAST_MIRROR -> when (enteredDirection) {
-                Direction.NORTH -> listOf(Direction.EAST)
-                Direction.EAST -> listOf(Direction.NORTH)
-                Direction.SOUTH -> listOf(Direction.WEST)
-                Direction.WEST -> listOf(Direction.SOUTH)
-                else -> listOf(Direction.NONE)
+                GeoDirection.NORTH -> listOf(GeoDirection.EAST)
+                GeoDirection.EAST -> listOf(GeoDirection.NORTH)
+                GeoDirection.SOUTH -> listOf(GeoDirection.WEST)
+                GeoDirection.WEST -> listOf(GeoDirection.SOUTH)
+                else -> listOf(GeoDirection.NONE)
             }
 
             MARKER_NORTH_EAST_MIRROR -> when (enteredDirection) {
-                Direction.NORTH -> listOf(Direction.WEST)
-                Direction.EAST -> listOf(Direction.SOUTH)
-                Direction.SOUTH -> listOf(Direction.EAST)
-                Direction.WEST -> listOf(Direction.NORTH)
-                else -> listOf(Direction.NONE)
+                GeoDirection.NORTH -> listOf(GeoDirection.WEST)
+                GeoDirection.EAST -> listOf(GeoDirection.SOUTH)
+                GeoDirection.SOUTH -> listOf(GeoDirection.EAST)
+                GeoDirection.WEST -> listOf(GeoDirection.NORTH)
+                else -> listOf(GeoDirection.NONE)
             }
 
             MARKER_COL_SPLITTER -> {
-                if (enteredDirection in listOf(Direction.WEST, Direction.EAST)) listOf(enteredDirection)
-                else listOf(Direction.WEST, Direction.EAST)
+                if (enteredDirection in listOf(GeoDirection.WEST, GeoDirection.EAST)) listOf(enteredDirection)
+                else listOf(GeoDirection.WEST, GeoDirection.EAST)
             }
 
             MARKER_ROW_SPLITTER -> {
-                if (enteredDirection in listOf(Direction.NORTH, Direction.SOUTH)) listOf(enteredDirection)
-                else listOf(Direction.NORTH, Direction.SOUTH)
+                if (enteredDirection in listOf(GeoDirection.NORTH, GeoDirection.SOUTH)) listOf(enteredDirection)
+                else listOf(GeoDirection.NORTH, GeoDirection.SOUTH)
             }
 
-            else -> listOf(Direction.NONE)
+            else -> listOf(GeoDirection.NONE)
         }
     }
 
@@ -62,10 +63,10 @@ data class Tile(val row: Int, val column: Int, val type: Char) {
 
             else -> return when (this.type) {
                 MARKER_EMPTY -> when (enteredDirections.firstOrNull()) {
-                    Direction.NORTH -> MARKER_UP
-                    Direction.EAST -> MARKER_RIGHT
-                    Direction.SOUTH -> MARKER_DOWN
-                    Direction.WEST -> MARKER_LEFT
+                    GeoDirection.NORTH -> MARKER_UP
+                    GeoDirection.EAST -> MARKER_RIGHT
+                    GeoDirection.SOUTH -> MARKER_DOWN
+                    GeoDirection.WEST -> MARKER_LEFT
                     else -> this.type.toString()
                 }
 

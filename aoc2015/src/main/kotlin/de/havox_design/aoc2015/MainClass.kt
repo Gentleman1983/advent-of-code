@@ -1,6 +1,6 @@
 package de.havox_design.aoc2015
 
-import de.havox_design.aoc.utils.kotlin.AocMainClassHelper
+import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
 import de.havox_design.aoc2015.day01.NotQuiteLisp
 import de.havox_design.aoc2015.day02.WrappingPaper
 import de.havox_design.aoc2015.day03.PresentDelivery

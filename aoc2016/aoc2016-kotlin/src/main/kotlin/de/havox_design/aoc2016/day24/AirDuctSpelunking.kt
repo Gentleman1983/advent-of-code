@@ -1,5 +1,6 @@
 package de.havox_design.aoc2016.day24
 
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 import java.util.ArrayDeque
 
 class AirDuctSpelunking(private var filename: String) {
@@ -60,10 +61,10 @@ class AirDuctSpelunking(private var filename: String) {
             }
 
             listOf(
-                board[current.y][current.x - 1],
-                board[current.y][current.x + 1],
-                board[current.y - 1][current.x],
-                board[current.y + 1][current.x]
+                board[current.position.y][current.position.x - 1],
+                board[current.position.y][current.position.x + 1],
+                board[current.position.y - 1][current.position.x],
+                board[current.position.y + 1][current.position.x]
             )
                 .filter { it.isValid && !it.isWall && it !in seen }
                 .let { neighbors ->
@@ -82,7 +83,7 @@ class AirDuctSpelunking(private var filename: String) {
             .map { y ->
                 input[0]
                     .indices
-                    .map { x -> Position(x = x, y = y, value = input[y][x].toString()) }
+                    .map { x -> Position(Position2d(x, y), input[y][x].toString()) }
             }
     }
 

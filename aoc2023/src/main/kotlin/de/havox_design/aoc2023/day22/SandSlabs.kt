@@ -1,5 +1,7 @@
 package de.havox_design.aoc2023.day22
 
+import de.havox_design.aoc.utils.kotlin.model.positions.Position3d
+
 class SandSlabs(private var filename: String) {
     private val ID_BRICK_END_X = 3
     private val ID_BRICK_END_Y = 4
@@ -38,14 +40,14 @@ class SandSlabs(private var filename: String) {
 
             bricks.add(
                 Brick(
-                    Triple(numbers[ID_BRICK_START_X], numbers[ID_BRICK_START_Y], numbers[ID_BRICK_START_Z]),
-                    Triple(numbers[ID_BRICK_END_X], numbers[ID_BRICK_END_Y], numbers[ID_BRICK_END_Z])
+                    Position3d(numbers[ID_BRICK_START_X], numbers[ID_BRICK_START_Y], numbers[ID_BRICK_START_Z]),
+                    Position3d(numbers[ID_BRICK_END_X], numbers[ID_BRICK_END_Y], numbers[ID_BRICK_END_Z])
                 )
             )
         }
 
         bricks
-            .sortBy { it.startPosition.third }
+            .sortBy { it.startPosition.z }
 
         for (i in 0..<bricks.size) {
             while (bricks[i].canFall) {
@@ -59,8 +61,8 @@ class SandSlabs(private var filename: String) {
         for (i in 0..<bricks.size) {
             val save = bricks[i]
             bricks[i] = Brick(
-                Triple(-1, -1, -1),
-                Triple(-1, -1, -1)
+                Position3d(-1, -1, -1),
+                Position3d(-1, -1, -1)
             )
 
             if (bricks.all { !it.canFall }) {

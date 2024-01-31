@@ -1,5 +1,6 @@
 package de.havox_design.aoc2023.day17
 
+import de.havox_design.aoc.utils.kotlin.model.coordinates.*
 import java.util.*
 
 class ClumsyCrucible(private var filename: String) {
@@ -25,7 +26,7 @@ class ClumsyCrucible(private var filename: String) {
         val target = Coordinate(xRange.last, yRange.last)
         val queue = priorityQueueOf(
             Comparator.comparing { -manhattanDistance(it.first.location, target) },
-            History(FourDirectionFlipped.RIGHT, origin, 0) to 0L
+            History(FourDirectionsFlipped.RIGHT, origin, 0) to 0L
         )
         val visited = mutableMapOf<History, Long>()
         var min = Long.MAX_VALUE

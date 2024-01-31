@@ -1,6 +1,7 @@
 package de.havox_design.aoc2022.day04
 
-import org.junit.jupiter.api.Assertions
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldContainAll
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -142,10 +143,3 @@ class Day04Test {
             )
     }
 }
-
-private fun Int.shouldBe(expectation: Int) = Assertions.assertEquals(expectation, this)
-private fun List<Int>.shouldContainAll(expectation: Collection<Int>) =
-    Assertions.assertTrue(this.containsAll(expectation))
-
-private fun Assignment.shouldBe(expectation: Assignment) = Assertions.assertEquals(expectation, this)
-private fun Boolean.shouldBe(expectation: Boolean) = Assertions.assertEquals(expectation, this)

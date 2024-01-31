@@ -1,5 +1,7 @@
 package de.havox_design.aoc2017.day20;
 
+import de.havox_design.aoc.utils.kotlin.model.positions.Position3d;
+
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -42,8 +44,8 @@ public class Particle {
                 );
     }
 
-    Position positionAt(int t) {
-        return new Position(
+    Position3d<Integer> positionAt(int t) {
+        return new Position3d<>(
                 positionAt(xPva, t),
                 positionAt(yPva, t),
                 positionAt(zPva, t)

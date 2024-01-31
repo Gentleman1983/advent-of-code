@@ -1,7 +1,8 @@
 package de.havox_design.aoc2022.day21
 
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldContainAll
 import de.havox_design.aoc2022.day21.Operator.*
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
@@ -200,8 +201,3 @@ class Day21Test {
             )
     }
 }
-
-private fun Boolean.shouldBe(expectation: Boolean) = Assertions.assertEquals(expectation, this)
-private fun Long.shouldBe(expectation: Long) = Assertions.assertEquals(expectation, this)
-private fun Collection<*>.shouldContainAll(expectation: Collection<*>) =
-    Assertions.assertTrue(this.containsAll(expectation))

@@ -1,8 +1,10 @@
 package de.havox_design.aoc2017.day22;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
-import de.havox_design.aoc2017.day19.Direction;
-import de.havox_design.aoc2017.day19.Position;
+import de.havox_design.aoc.utils.java.model.arrays.BidirectionalGrowingArray;
+import de.havox_design.aoc.utils.kotlin.model.coordinates.FourDirections;
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d;
+import de.havox_design.aoc.utils.kotlin.model.directed_position.DirectedPosition;
 
 import java.util.List;
 
@@ -38,7 +40,7 @@ public class SporificaVirus implements AoCFunctionality {
     @SuppressWarnings("squid:S1121")
     private long calculateInfectedNodes(final int iterations, final VirusFunction virusFunction) {
         final BidirectionalGrowingArray<BidirectionalGrowingArray<State>> array = parseGrid();
-        Position currentPosition = getStartPosition(array);
+        DirectedPosition currentPosition = getStartPosition(array);
         final Counter infections = new Counter();
 
         for (int i = 0; i < iterations; i++) {
@@ -60,8 +62,8 @@ public class SporificaVirus implements AoCFunctionality {
         return infections.getValue();
     }
 
-    private Position getStartPosition(BidirectionalGrowingArray<BidirectionalGrowingArray<State>> array) {
-        return new Position(array.get(0).size() / 2, array.size() / 2, Direction.UP);
+    private DirectedPosition getStartPosition(BidirectionalGrowingArray<BidirectionalGrowingArray<State>> array) {
+        return new DirectedPosition(new Position2d<>(array.get(0).size() / 2, array.size() / 2), FourDirections.UP);
     }
 
     private VirusCollection buildViruses() {

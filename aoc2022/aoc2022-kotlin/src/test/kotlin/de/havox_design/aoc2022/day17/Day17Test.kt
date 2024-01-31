@@ -1,6 +1,8 @@
 package de.havox_design.aoc2022.day17
 
-import org.junit.jupiter.api.Assertions
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldContainAll
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.params.ParameterizedTest
@@ -23,7 +25,7 @@ class Day17Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestRocks")
-    fun testRocks(rock: Rock, expectedWidth: Long, expectedHeigth: Long, expectedBlockedElements: Set<Position>) =
+    fun testRocks(rock: Rock, expectedWidth: Long, expectedHeigth: Long, expectedBlockedElements: Set<Position2d<Long>>) =
         assertAll(
             { rock.dimensionX.shouldBe(expectedWidth) },
             { rock.dimensionY.shouldBe(expectedHeigth) },
@@ -42,12 +44,12 @@ class Day17Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestRockSpawning")
-    fun testRockSpawning(expectedPosition: Position) =
+    fun testRockSpawning(expectedPosition: Position2d<Long>) =
         Chamber().getStartPositionForRock().shouldBe(expectedPosition)
 
     @ParameterizedTest
     @MethodSource("getDataForTestStatusAfterStone")
-    fun testStatusAfterStone(filename: String, stones: Long, expectedBlockers: Set<Position>) {
+    fun testStatusAfterStone(filename: String, stones: Long, expectedBlockers: Set<Position2d<Long>>) {
         val objectUnderTest = PyroclasticFlow(filename)
         objectUnderTest.processPart1(stones)
 
@@ -97,7 +99,7 @@ class Day17Test {
         @JvmStatic
         private fun getDataForTestRockSpawning(): Stream<Arguments> =
             Stream.of(
-                Arguments.of(Position(2, 3))
+                Arguments.of(Position2d(2L, 3L))
             )
 
         @JvmStatic
@@ -272,8 +274,8 @@ class Day17Test {
             return jets
         }
 
-        private fun getBlockedFieldsForString(data: String): Set<Position> {
-            val result: MutableSet<Position> = emptySet<Position>().toMutableSet()
+        private fun getBlockedFieldsForString(data: String): Set<Position2d<Long>> {
+            val result: MutableSet<Position2d<Long>> = emptySet<Position2d<Long>>().toMutableSet()
 
             val rows = data.split("\n")
 
@@ -284,7 +286,7 @@ class Day17Test {
                     val letter = row[colIndex]
 
                     if (letter == '#') {
-                        result += Position(colIndex.toLong(), (rows.size - rowIndex - 1).toLong())
+                        result += Position2d(colIndex.toLong(), (rows.size - rowIndex - 1).toLong())
                     }
                 }
             }
@@ -293,11 +295,3 @@ class Day17Test {
         }
     }
 }
-
-private fun Jet.shouldBe(expectation: Jet) = Assertions.assertEquals(expectation, this)
-private fun List<*>.shouldBe(expectation: List<*>) = Assertions.assertEquals(expectation, this)
-private fun Long.shouldBe(expectation: Long) = Assertions.assertEquals(expectation, this)
-private fun Position.shouldBe(expectation: Position) = Assertions.assertEquals(expectation, this)
-private fun Set<*>.shouldBe(expectation: Set<*>) = Assertions.assertEquals(expectation, this)
-private fun Set<*>.shouldContainAll(expectation: Collection<*>) =
-    Assertions.assertTrue(this.containsAll(expectation))

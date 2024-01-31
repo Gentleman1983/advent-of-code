@@ -1,6 +1,6 @@
 package de.havox_design.aoc2023
 
-import de.havox_design.aoc.utils.kotlin.AocMainClassHelper
+import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
 import de.havox_design.aoc2023.day01.Trebuchet
 import de.havox_design.aoc2023.day02.CubeConundrum
 import de.havox_design.aoc2023.day03.GearRatios

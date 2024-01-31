@@ -1,6 +1,6 @@
 package de.havox_design.aoc2022.day02
 
-import org.junit.jupiter.api.Assertions
+import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 
@@ -44,5 +44,3 @@ class Day02Test {
             .shouldBe(expectedScore)
     }
 }
-
-private fun Int.shouldBe(expectation: Int) = Assertions.assertEquals(expectation, this)

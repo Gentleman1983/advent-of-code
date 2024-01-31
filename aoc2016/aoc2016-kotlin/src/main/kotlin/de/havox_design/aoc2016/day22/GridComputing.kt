@@ -1,5 +1,6 @@
 package de.havox_design.aoc2016.day22
 
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 import kotlin.math.abs
 
 class GridComputing(private var filename: String) {
@@ -22,13 +23,13 @@ class GridComputing(private var filename: String) {
             .drop(2)
             .mapNotNull { parse(it) }
             .sortedByDescending { it.available }
-        val maxX = nodes.maxOf { it.x }
-        val wall = nodes.filter { it.size > 250 }.minByOrNull { it.x }!!
+        val maxX = nodes.maxOf { it.position.x }
+        val wall = nodes.filter { it.size > 250 }.minByOrNull { it.position.x }!!
         val emptyNode = nodes.first { it.used == 0 }
-        var result = abs(emptyNode.x - wall.x) + 1
+        var result = abs(emptyNode.position.x - wall.position.x) + 1
 
-        result += emptyNode.y
-        result += maxX - wall.x
+        result += emptyNode.position.y
+        result += maxX - wall.position.x
 
         return result + (5 * (maxX - 1)) + 1
     }
@@ -37,7 +38,7 @@ class GridComputing(private var filename: String) {
         "/dev/grid/node-x(?<x>\\d+)-y(?<y>\\d+)\\s+(?<size>\\d+)T\\s+(?<used>\\d+)T.+"
             .toRegex()
             .matchEntire(line)?.destructured
-            ?.let { (x, y, size, used) -> Node(x.toInt(), y.toInt(), size.toInt(), used.toInt()) }
+            ?.let { (x, y, size, used) -> Node(Position2d(x.toInt(), y.toInt()), size.toInt(), used.toInt()) }
 
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
