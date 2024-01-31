@@ -1,4 +1,4 @@
-package de.havox_design.aoc.utils.java.programs.duet;
+package de.havox_design.aoc.utils.java.model.programs.duet.duet;
 
 import java.math.BigInteger;
 import java.util.LinkedList;

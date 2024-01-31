@@ -1,4 +1,4 @@
-package de.havox_design.aoc2017.day22;
+package de.havox_design.aoc.utils.java.model.arrays;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

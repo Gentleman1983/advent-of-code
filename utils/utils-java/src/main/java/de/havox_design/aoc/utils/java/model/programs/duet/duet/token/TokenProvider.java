@@ -1,4 +1,4 @@
-package de.havox_design.aoc.utils.java.programs.duet.token;
+package de.havox_design.aoc.utils.java.model.programs.duet.duet.token;
 
 import java.math.BigInteger;
 

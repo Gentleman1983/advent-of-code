@@ -1,6 +1,6 @@
-package de.havox_design.aoc.utils.java.programs.duet.instructions;
+package de.havox_design.aoc.utils.java.model.programs.duet.duet.instructions;
 
-import de.havox_design.aoc.utils.java.programs.duet.State;
+import de.havox_design.aoc.utils.java.model.programs.duet.duet.State;
 
 import java.math.BigInteger;
 
