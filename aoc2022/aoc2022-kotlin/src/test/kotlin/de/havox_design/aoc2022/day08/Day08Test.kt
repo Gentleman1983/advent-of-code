@@ -1,6 +1,7 @@
 package de.havox_design.aoc2022.day08
 
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
+import de.havox_design.aoc.utils.kotlin.model.directions.GeoDirection
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -100,22 +101,22 @@ class Day08Test {
 
         assertAll(
             {
-                wood.isTreeVisibleFrom(row, col, Direction.NORTH).shouldBe(
+                wood.isTreeVisibleFrom(row, col, GeoDirection.NORTH).shouldBe(
                     expectedVisibileFromNorth, "Visibility from North"
                 )
             },
             {
-                wood.isTreeVisibleFrom(row, col, Direction.EAST).shouldBe(
+                wood.isTreeVisibleFrom(row, col, GeoDirection.EAST).shouldBe(
                     expectedVisibileFromEast, "Visibility from East"
                 )
             },
             {
-                wood.isTreeVisibleFrom(row, col, Direction.SOUTH).shouldBe(
+                wood.isTreeVisibleFrom(row, col, GeoDirection.SOUTH).shouldBe(
                     expectedVisibileFromSouth, "Visibility from South"
                 )
             },
             {
-                wood.isTreeVisibleFrom(row, col, Direction.WEST).shouldBe(
+                wood.isTreeVisibleFrom(row, col, GeoDirection.WEST).shouldBe(
                     expectedVisibileFromWest, "Visibility from West"
                 )
             }
@@ -152,22 +153,22 @@ class Day08Test {
 
         assertAll(
             {
-                wood.calculateScenicScoreOfTreeInDirection(row, col, Direction.NORTH).shouldBe(
+                wood.calculateScenicScoreOfTreeInDirection(row, col, GeoDirection.NORTH).shouldBe(
                     expectedScoreFromNorth, "Expected scenic score from North"
                 )
             },
             {
-                wood.calculateScenicScoreOfTreeInDirection(row, col, Direction.EAST).shouldBe(
+                wood.calculateScenicScoreOfTreeInDirection(row, col, GeoDirection.EAST).shouldBe(
                     expectedScoreFromEast, "Expected scenic score from East"
                 )
             },
             {
-                wood.calculateScenicScoreOfTreeInDirection(row, col, Direction.SOUTH).shouldBe(
+                wood.calculateScenicScoreOfTreeInDirection(row, col, GeoDirection.SOUTH).shouldBe(
                     expectedScoreFromSouth, "Expected scenic score from South"
                 )
             },
             {
-                wood.calculateScenicScoreOfTreeInDirection(row, col, Direction.WEST).shouldBe(
+                wood.calculateScenicScoreOfTreeInDirection(row, col, GeoDirection.WEST).shouldBe(
                     expectedScoreFromWest, "Expected scenic score from West"
                 )
             }

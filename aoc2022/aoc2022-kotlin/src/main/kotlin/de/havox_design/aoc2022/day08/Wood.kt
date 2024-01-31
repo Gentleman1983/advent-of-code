@@ -1,5 +1,7 @@
 package de.havox_design.aoc2022.day08
 
+import de.havox_design.aoc.utils.kotlin.model.directions.GeoDirection
+
 class Wood {
     private var rows = emptyList<List<Tree>>().toMutableList()
 
@@ -36,31 +38,33 @@ class Wood {
     }
 
     fun calculateScenicScoreOfTree(row: Int, col: Int): Int =
-        calculateScenicScoreOfTreeInDirection(row, col, Direction.NORTH) *
-                calculateScenicScoreOfTreeInDirection(row, col, Direction.EAST) *
-                calculateScenicScoreOfTreeInDirection(row, col, Direction.SOUTH) *
-                calculateScenicScoreOfTreeInDirection(row, col, Direction.WEST)
+        calculateScenicScoreOfTreeInDirection(row, col, GeoDirection.NORTH) *
+                calculateScenicScoreOfTreeInDirection(row, col, GeoDirection.EAST) *
+                calculateScenicScoreOfTreeInDirection(row, col, GeoDirection.SOUTH) *
+                calculateScenicScoreOfTreeInDirection(row, col, GeoDirection.WEST)
 
-    fun calculateScenicScoreOfTreeInDirection(row: Int, col: Int, direction: Direction): Int =
+    fun calculateScenicScoreOfTreeInDirection(row: Int, col: Int, direction: GeoDirection): Int =
         when (direction) {
-            Direction.NORTH -> calculateScenicScoreFromColumn(row, col, 0, row, true)
-            Direction.SOUTH -> calculateScenicScoreFromColumn(row, col, row + 1, getRows())
-            Direction.WEST -> calculateScenicScoreFromRow(row, col, 0, col, true)
-            Direction.EAST -> calculateScenicScoreFromRow(row, col, col + 1, getCols())
+            GeoDirection.NORTH -> calculateScenicScoreFromColumn(row, col, 0, row, true)
+            GeoDirection.SOUTH -> calculateScenicScoreFromColumn(row, col, row + 1, getRows())
+            GeoDirection.WEST -> calculateScenicScoreFromRow(row, col, 0, col, true)
+            GeoDirection.EAST -> calculateScenicScoreFromRow(row, col, col + 1, getCols())
+            GeoDirection.NONE -> throw IllegalStateException("This should never happen...")
         }
 
     fun isTreeVisible(row: Int, col: Int): Boolean =
-        isTreeVisibleFrom(row, col, Direction.NORTH) ||
-                isTreeVisibleFrom(row, col, Direction.EAST) ||
-                isTreeVisibleFrom(row, col, Direction.SOUTH) ||
-                isTreeVisibleFrom(row, col, Direction.WEST)
+        isTreeVisibleFrom(row, col, GeoDirection.NORTH) ||
+                isTreeVisibleFrom(row, col, GeoDirection.EAST) ||
+                isTreeVisibleFrom(row, col, GeoDirection.SOUTH) ||
+                isTreeVisibleFrom(row, col, GeoDirection.WEST)
 
-    fun isTreeVisibleFrom(row: Int, col: Int, direction: Direction): Boolean =
+    fun isTreeVisibleFrom(row: Int, col: Int, direction: GeoDirection): Boolean =
         when (direction) {
-            Direction.NORTH -> isTreeVisibleFromColumn(row, col, 0, row)
-            Direction.SOUTH -> isTreeVisibleFromColumn(row, col, row + 1, getRows())
-            Direction.WEST -> isTreeVisibleFromRow(row, col, 0, col)
-            Direction.EAST -> isTreeVisibleFromRow(row, col, col + 1, getCols())
+            GeoDirection.NORTH -> isTreeVisibleFromColumn(row, col, 0, row)
+            GeoDirection.SOUTH -> isTreeVisibleFromColumn(row, col, row + 1, getRows())
+            GeoDirection.WEST -> isTreeVisibleFromRow(row, col, 0, col)
+            GeoDirection.EAST -> isTreeVisibleFromRow(row, col, col + 1, getCols())
+            GeoDirection.NONE -> throw IllegalStateException("This should never happen...")
         }
 
     private fun isTreeVisibleFromColumn(row: Int, col: Int, start: Int, end: Int): Boolean {
