@@ -1,32 +1,30 @@
 package de.havox_design.aoc2017.day11;
 
+import de.havox_design.aoc.utils.kotlin.model.positions.Position3d;
+
 public enum Cardinal {
-    N(0, 1, -1),
-    NE(1, 0, -1),
-    SE(1, -1, 0),
-    S(0, -1, 1),
-    SW(-1, 0, 1),
-    NW(-1, 1, 0);
+    N(new Position3d<>(0, 1, -1)),
+    NE(new Position3d<>(1, 0, -1)),
+    SE(new Position3d<>(1, -1, 0)),
+    S(new Position3d<>(0, -1, 1)),
+    SW(new Position3d<>(-1, 0, 1)),
+    NW(new Position3d<>(-1, 1, 0));
 
-    private final int x;
-    private final int y;
-    private final int z;
+    private final Position3d<Integer> position;
 
-    Cardinal(int x, int y, int z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+    Cardinal(Position3d<Integer> position) {
+        this.position = position;
     }
 
     public int getX() {
-        return x;
+        return position.getX();
     }
 
     public int getY() {
-        return y;
+        return position.getY();
     }
 
     public int getZ() {
-        return z;
+        return position.getZ();
     }
 }
