@@ -1,6 +1,7 @@
 package de.havox_design.aoc2022.day22
 
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.params.ParameterizedTest
@@ -37,7 +38,7 @@ class Day22Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestStartingField")
-    fun testStartingField(filename: String, expectedField: Position, expectedDirection: Field) {
+    fun testStartingField(filename: String, expectedField: Position2d<Int>, expectedDirection: Field) {
         val map = Map(MonkeyMap(filename).data)
 
         assertAll(
@@ -133,7 +134,7 @@ class Day22Test {
             Stream.of(
                 Arguments.of(
                     "de/havox_design/aoc2022/day22/day22Sample.txt",
-                    Position(9, 1),
+                    Position2d(9, 1),
                     Field.RIGHT
                 )
             )
