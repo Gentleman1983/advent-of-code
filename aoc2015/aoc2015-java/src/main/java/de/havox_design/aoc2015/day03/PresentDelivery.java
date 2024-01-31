@@ -2,6 +2,7 @@ package de.havox_design.aoc2015.day03;
 
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,7 +11,7 @@ public class PresentDelivery implements AoCFunctionality {
     private final String input;
 
     public PresentDelivery(String fileName) {
-        input = readData(fileName).get(0);
+        input = readData(fileName).getFirst();
     }
 
     public static int solvePart1(String fileName) {
@@ -24,9 +25,9 @@ public class PresentDelivery implements AoCFunctionality {
     }
 
     public int solvePart1() {
-        Set<Location> visitedHouses = new HashSet<>();
+        Set<Position2d<Integer>> visitedHouses = new HashSet<>();
 
-        Location currentLocation = new Location(0, 0);
+        Position2d<Integer> currentLocation = new Position2d<>(0, 0);
         visitedHouses.add(currentLocation);
 
         for (char c : input.toCharArray()) {
@@ -38,10 +39,10 @@ public class PresentDelivery implements AoCFunctionality {
     }
 
     public int solvePart2() {
-        Set<Location> visitedHouses = new HashSet<>();
+        Set<Position2d<Integer>> visitedHouses = new HashSet<>();
 
-        Location currentLocationSanta = new Location(0, 0);
-        Location currentLocationRoboSanta = new Location(0, 0);
+        Position2d<Integer> currentLocationSanta = new Position2d<>(0, 0);
+        Position2d<Integer> currentLocationRoboSanta = new Position2d<>(0, 0);
         boolean santaMoves = true;
         visitedHouses.add(currentLocationSanta);
         visitedHouses.add(currentLocationRoboSanta);
@@ -61,15 +62,15 @@ public class PresentDelivery implements AoCFunctionality {
         return visitedHouses.size();
     }
 
-    private Location calculateSantasNextHouse(char c, Location currentLocation) {
+    private Position2d<Integer> calculateSantasNextHouse(char c, Position2d<Integer> currentLocation) {
         if ('<' == c) {
-            return new Location(currentLocation.x() - 1, currentLocation.y());
+            return new Position2d<>(currentLocation.getX() - 1, currentLocation.getY());
         } else if ('>' == c) {
-            return new Location(currentLocation.x() + 1, currentLocation.y());
+            return new Position2d<>(currentLocation.getX() + 1, currentLocation.getY());
         } else if ('v' == c) {
-            return new Location(currentLocation.x(), currentLocation.y() - 1);
+            return new Position2d<>(currentLocation.getX(), currentLocation.getY() - 1);
         } else if ('^' == c) {
-            return new Location(currentLocation.x(), currentLocation.y() + 1);
+            return new Position2d<>(currentLocation.getX(), currentLocation.getY() + 1);
         } else {
             throw new IllegalArgumentException("Illegal character found.");
         }
