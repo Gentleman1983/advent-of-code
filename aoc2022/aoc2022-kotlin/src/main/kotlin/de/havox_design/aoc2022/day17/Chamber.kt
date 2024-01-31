@@ -1,7 +1,9 @@
 package de.havox_design.aoc2022.day17
 
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+
 class Chamber(var width: Long = 7L) {
-    var obstacles: Set<Position> = emptySet<Position>().toMutableSet()
+    var obstacles: Set<Position2d<Long>> = emptySet<Position2d<Long>>().toMutableSet()
 
     fun getMaxHeight(): Long =
         obstacles.maxOfOrNull { position -> position.y + 1 } ?: 0
@@ -9,13 +11,13 @@ class Chamber(var width: Long = 7L) {
     fun getStartPositionForRock(
         distanceToLeftWall: Long = 2,
         distanceToHeighestObstacle: Long = 3
-    ): Position {
+    ): Position2d<Long> {
         val maxHeight = getMaxHeight()
 
-        return Position(distanceToLeftWall, maxHeight + distanceToHeighestObstacle)
+        return Position2d(distanceToLeftWall, maxHeight + distanceToHeighestObstacle)
     }
 
-    fun addRockToObstaclesIfItCollides(rock: Rock, position: Position, direction: Jet): Boolean {
+    fun addRockToObstaclesIfItCollides(rock: Rock, position: Position2d<Long>, direction: Jet): Boolean {
         val rockBlockers = rock
             .getBlockedPositions()
             .map { pos -> pos + position }
@@ -25,7 +27,7 @@ class Chamber(var width: Long = 7L) {
         // Do we collide with floor or another stone?
         if (
             rockBlockers
-                .map { pos -> pos + Position.getPositionForJet(realDirection) }
+                .map { pos -> pos + Jet.getPositionForJet(realDirection) }
                 .any { pos -> pos.y < 0 || obstacles.contains(pos) }
         ) {
             obstacles += rockBlockers
@@ -35,7 +37,7 @@ class Chamber(var width: Long = 7L) {
         return false
     }
 
-    fun getRealDirection(rock: Rock, position: Position, direction: Jet): Jet {
+    fun getRealDirection(rock: Rock, position: Position2d<Long>, direction: Jet): Jet {
         var realDirection = direction
         val rockBlockers = rock
             .getBlockedPositions()
@@ -50,7 +52,7 @@ class Chamber(var width: Long = 7L) {
                             rockBlockers
                                 .any { pos -> pos.x == 0L }
                                     || rockBlockers
-                                .map { pos -> pos + Position.getPositionForJet(Jet.LEFT) }
+                                .map { pos -> pos + Jet.getPositionForJet(Jet.LEFT) }
                                 .any { pos -> obstacles.contains(pos) }
                             )
                     )
@@ -60,7 +62,7 @@ class Chamber(var width: Long = 7L) {
                             rockBlockers
                                 .any { pos -> pos.x == width - 1 }
                                     || rockBlockers
-                                .map { pos -> pos + Position.getPositionForJet(Jet.RIGHT) }
+                                .map { pos -> pos + Jet.getPositionForJet(Jet.RIGHT) }
                                 .any { pos -> obstacles.contains(pos) }
                             )
                     )

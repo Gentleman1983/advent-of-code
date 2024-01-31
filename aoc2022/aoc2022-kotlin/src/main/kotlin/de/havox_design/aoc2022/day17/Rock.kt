@@ -1,68 +1,70 @@
 package de.havox_design.aoc2022.day17
 
-enum class Rock(val dimensionX: Long, val dimensionY: Long, private val structure: Map<Position, String>) {
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+
+enum class Rock(val dimensionX: Long, val dimensionY: Long, private val structure: Map<Position2d<Long>, String>) {
     HORIZONTAL_LINE(
-        4,
-        1,
+        4L,
+        1L,
         mapOf(
-            Pair(Position(0,0), "#"),
-            Pair(Position(1,0), "#"),
-            Pair(Position(2,0), "#"),
-            Pair(Position(3,0), "#")
+            Pair(Position2d(0L,0L), "#"),
+            Pair(Position2d(1L,0L), "#"),
+            Pair(Position2d(2L,0L), "#"),
+            Pair(Position2d(3L,0L), "#")
         )
     ),
     PLUS(
-        3,
-        3,
+        3L,
+        3L,
         mapOf(
-            Pair(Position(0,2), "."),
-            Pair(Position(1,2), "#"),
-            Pair(Position(2,2), "."),
-            Pair(Position(0,1), "#"),
-            Pair(Position(1,1), "#"),
-            Pair(Position(2,1), "#"),
-            Pair(Position(0,0), "."),
-            Pair(Position(1,0), "#"),
-            Pair(Position(2,0), ".")
+            Pair(Position2d(0L,2L), "."),
+            Pair(Position2d(1L,2L), "#"),
+            Pair(Position2d(2L,2L), "."),
+            Pair(Position2d(0L,1L), "#"),
+            Pair(Position2d(1L,1L), "#"),
+            Pair(Position2d(2L,1L), "#"),
+            Pair(Position2d(0L,0L), "."),
+            Pair(Position2d(1L,0L), "#"),
+            Pair(Position2d(2L,0L), ".")
         )
     ),
     ARROW(
-        3,
-        3,
+        3L,
+        3L,
         mapOf(
-            Pair(Position(0,2), "."),
-            Pair(Position(1,2), "."),
-            Pair(Position(2,2), "#"),
-            Pair(Position(0,1), "."),
-            Pair(Position(1,1), "."),
-            Pair(Position(2,1), "#"),
-            Pair(Position(0,0), "#"),
-            Pair(Position(1,0), "#"),
-            Pair(Position(2,0), "#")
+            Pair(Position2d(0L,2L), "."),
+            Pair(Position2d(1L,2L), "."),
+            Pair(Position2d(2L,2L), "#"),
+            Pair(Position2d(0L,1L), "."),
+            Pair(Position2d(1L,1L), "."),
+            Pair(Position2d(2L,1L), "#"),
+            Pair(Position2d(0L,0L), "#"),
+            Pair(Position2d(1L,0L), "#"),
+            Pair(Position2d(2L,0L), "#")
         )
     ),
     VERTICAL_LINE(
-        1,
-        4,
+        1L,
+        4L,
         mapOf(
-            Pair(Position(0,3), "#"),
-            Pair(Position(0,2), "#"),
-            Pair(Position(0,1), "#"),
-            Pair(Position(0,0), "#")
+            Pair(Position2d(0L,3L), "#"),
+            Pair(Position2d(0L,2L), "#"),
+            Pair(Position2d(0L,1L), "#"),
+            Pair(Position2d(0L,0L), "#")
         )
     ),
     BOX(
-        2,
-        2,
+        2L,
+        2L,
         mapOf(
-            Pair(Position(0,1), "#"),
-            Pair(Position(1,1), "#"),
-            Pair(Position(0,0), "#"),
-            Pair(Position(1,0), "#")
+            Pair(Position2d(0L,1L), "#"),
+            Pair(Position2d(1L,1L), "#"),
+            Pair(Position2d(0L,0L), "#"),
+            Pair(Position2d(1L,0L), "#")
         )
     );
 
-    fun getBlockedPositions(): Set<Position> =
+    fun getBlockedPositions(): Set<Position2d<Long>> =
         structure
             .entries
             .filter { entry -> entry.value == "#" }
