@@ -1,4 +1,4 @@
-package de.havox_design.aoc2023.day17
+package de.havox_design.aoc.utils.kotlin.model.coordinates
 
 import kotlin.math.abs
 

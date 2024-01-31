@@ -1,5 +1,8 @@
 package de.havox_design.aoc2023.day17
 
+import de.havox_design.aoc.utils.kotlin.model.coordinates.Coordinate
+import de.havox_design.aoc.utils.kotlin.model.coordinates.FourDirectionFlipped
+
 data class History(
     val lastDirection: FourDirectionFlipped, val location: Coordinate, val count: Int
 ) {

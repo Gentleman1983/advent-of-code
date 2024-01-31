@@ -1,4 +1,4 @@
-package de.havox_design.aoc2023.day17
+package de.havox_design.aoc.utils.kotlin.model.coordinates
 
 enum class FourDirectionFlipped(private val direction: Coordinate) {
     DOWN(Coordinate(0, 1)),

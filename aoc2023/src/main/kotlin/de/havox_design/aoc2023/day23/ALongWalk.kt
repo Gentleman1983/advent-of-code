@@ -1,6 +1,6 @@
 package de.havox_design.aoc2023.day23
 
-import de.havox_design.aoc2023.day17.*
+import de.havox_design.aoc.utils.kotlin.model.coordinates.*
 import java.util.*
 
 class ALongWalk(private var filename: String) {

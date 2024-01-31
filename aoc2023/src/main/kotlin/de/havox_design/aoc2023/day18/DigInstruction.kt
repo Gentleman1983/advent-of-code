@@ -1,6 +1,6 @@
 package de.havox_design.aoc2023.day18
 
-import de.havox_design.aoc2023.day17.FourDirectionFlipped
+import de.havox_design.aoc.utils.kotlin.model.coordinates.FourDirectionFlipped
 
 data class DigInstruction(val direction: FourDirectionFlipped, val amount: Int, val colorCode: String) {
     fun transformInstruction(): DigInstruction {

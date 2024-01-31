@@ -1,6 +1,6 @@
 package de.havox_design.aoc2023.day18
 
-import de.havox_design.aoc2023.day17.*
+import de.havox_design.aoc.utils.kotlin.model.coordinates.*
 import kotlin.math.abs
 
 class LavaductLagoon(private var filename: String) {
