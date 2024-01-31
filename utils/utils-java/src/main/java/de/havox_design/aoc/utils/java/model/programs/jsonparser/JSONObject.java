@@ -1,4 +1,4 @@
-package de.havox_design.aoc2015.day12;
+package de.havox_design.aoc.utils.java.model.programs.jsonparser;
 
 import java.io.Serial;
 import java.util.LinkedHashMap;
