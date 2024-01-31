@@ -1,10 +1,10 @@
 package de.havox_design.aoc.utils.kotlin.model.coordinates
 
-enum class FourDirectionsFlipped(private val direction: Coordinate) {
-    DOWN(Coordinate(0, 1)),
+enum class FourDirections(private val direction: Coordinate) {
+    DOWN(Coordinate(0, -1)),
     LEFT(Coordinate(-1, 0)),
     RIGHT(Coordinate(1, 0)),
-    UP(Coordinate(0, -1));
+    UP(Coordinate(0, 1));
 
     operator fun plus(other: Coordinate) =
         direction + other

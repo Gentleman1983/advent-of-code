@@ -60,7 +60,7 @@ class ALongWalk(private var filename: String) {
 
             visited[current] = length
 
-            FourDirectionFlipped.entries
+            FourDirectionsFlipped.entries
                 .asSequence()
                 .map { it to it + current }
                 .filter { (_, coordinate) -> coordinate.x in xRange && coordinate.y in yRange }
@@ -202,12 +202,12 @@ class ALongWalk(private var filename: String) {
         return longestTrail
     }
 
-    private fun FourDirectionFlipped.uphill() =
+    private fun FourDirectionsFlipped.uphill() =
         when (this) {
-            FourDirectionFlipped.DOWN -> ICON_SLOPE_UP
-            FourDirectionFlipped.LEFT -> ICON_SLOPE_RIGHT
-            FourDirectionFlipped.RIGHT -> ICON_SLOPE_LEFT
-            FourDirectionFlipped.UP -> ICON_SLOPE_DOWN
+            FourDirectionsFlipped.DOWN -> ICON_SLOPE_UP
+            FourDirectionsFlipped.LEFT -> ICON_SLOPE_RIGHT
+            FourDirectionsFlipped.RIGHT -> ICON_SLOPE_LEFT
+            FourDirectionsFlipped.UP -> ICON_SLOPE_DOWN
         }
 
     private fun <T> priorityQueueOf(comparator: java.util.Comparator<T>, vararg args: T): PriorityQueue<T> {

@@ -1,16 +1,16 @@
 package de.havox_design.aoc2023.day17
 
 import de.havox_design.aoc.utils.kotlin.model.coordinates.Coordinate
-import de.havox_design.aoc.utils.kotlin.model.coordinates.FourDirectionFlipped
+import de.havox_design.aoc.utils.kotlin.model.coordinates.FourDirectionsFlipped
 
 data class History(
-    val lastDirection: FourDirectionFlipped, val location: Coordinate, val count: Int
+    val lastDirection: FourDirectionsFlipped, val location: Coordinate, val count: Int
 ) {
     @SuppressWarnings("kotlin:S6510")
     fun moveDirections(maxConsecutive: Int, minConsecutive: Int): List<History> {
         when (count) {
             0 -> {
-                return listOf(FourDirectionFlipped.RIGHT, FourDirectionFlipped.DOWN)
+                return listOf(FourDirectionsFlipped.RIGHT, FourDirectionsFlipped.DOWN)
                     .map { History(it, it + location, 1) }
             }
             else -> {
