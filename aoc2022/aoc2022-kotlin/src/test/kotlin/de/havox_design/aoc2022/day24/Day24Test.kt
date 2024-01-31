@@ -1,6 +1,7 @@
 package de.havox_design.aoc2022.day24
 
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -32,7 +33,7 @@ class Day24Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestStartAndEnd")
-    fun testStartAndEnd(filename: String, expectedStart: Position, expectedEnd: Position) =
+    fun testStartAndEnd(filename: String, expectedStart: Position2d<Int>, expectedEnd: Position2d<Int>) =
         assertAll(
             { BlizzardBasin(filename).getStart().shouldBe(expectedStart) },
             { BlizzardBasin(filename).getEnd().shouldBe(expectedEnd) }
@@ -40,8 +41,8 @@ class Day24Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestMovesDestinations")
-    fun testMovesDestinations(move: Moves, expectedResult: Position) =
-        move.getDirection(Position(0, 0)).shouldBe(expectedResult)
+    fun testMovesDestinations(move: Moves, expectedResult: Position2d<Int>) =
+        move.getDirection(Position2d(0, 0)).shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
@@ -61,18 +62,18 @@ class Day24Test {
         @JvmStatic
         private fun getDataForTestStartAndEnd(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2022/day24/day24SampleEasy.txt", Position(1, 0), Position(5, 6)),
-                Arguments.of("de/havox_design/aoc2022/day24/day24SampleComplex.txt", Position(1, 0), Position(6, 5))
+                Arguments.of("de/havox_design/aoc2022/day24/day24SampleEasy.txt", Position2d(1, 0), Position2d(5, 6)),
+                Arguments.of("de/havox_design/aoc2022/day24/day24SampleComplex.txt", Position2d(1, 0), Position2d(6, 5))
             )
 
         @JvmStatic
         private fun getDataForTestMovesDestinations(): Stream<Arguments> =
             Stream.of(
-                Arguments.of(Moves.NORTH, Position(0, -1)),
-                Arguments.of(Moves.EAST, Position(1, 0)),
-                Arguments.of(Moves.SOUTH, Position(0, 1)),
-                Arguments.of(Moves.WEST, Position(-1, 0)),
-                Arguments.of(Moves.WAIT, Position(0, 0))
+                Arguments.of(Moves.NORTH, Position2d(0, -1)),
+                Arguments.of(Moves.EAST, Position2d(1, 0)),
+                Arguments.of(Moves.SOUTH, Position2d(0, 1)),
+                Arguments.of(Moves.WEST, Position2d(-1, 0)),
+                Arguments.of(Moves.WAIT, Position2d(0, 0))
             )
     }
 }

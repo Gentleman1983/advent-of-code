@@ -1,5 +1,6 @@
 package de.havox_design.aoc2022.day24
 
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 import java.util.*
 import kotlin.math.abs
 import de.havox_design.aoc2022.day24.Moves.*
@@ -24,16 +25,16 @@ class BlizzardBasin(private var filename: String) {
     }
 
 
-    fun getStart(): Position =
-        Position(data.first().indexOf('.'), 0)
+    fun getStart(): Position2d<Int> =
+        Position2d(data.first().indexOf('.'), 0)
 
-    fun getEnd(): Position =
-        Position(data.last().lastIndexOf('.'), data.lastIndex)
+    fun getEnd(): Position2d<Int> =
+        Position2d(data.last().lastIndexOf('.'), data.lastIndex)
 
     @SuppressWarnings("kotlin:S6529")
-    private fun findWay(startPosition: Position, endPosition: Position, startTime: Int = 0): Int {
+    private fun findWay(startPosition: Position2d<Int>, endPosition: Position2d<Int>, startTime: Int = 0): Int {
         val seen = mutableSetOf(IndexedValue(startTime, startPosition))
-        val queue = PriorityQueue(compareBy(IndexedValue<IndexedValue<Position>>::index))
+        val queue = PriorityQueue(compareBy(IndexedValue<IndexedValue<Position2d<Int>>>::index))
         queue.add(IndexedValue(0, IndexedValue(startTime, startPosition)))
         while (!queue.isEmpty()) {
             val entry = queue.remove().value
@@ -53,8 +54,8 @@ class BlizzardBasin(private var filename: String) {
                 val state = IndexedValue(time + 1, position2)
                 if (seen.add(state)) queue.add(
                     IndexedValue(
-                        time + abs(position2.getX() - endPosition.getX()) + abs(
-                            position2.getY() - endPosition.getY()
+                        time + abs(position2.x - endPosition.x) + abs(
+                            position2.y - endPosition.y
                         ), state
                     )
                 )
@@ -63,9 +64,9 @@ class BlizzardBasin(private var filename: String) {
         throw NoSuchElementException()
     }
 
-    private fun isFree(position: Position, time: Int): Boolean {
-        val x = position.getX()
-        val y = position.getY()
+    private fun isFree(position: Position2d<Int>, time: Int): Boolean {
+        val x = position.x
+        val y = position.y
 
         return if (x <= 0 || y <= 0 || y >= data.lastIndex || x >= data.getOrElse(y) { "" }.lastIndex) {
             data.getOrNull(y)?.getOrNull(x) == '.'
