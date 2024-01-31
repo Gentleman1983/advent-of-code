@@ -4,6 +4,7 @@ import com.google.common.hash.Hashing;
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 import de.havox_design.aoc.utils.java.search.BreadthFirstSearch;
 import de.havox_design.aoc.utils.java.search.PathResult;
+import de.havox_design.aoc.utils.kotlin.model.directions.UDLRDirection;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -66,12 +67,12 @@ public class TwoStepsForward implements AoCFunctionality {
 
         var result = new ArrayList<State>(4);
         for (int i = 0; i < 4; i++) {
-            Tile neighbor = state.tile().neighbor(Direction.values()[i]);
+            Tile neighbor = state.tile().neighbor(UDLRDirection.values()[i]);
             boolean doorIsOpen = neighbor.isValid(SIZE, SIZE)
                     && hash.charAt(i) >= 'b'
                     && hash.charAt(i) <= 'f';
             if (doorIsOpen) {
-                result.add(new State(neighbor, state.path() + Direction.values()[i].getSymbol()));
+                result.add(new State(neighbor, state.path() + UDLRDirection.values()[i].getSymbol()));
             }
         }
 
