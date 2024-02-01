@@ -12,19 +12,22 @@ class Day01Test {
     @ParameterizedTest
     @MethodSource("getDataForTask1")
     void testTask1(String fileName, long expectedFloor) {
-        Assertions.assertEquals(expectedFloor, Day01.processTask1(fileName));
+        Assertions.assertEquals(expectedFloor, ChronalCalibration.processTask1(fileName));
     }
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day01/day01part1sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day01/day01part1sample1.txt", 3L),
+                Arguments.of("de/havox_design/aoc2018/day01/day01part1sample2.txt", 3L),
+                Arguments.of("de/havox_design/aoc2018/day01/day01part1sample3.txt", 0L),
+                Arguments.of("de/havox_design/aoc2018/day01/day01part1sample4.txt", -6L)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
     void testTask2(String fileName, long expectedStep) {
-        Assertions.assertEquals(expectedStep, Day01.processTask2(fileName));
+        Assertions.assertEquals(expectedStep, ChronalCalibration.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {

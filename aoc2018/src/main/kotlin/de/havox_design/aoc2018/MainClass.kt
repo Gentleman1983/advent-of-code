@@ -1,7 +1,7 @@
 package de.havox_design.aoc2018
 
 import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
-import de.havox_design.aoc2018.day01.Day01
+import de.havox_design.aoc2018.day01.ChronalCalibration
 import de.havox_design.aoc2018.day02.Day02
 import de.havox_design.aoc2018.day03.Day03
 import de.havox_design.aoc2018.day04.Day04
@@ -37,8 +37,8 @@ class MainClass: AocMainClassHelper {
         var day = 1
         day(
             getDayString(day),
-            Day01(getFileName(day))::processTask1,
-            Day01(getFileName(day))::processTask2,
+            ChronalCalibration(getFileName(day))::processTask1,
+            ChronalCalibration(getFileName(day))::processTask2,
             daysSelected,
             args
         )
