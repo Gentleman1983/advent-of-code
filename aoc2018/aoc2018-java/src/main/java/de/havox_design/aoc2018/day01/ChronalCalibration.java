@@ -2,7 +2,9 @@ package de.havox_design.aoc2018.day01;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ChronalCalibration implements AoCFunctionality {
@@ -33,6 +35,16 @@ public class ChronalCalibration implements AoCFunctionality {
     }
 
     public long processTask2() {
-        return 0;
+        long frequency = 0;
+        Set<Long> seenFrequencies = new HashSet<>();
+        int i = 0;
+
+        while(!seenFrequencies.contains(frequency)) {
+            seenFrequencies.add(frequency);
+            frequency += input.get(i);
+            i = (i + 1) % input.size();
+        }
+
+        return frequency;
     }
 }
