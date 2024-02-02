@@ -12,7 +12,7 @@ class Day02Test {
     @ParameterizedTest
     @MethodSource("getDataForTask1")
     void testTask1(String fileName, long expectedFloor) {
-        Assertions.assertEquals(expectedFloor, Day02.processTask1(fileName));
+        Assertions.assertEquals(expectedFloor, InventoryManagementSystem.processTask1(fileName));
     }
 
     private static Stream<Arguments> getDataForTask1() {
@@ -23,13 +23,13 @@ class Day02Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectedStep) {
-        Assertions.assertEquals(expectedStep, Day02.processTask2(fileName));
+    void testTask2(String fileName, String expectedStep) {
+        Assertions.assertEquals(expectedStep, InventoryManagementSystem.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day02/day02part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day02/day02part2sample.txt", "fgij")
         );
     }
 }

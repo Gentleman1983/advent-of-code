@@ -11,7 +11,7 @@ For more information see https://adventofcode.com [2018](https://adventofcode.co
 | Day     | Part 1                     | Part 2                     |
 |---------|----------------------------|----------------------------|
 | 1       | ⭐ ![JAVA](../img/java.png) | ⭐ ![JAVA](../img/java.png) |
-| 2       | ❌ ![JAVA](../img/java.png) | ❌ ![JAVA](../img/java.png) |
+| 2       | ⭐ ![JAVA](../img/java.png) | ⭐ ![JAVA](../img/java.png) |
 | 3       | ❌ ![JAVA](../img/java.png) | ❌ ![JAVA](../img/java.png) |
 | 4       | ❌ ![JAVA](../img/java.png) | ❌ ![JAVA](../img/java.png) |
 | 5       | ❌ ![JAVA](../img/java.png) | ❌ ![JAVA](../img/java.png) |
@@ -35,6 +35,6 @@ For more information see https://adventofcode.com [2018](https://adventofcode.co
 | 23      | ❌ ![JAVA](../img/java.png) | ❌ ![JAVA](../img/java.png) |
 | 24      | ❌ ![JAVA](../img/java.png) | ❌ ![JAVA](../img/java.png) |
 | 25      | ❌ ![JAVA](../img/java.png) | ❌ ![JAVA](../img/java.png) |
-| **SUM** | **1 ⭐**                    | **1 ⭐**                    |
+| **SUM** | **2 ⭐**                    | **2 ⭐**                    |
 
-Total: 2 ⭐
+Total: 4 ⭐
