@@ -3,7 +3,7 @@ package de.havox_design.aoc2018
 import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
 import de.havox_design.aoc2018.day01.ChronalCalibration
 import de.havox_design.aoc2018.day02.InventoryManagementSystem
-import de.havox_design.aoc2018.day03.Day03
+import de.havox_design.aoc2018.day03.NoMatterHowYouSliceIt
 import de.havox_design.aoc2018.day04.Day04
 import de.havox_design.aoc2018.day05.Day05
 import de.havox_design.aoc2018.day06.Day06
@@ -55,8 +55,8 @@ class MainClass: AocMainClassHelper {
         day = 3
         day(
             getDayString(day),
-            Day03(getFileName(day))::processTask1,
-            Day03(getFileName(day))::processTask2,
+            NoMatterHowYouSliceIt(getFileName(day))::processTask1,
+            NoMatterHowYouSliceIt(getFileName(day))::processTask2,
             daysSelected,
             args
         )

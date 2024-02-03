@@ -11,25 +11,27 @@ class Day03Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTask1")
-    void testTask1(String fileName, long expectedFloor) {
-        Assertions.assertEquals(expectedFloor, Day03.processTask1(fileName));
+    void testTask1(String fileName, long expectedConflicts) {
+        Assertions.assertEquals(expectedConflicts, NoMatterHowYouSliceIt.processTask1(fileName));
     }
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day03/day03part1sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day03/day03sample1.txt", 0L),
+                Arguments.of("de/havox_design/aoc2018/day03/day03sample2.txt", 4L)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectedStep) {
-        Assertions.assertEquals(expectedStep, Day03.processTask2(fileName));
+    void testTask2(String fileName, int expectedClaim) {
+        Assertions.assertEquals(expectedClaim, NoMatterHowYouSliceIt.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day03/day03part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day03/day03sample1.txt", 123),
+                Arguments.of("de/havox_design/aoc2018/day03/day03sample2.txt", 3)
         );
     }
 }
