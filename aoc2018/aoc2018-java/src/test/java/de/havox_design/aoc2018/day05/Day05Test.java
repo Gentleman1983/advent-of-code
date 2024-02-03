@@ -11,8 +11,8 @@ class Day05Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTask1")
-    void testTask1(String fileName, long expectedFloor) {
-        Assertions.assertEquals(expectedFloor, Day05.processTask1(fileName));
+    void testTask1(String fileName, long expectation) {
+        Assertions.assertEquals(expectation, Day05.processTask1(fileName));
     }
 
     private static Stream<Arguments> getDataForTask1() {
@@ -23,8 +23,8 @@ class Day05Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectedStep) {
-        Assertions.assertEquals(expectedStep, Day05.processTask2(fileName));
+    void testTask2(String fileName, long expectation) {
+        Assertions.assertEquals(expectation, Day05.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {
