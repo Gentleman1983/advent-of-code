@@ -5,7 +5,7 @@ import de.havox_design.aoc2018.day01.ChronalCalibration
 import de.havox_design.aoc2018.day02.InventoryManagementSystem
 import de.havox_design.aoc2018.day03.NoMatterHowYouSliceIt
 import de.havox_design.aoc2018.day04.ReposeRecord
-import de.havox_design.aoc2018.day05.Day05
+import de.havox_design.aoc2018.day05.AlchemicalReduction
 import de.havox_design.aoc2018.day06.Day06
 import de.havox_design.aoc2018.day07.Day07
 import de.havox_design.aoc2018.day08.Day08
@@ -73,8 +73,8 @@ class MainClass: AocMainClassHelper {
         day = 5
         day(
             getDayString(day),
-            Day05(getFileName(day))::processTask1,
-            Day05(getFileName(day))::processTask2,
+            AlchemicalReduction(getFileName(day))::processTask1,
+            AlchemicalReduction(getFileName(day))::processTask2,
             daysSelected,
             args
         )
