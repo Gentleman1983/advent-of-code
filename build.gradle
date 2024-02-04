@@ -10,7 +10,7 @@ plugins {
 
 // project meta data
 group 'de.havox_design.aoc'
-version '2024.1.3'
+version '2024.1.4'
 
 dependencies {
     jacocoAggregation project(":aoc2015")
@@ -74,7 +74,7 @@ tasks.named('check') {
 // Switch to gradle "all" distribution.
 wrapper {
     distributionType = Wrapper.DistributionType.ALL
-    gradleVersion libs.versions.gradle.get()
+    gradleVersion '8.6'
 }
 
 if (hasProperty('buildScan')) {
@@ -98,7 +98,7 @@ allprojects {
     }
 
     jacoco {
-        toolVersion = libs.versions.jacoco.get()
+        toolVersion = '0.8.11'
     }
 
     jacocoTestReport {
