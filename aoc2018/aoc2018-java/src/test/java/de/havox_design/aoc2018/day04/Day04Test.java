@@ -11,25 +11,25 @@ class Day04Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTask1")
-    void testTask1(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, Day04.processTask1(fileName));
+    void testTask1(String fileName, int expectation) {
+        Assertions.assertEquals(expectation, ReposeRecord.processTask1(fileName));
     }
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day04/day04part1sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day04/day04part1sample.txt", 10)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, Day04.processTask2(fileName));
+    void testTask2(String fileName, int expectation) {
+        Assertions.assertEquals(expectation, ReposeRecord.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day04/day04part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day04/day04part2sample.txt", 0)
         );
     }
 }
