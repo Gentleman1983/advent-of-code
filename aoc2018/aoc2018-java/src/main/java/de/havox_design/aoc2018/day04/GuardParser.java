@@ -24,6 +24,7 @@ public class GuardParser {
     private static final Pattern GUARD_PATTERN = Pattern.compile(GUARD_FORMAT);
 
 
+    @SuppressWarnings("squid:S3864")
     public List<Guard> parse(Collection<String> input) {
         List<Pair<LocalDateTime, String>> actions = input
                 .stream()
