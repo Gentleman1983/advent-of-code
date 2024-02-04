@@ -50,7 +50,13 @@ public class ReposeRecord implements AoCFunctionality {
     }
 
     public int processTask2() {
-        return 0;
+        Pair<Guard, Pair<Integer, Integer>> p = guards
+                .stream()
+                .map(g -> Pair.of(g, bestMinute(g)))
+                .max(Comparator.comparingInt(s -> s.getRight().getRight()))
+                .orElseThrow();
+
+        return p.getLeft().id() * p.getRight().getLeft();
     }
 
     private Pair<Integer, Integer> bestMinute(Guard g) {
