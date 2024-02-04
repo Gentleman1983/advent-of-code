@@ -2,6 +2,11 @@ package de.havox_design.aoc2018.day05;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class AlchemicalReduction implements AoCFunctionality {
     private final String input;
 
@@ -20,7 +25,25 @@ public class AlchemicalReduction implements AoCFunctionality {
     }
 
     public int processTask1() {
-        String currentPolymer = input;
+        return calculatePolymerLength(input);
+    }
+
+    public long processTask2() {
+        List<Integer> results = new ArrayList<>();
+
+        for(char type : findAllTypes(input)) {
+            String reducedPolymer = reducePolymer(input, type);
+            results.add(calculatePolymerLength(reducedPolymer));
+        }
+
+        return results
+                .stream()
+                .min(Integer::compareTo)
+                .orElseThrow(() -> new IllegalStateException("This should never happen..."));
+    }
+
+    private int calculatePolymerLength(String polymer) {
+        String currentPolymer = polymer;
         int currentLength = Integer.MIN_VALUE;
 
         while(currentLength != currentPolymer.length()) {
@@ -40,11 +63,23 @@ public class AlchemicalReduction implements AoCFunctionality {
         return currentPolymer.length();
     }
 
-    public long processTask2() {
-        return 0;
-    }
-
     private boolean isSameTypeButOppositePolarity(char thisChar, char otherChar) {
         return Character.toLowerCase(thisChar) == Character.toLowerCase(otherChar) && thisChar!= otherChar;
+    }
+
+    private Set<Character> findAllTypes(String polymer) {
+        Set<Character> types = new HashSet<>();
+
+        for(int i = 0; i < polymer.length(); i++) {
+            types.add(Character.toLowerCase(polymer.charAt(i)));
+        }
+
+        return types;
+    }
+
+    private String reducePolymer(String polymer, char type) {
+        return polymer
+                .replaceAll(String.valueOf(Character.toLowerCase(type)), "")
+                .replaceAll(String.valueOf(Character.toUpperCase(type)), "");
     }
 }

@@ -27,13 +27,13 @@ class Day05Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
+    void testTask2(String fileName, int expectation) {
         Assertions.assertEquals(expectation, AlchemicalReduction.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day05/day05part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day05/day05part2sample.txt", 4)
         );
     }
 }
