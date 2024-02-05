@@ -71,22 +71,26 @@ class MainClass: AocMainClassHelper {
         )
 
         day = 5
-        day(
-            getDayString(day),
-            AlchemicalReduction(getFileName(day))::processTask1,
-            AlchemicalReduction(getFileName(day))::processTask2,
-            daysSelected,
-            args
-        )
+        if (!args.contains("testing")) {
+            day(
+                getDayString(day),
+                AlchemicalReduction(getFileName(day))::processTask1,
+                AlchemicalReduction(getFileName(day))::processTask2,
+                daysSelected,
+                args
+            )
+        }
 
         day = 6
-        day(
-            getDayString(day),
-            ChronalCoordinates(getFileName(day))::processTask1,
-            ChronalCoordinates(getFileName(day))::processTask2,
-            daysSelected,
-            args
-        )
+        if (!args.contains("testing")) {
+            day(
+                getDayString(day),
+                ChronalCoordinates(getFileName(day))::processTask1,
+                ChronalCoordinates(getFileName(day))::processTask2,
+                daysSelected,
+                args
+            )
+        }
 
         day = 7
         day(
