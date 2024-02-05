@@ -86,7 +86,7 @@ public class TwoStepsForward implements AoCFunctionality {
         return result;
     }
 
-    @SuppressWarnings({ "deprecated", "squid:S1874", "squid:S4790"})
+    @SuppressWarnings({ "deprecation", "squid:S1874", "squid:S4790"})
     private static String getMd5Hash(String s) {
         return Hashing.md5().hashString(s, StandardCharsets.UTF_8).toString();
     }
