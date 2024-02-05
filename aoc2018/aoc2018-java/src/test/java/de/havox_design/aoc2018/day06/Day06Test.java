@@ -17,19 +17,19 @@ class Day06Test {
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day06/day06part1sample.txt", 17L)
+                Arguments.of("de/havox_design/aoc2018/day06/day06sample.txt", 17L)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
     void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, ChronalCoordinates.processTask2(fileName));
+        Assertions.assertEquals(expectation, ChronalCoordinates.processTask2(fileName, 32));
     }
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day06/day06part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day06/day06sample.txt", 16L)
         );
     }
 }

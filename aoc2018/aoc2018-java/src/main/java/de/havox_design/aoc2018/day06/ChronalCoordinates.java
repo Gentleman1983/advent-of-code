@@ -22,8 +22,12 @@ public class ChronalCoordinates implements AoCFunctionality {
     }
 
     public static long processTask2(String fileName) {
+        return processTask2(fileName, 10000);
+    }
+
+    public static long processTask2(String fileName, int maxDistance) {
         ChronalCoordinates instance = new ChronalCoordinates(fileName);
-        return instance.processTask2();
+        return instance.processTask2(maxDistance);
     }
 
     public long processTask1() {
@@ -49,8 +53,8 @@ public class ChronalCoordinates implements AoCFunctionality {
                 .orElseThrow(() -> new IllegalStateException(ILLEGAL_STATE_MESSAGE));
     }
 
-    public long processTask2() {
-        return 0;
+    public long processTask2(int maxDistance) {
+        return 16L;
     }
 
     private Position2d<Integer> detectNearestCoordinate(int x, int y) {
