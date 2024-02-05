@@ -1,6 +1,5 @@
 package de.havox_design.aoc2018
 
-import de.havox_design.aoc2018.MainClass
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
