@@ -112,6 +112,7 @@ public class SporificaVirus implements AoCFunctionality {
         };
     }
 
+    @SuppressWarnings("unchecked")
     private BidirectionalGrowingArray<BidirectionalGrowingArray<State>> parseGrid() {
         final BidirectionalGrowingArray<BidirectionalGrowingArray<State>> array =
                 new BidirectionalGrowingArray<>(BidirectionalGrowingArray[]::new);
