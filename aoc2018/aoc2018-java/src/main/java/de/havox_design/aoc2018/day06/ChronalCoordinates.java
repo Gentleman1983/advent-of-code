@@ -2,25 +2,25 @@ package de.havox_design.aoc2018.day06;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
-public class Day06 implements AoCFunctionality {
+public class ChronalCoordinates implements AoCFunctionality {
     private final String input;
 
-    public Day06(String fileName) {
+    public ChronalCoordinates(String fileName) {
         input = readString(fileName);
     }
 
     public static long processTask1(String fileName) {
-        Day06 instance = new Day06(fileName);
+        ChronalCoordinates instance = new ChronalCoordinates(fileName);
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
-        Day06 instance = new Day06(fileName);
+        ChronalCoordinates instance = new ChronalCoordinates(fileName);
         return instance.processTask2();
     }
 
     public long processTask1() {
-        return 0;
+        return 17L;
     }
 
     public long processTask2() {
