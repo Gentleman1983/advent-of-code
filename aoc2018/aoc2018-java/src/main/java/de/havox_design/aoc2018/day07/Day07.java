@@ -29,6 +29,7 @@ public class Day07 implements AoCFunctionality {
         return instance.processTask2(workers, processingTime);
     }
 
+    @SuppressWarnings("squid:S2259")
     public String processTask1() {
         List<Task> done = new ArrayList<>();
         Set<Task> available = new HashSet<>(getRoots());
