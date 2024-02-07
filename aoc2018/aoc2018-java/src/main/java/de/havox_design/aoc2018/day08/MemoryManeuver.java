@@ -24,7 +24,7 @@ public class MemoryManeuver implements AoCFunctionality {
         return instance.processTask1();
     }
 
-    public static long processTask2(String fileName) {
+    public static int processTask2(String fileName) {
         MemoryManeuver instance = new MemoryManeuver(fileName);
         return instance.processTask2();
     }
@@ -34,8 +34,9 @@ public class MemoryManeuver implements AoCFunctionality {
         return countMetaData(root);
     }
 
-    public long processTask2() {
-        return 0;
+    public int processTask2() {
+        Node root = buildTree(input);
+        return calculateNodeValue(root);
     }
 
     private Node buildTree(List<Integer> data) {
@@ -73,5 +74,26 @@ public class MemoryManeuver implements AoCFunctionality {
         }
 
         return sum;
+    }
+
+    private int calculateNodeValue(Node node) {
+        int value;
+
+        if (node.getChildren().isEmpty()) {
+            value = node
+                    .getMetaData()
+                    .stream()
+                    .mapToInt(i -> i)
+                    .sum();
+        } else {
+            value = node
+                    .getMetaData()
+                    .stream()
+                    .filter(metaDate -> metaDate <= node.getChildren().size())
+                    .mapToInt(metaDate -> calculateNodeValue(node.getChildren().get(metaDate - 1)))
+                    .sum();
+        }
+
+        return value;
     }
 }
