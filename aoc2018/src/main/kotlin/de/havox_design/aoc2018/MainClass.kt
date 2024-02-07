@@ -8,7 +8,7 @@ import de.havox_design.aoc2018.day04.ReposeRecord
 import de.havox_design.aoc2018.day05.AlchemicalReduction
 import de.havox_design.aoc2018.day06.ChronalCoordinates
 import de.havox_design.aoc2018.day07.Day07
-import de.havox_design.aoc2018.day08.Day08
+import de.havox_design.aoc2018.day08.MemoryManeuver
 import de.havox_design.aoc2018.day09.Day09
 import de.havox_design.aoc2018.day10.Day10
 import de.havox_design.aoc2018.day11.Day11
@@ -104,8 +104,8 @@ class MainClass: AocMainClassHelper {
         day = 8
         day(
             getDayString(day),
-            Day08(getFileName(day))::processTask1,
-            Day08(getFileName(day))::processTask2,
+            MemoryManeuver(getFileName(day))::processTask1,
+            MemoryManeuver(getFileName(day))::processTask2,
             daysSelected,
             args
         )
