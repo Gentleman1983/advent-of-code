@@ -12,9 +12,8 @@ class TheStarsAlign(private var filename: String) {
         return answer
     }
 
-    fun processTask2(): Any {
-        return 0
-    }
+    fun processTask2(): Any =
+        process(getResourceAsText(filename)).second
 
     private fun process(input: List<String>): Pair<List<String>, Int> {
         val points = input.parseWith(POSITION)
