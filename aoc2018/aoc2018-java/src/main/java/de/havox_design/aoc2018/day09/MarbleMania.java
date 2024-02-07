@@ -26,15 +26,23 @@ public class MarbleMania implements AoCFunctionality {
     }
 
     public long processTask1() {
-        Iterator<Integer> marbleGenerator = IntStream
-                .rangeClosed(0, input.valueLastMarble())
-                .iterator();
-
-        return propagate(marbleGenerator);
+        return processGame();
     }
 
     public long processTask2() {
-        return 0;
+        return processGame(100);
+    }
+
+    private long processGame() {
+        return processGame(1);
+    }
+
+    private long processGame(int multiplicator) {
+        Iterator<Integer> marbleGenerator = IntStream
+                .rangeClosed(0, multiplicator * input.valueLastMarble())
+                .iterator();
+
+        return propagate(marbleGenerator);
     }
 
     private long propagate(Iterator<Integer> marbleGenerator) {

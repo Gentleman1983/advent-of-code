@@ -25,16 +25,4 @@ class Day09Test {
                 Arguments.of("de/havox_design/aoc2018/day09/day09part1sample6.txt", 37305L)
         );
     }
-
-    @ParameterizedTest
-    @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, MarbleMania.processTask2(fileName));
-    }
-
-    private static Stream<Arguments> getDataForTask2() {
-        return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day09/day09part2sample.txt", 0L)
-        );
-    }
 }
