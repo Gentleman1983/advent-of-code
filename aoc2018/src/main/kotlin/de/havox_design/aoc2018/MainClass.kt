@@ -10,7 +10,7 @@ import de.havox_design.aoc2018.day06.ChronalCoordinates
 import de.havox_design.aoc2018.day07.Day07
 import de.havox_design.aoc2018.day08.MemoryManeuver
 import de.havox_design.aoc2018.day09.MarbleMania
-import de.havox_design.aoc2018.day10.Day10
+import de.havox_design.aoc2018.day10.TheStarsAlign
 import de.havox_design.aoc2018.day11.Day11
 import de.havox_design.aoc2018.day12.Day12
 import de.havox_design.aoc2018.day13.Day13
@@ -122,8 +122,8 @@ class MainClass: AocMainClassHelper {
         day = 10
         day(
             getDayString(day),
-            Day10(getFileName(day))::processTask1,
-            Day10(getFileName(day))::processTask2,
+            TheStarsAlign(getFileName(day))::processTask1,
+            TheStarsAlign(getFileName(day))::processTask2,
             daysSelected,
             args
         )
