@@ -27,7 +27,7 @@ class ChronalCharge(private var filename: String) {
                         Triple(point.nw(size - 1), size,
                             squarePowerTo(it, point, size))
                     }
-                }.maxBy { (_, _, power) -> power }!!
+                }.maxBy { (_, _, power) -> power }
             }
 
     private fun generateGrid(serial: Int) = range
