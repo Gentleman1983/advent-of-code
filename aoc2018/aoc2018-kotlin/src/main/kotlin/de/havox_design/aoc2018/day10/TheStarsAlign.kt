@@ -2,6 +2,7 @@ package de.havox_design.aoc2018.day10
 
 class TheStarsAlign(private var filename: String) {
     private val POSITION = "position=<([^,]+),([^>]+)> velocity=<([^,]+),([^>]+)>"
+
     fun processTask1(): Any {
         val answer = process(getResourceAsText(filename)).first
         println("The answer for task 1 is:")
