@@ -11,20 +11,20 @@ class Day13Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTask1")
-    void testTask1(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, Day13.processTask1(fileName));
+    void testTask1(String fileName, String expectation) {
+        Assertions.assertEquals(expectation, MineCartMadness.processTask1(fileName));
     }
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day13/day13part1sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day13/day13part1sample.txt", "7,3")
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
     void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, Day13.processTask2(fileName));
+        Assertions.assertEquals(expectation, MineCartMadness.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {
