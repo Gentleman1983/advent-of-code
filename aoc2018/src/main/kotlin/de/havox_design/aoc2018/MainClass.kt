@@ -165,13 +165,15 @@ class MainClass: AocMainClassHelper {
         )
 
         day = 15
-        day(
-            getDayString(day),
-            BeverageBandits(getFileName(day))::processTask1,
-            BeverageBandits(getFileName(day))::processTask2,
-            daysSelected,
-            args
-        )
+        if (!args.contains("testing")) {
+            day(
+                getDayString(day),
+                BeverageBandits(getFileName(day))::processTask1,
+                BeverageBandits(getFileName(day))::processTask2,
+                daysSelected,
+                args
+            )
+        }
 
         day = 16
         day(

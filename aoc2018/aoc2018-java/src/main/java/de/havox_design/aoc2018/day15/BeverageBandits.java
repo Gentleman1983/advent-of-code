@@ -21,7 +21,7 @@ public class BeverageBandits implements AoCFunctionality {
         return instance.processTask1();
     }
 
-    public static long processTask2(String fileName) {
+    public static int processTask2(String fileName) {
         BeverageBandits instance = new BeverageBandits(fileName);
         return instance.processTask2();
     }
@@ -39,8 +39,16 @@ public class BeverageBandits implements AoCFunctionality {
         return calculateScore(outcome);
     }
 
-    public long processTask2() {
-        return 0;
+    public int processTask2() {
+        Outcome outcome;
+        int attackPower = 0;
+
+        do {
+            Map<Integer, Unit> units = updateElfishAttackPower(input.units(), ++attackPower);
+            outcome = process(units);
+        } while (countElfishDeaths(input.units(), outcome.units().values()) > 0);
+
+        return calculateScore(outcome);
     }
 
     private Outcome process(Map<Integer, Unit> input) {
@@ -300,5 +308,39 @@ public class BeverageBandits implements AoCFunctionality {
         if (toAttack.getHealth() > 0) {
             units.put(toAttack.getId(), toAttack);
         }
+    }
+
+    private Map<Integer, Unit> updateElfishAttackPower(Collection<Unit> units, int attackPower) {
+        return new HashMap<>(
+                units
+                        .stream()
+                        .map(unit ->
+                                unit
+                                        .getTeam()
+                                        .equals(Team.ELF) ? new Unit(
+                                        unit.getId(),
+                                        unit.getTeam(),
+                                        unit.getHealth(),
+                                        attackPower,
+                                        unit.getLocation()
+                                ) : unit
+                        )
+                        .collect(Collectors.toMap(Unit::getId, unit -> unit))
+        );
+    }
+
+    private long countElfishDeaths(Collection<Unit> before, Collection<Unit> after) {
+        long numberOfElfesBefore = before
+                .stream()
+                .map(Unit::getTeam)
+                .filter(unit -> unit.equals(Team.ELF))
+                .count();
+        long numberOfElfesAfter = after
+                .stream()
+                .map(Unit::getTeam)
+                .filter(unit -> unit.equals(Team.ELF))
+                .count();
+
+        return numberOfElfesBefore - numberOfElfesAfter;
     }
 }

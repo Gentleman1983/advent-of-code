@@ -19,24 +19,29 @@ class Day15Test {
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day15/day15part1sample1.txt", 27730),
-                Arguments.of("de/havox_design/aoc2018/day15/day15part1sample2.txt", 36334),
-                Arguments.of("de/havox_design/aoc2018/day15/day15part1sample3.txt", 39514),
-                Arguments.of("de/havox_design/aoc2018/day15/day15part1sample4.txt", 27755),
-                Arguments.of("de/havox_design/aoc2018/day15/day15part1sample5.txt", 28944),
-                Arguments.of("de/havox_design/aoc2018/day15/day15part1sample6.txt", 18740)
+                Arguments.of("de/havox_design/aoc2018/day15/day15sample1.txt", 27730),
+                Arguments.of("de/havox_design/aoc2018/day15/day15sample2.txt", 36334),
+                Arguments.of("de/havox_design/aoc2018/day15/day15sample3.txt", 39514),
+                Arguments.of("de/havox_design/aoc2018/day15/day15sample4.txt", 27755),
+                Arguments.of("de/havox_design/aoc2018/day15/day15sample5.txt", 28944),
+                Arguments.of("de/havox_design/aoc2018/day15/day15sample6.txt", 18740)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
+    void testTask2(String fileName, int expectation) {
         Assertions.assertEquals(expectation, BeverageBandits.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day15/day15part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day15/day15sample1.txt", 4988),
+                Arguments.of("de/havox_design/aoc2018/day15/day15sample2.txt", 29064),
+                Arguments.of("de/havox_design/aoc2018/day15/day15sample3.txt", 31284),
+                Arguments.of("de/havox_design/aoc2018/day15/day15sample4.txt", 3478),
+                Arguments.of("de/havox_design/aoc2018/day15/day15sample5.txt", 6474),
+                Arguments.of("de/havox_design/aoc2018/day15/day15sample6.txt", 1140)
         );
     }
 
