@@ -14,15 +14,15 @@ public class Unit {
     public Unit(final int id, final Team team, final Coordinate location) {
         this.id = id;
         this.team = team;
-        this.location = location;
+        this.setLocation(location);
     }
 
 
 
     public Unit(final int id, final Team team, int health, int attackPower, final Coordinate location) {
         this(id, team, location);
-        this.health = health;
-        this.attackPower = attackPower;
+        this.setHealth(health);
+        this.setAttackPower(attackPower);
     }
 
     public int getId() {
