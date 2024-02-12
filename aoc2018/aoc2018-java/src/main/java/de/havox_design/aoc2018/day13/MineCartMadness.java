@@ -25,7 +25,7 @@ public class MineCartMadness implements AoCFunctionality {
         return instance.processTask1();
     }
 
-    public static long processTask2(String fileName) {
+    public static String processTask2(String fileName) {
         MineCartMadness instance = new MineCartMadness(fileName);
         return instance.processTask2();
     }
@@ -44,10 +44,13 @@ public class MineCartMadness implements AoCFunctionality {
                     .iterator();
 
             while (cartIterator.hasNext()) {
-                Cart c = cartIterator.next();
-                carts.remove(c);
-                carts.add(propagateCart(c, nextTurns.get(c.id())));
+                Cart cart = cartIterator.next();
+
+                carts.remove(cart);
+                carts.add(propagateCart(cart, nextTurns.get(cart.id())));
+
                 Coordinate collision = getCollision(carts);
+
                 if (collision != null) {
                     return String.format("%d,%d", collision.getX(), collision.getY());
                 }
@@ -55,8 +58,46 @@ public class MineCartMadness implements AoCFunctionality {
         }
     }
 
-    public long processTask2() {
-        return 0;
+    public String processTask2() {
+        Set<Cart> carts = new HashSet<>(input.carts());
+        Map<Integer, Iterator<String>> nextTurns = input
+                .carts()
+                .stream()
+                .collect(Collectors.toMap(Cart::id, c -> getTurns()));
+
+        while (carts.size() > 1) {
+            Iterator<Cart> cartIterator = carts
+                    .stream()
+                    .sorted(getCartComparator())
+                    .iterator();
+
+            while (cartIterator.hasNext()) {
+                Cart cart = cartIterator.next();
+
+                if (!carts.contains(cart)) {
+                    continue;
+                }
+
+                carts.remove(cart);
+                carts.add(propagateCart(cart, nextTurns.get(cart.id())));
+
+                Coordinate collision = getCollision(carts);
+
+                if (collision != null) {
+                    carts.removeAll(carts
+                            .stream()
+                            .filter(e -> e.location().equals(collision))
+                            .collect(Collectors.toSet()));
+                }
+            }
+        }
+
+        Cart cart = carts
+                .stream()
+                .findFirst()
+                .orElseThrow();
+
+        return String.format("%d,%d", cart.location().getX(), cart.location().getY());
     }
 
     private Coordinate getCollision(Set<Cart> carts) {
@@ -74,7 +115,9 @@ public class MineCartMadness implements AoCFunctionality {
     }
 
     private Comparator<Cart> getCartComparator() {
-        return Comparator.<Cart>comparingInt(c -> c.location().getY()).thenComparingInt(c -> c.location().getX());
+        return Comparator
+                .<Cart>comparingInt(c -> c.location().getY())
+                .thenComparingInt(c -> c.location().getX());
     }
 
     private Cart propagateCart(Cart cart, Iterator<String> turns) {
@@ -103,6 +146,9 @@ public class MineCartMadness implements AoCFunctionality {
 
     private Iterator<String> getTurns() {
         String[] turns = new String[]{TURN_LEFT, TURN_STRAIGHT, TURN_RIGHT};
-        return IntStream.iterate(0, i -> (i + 1) % turns.length).mapToObj(i -> turns[i]).iterator();
+        return IntStream
+                .iterate(0, i -> (i + 1) % turns.length)
+                .mapToObj(i -> turns[i])
+                .iterator();
     }
 }
