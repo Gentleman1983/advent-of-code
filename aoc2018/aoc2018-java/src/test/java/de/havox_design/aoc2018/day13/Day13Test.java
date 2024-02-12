@@ -1,6 +1,8 @@
 package de.havox_design.aoc2018.day13;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -31,5 +33,10 @@ class Day13Test {
         return Stream.of(
                 Arguments.of("de/havox_design/aoc2018/day13/day13part2sample.txt", "6,4")
         );
+    }
+
+    @Test
+    void testMineContracts() {
+        EqualsVerifier.forClass(Mine.class).verify();
     }
 }
