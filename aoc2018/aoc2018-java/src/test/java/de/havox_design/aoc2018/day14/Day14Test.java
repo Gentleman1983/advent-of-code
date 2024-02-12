@@ -32,7 +32,10 @@ class Day14Test {
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day14/day14part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day14/day14part2sample1.txt", 9L),
+                Arguments.of("de/havox_design/aoc2018/day14/day14part2sample2.txt", 6L),
+                Arguments.of("de/havox_design/aoc2018/day14/day14part2sample3.txt", 18L),
+                Arguments.of("de/havox_design/aoc2018/day14/day14part2sample4.txt", 2018L)
         );
     }
 }

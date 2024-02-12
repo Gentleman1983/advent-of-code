@@ -41,7 +41,25 @@ public class ChocolateCharts implements AoCFunctionality {
     }
 
     public long processTask2() {
-        return 0;
+        StringBuilder scores = new StringBuilder("37");
+        String wanted = String.valueOf(input);
+
+        int[] elfIndices = new int[]{0, 1};
+        long indexOf = -1L;
+
+        while (indexOf < 0L) {
+            int newScore = Arrays
+                    .stream(elfIndices)
+                    .map(scores::charAt)
+                    .map(i -> i - '0')
+                    .sum();
+
+            scores.append(newScore);
+            indexOf = scores.indexOf(wanted, scores.length() - wanted.length() - 1);
+            updateElfIndices(scores, elfIndices);
+        }
+
+        return indexOf;
     }
 
     private void updateElfIndices(CharSequence scores, int[] elfIndices) {

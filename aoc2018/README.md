@@ -23,7 +23,7 @@ For more information see https://adventofcode.com [2018](https://adventofcode.co
 | 11      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
 | 12      | ⭐ ![JAVA](../img/java.png)     | ⭐ ![JAVA](../img/java.png)     |
 | 13      | ⭐ ![JAVA](../img/java.png)     | ⭐ ![JAVA](../img/java.png)     |
-| 14      | ❌ ![JAVA](../img/java.png)     | ❌ ![JAVA](../img/java.png)     |
+| 14      | ⭐ ![JAVA](../img/java.png)     | ⭐ ![JAVA](../img/java.png)     |
 | 15      | ❌ ![JAVA](../img/java.png)     | ❌ ![JAVA](../img/java.png)     |
 | 16      | ❌ ![JAVA](../img/java.png)     | ❌ ![JAVA](../img/java.png)     |
 | 17      | ❌ ![JAVA](../img/java.png)     | ❌ ![JAVA](../img/java.png)     |
@@ -35,6 +35,6 @@ For more information see https://adventofcode.com [2018](https://adventofcode.co
 | 23      | ❌ ![JAVA](../img/java.png)     | ❌ ![JAVA](../img/java.png)     |
 | 24      | ❌ ![JAVA](../img/java.png)     | ❌ ![JAVA](../img/java.png)     |
 | 25      | ❌ ![JAVA](../img/java.png)     | ❌ ![JAVA](../img/java.png)     |
-| **SUM** | **13 ⭐**                       | **13 ⭐**                       |
+| **SUM** | **14 ⭐**                       | **14 ⭐**                       |
 
-Total: 26 ⭐
+Total: 28 ⭐
