@@ -15,7 +15,7 @@ import de.havox_design.aoc2018.day11.ChronalCharge
 import de.havox_design.aoc2018.day12.SubterraneanSustainability
 import de.havox_design.aoc2018.day13.MineCartMadness
 import de.havox_design.aoc2018.day14.ChocolateCharts
-import de.havox_design.aoc2018.day15.Day15
+import de.havox_design.aoc2018.day15.BeverageBandits
 import de.havox_design.aoc2018.day16.Day16
 import de.havox_design.aoc2018.day17.Day17
 import de.havox_design.aoc2018.day18.Day18
@@ -167,8 +167,8 @@ class MainClass: AocMainClassHelper {
         day = 15
         day(
             getDayString(day),
-            Day15(getFileName(day))::processTask1,
-            Day15(getFileName(day))::processTask2,
+            BeverageBandits(getFileName(day))::processTask1,
+            BeverageBandits(getFileName(day))::processTask2,
             daysSelected,
             args
         )
