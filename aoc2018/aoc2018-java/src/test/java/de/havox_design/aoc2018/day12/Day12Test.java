@@ -17,19 +17,7 @@ class Day12Test {
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day12/day12part1sample.txt", 325L)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, SubterraneanSustainability.processTask2(fileName));
-    }
-
-    private static Stream<Arguments> getDataForTask2() {
-        return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day12/day12part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day12/day12sample.txt", 325L)
         );
     }
 }

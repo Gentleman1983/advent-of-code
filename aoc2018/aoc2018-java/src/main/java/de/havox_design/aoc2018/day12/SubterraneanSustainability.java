@@ -29,7 +29,7 @@ public class SubterraneanSustainability implements AoCFunctionality {
     }
 
     public long processTask2() {
-        return 0;
+        return countPotsWithPlantsAfterGeneration(50000000000L);
     }
 
     private long countPotsWithPlantsAfterGeneration(long generation) {
