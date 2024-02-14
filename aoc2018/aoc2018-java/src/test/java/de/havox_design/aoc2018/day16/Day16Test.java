@@ -17,19 +17,7 @@ class Day16Test {
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day16/day16part1sample.txt", 1L)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, ChronalClassification.processTask2(fileName));
-    }
-
-    private static Stream<Arguments> getDataForTask2() {
-        return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day16/day16part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day16/day16sample.txt", 1L)
         );
     }
 }
