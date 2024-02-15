@@ -27,7 +27,7 @@ import de.havox_design.aoc2018.day23.Day23
 import de.havox_design.aoc2018.day24.Day24
 import de.havox_design.aoc2018.day25.Day25
 
-class MainClass: AocMainClassHelper {
+class MainClass : AocMainClassHelper {
     override fun getYear(): Int = 2018
 
     override fun processYear(args: Array<String>) {
@@ -185,15 +185,13 @@ class MainClass: AocMainClassHelper {
         )
 
         day = 17
-        if (!args.contains("testing")) {
-            day(
-                getDayString(day),
-                ReservoirResearch(getFileName(day))::processTask1,
-                ReservoirResearch(getFileName(day))::processTask2,
-                daysSelected,
-                args
-            )
-        }
+        day(
+            getDayString(day),
+            ReservoirResearch(getFileName(day))::processTask1,
+            ReservoirResearch(getFileName(day))::processTask2,
+            daysSelected,
+            args
+        )
 
         day = 18
         day(
