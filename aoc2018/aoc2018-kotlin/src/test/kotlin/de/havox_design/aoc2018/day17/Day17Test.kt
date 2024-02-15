@@ -15,7 +15,7 @@ class Day17Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart2")
-    fun testSolvePart2(filename: String, expectedResult: Long) =
+    fun testSolvePart2(filename: String, expectedResult: Int) =
         ReservoirResearch(filename).processTask2().shouldBe(expectedResult)
 
     companion object {
@@ -23,7 +23,7 @@ class Day17Test {
         private fun getDataForTestSolvePart1(): Stream<Arguments> =
             Stream.of(
                 Arguments.of(
-                    "de/havox_design/aoc2018/day17/day17part1sample.txt",
+                    "de/havox_design/aoc2018/day17/day17sample.txt",
                     57
                 )
             )
@@ -31,7 +31,7 @@ class Day17Test {
         @JvmStatic
         private fun getDataForTestSolvePart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day17/day17part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day17/day17sample.txt", 29)
             )
     }
 }

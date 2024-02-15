@@ -9,14 +9,16 @@ class ReservoirResearch(private var filename: String) {
     private val source = Coordinate(500, 0)
     fun processTask1(): Any {
         val state = process(getResourceAsText(filename))
-        val yMin = state.getTokens().minBy { it.y() }!!.y()
+        val yMin = state.getTokens().minBy { it.y() }.y()
         return state.flatMap { it.additions }
             .distinctBy { it.point }
             .count { it.y() >= yMin }
     }
 
     fun processTask2(): Any =
-        0L
+        process(getResourceAsText(filename))
+            .flatMap { it.additions }
+            .count { it is StillWater }
 
     private fun process(input: List<String>): Ground {
         val veins = input

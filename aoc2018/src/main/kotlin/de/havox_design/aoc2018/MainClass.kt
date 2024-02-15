@@ -185,13 +185,15 @@ class MainClass: AocMainClassHelper {
         )
 
         day = 17
-        day(
-            getDayString(day),
-            ReservoirResearch(getFileName(day))::processTask1,
-            ReservoirResearch(getFileName(day))::processTask2,
-            daysSelected,
-            args
-        )
+        if (!args.contains("testing")) {
+            day(
+                getDayString(day),
+                ReservoirResearch(getFileName(day))::processTask1,
+                ReservoirResearch(getFileName(day))::processTask2,
+                daysSelected,
+                args
+            )
+        }
 
         day = 18
         day(
