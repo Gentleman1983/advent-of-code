@@ -2,7 +2,7 @@
 
 Simple project for Advent of Code 2018.
 
-Done in JAVA 21. Some used Groovy or Kotlin for easier solutions. ;)
+Done in JAVA 21. Some used Kotlin for easier solutions. ;)
 
 For more information see https://adventofcode.com [2018](https://adventofcode.com/2018).
 
