@@ -8,10 +8,13 @@ abstract class InputToken(open var point: Coordinate) {
 
     fun x() =
         point.x
+
     fun y() =
         point.y
+
     fun atColumn(x: Int) =
         point.x == x
+
     fun atRow(y: Int) =
         point.y == y
 }
