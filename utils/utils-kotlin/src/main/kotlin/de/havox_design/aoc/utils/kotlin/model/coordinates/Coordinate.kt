@@ -46,3 +46,14 @@ fun adjacentCoordinates(origin: Coordinate) = sequenceOf(
     Coordinate(origin.x, origin.y - 1)
 )
 
+fun adjacentCoordinates8Directions(origin: Coordinate) = sequenceOf(
+    Coordinate(origin.x + 1, origin.y + 1),
+    Coordinate(origin.x + 1, origin.y),
+    Coordinate(origin.x + 1, origin.y - 1),
+    Coordinate(origin.x, origin.y + 1),
+    Coordinate(origin.x, origin.y - 1),
+    Coordinate(origin.x - 1, origin.y + 1),
+    Coordinate(origin.x - 1, origin.y),
+    Coordinate(origin.x - 1, origin.y - 1)
+)
+

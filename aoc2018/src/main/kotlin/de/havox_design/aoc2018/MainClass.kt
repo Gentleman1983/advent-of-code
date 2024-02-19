@@ -18,7 +18,8 @@ import de.havox_design.aoc2018.day14.ChocolateCharts
 import de.havox_design.aoc2018.day15.BeverageBandits
 import de.havox_design.aoc2018.day16.ChronalClassification
 import de.havox_design.aoc2018.day17.ReservoirResearch
-import de.havox_design.aoc2018.day18.Day18
+import de.havox_design.aoc2018.day18.SettlersOfTheNorthPole
+import de.havox_design.aoc2018.day18.SettlersOfTheNorthPoleKotlin
 import de.havox_design.aoc2018.day19.Day19
 import de.havox_design.aoc2018.day20.Day20
 import de.havox_design.aoc2018.day21.Day21
@@ -196,11 +197,12 @@ class MainClass : AocMainClassHelper {
         day = 18
         day(
             getDayString(day),
-            Day18(getFileName(day))::processTask1,
-            Day18(getFileName(day))::processTask2,
+            SettlersOfTheNorthPole(getFileName(day))::processTask1,
+            SettlersOfTheNorthPoleKotlin(getFileName(day))::processTask2,
             daysSelected,
             args
         )
+
 
         day = 19
         day(

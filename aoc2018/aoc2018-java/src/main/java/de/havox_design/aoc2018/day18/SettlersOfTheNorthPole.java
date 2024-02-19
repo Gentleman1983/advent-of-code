@@ -6,31 +6,35 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Day18 implements AoCFunctionality {
+public class SettlersOfTheNorthPole implements AoCFunctionality {
     private static final char SYMBOL_LUMBERYARD = '#';
     private static final char SYMBOL_OPEN = '.';
     private static final char SYMBOL_TREES = '|';
 
     private final List<String> input;
 
-    public Day18(String fileName) {
+    public SettlersOfTheNorthPole(String fileName) {
         input = readData(fileName);
     }
 
-    public static long processTask1(String fileName) {
-        Day18 instance = new Day18(fileName);
-        return instance.processTask1();
+    public static long processTask1(String fileName, long endMinute) {
+        SettlersOfTheNorthPole instance = new SettlersOfTheNorthPole(fileName);
+        return instance.processTask1(endMinute);
     }
 
-    public static long processTask2(String fileName) {
-        Day18 instance = new Day18(fileName);
+    public static long processTask2(String fileName) { // This takes ages... ;)
+        SettlersOfTheNorthPole instance = new SettlersOfTheNorthPole(fileName);
         return instance.processTask2();
     }
 
     public long processTask1() {
+        return processTask1(10L);
+    }
+
+    public long processTask1(long endMinute) {
         char[][] map = initializeMap(input);
 
-        for (int minute = 0; minute < 10; minute++) {
+        for (int minute = 0; minute < endMinute; minute++) {
             map = processMinute(map);
         }
 
@@ -38,7 +42,7 @@ public class Day18 implements AoCFunctionality {
     }
 
     public long processTask2() {
-        return 0;
+        return processTask1(1000000000L);
     }
 
     private long calculateResourceScore(char[][] map) {
@@ -88,7 +92,7 @@ public class Day18 implements AoCFunctionality {
         } else {
             if (
                     surroundingTiles.stream().anyMatch(symbol -> symbol == SYMBOL_LUMBERYARD) &&
-                    surroundingTiles.stream().anyMatch(symbol -> symbol == SYMBOL_TREES)
+                            surroundingTiles.stream().anyMatch(symbol -> symbol == SYMBOL_TREES)
             ) {
                 return SYMBOL_LUMBERYARD;
             } else {
