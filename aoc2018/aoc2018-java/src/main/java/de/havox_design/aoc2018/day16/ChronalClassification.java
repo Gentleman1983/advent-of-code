@@ -27,7 +27,8 @@ public class ChronalClassification implements AoCFunctionality {
         program = partitions
                 .getLast()
                 .stream()
-                .map(instructionParser::parse).toList();
+                .map(instructionParser::parse)
+                .toList();
     }
 
     public static long processTask1(String fileName) {
