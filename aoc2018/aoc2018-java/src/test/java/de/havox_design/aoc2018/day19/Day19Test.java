@@ -17,19 +17,7 @@ class Day19Test {
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day19/day19part1sample.txt", 7L)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, GoWithTheFlow.processTask2(fileName));
-    }
-
-    private static Stream<Arguments> getDataForTask2() {
-        return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day19/day19part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day19/day19sample.txt", 7L)
         );
     }
 }

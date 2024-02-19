@@ -28,11 +28,6 @@ public class GoWithTheFlow implements AoCFunctionality {
         return instance.processTask1();
     }
 
-    public static long processTask2(String fileName) {
-        GoWithTheFlow instance = new GoWithTheFlow(fileName);
-        return instance.processTask2();
-    }
-
     public long processTask1() {
         final var registers = new int[6];
         final var max = instructions.size();
@@ -43,9 +38,5 @@ public class GoWithTheFlow implements AoCFunctionality {
         }
 
         return registers[0];
-    }
-
-    public long processTask2() {
-        return 0;
     }
 }

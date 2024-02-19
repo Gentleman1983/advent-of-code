@@ -21,6 +21,7 @@ import de.havox_design.aoc2018.day17.ReservoirResearch
 import de.havox_design.aoc2018.day18.SettlersOfTheNorthPole
 import de.havox_design.aoc2018.day18.SettlersOfTheNorthPoleKotlin
 import de.havox_design.aoc2018.day19.GoWithTheFlow
+import de.havox_design.aoc2018.day19.GoWithTheFlowKotlin
 import de.havox_design.aoc2018.day20.Day20
 import de.havox_design.aoc2018.day21.Day21
 import de.havox_design.aoc2018.day22.Day22
@@ -208,7 +209,7 @@ class MainClass : AocMainClassHelper {
         day(
             getDayString(day),
             GoWithTheFlow(getFileName(day))::processTask1,
-            GoWithTheFlow(getFileName(day))::processTask2,
+            GoWithTheFlowKotlin(getFileName(day))::processTask2,
             daysSelected,
             args
         )
