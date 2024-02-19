@@ -6,6 +6,8 @@ import de.havox_design.aoc2018.day17.getTokens
 import de.havox_design.aoc2018.day17.render
 
 class SettlersOfTheNorthPoleKotlin(private var filename: String) {
+
+    @SuppressWarnings("kotlin:S6611")
     fun processTask1(iterations: Int): Any {
         val state: Area = getResourceAsText(filename)
             .mapIndexed { y, line ->
@@ -27,7 +29,6 @@ class SettlersOfTheNorthPoleKotlin(private var filename: String) {
         }
 
         if (seen.size < iterations) {
-            @SuppressWarnings("kotlin:S6611")
             val current = seen[state.render().hashCode()]!!
 
             repeat(((iterations - matched!!) % (current - matched)) - 1) {
