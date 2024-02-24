@@ -5,15 +5,16 @@ import de.havox_design.aoc2018.day19.IPRegisterParser;
 import de.havox_design.aoc2018.day19.InstructionParser;
 import de.havox_design.aoc2018.day19.instructions.Instruction;
 
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ChronalConversion implements AoCFunctionality {
-    private final List<String> input;
     private final int indexIP;
     private final List<Instruction> instructions;
 
     public ChronalConversion(String fileName) {
-        input = readData(fileName);
+        List<String> input = readData(fileName);
 
         final IPRegisterParser ipIndexParser = new IPRegisterParser();
         final InstructionParser instructionParser = new InstructionParser();
@@ -36,18 +37,42 @@ public class ChronalConversion implements AoCFunctionality {
     }
 
     public long processTask1() {
-        final var registers = new int[6];
+        final int[] registers = new int[6];
 
         while (true) {
             if (registers[indexIP] == 28) {
                 return registers[instructions.get(28).a];
             }
-            instructions.get(registers[indexIP]).apply(registers);
+
+            instructions
+                    .get(registers[indexIP])
+                    .apply(registers);
+
             registers[indexIP]++;
         }
     }
 
     public long processTask2() {
-        return 0;
+        final Set<Integer> seen = new LinkedHashSet<>();
+        final int[] registers = new int[6];
+
+        while (true) {
+            if (
+                    registers[indexIP] == 28 &&
+                    !seen.add(registers[instructions.get(28).a])
+            ) {
+                return seen
+                        .stream()
+                        .skip(seen.size() - 1L)
+                        .findAny()
+                        .orElseThrow();
+            }
+
+            instructions
+                    .get(registers[indexIP])
+                    .apply(registers);
+
+            registers[indexIP]++;
+        }
     }
 }
