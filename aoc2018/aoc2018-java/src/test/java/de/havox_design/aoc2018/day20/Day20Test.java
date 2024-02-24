@@ -11,25 +11,29 @@ class Day20Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTask1")
-    void testTask1(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, Day20.processTask1(fileName));
+    void testTask1(String fileName, int expectation) {
+        Assertions.assertEquals(expectation, ARegularMap.processTask1(fileName));
     }
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day20/day20part1sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day20/day20part1sample1.txt", 3),
+                Arguments.of("de/havox_design/aoc2018/day20/day20part1sample2.txt", 10),
+                Arguments.of("de/havox_design/aoc2018/day20/day20part1sample3.txt", 18),
+                Arguments.of("de/havox_design/aoc2018/day20/day20part1sample4.txt", 23),
+                Arguments.of("de/havox_design/aoc2018/day20/day20part1sample5.txt", 31)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, Day20.processTask2(fileName));
+    void testTask2(String fileName, int expectation) {
+        Assertions.assertEquals(expectation, ARegularMap.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day20/day20part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day20/day20part2sample.txt", 0)
         );
     }
 }
