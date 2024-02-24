@@ -17,23 +17,11 @@ class Day20Test {
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day20/day20part1sample1.txt", 3),
-                Arguments.of("de/havox_design/aoc2018/day20/day20part1sample2.txt", 10),
-                Arguments.of("de/havox_design/aoc2018/day20/day20part1sample3.txt", 18),
-                Arguments.of("de/havox_design/aoc2018/day20/day20part1sample4.txt", 23),
-                Arguments.of("de/havox_design/aoc2018/day20/day20part1sample5.txt", 31)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("getDataForTask2")
-    void testTask2(String fileName, int expectation) {
-        Assertions.assertEquals(expectation, ARegularMap.processTask2(fileName));
-    }
-
-    private static Stream<Arguments> getDataForTask2() {
-        return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day20/day20part2sample.txt", 0)
+                Arguments.of("de/havox_design/aoc2018/day20/day20sample1.txt", 3),
+                Arguments.of("de/havox_design/aoc2018/day20/day20sample2.txt", 10),
+                Arguments.of("de/havox_design/aoc2018/day20/day20sample3.txt", 18),
+                Arguments.of("de/havox_design/aoc2018/day20/day20sample4.txt", 23),
+                Arguments.of("de/havox_design/aoc2018/day20/day20sample5.txt", 31)
         );
     }
 }

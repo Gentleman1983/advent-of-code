@@ -28,7 +28,7 @@ public class ARegularMap implements AoCFunctionality {
         return instance.processTask1();
     }
 
-    public static int processTask2(String fileName) {
+    public static long processTask2(String fileName) {
         ARegularMap instance = new ARegularMap(fileName);
         return instance.processTask2();
     }
@@ -42,8 +42,12 @@ public class ARegularMap implements AoCFunctionality {
     }
 
 
-    public int processTask2() {
-        return 0;
+    public long processTask2() {
+        return distances
+                .values()
+                .stream()
+                .filter(passedDoors -> passedDoors >= 1000)
+                .count();
     }
 
     @SuppressWarnings("squid:S1149")
