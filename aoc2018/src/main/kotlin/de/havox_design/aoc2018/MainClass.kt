@@ -23,7 +23,7 @@ import de.havox_design.aoc2018.day18.SettlersOfTheNorthPoleKotlin
 import de.havox_design.aoc2018.day19.GoWithTheFlow
 import de.havox_design.aoc2018.day19.GoWithTheFlowKotlin
 import de.havox_design.aoc2018.day20.ARegularMap
-import de.havox_design.aoc2018.day21.Day21
+import de.havox_design.aoc2018.day21.ChronalConversion
 import de.havox_design.aoc2018.day22.Day22
 import de.havox_design.aoc2018.day23.Day23
 import de.havox_design.aoc2018.day24.Day24
@@ -226,8 +226,8 @@ class MainClass : AocMainClassHelper {
         day = 21
         day(
             getDayString(day),
-            Day21(getFileName(day))::processTask1,
-            Day21(getFileName(day))::processTask2,
+            ChronalConversion(getFileName(day))::processTask1,
+            ChronalConversion(getFileName(day))::processTask2,
             daysSelected,
             args
         )
