@@ -18,6 +18,8 @@ data class Cell(val position: Position2d<Int>, val value: Int) {
         } - (grid[position.nw()] ?: 0)
 }
 
+fun Position2d<Int>.e(offset: Int = 1) = Position2d(x + offset, y)
 fun Position2d<Int>.n(offset: Int = 1) = Position2d(x, y - offset)
 fun Position2d<Int>.nw(offset: Int = 1) = Position2d(x - offset, y - offset)
+fun Position2d<Int>.s(offset: Int = 1) = Position2d(x, y + offset)
 fun Position2d<Int>.w(offset: Int = 1) = Position2d(x - offset, y)

@@ -24,9 +24,9 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 2021    | Kotlin ![Kotlin](img/kotlin.png)                                                               |         0 ⭐ | [aoc2021](https://github.com/Gentleman1983/aoc2021)                                |
 | 2020    | Kotlin ![Kotlin](img/kotlin.png)                                                               |         0 ⭐ | [aoc2020](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2020)       |
 | 2019    | JAVA ![JAVA](img/java.png)                                                                     |         0 ⭐ | [aoc2019](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2019)       |
-| 2018    | JAVA ![JAVA](img/java.png), Kotlin ![Kotlin](img/kotlin.png)                                   |        42 ⭐ | [aoc2018](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2018)       |
+| 2018    | JAVA ![JAVA](img/java.png), Kotlin ![Kotlin](img/kotlin.png)                                   |        44 ⭐ | [aoc2018](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2018)       |
 | 2017    | JAVA ![JAVA](img/java.png), Scala ![Scala](img/scala.png)                                      |        50 ⭐ | [aoc2017](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2017)       |
 | 2016    | JAVA ![JAVA](img/java.png), Kotlin ![Kotlin](img/kotlin.png), Groovy ![Groovy](img/groovy.png) |        50 ⭐ | [aoc2016](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2016)       |
 | 2015    | JAVA ![JAVA](img/java.png), Kotlin ![Kotlin](img/kotlin.png), Python ![Python](img/python.png) |        50 ⭐ | [aoc2015](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2015)       |
-| **SUM** |                                                                                                |   **294 ⭐** |                                                                                    |
+| **SUM** |                                                                                                |   **296 ⭐** |                                                                                    |
 

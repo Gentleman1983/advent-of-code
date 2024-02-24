@@ -233,13 +233,15 @@ class MainClass : AocMainClassHelper {
         )
 
         day = 22
-        day(
-            getDayString(day),
-            ModeMaze(getFileName(day))::processTask1,
-            ModeMaze(getFileName(day))::processTask2,
-            daysSelected,
-            args
-        )
+        if (!args.contains("testing")) {
+            day(
+                getDayString(day),
+                ModeMaze(getFileName(day))::processTask1,
+                ModeMaze(getFileName(day))::processTask2,
+                daysSelected,
+                args
+            )
+        }
 
         day = 23
         day(

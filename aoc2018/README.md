@@ -31,10 +31,10 @@ For more information see https://adventofcode.com [2018](https://adventofcode.co
 | 19      | ⭐ ![JAVA](../img/java.png) ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png)                          |
 | 20      | ⭐ ![JAVA](../img/java.png)                              | ⭐ ![JAVA](../img/java.png)                              |
 | 21      | ⭐ ![JAVA](../img/java.png)                              | ⭐ ![JAVA](../img/java.png)                              |
-| 22      | ❌ ![JAVA](../img/java.png)                              | ❌ ![JAVA](../img/java.png)                              |
+| 22      | ⭐ ![Kotlin](../img/kotlin.png)                          | ⭐ ![Kotlin](../img/kotlin.png)                          |
 | 23      | ❌ ![JAVA](../img/java.png)                              | ❌ ![JAVA](../img/java.png)                              |
 | 24      | ❌ ![JAVA](../img/java.png)                              | ❌ ![JAVA](../img/java.png)                              |
 | 25      | ❌ ![JAVA](../img/java.png)                              | ❌ ![JAVA](../img/java.png)                              |
-| **SUM** | **21 ⭐**                                                | **21 ⭐**                                                |
+| **SUM** | **22 ⭐**                                                | **22 ⭐**                                                |
 
-Total: 42 ⭐
+Total: 44 ⭐
