@@ -63,7 +63,7 @@ public class ARegularMap implements AoCFunctionality {
         for (char character : inputs.getFirst().toCharArray()) {
             switch (character) {
                 case ICON_OPTION_START:
-                    junction.push(new Position2d<Integer>(current.getX(), current.getY()));
+                    junction.push(new Position2d<>(current.getX(), current.getY()));
                     break;
                 case ICON_OPTION_END:
                     current = junction.pop();
