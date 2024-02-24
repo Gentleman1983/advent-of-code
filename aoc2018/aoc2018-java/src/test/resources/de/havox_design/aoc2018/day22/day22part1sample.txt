@@ -1,0 +1,2 @@
+depth: 16
+target: 10,10
