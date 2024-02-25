@@ -27,7 +27,7 @@ import de.havox_design.aoc2018.day21.ChronalConversion
 import de.havox_design.aoc2018.day22.ModeMaze
 import de.havox_design.aoc2018.day23.ExperimentalEmergencyTeleportation
 import de.havox_design.aoc2018.day23.ExperimentalEmergencyTeleportationPartTwo
-import de.havox_design.aoc2018.day24.Day24
+import de.havox_design.aoc2018.day24.ImmuneSystemSimulator20XX
 import de.havox_design.aoc2018.day25.Day25
 
 class MainClass : AocMainClassHelper {
@@ -256,8 +256,8 @@ class MainClass : AocMainClassHelper {
         day = 24
         day(
             getDayString(day),
-            Day24(getFileName(day))::processTask1,
-            Day24(getFileName(day))::processTask2,
+            ImmuneSystemSimulator20XX(getFileName(day))::processTask1,
+            ImmuneSystemSimulator20XX(getFileName(day))::processTask2,
             daysSelected,
             args
         )

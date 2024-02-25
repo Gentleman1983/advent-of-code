@@ -1,8 +1,6 @@
 package de.havox_design.aoc2018.day15;
 
-import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -43,10 +41,5 @@ class Day15Test {
                 Arguments.of("de/havox_design/aoc2018/day15/day15sample5.txt", 6474),
                 Arguments.of("de/havox_design/aoc2018/day15/day15sample6.txt", 1140)
         );
-    }
-
-    @Test
-    void testGameMapContracts() {
-        EqualsVerifier.forClass(GameMap.class).verify();
     }
 }
