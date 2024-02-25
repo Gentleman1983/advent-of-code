@@ -20,11 +20,6 @@ public class ExperimentalEmergencyTeleportation implements AoCFunctionality {
         return instance.processTask1();
     }
 
-    public static long processTask2(String fileName) {
-        ExperimentalEmergencyTeleportation instance = new ExperimentalEmergencyTeleportation(fileName);
-        return instance.processTask2();
-    }
-
     public long processTask1() {
         final Nanobot nanobotWithLargestRange = nanobots
                 .stream()
@@ -35,9 +30,5 @@ public class ExperimentalEmergencyTeleportation implements AoCFunctionality {
                 .stream()
                 .filter(nanobotWithLargestRange::isInRange)
                 .count();
-    }
-
-    public long processTask2() {
-        return 0;
     }
 }

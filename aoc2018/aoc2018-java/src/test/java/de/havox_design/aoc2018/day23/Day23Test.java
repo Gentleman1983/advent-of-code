@@ -20,16 +20,4 @@ class Day23Test {
                 Arguments.of("de/havox_design/aoc2018/day23/day23part1sample.txt", 7L)
         );
     }
-
-    @ParameterizedTest
-    @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, ExperimentalEmergencyTeleportation.processTask2(fileName));
-    }
-
-    private static Stream<Arguments> getDataForTask2() {
-        return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day23/day23part2sample.txt", 0L)
-        );
-    }
 }
