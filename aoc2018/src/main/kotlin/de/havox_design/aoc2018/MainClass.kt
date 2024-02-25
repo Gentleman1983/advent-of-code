@@ -25,7 +25,7 @@ import de.havox_design.aoc2018.day19.GoWithTheFlowKotlin
 import de.havox_design.aoc2018.day20.ARegularMap
 import de.havox_design.aoc2018.day21.ChronalConversion
 import de.havox_design.aoc2018.day22.ModeMaze
-import de.havox_design.aoc2018.day23.Day23
+import de.havox_design.aoc2018.day23.ExperimentalEmergencyTeleportation
 import de.havox_design.aoc2018.day24.Day24
 import de.havox_design.aoc2018.day25.Day25
 
@@ -246,8 +246,8 @@ class MainClass : AocMainClassHelper {
         day = 23
         day(
             getDayString(day),
-            Day23(getFileName(day))::processTask1,
-            Day23(getFileName(day))::processTask2,
+            ExperimentalEmergencyTeleportation(getFileName(day))::processTask1,
+            ExperimentalEmergencyTeleportation(getFileName(day))::processTask2,
             daysSelected,
             args
         )
