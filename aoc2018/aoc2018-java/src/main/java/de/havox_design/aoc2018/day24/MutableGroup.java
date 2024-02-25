@@ -13,6 +13,7 @@ public class MutableGroup implements GroupAbilities {
     private final String damageType;
     private final int damage;
 
+    @SuppressWarnings("squid:S107")
     public MutableGroup(
             String name,
             int id,
