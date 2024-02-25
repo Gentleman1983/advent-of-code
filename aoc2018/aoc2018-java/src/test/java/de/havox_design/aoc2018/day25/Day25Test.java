@@ -12,24 +12,15 @@ class Day25Test {
     @ParameterizedTest
     @MethodSource("getDataForTask1")
     void testTask1(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, Day25.processTask1(fileName));
+        Assertions.assertEquals(expectation, FourDimensionalAdventure.processTask1(fileName));
     }
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day25/day25part1sample.txt", 0L)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, Day25.processTask2(fileName));
-    }
-
-    private static Stream<Arguments> getDataForTask2() {
-        return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day25/day25part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2018/day25/day25sample1.txt", 2L),
+                Arguments.of("de/havox_design/aoc2018/day25/day25sample2.txt", 4L),
+                Arguments.of("de/havox_design/aoc2018/day25/day25sample3.txt", 3L),
+                Arguments.of("de/havox_design/aoc2018/day25/day25sample4.txt", 8L)
         );
     }
 }

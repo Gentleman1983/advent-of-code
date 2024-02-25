@@ -34,7 +34,7 @@ For more information see https://adventofcode.com [2018](https://adventofcode.co
 | 22      | ⭐ ![Kotlin](../img/kotlin.png)                          | ⭐ ![Kotlin](../img/kotlin.png)                          |
 | 23      | ⭐ ![JAVA](../img/java.png)                              | ⭐ ![Kotlin](../img/kotlin.png)                          |
 | 24      | ⭐ ![JAVA](../img/java.png)                              | ⭐ ![JAVA](../img/java.png)                              |
-| 25      | ❌ ![JAVA](../img/java.png)                              | ❌ ![JAVA](../img/java.png)                              |
-| **SUM** | **24 ⭐**                                                | **24 ⭐**                                                |
+| 25      | ⭐ ![JAVA](../img/java.png)                              | ⭐ ![JAVA](../img/java.png)                              |
+| **SUM** | **25 ⭐**                                                | **25 ⭐**                                                |
 
-Total: 48 ⭐
+Total: 50 ⭐

@@ -28,7 +28,7 @@ import de.havox_design.aoc2018.day22.ModeMaze
 import de.havox_design.aoc2018.day23.ExperimentalEmergencyTeleportation
 import de.havox_design.aoc2018.day23.ExperimentalEmergencyTeleportationPartTwo
 import de.havox_design.aoc2018.day24.ImmuneSystemSimulator20XX
-import de.havox_design.aoc2018.day25.Day25
+import de.havox_design.aoc2018.day25.FourDimensionalAdventure
 
 class MainClass : AocMainClassHelper {
     override fun getYear(): Int = 2018
@@ -265,8 +265,8 @@ class MainClass : AocMainClassHelper {
         day = 25
         day(
             getDayString(day),
-            Day25(getFileName(day))::processTask1,
-            Day25(getFileName(day))::processTask2,
+            FourDimensionalAdventure(getFileName(day))::processTask1,
+            FourDimensionalAdventure(getFileName(day))::processTask2,
             daysSelected,
             args
         )
