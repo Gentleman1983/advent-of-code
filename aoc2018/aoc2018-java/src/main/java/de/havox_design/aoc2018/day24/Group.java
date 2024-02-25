@@ -23,7 +23,7 @@ public record Group(
         return units;
     }
 
-    public MutableGroup asMutableGroup() {
-        return new MutableGroup(name, id, units, hitPoints, initiative, weaknesses, immunities, damageType, damage);
+    public MutableGroup asMutableGroup(int boost) {
+        return new MutableGroup(name, id, units, hitPoints, initiative, weaknesses, immunities, damageType, damage, boost);
     }
 }

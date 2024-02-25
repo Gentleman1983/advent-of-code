@@ -7,11 +7,15 @@ import java.util.List;
 
 public record Army(String name, List<Group> groups) {
     public MutableArmy asMutableArmy() {
+        return asMutableArmy(0);
+    }
+
+    public MutableArmy asMutableArmy(int boost) {
         return new MutableArmy(
                 name,
                 groups
                         .stream()
-                        .map(Group::asMutableGroup)
+                        .map(group -> group.asMutableGroup(boost))
                         .toList()
         );
     }

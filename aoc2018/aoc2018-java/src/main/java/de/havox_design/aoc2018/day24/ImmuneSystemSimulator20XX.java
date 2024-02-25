@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 import static java.util.function.Predicate.not;
 
 public class ImmuneSystemSimulator20XX implements AoCFunctionality {
+    private static final String ARMY_NAME_IMMUNE_SYSTEM = "Immune System";
+
     private final List<Army> armies;
 
     public ImmuneSystemSimulator20XX(String fileName) {
@@ -35,11 +37,16 @@ public class ImmuneSystemSimulator20XX implements AoCFunctionality {
     }
 
     public long processTask1() {
-        return calculateRemainingUnits(fight().orElseThrow());
+        return calculateRemainingUnits(calculateFight().orElseThrow());
     }
 
     public long processTask2() {
-        return 0;
+        for (int boost = 1; true; boost++) {
+            Optional<MutableArmy> result = calculateFight(boost);
+            if (result.filter(winner -> winner.getName().equals(ARMY_NAME_IMMUNE_SYSTEM)).isPresent()) {
+                return calculateRemainingUnits(result.get());
+            }
+        }
     }
 
     private long calculateRemainingUnits(final MutableArmy winner) {
@@ -50,8 +57,12 @@ public class ImmuneSystemSimulator20XX implements AoCFunctionality {
                 .sum();
     }
 
-    private Optional<MutableArmy> fight() {
-        List<MutableArmy> mutableArmies = mutableArmies();
+    private Optional<MutableArmy> calculateFight() {
+        return calculateFight(0);
+    }
+
+    private Optional<MutableArmy> calculateFight(int boost) {
+        List<MutableArmy> mutableArmies = mutableArmies(boost);
 
         do {
             if (fight(mutableArmies) == 0) {
@@ -73,10 +84,16 @@ public class ImmuneSystemSimulator20XX implements AoCFunctionality {
         );
     }
 
-    private List<MutableArmy> mutableArmies() {
+    private List<MutableArmy> mutableArmies(int boost) {
         return armies
                 .stream()
-                .map(Army::asMutableArmy)
+                .map(army -> {
+                    if (ARMY_NAME_IMMUNE_SYSTEM.equals(army.name())) {
+                        return army.asMutableArmy(boost);
+                    } else {
+                        return army.asMutableArmy();
+                    }
+                })
                 .toList();
     }
 

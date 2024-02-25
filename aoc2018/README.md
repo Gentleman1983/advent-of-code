@@ -33,8 +33,8 @@ For more information see https://adventofcode.com [2018](https://adventofcode.co
 | 21      | ⭐ ![JAVA](../img/java.png)                              | ⭐ ![JAVA](../img/java.png)                              |
 | 22      | ⭐ ![Kotlin](../img/kotlin.png)                          | ⭐ ![Kotlin](../img/kotlin.png)                          |
 | 23      | ⭐ ![JAVA](../img/java.png)                              | ⭐ ![Kotlin](../img/kotlin.png)                          |
-| 24      | ❌ ![JAVA](../img/java.png)                              | ❌ ![JAVA](../img/java.png)                              |
+| 24      | ⭐ ![JAVA](../img/java.png)                              | ⭐ ![JAVA](../img/java.png)                              |
 | 25      | ❌ ![JAVA](../img/java.png)                              | ❌ ![JAVA](../img/java.png)                              |
-| **SUM** | **23 ⭐**                                                | **23 ⭐**                                                |
+| **SUM** | **24 ⭐**                                                | **24 ⭐**                                                |
 
-Total: 46 ⭐
+Total: 48 ⭐

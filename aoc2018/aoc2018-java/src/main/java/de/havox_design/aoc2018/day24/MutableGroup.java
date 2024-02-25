@@ -12,6 +12,7 @@ public class MutableGroup implements GroupAbilities {
     private final Set<String> immunities;
     private final String damageType;
     private final int damage;
+    private final int boost;
 
     @SuppressWarnings("squid:S107")
     public MutableGroup(
@@ -23,7 +24,8 @@ public class MutableGroup implements GroupAbilities {
             Set<String> weaknesses,
             Set<String> immunities,
             String damageType,
-            int damage
+            int damage,
+            int boost
     ) {
         this.name = name;
         this.id = id;
@@ -34,6 +36,7 @@ public class MutableGroup implements GroupAbilities {
         this.immunities = immunities;
         this.damageType = damageType;
         this.damage = damage;
+        this.boost = boost;
     }
 
     public String getName() {
@@ -80,5 +83,14 @@ public class MutableGroup implements GroupAbilities {
     @Override
     public int getDamage() {
         return damage;
+    }
+
+    public int getBoost() {
+        return boost;
+    }
+
+    @Override
+    public int getEffectivePower() {
+        return (getDamage() + getBoost()) * getUnits();
     }
 }
