@@ -38,3 +38,6 @@ For more information see https://adventofcode.com [2024](https://adventofcode.co
 | **SUM** | **0 ⭐**                         | **0 ⭐**                         |
 
 Total: 0 ⭐
+
+## Solution image
+N/A

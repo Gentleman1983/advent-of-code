@@ -38,3 +38,6 @@ For more information see https://adventofcode.com [2018](https://adventofcode.co
 | **SUM** | **25 ⭐**                                                | **25 ⭐**                                                |
 
 Total: 50 ⭐
+
+## Solution image
+![AoC2018](../img/Advent_of_Code_2018.png)

@@ -39,3 +39,6 @@ For more information see https://adventofcode.com [2022](https://adventofcode.co
 | **SUM** | **25 ⭐**                        | **25 ⭐**                       |
 
 Total: 50 ⭐
+
+## Solution image
+![AoC2022](../img/Advent_of_Code_2022.png)
