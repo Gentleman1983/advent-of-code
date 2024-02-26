@@ -1,0 +1,76 @@
+import com.pswidersk.gradle.python.VenvTask
+
+plugins {
+    alias(libs.plugins.python.plugin)
+}
+
+dependencies {
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': project.name
+        attributes 'Implementation-Version': project.version
+    }
+}
+
+pythonPlugin {
+    pythonVersion = "3.12"
+    condaVersion = "latest"
+    installDir = file(rootProject.layout.buildDirectory.file("python"))
+}
+
+afterEvaluate {
+    def pipTask = tasks.register('pipInstall', VenvTask) {
+        venvExec = "pip"
+        args = ["install", "--isolated", "-r", "requirements.txt"]
+    }
+
+    def solveDay19Pt2Task = tasks.register('solveDay19Part2', VenvTask) {
+        workingDir = project.file('src/main/resources')
+        args = [project.file("src/main/python/solveDay19Part2.py").toString()]
+        dependsOn(pipTask)
+    }
+
+    def testSolveDay19Part2Task = tasks.register('testSolveDay19Part2', VenvTask) {
+        venvExec = "pytest"
+        workingDir = project.file('src/test/resources')
+        args = [
+                "--cov-report", "term",
+                "--cov-report", "html:${project.layout.buildDirectory.file('reports/pytest-cov').get().asFile.canonicalPath}",
+                "--cov-report", "xml:${project.layout.buildDirectory.file('reports/pytest-cov/coverage.xml').get().asFile.canonicalPath}",
+                "--cov-report", "json:${project.layout.buildDirectory.file('reports/pytest-cov/coverage.json').get().asFile.canonicalPath}",
+                "--cov-report", "lcov:${project.layout.buildDirectory.file('reports/pytest-cov/coverage.lcov').get().asFile.canonicalPath}",
+                "--cov=solveDay19Part2",
+                project.file("src/test/python/testSolveDay19Part2.py").toString()
+        ]
+        environment = Map.of(
+                "PYTHONPATH", project.file('src/main/python').getCanonicalPath(),
+
+        )
+        dependsOn(pipTask)
+    }
+
+    compileJava.dependsOn(solveDay19Pt2Task)
+    check.dependsOn(testSolveDay19Part2Task)
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir project.file('src/main/python')
+        }
+    }
+    test {
+        java {
+            srcDir project.file('src/test/python')
+        }
+    }
+}
+
+sonarqube {
+    properties {
+        property 'sonar.python.version', '3.12'
+        property 'sonar.python.coverage.reportPaths', 'build/reports/pytest-cov/coverage.xml'
+    }
+}

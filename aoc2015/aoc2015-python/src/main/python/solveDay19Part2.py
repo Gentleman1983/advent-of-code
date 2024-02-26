@@ -27,5 +27,5 @@ def solve():
 
 result = solve()
 print(f"Solution for part 2 via Python: {result}")
-with open("de/havox_design/aoc2015/day19/day19result_part2.txt", 'a') as out:
+with open("../../../../aoc2015-python/src/main/resources/de/havox_design/aoc2015/day19/day19result_part2.txt", 'a') as out:
     print(result, file=out)
