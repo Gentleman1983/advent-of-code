@@ -26,3 +26,5 @@ jar {
         attributes 'Main-Class': 'de.havox_design.aoc2015.MainClass'
     }
 }
+
+test.dependsOn(project(":aoc2015:aoc2015-python").tasks.named("check"))

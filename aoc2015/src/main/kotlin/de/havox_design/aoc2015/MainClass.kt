@@ -26,6 +26,7 @@ import de.havox_design.aoc2015.day22.RPGWizardFight
 import de.havox_design.aoc2015.day23.Turing
 import de.havox_design.aoc2015.day24.BalancedQuantumEntanglement
 import de.havox_design.aoc2015.day25.CodeLock
+import java.io.File
 
 class MainClass: AocMainClassHelper {
     override fun getYear(): Int = 2015
@@ -261,10 +262,9 @@ class MainClass: AocMainClassHelper {
     }
 
     private fun medicineForRudolphPart2(): String {
-        val filename = getFileName(19)
-
-        return MedicineForRudolph(filename)
-            .getPythonResult("de/havox_design/aoc2015/day19/day19result_part2.txt")
+        return File("aoc2015-python/src/main/resources/de/havox_design/aoc2015/day19/day19result_part2.txt")
+            .readLines()
+            .last()
     }
 
     companion object {
