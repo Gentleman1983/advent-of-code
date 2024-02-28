@@ -28,6 +28,26 @@ configure<PythonPluginExtension> {
     installDir = file(rootProject.layout.buildDirectory.file("python"))
 }
 
+configure<SonarExtension> {
+    properties {
+        property("sonar.python.version", "3.12")
+        property("sonar.python.coverage.reportPaths", "build/reports/pytest-cov/coverage.xml")
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir(project.file("src/main/python"))
+        }
+    }
+    test {
+        java {
+            srcDir(project.file("src/test/python"))
+        }
+    }
+}
+
 afterEvaluate {
     val pipTask = tasks.register<VenvTask>("pipInstall") {
         group = "python"
@@ -73,25 +93,5 @@ afterEvaluate {
 
     tasks.check {
         dependsOn(testSolveDay19Part2Task)
-    }
-}
-
-sourceSets {
-    main {
-        java {
-            srcDir(project.file("src/main/python"))
-        }
-    }
-    test {
-        java {
-            srcDir(project.file("src/test/python"))
-        }
-    }
-}
-
-configure<SonarExtension> {
-    properties {
-        property("sonar.python.version", "3.12")
-        property("sonar.python.coverage.reportPaths", "build/reports/pytest-cov/coverage.xml")
     }
 }
