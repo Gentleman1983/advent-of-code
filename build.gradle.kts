@@ -68,19 +68,19 @@ rootProject.allprojects.forEach { currentProject ->
         toolVersion = "0.8.11"
     }
 
-    currentProject.tasks.named<JacocoReport>("jacocoTestReport") {
+    val jacocoTestReportTask = currentProject.tasks.named<JacocoReport>("jacocoTestReport") {
         reports {
             html.required.set(true)
             xml.required.set(true)
         }
+    }
 
-        rootProject.tasks.withType<SonarTask> {
-            dependsOn(this)
-        }
+    currentProject.tasks.named("check") {
+        dependsOn(jacocoTestReportTask)
+    }
 
-        currentProject.tasks.named("check") {
-            dependsOn(this)
-        }
+    rootProject.tasks.withType<SonarTask> {
+        dependsOn(jacocoTestReportTask)
     }
 
     currentProject.configure<SonarExtension> {
