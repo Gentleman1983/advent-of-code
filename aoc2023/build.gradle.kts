@@ -3,8 +3,10 @@ plugins {
     alias(libs.plugins.kotlin.jvm)
 }
 
+val year = 2023
+
 dependencies {
-    api(project(":aoc2023:aoc2023-kotlin"))
+    api(project(":aoc${year}:aoc${year}-kotlin"))
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -15,17 +17,17 @@ dependencies {
 }
 
 application {
-    mainClass = "de.havox_design.aoc2023.MainClass"
+    mainClass = "de.havox_design.aoc${year}.MainClass"
 }
 
 tasks.named<Jar>("jar") {
     manifest {
         attributes["Implementation-Title"] = project.name
         attributes["Implementation-Version"] = project.version
-        attributes["Main-Class"] = "de.havox_design.aoc2023.MainClass"
+        attributes["Main-Class"] = "de.havox_design.aoc${year}.MainClass"
     }
 }
 
 tasks.test{
-    dependsOn(project(":aoc2023:aoc2023-python").tasks.named("check"))
+    dependsOn(project(":aoc${year}:aoc${year}-python").tasks.named("check"))
 }

@@ -2,10 +2,11 @@ plugins {
     application
     alias(libs.plugins.kotlin.jvm)
 }
+val year = 2017
 
 dependencies {
-    api(project(":aoc2017:aoc2017-java"))
-    api(project(":aoc2017:aoc2017-scala"))
+    api(project(":aoc${year}:aoc${year}-java"))
+    api(project(":aoc${year}:aoc${year}-scala"))
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -16,13 +17,13 @@ dependencies {
 }
 
 application {
-    mainClass = "de.havox_design.aoc2017.MainClass"
+    mainClass = "de.havox_design.aoc${year}.MainClass"
 }
 
 tasks.named<Jar>("jar") {
     manifest {
         attributes["Implementation-Title"] = project.name
         attributes["Implementation-Version"] = project.version
-        attributes["Main-Class"] = "de.havox_design.aoc2017.MainClass"
+        attributes["Main-Class"] = "de.havox_design.aoc${year}.MainClass"
     }
 }

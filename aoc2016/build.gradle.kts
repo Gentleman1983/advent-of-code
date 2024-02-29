@@ -3,10 +3,12 @@ plugins {
     alias(libs.plugins.kotlin.jvm)
 }
 
+val year = 2016
+
 dependencies {
-    api(project(":aoc2016:aoc2016-groovy"))
-    api(project(":aoc2016:aoc2016-java"))
-    api(project(":aoc2016:aoc2016-kotlin"))
+    api(project(":aoc${year}:aoc${year}-groovy"))
+    api(project(":aoc${year}:aoc${year}-java"))
+    api(project(":aoc${year}:aoc${year}-kotlin"))
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -17,13 +19,13 @@ dependencies {
 }
 
 application {
-    mainClass = "de.havox_design.aoc2016.MainClass"
+    mainClass = "de.havox_design.aoc${year}.MainClass"
 }
 
 tasks.named<Jar>("jar") {
     manifest {
         attributes["Implementation-Title"] = project.name
         attributes["Implementation-Version"] = project.version
-        attributes["Main-Class"] = "de.havox_design.aoc2016.MainClass"
+        attributes["Main-Class"] = "de.havox_design.aoc${year}.MainClass"
     }
 }
