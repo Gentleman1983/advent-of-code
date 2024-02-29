@@ -66,7 +66,7 @@ object ScalaProboscideaVolcanium {
   private def parseInput(input: Seq[String]): (Map[String, ScalaValve], Map[String, Map[String, Int]], Set[String]) =
     val valves = input
       .map { line =>
-        val Array(_, name, flow, edges: _*) = line
+        val Array(_, name, flow, edges*) = line
           .split("[^A-Z0-9]+"): @unchecked
         name -> ScalaValve(flow.toInt, edges)
       }
