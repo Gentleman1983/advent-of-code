@@ -1,3 +1,3 @@
 dependencies {
-    implementation(libs.xwork.core)
+    implementation(libs.struts2.core)
 }
