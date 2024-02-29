@@ -12,7 +12,7 @@ plugins {
 
 // project meta data
 group = "de.havox_design.aoc"
-version = "2024.2.2"
+version = "2024.2.3"
 
 dependencies {
     rootProject.subprojects.forEach { subproject ->
