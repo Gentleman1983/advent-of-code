@@ -13,7 +13,7 @@ scala3-library = "3.4.0"
 scala3-scalatest = "3.3.0-SNAP4"
 scala3-scalatestplus-junit = "3.2.18.0"
 sonarqube-plugin = "4.4.1.3373"
-xwork = "2.3.37"
+struts2 = "6.3.0.2"
 
 [libraries]
 commons-codec = { group = "commons-codec", name = "commons-codec", version.ref = "commons-codec" }
@@ -27,7 +27,7 @@ junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.r
 scala3-library = { group = "org.scala-lang", name = "scala3-library_3", version.ref = "scala3-library" }
 scala3-scalatest = { group = "org.scalatest", name = "scalatest_3", version.ref = "scala3-scalatest" }
 scala3-scalatestplus-junit = { group = "org.scalatestplus", name = "junit-5-10_3", version.ref = "scala3-scalatestplus-junit" }
-xwork-core = { group = "org.apache.struts.xwork", name = "xwork-core", version.ref = "xwork" }
+struts2-core = { group = "org.apache.struts", name = "struts2-core", version.ref = "struts2" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-jvm" }

@@ -23,7 +23,7 @@ class PulsePropagation(private var filename: String) {
         var lowCounter = 0L
 
         do {
-            val (assignment, conjugation) = modules
+            val (thisAssignment, conjugation) = modules
                 .pressTheButton(currentAssignment, currentConjugation) { pulse, _ ->
                     when (pulse) {
                         Pulse.HIGH -> highCounter++
@@ -33,7 +33,7 @@ class PulsePropagation(private var filename: String) {
 
             count++
             currentConjugation = conjugation
-            currentAssignment = assignment
+            currentAssignment = thisAssignment
         } while (count < runs)
 
         return highCounter * lowCounter

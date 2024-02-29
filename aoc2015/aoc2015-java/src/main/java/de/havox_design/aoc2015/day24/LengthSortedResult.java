@@ -8,6 +8,7 @@ public class LengthSortedResult implements Iterable<Integer[]> {
 
     private int size;
 
+    @SuppressWarnings("unchecked")
     public LengthSortedResult(int maxlength) {
         data = new List[maxlength];
         for (int i = 0; i < data.length; i++) {

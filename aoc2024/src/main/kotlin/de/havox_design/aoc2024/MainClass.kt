@@ -1,34 +1,34 @@
 package de.havox_design.aoc2024
 
 import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
-import de.havox_design.aoc2020.day01.Day01
-import de.havox_design.aoc2020.day02.Day02
-import de.havox_design.aoc2020.day03.Day03
-import de.havox_design.aoc2020.day04.Day04
-import de.havox_design.aoc2020.day05.Day05
-import de.havox_design.aoc2020.day06.Day06
-import de.havox_design.aoc2020.day07.Day07
-import de.havox_design.aoc2020.day08.Day08
-import de.havox_design.aoc2020.day09.Day09
-import de.havox_design.aoc2020.day10.Day10
-import de.havox_design.aoc2020.day11.Day11
-import de.havox_design.aoc2020.day12.Day12
-import de.havox_design.aoc2020.day13.Day13
-import de.havox_design.aoc2020.day14.Day14
-import de.havox_design.aoc2020.day15.Day15
-import de.havox_design.aoc2020.day16.Day16
-import de.havox_design.aoc2020.day17.Day17
-import de.havox_design.aoc2020.day18.Day18
-import de.havox_design.aoc2020.day19.Day19
-import de.havox_design.aoc2020.day20.Day20
-import de.havox_design.aoc2020.day21.Day21
-import de.havox_design.aoc2020.day22.Day22
-import de.havox_design.aoc2020.day23.Day23
-import de.havox_design.aoc2020.day24.Day24
-import de.havox_design.aoc2020.day25.Day25
+import de.havox_design.aoc2024.day01.Day01
+import de.havox_design.aoc2024.day02.Day02
+import de.havox_design.aoc2024.day03.Day03
+import de.havox_design.aoc2024.day04.Day04
+import de.havox_design.aoc2024.day05.Day05
+import de.havox_design.aoc2024.day06.Day06
+import de.havox_design.aoc2024.day07.Day07
+import de.havox_design.aoc2024.day08.Day08
+import de.havox_design.aoc2024.day09.Day09
+import de.havox_design.aoc2024.day10.Day10
+import de.havox_design.aoc2024.day11.Day11
+import de.havox_design.aoc2024.day12.Day12
+import de.havox_design.aoc2024.day13.Day13
+import de.havox_design.aoc2024.day14.Day14
+import de.havox_design.aoc2024.day15.Day15
+import de.havox_design.aoc2024.day16.Day16
+import de.havox_design.aoc2024.day17.Day17
+import de.havox_design.aoc2024.day18.Day18
+import de.havox_design.aoc2024.day19.Day19
+import de.havox_design.aoc2024.day20.Day20
+import de.havox_design.aoc2024.day21.Day21
+import de.havox_design.aoc2024.day22.Day22
+import de.havox_design.aoc2024.day23.Day23
+import de.havox_design.aoc2024.day24.Day24
+import de.havox_design.aoc2024.day25.Day25
 
 class MainClass : AocMainClassHelper {
-    override fun getYear(): Int = 2020
+    override fun getYear(): Int = 2024
 
     override fun processYear(args: Array<String>) {
         val daysSelected = args
