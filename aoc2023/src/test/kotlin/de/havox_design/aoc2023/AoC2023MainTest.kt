@@ -1,11 +1,11 @@
-package de.havox_design.aoc2024
+package de.havox_design.aoc2023
 
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-class MainTest {
+class AoC2023MainTest {
     @ParameterizedTest
     @MethodSource("getDataForTestMainClass")
     fun testMainClass(args: Array<String>) {
@@ -20,7 +20,7 @@ class MainTest {
                 Arguments.of(arrayOf("day02")),
                 Arguments.of(arrayOf("day03")),
                 Arguments.of(arrayOf("day04")),
-                Arguments.of(arrayOf("day05")),
+                Arguments.of(arrayOf("day05", "testing")),
                 Arguments.of(arrayOf("day06")),
                 Arguments.of(arrayOf("day07")),
                 Arguments.of(arrayOf("day08")),
@@ -37,8 +37,8 @@ class MainTest {
                 Arguments.of(arrayOf("day19")),
                 Arguments.of(arrayOf("day20")),
                 Arguments.of(arrayOf("day21")),
-                Arguments.of(arrayOf("day22")),
-                Arguments.of(arrayOf("day23")),
+                Arguments.of(arrayOf("day22", "testing")),
+                Arguments.of(arrayOf("day23", "testing")),
                 Arguments.of(arrayOf("day24")),
                 Arguments.of(arrayOf("day25"))
             )
