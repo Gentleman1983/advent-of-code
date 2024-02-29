@@ -95,6 +95,8 @@ rootProject.allprojects.forEach { currentProject ->
     currentProject.tasks.withType<Test> {
         useJUnitPlatform()
 
+        maxParallelForks = (Runtime.getRuntime().availableProcessors() / 2).coerceAtLeast(1)
+
         testLogging {
             exceptionFormat = TestExceptionFormat.FULL
             events("passed", "failed", "skipped")
