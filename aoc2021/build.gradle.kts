@@ -15,13 +15,13 @@ dependencies {
 }
 
 application {
-    mainClass = "de.havox_design.aoc2015.MainClass"
+    mainClass = "de.havox_design.aoc2021.MainClass"
 }
 
 tasks.named<Jar>("jar") {
     manifest {
         attributes["Implementation-Title"] = project.name
         attributes["Implementation-Version"] = project.version
-        attributes["Main-Class"] = "de.havox_design.aoc2015.MainClass"
+        attributes["Main-Class"] = "de.havox_design.aoc2021.MainClass"
     }
 }
