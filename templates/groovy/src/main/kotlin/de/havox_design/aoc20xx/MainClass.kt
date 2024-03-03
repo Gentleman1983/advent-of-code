@@ -37,8 +37,8 @@ class MainClass : AocMainClassHelper {
         var day = 1
         day(
             getDayString(day),
-            Day01(getFileName(day))::processPart1,
-            Day01(getFileName(day))::processPart2,
+            Day01.solvePart1(getFileName(day)),
+            Day01.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -46,8 +46,8 @@ class MainClass : AocMainClassHelper {
         day = 2
         day(
             getDayString(day),
-            Day02(getFileName(day))::processPart1,
-            Day02(getFileName(day))::processPart2,
+            Day02.solvePart1(getFileName(day)),
+            Day02.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -55,8 +55,8 @@ class MainClass : AocMainClassHelper {
         day = 3
         day(
             getDayString(day),
-            Day03(getFileName(day))::processPart1,
-            Day03(getFileName(day))::processPart2,
+            Day03.solvePart1(getFileName(day)),
+            Day03.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -64,8 +64,8 @@ class MainClass : AocMainClassHelper {
         day = 4
         day(
             getDayString(day),
-            Day04(getFileName(day))::processPart1,
-            Day04(getFileName(day))::processPart2,
+            Day04.solvePart1(getFileName(day)),
+            Day04.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -73,8 +73,8 @@ class MainClass : AocMainClassHelper {
         day = 5
         day(
             getDayString(day),
-            Day05(getFileName(day))::processPart1,
-            Day05(getFileName(day))::processPart2,
+            Day05.solvePart1(getFileName(day)),
+            Day05.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -82,8 +82,8 @@ class MainClass : AocMainClassHelper {
         day = 6
         day(
             getDayString(day),
-            Day06(getFileName(day))::processPart1,
-            Day06(getFileName(day))::processPart2,
+            Day06.solvePart1(getFileName(day)),
+            Day06.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -91,8 +91,8 @@ class MainClass : AocMainClassHelper {
         day = 7
         day(
             getDayString(day),
-            Day07(getFileName(day))::processPart1,
-            Day07(getFileName(day))::processPart2,
+            Day07.solvePart1(getFileName(day)),
+            Day07.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -100,8 +100,8 @@ class MainClass : AocMainClassHelper {
         day = 8
         day(
             getDayString(day),
-            Day08(getFileName(day))::processPart1,
-            Day08(getFileName(day))::processPart2,
+            Day08.solvePart1(getFileName(day)),
+            Day08.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -109,8 +109,8 @@ class MainClass : AocMainClassHelper {
         day = 9
         day(
             getDayString(day),
-            Day09(getFileName(day))::processPart1,
-            Day09(getFileName(day))::processPart2,
+            Day09.solvePart1(getFileName(day)),
+            Day09.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -118,8 +118,8 @@ class MainClass : AocMainClassHelper {
         day = 10
         day(
             getDayString(day),
-            Day10(getFileName(day))::processPart1,
-            Day10(getFileName(day))::processPart2,
+            Day10.solvePart1(getFileName(day)),
+            Day10.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -127,8 +127,8 @@ class MainClass : AocMainClassHelper {
         day = 11
         day(
             getDayString(day),
-            Day11(getFileName(day))::processPart1,
-            Day11(getFileName(day))::processPart2,
+            Day11.solvePart1(getFileName(day)),
+            Day11.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -136,8 +136,8 @@ class MainClass : AocMainClassHelper {
         day = 12
         day(
             getDayString(day),
-            Day12(getFileName(day))::processPart1,
-            Day12(getFileName(day))::processPart2,
+            Day12.solvePart1(getFileName(day)),
+            Day12.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -145,8 +145,8 @@ class MainClass : AocMainClassHelper {
         day = 13
         day(
             getDayString(day),
-            Day13(getFileName(day))::processPart1,
-            Day13(getFileName(day))::processPart2,
+            Day13.solvePart1(getFileName(day)),
+            Day13.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -154,8 +154,8 @@ class MainClass : AocMainClassHelper {
         day = 14
         day(
             getDayString(day),
-            Day14(getFileName(day))::processPart1,
-            Day14(getFileName(day))::processPart2,
+            Day14.solvePart1(getFileName(day)),
+            Day14.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -163,8 +163,8 @@ class MainClass : AocMainClassHelper {
         day = 15
         day(
             getDayString(day),
-            Day15(getFileName(day))::processPart1,
-            Day15(getFileName(day))::processPart2,
+            Day15.solvePart1(getFileName(day)),
+            Day15.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -172,8 +172,8 @@ class MainClass : AocMainClassHelper {
         day = 16
         day(
             getDayString(day),
-            Day16(getFileName(day))::processPart1,
-            Day16(getFileName(day))::processPart2,
+            Day16.solvePart1(getFileName(day)),
+            Day16.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -181,8 +181,8 @@ class MainClass : AocMainClassHelper {
         day = 17
         day(
             getDayString(day),
-            Day17(getFileName(day))::processPart1,
-            Day17(getFileName(day))::processPart2,
+            Day17.solvePart1(getFileName(day)),
+            Day17.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -190,26 +190,26 @@ class MainClass : AocMainClassHelper {
         day = 18
         day(
             getDayString(day),
-            Day18(getFileName(day))::processPart1,
-            Day18(getFileName(day))::processPart2,
+            Day18.solvePart1(getFileName(day)),
+            Day18.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
 
         day = 19
-            day(
-                getDayString(day),
-                Day19(getFileName(day))::processPart1,
-                Day19(getFileName(day))::processPart2,
-                daysSelected,
-                args
-            )
+        day(
+            getDayString(day),
+            Day19.solvePart1(getFileName(day)),
+            Day19.solvePart2(getFileName(day)),
+            daysSelected,
+            args
+        )
 
         day = 20
         day(
             getDayString(day),
-            Day20(getFileName(day))::processPart1,
-            Day20(getFileName(day))::processPart2,
+            Day20.solvePart1(getFileName(day)),
+            Day20.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -217,8 +217,8 @@ class MainClass : AocMainClassHelper {
         day = 21
         day(
             getDayString(day),
-            Day21(getFileName(day))::processPart1,
-            Day21(getFileName(day))::processPart2,
+            Day21.solvePart1(getFileName(day)),
+            Day21.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -226,8 +226,8 @@ class MainClass : AocMainClassHelper {
         day = 22
         day(
             getDayString(day),
-            Day22(getFileName(day))::processPart1,
-            Day22(getFileName(day))::processPart2,
+            Day22.solvePart1(getFileName(day)),
+            Day22.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -235,8 +235,8 @@ class MainClass : AocMainClassHelper {
         day = 23
         day(
             getDayString(day),
-            Day23(getFileName(day))::processPart1,
-            Day23(getFileName(day))::processPart2,
+            Day23.solvePart1(getFileName(day)),
+            Day23.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -244,8 +244,8 @@ class MainClass : AocMainClassHelper {
         day = 24
         day(
             getDayString(day),
-            Day24(getFileName(day))::processPart1,
-            Day24(getFileName(day))::processPart2,
+            Day24.solvePart1(getFileName(day)),
+            Day24.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
@@ -253,8 +253,8 @@ class MainClass : AocMainClassHelper {
         day = 25
         day(
             getDayString(day),
-            Day25(getFileName(day))::processPart1,
-            Day25(getFileName(day))::processPart2,
+            Day25.solvePart1(getFileName(day)),
+            Day25.solvePart2(getFileName(day)),
             daysSelected,
             args
         )
