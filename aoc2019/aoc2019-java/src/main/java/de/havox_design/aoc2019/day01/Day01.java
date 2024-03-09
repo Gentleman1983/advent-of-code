@@ -3,7 +3,6 @@ package de.havox_design.aoc2019.day01;
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.List;
-import java.util.Map;
 
 public class Day01 implements AoCFunctionality {
     private final List<Long> input;
@@ -33,10 +32,29 @@ public class Day01 implements AoCFunctionality {
     }
 
     public long processTask2() {
-        return 0;
+        long totalFuelRequirement = 0L;
+
+        for (long moduleMass : input) {
+            long fuelToPropelMass = calculateFuelRequirement(moduleMass);
+            long fuelToPropelFuel = calculateFuelToPropelFuel(fuelToPropelMass);
+
+            totalFuelRequirement += fuelToPropelMass + fuelToPropelFuel;
+        }
+
+        return totalFuelRequirement;
     }
 
     private long calculateFuelRequirement(long mass) {
         return (mass / 3) - 2;
+    }
+
+    private long calculateFuelToPropelFuel(long fuelMass) {
+        long totalFuelToPropelFuel = 0L;
+
+        for(long currentFuelToPropelFuel = calculateFuelRequirement(fuelMass); currentFuelToPropelFuel > 0; currentFuelToPropelFuel = calculateFuelRequirement(currentFuelToPropelFuel)) {
+            totalFuelToPropelFuel += currentFuelToPropelFuel;
+        }
+
+        return totalFuelToPropelFuel;
     }
 }
