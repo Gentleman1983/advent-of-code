@@ -17,7 +17,11 @@ class Day01Test {
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2019/day01/day01part1sample1.txt", 0L)
+                Arguments.of("de/havox_design/aoc2019/day01/day01part1sample1.txt", 2L),
+                Arguments.of("de/havox_design/aoc2019/day01/day01part1sample2.txt", 2L),
+                Arguments.of("de/havox_design/aoc2019/day01/day01part1sample3.txt", 654L),
+                Arguments.of("de/havox_design/aoc2019/day01/day01part1sample4.txt", 33583L),
+                Arguments.of("de/havox_design/aoc2019/day01/day01part1sample5.txt", 34241L)
         );
     }
 

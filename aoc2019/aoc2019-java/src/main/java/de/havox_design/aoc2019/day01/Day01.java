@@ -2,11 +2,14 @@ package de.havox_design.aoc2019.day01;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
+import java.util.List;
+import java.util.Map;
+
 public class Day01 implements AoCFunctionality {
-    private final String input;
+    private final List<Long> input;
 
     public Day01(String fileName) {
-        input = readString(fileName);
+        input = readData(fileName).stream().map(line -> Long.parseLong(line.trim())).toList();
     }
 
     public static long processTask1(String fileName) {
@@ -20,10 +23,20 @@ public class Day01 implements AoCFunctionality {
     }
 
     public long processTask1() {
-        return 0;
+        long totalFuelRequirement = 0L;
+
+        for (long moduleMass : input) {
+            totalFuelRequirement += calculateFuelRequirement(moduleMass);
+        }
+
+        return totalFuelRequirement;
     }
 
     public long processTask2() {
         return 0;
+    }
+
+    private long calculateFuelRequirement(long mass) {
+        return (mass / 3) - 2;
     }
 }
