@@ -39,7 +39,11 @@ public class CrossedWires implements AoCFunctionality {
     }
 
     public long processTask2() {
-        return 0;
+        return intersectionPoints
+                .stream()
+                .mapToLong(this::signalDistanceTo)
+                .min()
+                .orElse(0L);
     }
 
     private Set<GridPoint> findWireIntersectionPoints() {
@@ -58,11 +62,17 @@ public class CrossedWires implements AoCFunctionality {
         return resultingIntersectionPoints;
     }
 
-    public GridPoint getClosesIntersectionPoint() {
+    private GridPoint getClosesIntersectionPoint() {
         return intersectionPoints
                 .stream()
                 .min(Comparator.comparingInt(centralPort::distanceTo))
                 .orElse(centralPort);
     }
 
+    private int signalDistanceTo(GridPoint intersectionPoint) {
+        return wires
+                .stream()
+                .mapToInt(wire -> wire.signalDistanceTo(intersectionPoint))
+                .sum();
+    }
 }
