@@ -29,4 +29,10 @@ enum class FourDirections(private val direction: Coordinate) {
         LEFT -> RIGHT
         RIGHT -> LEFT
     }
+
+    fun dx(): Int =
+        direction.x
+
+    fun dy(): Int =
+        direction.y
 }
