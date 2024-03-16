@@ -3,18 +3,20 @@ package de.havox_design.aoc2019.day02;
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 import de.havox_design.aoc.utils.java.model.computer.aoc2019.Computer;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ProgramAlarm1202 implements AoCFunctionality {
+    private static final String VALUE_DELIMITER = ",";
+
     private final List<Long> input;
 
     public ProgramAlarm1202(String fileName) {
         input = Arrays
-                .stream(readString(fileName).split(","))
+                .stream(readString(fileName).split(VALUE_DELIMITER))
                 .map(value -> Long.parseLong(value.trim()))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public static long processTask1(String fileName) {
@@ -28,23 +30,52 @@ public class ProgramAlarm1202 implements AoCFunctionality {
     }
 
     public long processTask1() {
-        List<Long> program = input;
+        List<Long> program = new ArrayList<>(input);
+        long noun = 12L;
+        long verb = 2L;
 
-        return compute( program, 12, 2 );
+        return compute(program, noun, verb);
     }
 
     public long processTask2() {
-        return 0;
-    }
+        List<Long> program = new ArrayList<>(input);
+        long expectedOutput = 19690720L;
+        long minValue = 0L;
+        long maxValue = 99L;
+        long nounMultiplicator = 100L;
 
-    private Long compute(List<Long> program, long noun, long verb ) {
-        if ( program.size() > 10 ) {
-            program.set( 1, noun );
-            program.set( 2, verb );
+        for (long noun = minValue; noun <= maxValue; noun++) {
+            for (long verb = minValue; verb <= maxValue; verb++) {
+                if (compute(program, noun, verb).equals(expectedOutput)) {
+                    return nounMultiplicator * noun + verb;
+                }
+            }
         }
 
-        final Computer computer = new Computer( program );
+        throw new IllegalStateException(
+                String
+                        .format(
+                                "This should never happen. Did not find any solution to produce output '%s' using " +
+                                        "noun and verb values from %s to %s.",
+                                expectedOutput,
+                                minValue,
+                                maxValue
+                        )
+        );
+    }
+
+    private Long compute(List<Long> program, long noun, long verb) {
+        if (program.size() > 10) {
+            program.set(1, noun);
+            program.set(2, verb);
+        }
+
+        Computer computer = new Computer(program);
+
         computer.run();
-        return computer.memory.get( 0L );
+
+        return computer
+                .getMemory()
+                .get(0L);
     }
 }
