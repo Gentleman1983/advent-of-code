@@ -2,20 +2,20 @@ package de.havox_design.aoc2019.day04;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
-public class Day04 implements AoCFunctionality {
+public class SecureContainer implements AoCFunctionality {
     private final String input;
 
-    public Day04(String fileName) {
+    public SecureContainer(String fileName) {
         input = readString(fileName);
     }
 
     public static long processTask1(String fileName) {
-        Day04 instance = new Day04(fileName);
+        SecureContainer instance = new SecureContainer(fileName);
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
-        Day04 instance = new Day04(fileName);
+        SecureContainer instance = new SecureContainer(fileName);
         return instance.processTask2();
     }
 
