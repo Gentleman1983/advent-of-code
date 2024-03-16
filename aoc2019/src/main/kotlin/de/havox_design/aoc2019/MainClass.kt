@@ -3,7 +3,7 @@ package de.havox_design.aoc2019
 import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
 import de.havox_design.aoc2019.day01.TheTyrannyOfTheRocketEquation
 import de.havox_design.aoc2019.day02.ProgramAlarm1202
-import de.havox_design.aoc2019.day03.Day03
+import de.havox_design.aoc2019.day03.CrossedWires
 import de.havox_design.aoc2019.day04.Day04
 import de.havox_design.aoc2019.day05.Day05
 import de.havox_design.aoc2019.day06.Day06
@@ -55,8 +55,8 @@ class MainClass: AocMainClassHelper {
         day = 3
         day(
             getDayString(day),
-            Day03(getFileName(day))::processTask1,
-            Day03(getFileName(day))::processTask2,
+            CrossedWires(getFileName(day))::processTask1,
+            CrossedWires(getFileName(day))::processTask2,
             daysSelected,
             args
         )

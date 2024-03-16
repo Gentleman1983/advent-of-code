@@ -12,19 +12,21 @@ class Day03Test {
     @ParameterizedTest
     @MethodSource("getDataForTask1")
     void testTask1(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, Day03.processTask1(fileName));
+        Assertions.assertEquals(expectation, CrossedWires.processTask1(fileName));
     }
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2019/day03/day03part1sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2019/day03/day03part1sample1.txt", 6L),
+                Arguments.of("de/havox_design/aoc2019/day03/day03part1sample2.txt", 159L),
+                Arguments.of("de/havox_design/aoc2019/day03/day03part1sample3.txt", 135L)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
     void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, Day03.processTask2(fileName));
+        Assertions.assertEquals(expectation, CrossedWires.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {

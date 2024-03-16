@@ -2,20 +2,20 @@ package de.havox_design.aoc2019.day03;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
-public class Day03 implements AoCFunctionality {
+public class CrossedWires implements AoCFunctionality {
     private final String input;
 
-    public Day03(String fileName) {
+    public CrossedWires(String fileName) {
         input = readString(fileName);
     }
 
     public static long processTask1(String fileName) {
-        Day03 instance = new Day03(fileName);
+        CrossedWires instance = new CrossedWires(fileName);
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
-        Day03 instance = new Day03(fileName);
+        CrossedWires instance = new CrossedWires(fileName);
         return instance.processTask2();
     }
 
