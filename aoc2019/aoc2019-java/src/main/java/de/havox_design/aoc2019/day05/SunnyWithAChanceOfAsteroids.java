@@ -12,6 +12,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class SunnyWithAChanceOfAsteroids implements AoCFunctionality {
     private static final String VALUE_DELIMITER = ",";
+    private static final Long ID_AIR_CONDITIONER = 1L;
+    private static final Long ID_THERMAL_RADIATOR = 5L;
 
     private final List<Long> input;
 
@@ -33,11 +35,11 @@ public class SunnyWithAChanceOfAsteroids implements AoCFunctionality {
     }
 
     public long processTask1() {
-        return process(1L);
+        return process(ID_AIR_CONDITIONER);
     }
 
     public long processTask2() {
-        return 0;
+        return process(ID_THERMAL_RADIATOR);
     }
 
     private Long process(long inputNumber ) {
