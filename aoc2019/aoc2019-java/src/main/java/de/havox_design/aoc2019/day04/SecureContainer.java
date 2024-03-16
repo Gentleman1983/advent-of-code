@@ -40,21 +40,24 @@ public class SecureContainer implements AoCFunctionality {
     public long processTask1() {
         return IntStream
                 .rangeClosed(rangeFrom, rangeTo)
-                .filter(this::isValidPassword)
+                .filter(this::computePart1)
                 .count();
     }
 
     public long processTask2() {
-        return 0;
+        return IntStream
+                .rangeClosed(rangeFrom, rangeTo)
+                .filter(this::computePart2)
+                .count();
     }
 
-    private boolean isValidPassword(int password) {
-        String passwordString = String.valueOf(password);
+    private boolean computePart1(int password) {
+        String passwordStr = String.valueOf(password);
         boolean hasTwoSameAdjacentDigits = false;
         int lastDigit = -1;
 
-        for (int i = 0; i < passwordString.length(); i++) {
-            int currentDigit = passwordString.charAt(i) - '0';
+        for (int i = 0; i < passwordStr.length(); i++) {
+            int currentDigit = passwordStr.charAt(i) - '0';
 
             if (lastDigit == currentDigit) {
                 hasTwoSameAdjacentDigits = true;
@@ -66,5 +69,32 @@ public class SecureContainer implements AoCFunctionality {
         }
 
         return hasTwoSameAdjacentDigits;
+    }
+
+    private boolean computePart2(int password) {
+        String passwordStr = String.valueOf(password);
+        boolean hasTwoSameAdjacentDigits = false;
+        int sameDigitCount = 0;
+        int lastDigit = -1;
+
+        for (int i = 0; i < passwordStr.length(); i++) {
+            int currentDigit = passwordStr.charAt(i) - '0';
+
+            if (lastDigit > currentDigit) {
+                return false;
+            } else if (lastDigit == currentDigit) {
+                sameDigitCount++;
+            } else {
+                if (sameDigitCount == 1) {
+                    hasTwoSameAdjacentDigits = true;
+                }
+
+                sameDigitCount = 0;
+            }
+
+            lastDigit = currentDigit;
+        }
+
+        return hasTwoSameAdjacentDigits || sameDigitCount == 1;
     }
 }
