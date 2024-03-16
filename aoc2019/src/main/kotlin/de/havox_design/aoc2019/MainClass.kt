@@ -5,7 +5,7 @@ import de.havox_design.aoc2019.day01.TheTyrannyOfTheRocketEquation
 import de.havox_design.aoc2019.day02.ProgramAlarm1202
 import de.havox_design.aoc2019.day03.CrossedWires
 import de.havox_design.aoc2019.day04.SecureContainer
-import de.havox_design.aoc2019.day05.Day05
+import de.havox_design.aoc2019.day05.SunnyWithAChanceOfAsteroids
 import de.havox_design.aoc2019.day06.Day06
 import de.havox_design.aoc2019.day07.Day07
 import de.havox_design.aoc2019.day08.Day08
@@ -73,8 +73,8 @@ class MainClass: AocMainClassHelper {
         day = 5
         day(
             getDayString(day),
-            Day05(getFileName(day))::processTask1,
-            Day05(getFileName(day))::processTask2,
+            SunnyWithAChanceOfAsteroids(getFileName(day))::processTask1,
+            SunnyWithAChanceOfAsteroids(getFileName(day))::processTask2,
             daysSelected,
             args
         )
