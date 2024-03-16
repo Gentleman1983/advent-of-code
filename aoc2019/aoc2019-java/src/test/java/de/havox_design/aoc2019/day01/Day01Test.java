@@ -12,7 +12,7 @@ class Day01Test {
     @ParameterizedTest
     @MethodSource("getDataForTask1")
     void testTask1(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, Day01.processTask1(fileName));
+        Assertions.assertEquals(expectation, TheTyrannyOfTheRocketEquation.processTask1(fileName));
     }
 
     private static Stream<Arguments> getDataForTask1() {
@@ -28,7 +28,7 @@ class Day01Test {
     @ParameterizedTest
     @MethodSource("getDataForTask2")
     void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, Day01.processTask2(fileName));
+        Assertions.assertEquals(expectation, TheTyrannyOfTheRocketEquation.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {

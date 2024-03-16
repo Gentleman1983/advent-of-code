@@ -4,20 +4,20 @@ import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.List;
 
-public class Day01 implements AoCFunctionality {
+public class TheTyrannyOfTheRocketEquation implements AoCFunctionality {
     private final List<Long> input;
 
-    public Day01(String fileName) {
+    public TheTyrannyOfTheRocketEquation(String fileName) {
         input = readData(fileName).stream().map(line -> Long.parseLong(line.trim())).toList();
     }
 
     public static long processTask1(String fileName) {
-        Day01 instance = new Day01(fileName);
+        TheTyrannyOfTheRocketEquation instance = new TheTyrannyOfTheRocketEquation(fileName);
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
-        Day01 instance = new Day01(fileName);
+        TheTyrannyOfTheRocketEquation instance = new TheTyrannyOfTheRocketEquation(fileName);
         return instance.processTask2();
     }
 

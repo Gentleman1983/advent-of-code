@@ -1,8 +1,8 @@
 package de.havox_design.aoc2019
 
 import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
-import de.havox_design.aoc2019.day01.Day01
-import de.havox_design.aoc2019.day02.Day02
+import de.havox_design.aoc2019.day01.TheTyrannyOfTheRocketEquation
+import de.havox_design.aoc2019.day02.ProgramAlarm1202
 import de.havox_design.aoc2019.day03.Day03
 import de.havox_design.aoc2019.day04.Day04
 import de.havox_design.aoc2019.day05.Day05
@@ -37,8 +37,8 @@ class MainClass: AocMainClassHelper {
         var day = 1
         day(
             getDayString(day),
-            Day01(getFileName(day))::processTask1,
-            Day01(getFileName(day))::processTask2,
+            TheTyrannyOfTheRocketEquation(getFileName(day))::processTask1,
+            TheTyrannyOfTheRocketEquation(getFileName(day))::processTask2,
             daysSelected,
             args
         )
@@ -46,8 +46,8 @@ class MainClass: AocMainClassHelper {
         day = 2
         day(
             getDayString(day),
-            Day02(getFileName(day))::processTask1,
-            Day02(getFileName(day))::processTask2,
+            ProgramAlarm1202(getFileName(day))::processTask1,
+            ProgramAlarm1202(getFileName(day))::processTask2,
             daysSelected,
             args
         )
