@@ -10,10 +10,6 @@ plugins {
     alias(libs.plugins.sonarqube.plugin)
 }
 
-// project meta data
-group = "de.havox_design.aoc"
-version = "2024.3.5"
-
 dependencies {
     rootProject.subprojects.forEach { subproject ->
         jacocoAggregation(subproject)
