@@ -9,7 +9,7 @@ import de.havox_design.aoc2019.day05.SunnyWithAChanceOfAsteroids
 import de.havox_design.aoc2019.day06.UniversalOrbitMap
 import de.havox_design.aoc2019.day07.AmplificationCircuit
 import de.havox_design.aoc2019.day08.SpaceImageFormat
-import de.havox_design.aoc2019.day09.Day09
+import de.havox_design.aoc2019.day09.SensorBoost
 import de.havox_design.aoc2019.day10.Day10
 import de.havox_design.aoc2019.day11.Day11
 import de.havox_design.aoc2019.day12.Day12
@@ -109,8 +109,8 @@ class MainClass: AocMainClassHelper {
         day = 9
         day(
             getDayString(day),
-            Day09(getFileName(day))::processTask1,
-            Day09(getFileName(day))::processTask2,
+            SensorBoost(getFileName(day))::processTask1,
+            SensorBoost(getFileName(day))::processTask2,
             daysSelected,
             args
         )
