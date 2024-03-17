@@ -3,6 +3,7 @@ package de.havox_design.aoc2019.day06;
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,7 +11,7 @@ import java.util.regex.Pattern;
 public class UniversalOrbitMap implements AoCFunctionality {
     public static final Pattern ORBIT_RELATIONSHIP_PATTERN = Pattern.compile("(.+)\\)(.+)");
 
-    private final Map<String, ObjectInSpace> universalOrbitMap = new HashMap<>();
+    private static final Map<String, ObjectInSpace> UNIVERSAL_ORBIT_MAP = new HashMap<>();
 
     public UniversalOrbitMap(String fileName) {
         readData(fileName)
@@ -28,7 +29,7 @@ public class UniversalOrbitMap implements AoCFunctionality {
     }
 
     public long processTask1() {
-        return universalOrbitMap
+        return UNIVERSAL_ORBIT_MAP
                 .values()
                 .stream()
                 .flatMap(ObjectInSpace::toCenterOfMass)
@@ -36,7 +37,28 @@ public class UniversalOrbitMap implements AoCFunctionality {
     }
 
     public long processTask2() {
-        return 0;
+        ObjectInSpace youObject = findObjectInSpace("YOU");
+        ObjectInSpace sanObject = findObjectInSpace("SAN");
+
+        List<ObjectInSpace> toCenterPathYou = youObject
+                .toCenterOfMass()
+                .toList();
+        List<ObjectInSpace> toCenterPathSan = sanObject
+                .toCenterOfMass()
+                .toList();
+
+        ObjectInSpace intersectionObject = toCenterPathYou
+                .stream()
+                .filter(toCenterPathSan::contains)
+                .findFirst()
+                .orElseThrow();
+
+        int stepsYou = toCenterPathYou
+                .indexOf(intersectionObject);
+        int stepsSan = toCenterPathSan
+                .indexOf(intersectionObject);
+
+        return (long) stepsYou + stepsSan;
     }
 
     private void putOrbitRelationship(String line) {
@@ -55,6 +77,10 @@ public class UniversalOrbitMap implements AoCFunctionality {
     }
 
     private ObjectInSpace putObjectInSpace(String objectName) {
-        return universalOrbitMap.computeIfAbsent(objectName, ObjectInSpace::new);
+        return UNIVERSAL_ORBIT_MAP.computeIfAbsent(objectName, ObjectInSpace::new);
+    }
+
+    private ObjectInSpace findObjectInSpace(String name) {
+        return UNIVERSAL_ORBIT_MAP.get(name);
     }
 }
