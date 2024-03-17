@@ -1,7 +1,7 @@
 package de.havox_design.aoc2019.day05;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
-import de.havox_design.aoc.utils.java.model.computer.aoc2019.Computer;
+import de.havox_design.aoc.utils.java.model.computer.aoc2019.IntComputer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -48,7 +48,7 @@ public class SunnyWithAChanceOfAsteroids implements AoCFunctionality {
 
         in.add( inputNumber );
 
-        Computer.runComputer( input, in, out, false );
+        IntComputer.runComputer( input, in, out, false );
 
         return out.removeLast();
     }

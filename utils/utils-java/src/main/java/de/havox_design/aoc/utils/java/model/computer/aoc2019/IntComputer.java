@@ -6,8 +6,8 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.logging.Logger;
 
-public class Computer implements Runnable {
-    private static final Logger LOGGER = Logger.getLogger(Computer.class.getName());
+public class IntComputer implements Runnable {
+    private static final Logger LOGGER = Logger.getLogger(IntComputer.class.getName());
     private static final ExecutorService EXECUTOR = Executors.newCachedThreadPool();
     private static final boolean PRINT_HALT = false;
     private static final Set<OpCodeData> OPCODES = Set.of(
@@ -31,15 +31,15 @@ public class Computer implements Runnable {
     private final BlockingQueue<Long> in;
     private final BlockingQueue<Long> out;
 
-    public Computer(final List<Long> program) {
+    public IntComputer(final List<Long> program) {
         this(false, program, null, null);
     }
 
-    public Computer(final List<Long> program, final BlockingQueue<Long> in, final BlockingQueue<Long> out) {
+    public IntComputer(final List<Long> program, final BlockingQueue<Long> in, final BlockingQueue<Long> out) {
         this(true, program, in, out);
     }
 
-    private Computer(final boolean modes, final List<Long> program, final BlockingQueue<Long> in, final BlockingQueue<Long> out) {
+    private IntComputer(final boolean modes, final List<Long> program, final BlockingQueue<Long> in, final BlockingQueue<Long> out) {
         this.modes = modes;
         this.in = in;
         this.out = out;
@@ -143,7 +143,7 @@ public class Computer implements Runnable {
 
     @SuppressWarnings("squid:S1452")
     public static Future<?> runComputer(final List<Long> program, final BlockingQueue<Long> in, final BlockingQueue<Long> out, final boolean async) {
-        final Computer computer = new Computer(program, in, out);
+        final IntComputer computer = new IntComputer(program, in, out);
         final Future<?> future;
         if (async) {
             future = computer.runAsync();

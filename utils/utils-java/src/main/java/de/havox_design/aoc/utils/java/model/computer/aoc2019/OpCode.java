@@ -8,10 +8,10 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 
-public enum OpCode implements Consumer<Computer> {
-    ADD(Computer.getDataFor("ADD")) {
+public enum OpCode implements Consumer<IntComputer> {
+    ADD(IntComputer.getDataFor("ADD")) {
         @Override
-        public void accept(Computer computer) {
+        public void accept(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             Long first = computer.getNextParameter(computer.getMode(instruction, 1));
             Long second = computer.getNextParameter(computer.getMode(instruction, 2));
@@ -20,7 +20,7 @@ public enum OpCode implements Consumer<Computer> {
         }
 
         @Override
-        public String toString(Computer computer) {
+        public String toString(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             String first = computer.printParameter(computer.getMode(instruction, 1), 1);
             String second = computer.printParameter(computer.getMode(instruction, 2), 2);
@@ -30,9 +30,9 @@ public enum OpCode implements Consumer<Computer> {
         }
 
     },
-    MULTIPLY(Computer.getDataFor("MULTIPLY")) {
+    MULTIPLY(IntComputer.getDataFor("MULTIPLY")) {
         @Override
-        public void accept(Computer computer) {
+        public void accept(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             Long first = computer.getNextParameter(computer.getMode(instruction, 1));
             Long second = computer.getNextParameter(computer.getMode(instruction, 2));
@@ -41,7 +41,7 @@ public enum OpCode implements Consumer<Computer> {
         }
 
         @Override
-        public String toString(Computer computer) {
+        public String toString(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             String first = computer.printParameter(computer.getMode(instruction, 1), 1);
             String second = computer.printParameter(computer.getMode(instruction, 2), 2);
@@ -50,31 +50,31 @@ public enum OpCode implements Consumer<Computer> {
             return String.format("%s: %s = %s * %s", padZero(computer.getPointer()), third, first, second);
         }
     },
-    HALT(Computer.getDataFor("HALT")) {
+    HALT(IntComputer.getDataFor("HALT")) {
         @Override
-        public void accept(Computer computer) {
-            if (Computer.getPrintHalt()) {
+        public void accept(IntComputer computer) {
+            if (IntComputer.getPrintHalt()) {
                 LOGGER.severe("HALT");
             }
         }
 
         @Override
-        public String toString(Computer computer) {
+        public String toString(IntComputer computer) {
             return String.format("%s: HALT", padZero(computer.getPointer()));
         }
     },
-    NOP(Computer.getDataFor("NOP")) {
+    NOP(IntComputer.getDataFor("NOP")) {
         @Override
-        public String toString(Computer computer) {
+        public String toString(IntComputer computer) {
             String first = computer.printParameter(1, 0);
 
             return String.format("%s: %s", padZero(computer.getPointer()), first);
         }
     },
-    IN(Computer.getDataFor("IN")) {
+    IN(IntComputer.getDataFor("IN")) {
         @Override
         @SuppressWarnings("squid:S2142")
-        public void accept(Computer computer) {
+        public void accept(IntComputer computer) {
             Long first;
 
             try {
@@ -88,16 +88,16 @@ public enum OpCode implements Consumer<Computer> {
         }
 
         @Override
-        public String toString(Computer computer) {
+        public String toString(IntComputer computer) {
             String first = computer.printParameter(0, 1);
 
             return String.format("%s: %s = user input", padZero(computer.getPointer()), first);
         }
     },
-    OUT(Computer.getDataFor("OUT")) {
+    OUT(IntComputer.getDataFor("OUT")) {
         @Override
         @SuppressWarnings("squid:S2142")
-        public void accept(Computer computer) {
+        public void accept(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             Long first = computer.getNextParameter(computer.getMode(instruction, 1));
 
@@ -109,16 +109,16 @@ public enum OpCode implements Consumer<Computer> {
         }
 
         @Override
-        public String toString(Computer computer) {
+        public String toString(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             String first = computer.printParameter(computer.getMode(instruction, 1), 1);
 
             return String.format("%s: print: %s", padZero(computer.getPointer()), first);
         }
     },
-    JUMP_TRUE(Computer.getDataFor("JUMP_TRUE")) {
+    JUMP_TRUE(IntComputer.getDataFor("JUMP_TRUE")) {
         @Override
-        public void accept(Computer computer) {
+        public void accept(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             Long first = computer.getNextParameter(computer.getMode(instruction, 1));
             Long second = computer.getNextParameter(computer.getMode(instruction, 2));
@@ -129,7 +129,7 @@ public enum OpCode implements Consumer<Computer> {
         }
 
         @Override
-        public String toString(Computer computer) {
+        public String toString(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             String first = computer.printParameter(computer.getMode(instruction, 1), 1);
             String second = computer.printParameter(computer.getMode(instruction, 2), 2);
@@ -137,9 +137,9 @@ public enum OpCode implements Consumer<Computer> {
             return String.format("%s: if ( %s != 0 ) jump to %s", padZero(computer.getPointer()), first, second);
         }
     },
-    JUMP_FALSE(Computer.getDataFor("JUMP_FALSE")) {
+    JUMP_FALSE(IntComputer.getDataFor("JUMP_FALSE")) {
         @Override
-        public void accept(Computer computer) {
+        public void accept(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             Long first = computer.getNextParameter(computer.getMode(instruction, 1));
             Long second = computer.getNextParameter(computer.getMode(instruction, 2));
@@ -150,7 +150,7 @@ public enum OpCode implements Consumer<Computer> {
         }
 
         @Override
-        public String toString(Computer computer) {
+        public String toString(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             String first = computer.printParameter(computer.getMode(instruction, 1), 1);
             String second = computer.printParameter(computer.getMode(instruction, 2), 2);
@@ -158,9 +158,9 @@ public enum OpCode implements Consumer<Computer> {
             return String.format("%s: if ( %s == 0 ) jump to %s", padZero(computer.getPointer()), first, second);
         }
     },
-    LESS_THAN(Computer.getDataFor("LESS_THAN")) {
+    LESS_THAN(IntComputer.getDataFor("LESS_THAN")) {
         @Override
-        public void accept(Computer computer) {
+        public void accept(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             Long first = computer.getNextParameter(computer.getMode(instruction, 1));
             Long second = computer.getNextParameter(computer.getMode(instruction, 2));
@@ -170,7 +170,7 @@ public enum OpCode implements Consumer<Computer> {
         }
 
         @Override
-        public String toString(Computer computer) {
+        public String toString(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             String first = computer.printParameter(computer.getMode(instruction, 1), 1);
             String second = computer.printParameter(computer.getMode(instruction, 2), 2);
@@ -179,9 +179,9 @@ public enum OpCode implements Consumer<Computer> {
             return String.format("%s: %s = ( %s < %s ) ? 1 : 0", padZero(computer.getPointer()), third, first, second);
         }
     },
-    EQUALS(Computer.getDataFor("EQUALS")) {
+    EQUALS(IntComputer.getDataFor("EQUALS")) {
         @Override
-        public void accept(Computer computer) {
+        public void accept(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             Long first = computer.getNextParameter(computer.getMode(instruction, 1));
             Long second = computer.getNextParameter(computer.getMode(instruction, 2));
@@ -191,7 +191,7 @@ public enum OpCode implements Consumer<Computer> {
         }
 
         @Override
-        public String toString(Computer computer) {
+        public String toString(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             String first = computer.printParameter(computer.getMode(instruction, 1), 1);
             String second = computer.printParameter(computer.getMode(instruction, 2), 2);
@@ -200,9 +200,9 @@ public enum OpCode implements Consumer<Computer> {
             return String.format("%s: %s = ( %s == %s ) ? 1 : 0", padZero(computer.getPointer()), third, first, second);
         }
     },
-    RELATIVE_BASE(Computer.getDataFor("RELATIVE_BASE")) {
+    RELATIVE_BASE(IntComputer.getDataFor("RELATIVE_BASE")) {
         @Override
-        public void accept(Computer computer) {
+        public void accept(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             Long first = computer.getNextParameter(computer.getMode(instruction, 1));
 
@@ -210,7 +210,7 @@ public enum OpCode implements Consumer<Computer> {
         }
 
         @Override
-        public String toString(Computer computer) {
+        public String toString(IntComputer computer) {
             Long instruction = computer.currentInstruction();
             String first = computer.printParameter(computer.getMode(instruction, 1), 1);
 
@@ -241,10 +241,10 @@ public enum OpCode implements Consumer<Computer> {
         return data.numberParameters();
     }
 
-    public abstract String toString(final Computer computer);
+    public abstract String toString(final IntComputer computer);
 
     @Override
-    public void accept(final Computer computer) {
+    public void accept(final IntComputer computer) {
         // simply accept.
     }
 

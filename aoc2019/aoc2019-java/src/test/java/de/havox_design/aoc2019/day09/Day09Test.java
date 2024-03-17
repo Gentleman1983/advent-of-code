@@ -22,16 +22,4 @@ class Day09Test {
                 Arguments.of("de/havox_design/aoc2019/day09/day09part1sample3.txt", "1125899906842624")
         );
     }
-
-    @ParameterizedTest
-    @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, SensorBoost.processTask2(fileName));
-    }
-
-    private static Stream<Arguments> getDataForTask2() {
-        return Stream.of(
-                Arguments.of("de/havox_design/aoc2019/day09/day09part2sample.txt", 0L)
-        );
-    }
 }

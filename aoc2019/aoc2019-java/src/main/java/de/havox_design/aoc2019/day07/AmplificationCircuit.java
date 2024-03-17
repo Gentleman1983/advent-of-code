@@ -3,7 +3,7 @@ package de.havox_design.aoc2019.day07;
 import com.google.common.collect.Collections2;
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 import de.havox_design.aoc.utils.java.exceptions.AdventOfCodeException;
-import de.havox_design.aoc.utils.java.model.computer.aoc2019.Computer;
+import de.havox_design.aoc.utils.java.model.computer.aoc2019.IntComputer;
 
 import java.util.*;
 import java.util.concurrent.BlockingQueue;
@@ -59,7 +59,7 @@ public class AmplificationCircuit implements AoCFunctionality {
         while (settings.hasNext()) {
             previousConnection.add(settings.next().longValue());
             BlockingQueue<Long> nextConnection = settings.hasNext() ? new LinkedBlockingQueue<>() : firstConnection;
-            computers.add(Computer.runComputer(input, previousConnection, nextConnection, true));
+            computers.add(IntComputer.runComputer(input, previousConnection, nextConnection, true));
             previousConnection = nextConnection;
         }
 

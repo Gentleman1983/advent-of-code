@@ -1,7 +1,7 @@
 package de.havox_design.aoc2019.day02;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
-import de.havox_design.aoc.utils.java.model.computer.aoc2019.Computer;
+import de.havox_design.aoc.utils.java.model.computer.aoc2019.IntComputer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -70,7 +70,7 @@ public class ProgramAlarm1202 implements AoCFunctionality {
             program.set(2, verb);
         }
 
-        Computer computer = new Computer(program);
+        IntComputer computer = new IntComputer(program);
 
         computer.run();
 
