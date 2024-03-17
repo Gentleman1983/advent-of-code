@@ -38,7 +38,7 @@ public class AmplificationCircuit implements AoCFunctionality {
     }
 
     public long processTask2() {
-        return 0;
+        return process(Set.of(5, 6, 7, 8, 9));
     }
 
     private long process(Collection<Integer> availablePhases) {
