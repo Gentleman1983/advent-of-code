@@ -8,7 +8,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-public class ObjectInSpace {
+public final class ObjectInSpace {
     public static final String CENTER_OF_MASS_NAME = "COM";
 
     private final String name;
