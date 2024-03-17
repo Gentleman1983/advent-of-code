@@ -2,20 +2,20 @@ package de.havox_design.aoc2019.day08;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
-public class Day08 implements AoCFunctionality {
+public class SpaceImageFormat implements AoCFunctionality {
     private final String input;
 
-    public Day08(String fileName) {
+    public SpaceImageFormat(String fileName) {
         input = readString(fileName);
     }
 
     public static long processTask1(String fileName) {
-        Day08 instance = new Day08(fileName);
+        SpaceImageFormat instance = new SpaceImageFormat(fileName);
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
-        Day08 instance = new Day08(fileName);
+        SpaceImageFormat instance = new SpaceImageFormat(fileName);
         return instance.processTask2();
     }
 
