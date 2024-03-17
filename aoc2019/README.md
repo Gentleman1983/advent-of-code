@@ -19,7 +19,7 @@ For more information see https://adventofcode.com [2019](https://adventofcode.co
 | 7       | ⭐ ![JAVA](../img/java.png) | ⭐ ![JAVA](../img/java.png) |
 | 8       | ⭐ ![JAVA](../img/java.png) | ⭐ ![JAVA](../img/java.png) |
 | 9       | ⭐ ![JAVA](../img/java.png) | ⭐ ![JAVA](../img/java.png) |
-| 10      | ❌ ![JAVA](../img/java.png) | ❌ ![JAVA](../img/java.png) |
+| 10      | ⭐ ![JAVA](../img/java.png) | ⭐ ![JAVA](../img/java.png) |
 | 11      | ❌ ![JAVA](../img/java.png) | ❌ ![JAVA](../img/java.png) |
 | 12      | ❌ ![JAVA](../img/java.png) | ❌ ![JAVA](../img/java.png) |
 | 13      | ❌ ![JAVA](../img/java.png) | ❌ ![JAVA](../img/java.png) |
@@ -35,9 +35,9 @@ For more information see https://adventofcode.com [2019](https://adventofcode.co
 | 23      | ❌ ![JAVA](../img/java.png) | ❌ ![JAVA](../img/java.png) |
 | 24      | ❌ ![JAVA](../img/java.png) | ❌ ![JAVA](../img/java.png) |
 | 25      | ❌ ![JAVA](../img/java.png) | ❌ ![JAVA](../img/java.png) |
-| **SUM** | **9 ⭐**                    | **9 ⭐**                    |
+| **SUM** | **10 ⭐**                   | **10 ⭐**                   |
 
-Total: 18 ⭐
+Total: 20 ⭐
 
 ## Solution image
 N/A
