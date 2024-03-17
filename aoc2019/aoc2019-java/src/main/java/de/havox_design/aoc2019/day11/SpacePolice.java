@@ -2,20 +2,20 @@ package de.havox_design.aoc2019.day11;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
-public class Day11 implements AoCFunctionality {
+public class SpacePolice implements AoCFunctionality {
     private final String input;
 
-    public Day11(String fileName) {
+    public SpacePolice(String fileName) {
         input = readString(fileName);
     }
 
     public static long processTask1(String fileName) {
-        Day11 instance = new Day11(fileName);
+        SpacePolice instance = new SpacePolice(fileName);
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
-        Day11 instance = new Day11(fileName);
+        SpacePolice instance = new SpacePolice(fileName);
         return instance.processTask2();
     }
 
