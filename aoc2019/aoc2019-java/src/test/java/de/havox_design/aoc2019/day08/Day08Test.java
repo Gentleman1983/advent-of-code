@@ -23,13 +23,13 @@ class Day08Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
+    void testTask2(String fileName, String expectation) {
         Assertions.assertEquals(expectation, SpaceImageFormat.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2019/day08/day08part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2019/day08/day08part2sample.txt", "\n #\n# ")
         );
     }
 }

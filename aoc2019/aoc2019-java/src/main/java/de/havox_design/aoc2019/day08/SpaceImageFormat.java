@@ -4,14 +4,17 @@ import de.havox_design.aoc.utils.java.AoCFunctionality;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.*;
-import java.util.function.ToLongFunction;
+import java.util.function.Function;
 
+import static de.havox_design.aoc2019.day08.PixelValue.*;
 import static java.util.Comparator.comparingLong;
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingByConcurrent;
 
 public class SpaceImageFormat implements AoCFunctionality {
+    private static final Map<Character, PixelValue> PIXEL_VALUES = Map.of('0', WHITE, '1', BLACK);
+
     private final String input;
 
     public SpaceImageFormat(String fileName) {
@@ -23,20 +26,22 @@ public class SpaceImageFormat implements AoCFunctionality {
         return instance.processTask1();
     }
 
-    public static long processTask2(String fileName) {
+    public static String processTask2(String fileName) {
         SpaceImageFormat instance = new SpaceImageFormat(fileName);
         return instance.processTask2();
     }
 
     public long processTask1() {
-        return solve(this::computeResultFirst);
+        return (long) process(this::computeResultFirst);
     }
 
-    public long processTask2() {
-        return 0;
+    public String processTask2() {
+        return ((String) process(this::computeResultSecond))
+                .replace('0', ' ')
+                .replace('1', '#');
     }
 
-    private long solve(ToLongFunction<List<List<List<Character>>>> computeResult) {
+    private Object process(Function<List<List<List<Character>>>, ?> computeResult) {
         int rows = input.length() < 20 ? 2 : 6;
         int columns = input.length() < 20 ? 2 : 25;
         List<List<List<Character>>> image = new ArrayList<>();
@@ -49,7 +54,7 @@ public class SpaceImageFormat implements AoCFunctionality {
             image.add(createLayer(inputChars, rows, columns));
         }
 
-        return computeResult.applyAsLong(image);
+        return computeResult.apply(image);
     }
 
     private List<List<Character>> createLayer(Iterator<Character> input, int rows, int columns) {
@@ -68,7 +73,7 @@ public class SpaceImageFormat implements AoCFunctionality {
         return matrix;
     }
 
-    private Pair<Long, Long> computeLayerValue(final List<List<Character>> layer) {
+    private Pair<Long, Long> computeLayerValue(List<List<Character>> layer) {
         Map<Character, Long> frequencies = layer
                 .parallelStream()
                 .flatMap(Collection::stream)
@@ -79,12 +84,37 @@ public class SpaceImageFormat implements AoCFunctionality {
         return Pair.of(zeroes, value);
     }
 
-    private long computeResultFirst(final List<List<List<Character>>> image) {
+    private long computeResultFirst(List<List<List<Character>>> image) {
         return image
                 .stream()
                 .map(this::computeLayerValue)
                 .min(comparingLong(Pair::getLeft))
                 .map(Pair::getRight)
                 .orElseThrow();
+    }
+
+    private String computeResultSecond(List<List<List<Character>>> image) {
+        StringBuilder result = new StringBuilder();
+
+        for (int row = 0; row < image.getFirst().size(); row++) {
+            result.append("\n");
+
+            for (int column = 0; column < image.getFirst().getFirst().size(); column++) {
+                result.append(findPixel(image, row, column));
+            }
+        }
+
+        return result.toString();
+    }
+
+    private Character findPixel(List<List<List<Character>>> image, int row, int column) {
+        return image
+                .stream()
+                .map(layer -> layer.get(row).get(column))
+                .filter(PIXEL_VALUES::containsKey)
+                .findFirst()
+                .map(PIXEL_VALUES::get)
+                .orElseThrow()
+                .getValue();
     }
 }
