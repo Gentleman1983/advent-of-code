@@ -1,6 +1,8 @@
 dependencies {
     api(project(":utils"))
 
+    implementation(libs.commons.lang3)
+
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
