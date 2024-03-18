@@ -5,13 +5,16 @@ import de.havox_design.aoc.utils.kotlin.model.positions.Position3d;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class TheNBodyProblem implements AoCFunctionality {
     private final List<String> input;
+    private final List<Position3d<Integer>> initialCoordinates;
 
 
     public TheNBodyProblem(String fileName) {
         this.input = readData(fileName);
+        this.initialCoordinates = getInitialMoonCoordinates();
     }
 
     public static long processTask1(String fileName) {
@@ -54,8 +57,90 @@ public class TheNBodyProblem implements AoCFunctionality {
         return totalEnergyInSystem;
     }
 
+    @SuppressWarnings({"squid:S3358", "squid:S3776", "squid:S6541"})
     public long processTask2() {
-        return 0;
+        List<Position3d<Integer>> moonCoordinates = getInitialMoonCoordinates();
+        List<Position3d<Integer>> velocities = new ArrayList<>(
+                List.of(
+                        new Position3d<>(0, 0, 0),
+                        new Position3d<>(0, 0, 0),
+                        new Position3d<>(0, 0, 0),
+                        new Position3d<>(0, 0, 0)
+                )
+        );
+        int zeroVelStepCountX = 1;
+        int zeroVelStepCountY = 1;
+        int zeroVelStepCountZ = 1;
+
+        updateVelocities(moonCoordinates, velocities);
+        updateCoordinates(moonCoordinates, velocities);
+
+        while (!foundZeroVelX(moonCoordinates, velocities)) {
+            zeroVelStepCountX++;
+
+            for (int i = 0; i < moonCoordinates.size(); i++) {
+                for (int j = 0; j < moonCoordinates.size(); j++) {
+                    if (i != j) {
+                        int x1 = moonCoordinates.get(i).getX();
+                        int x2 = moonCoordinates.get(j).getX();
+                        int v1x = velocities.get(i).getX();
+
+                        v1x = x1 > x2 ? v1x - 1 : (x1 == x2 ? v1x : v1x + 1);
+                        velocities.set(i, new Position3d<>(v1x, 0, 0));
+                    }
+                }
+            }
+
+            updateCoordinates(moonCoordinates, velocities);
+        }
+
+        moonCoordinates = getInitialMoonCoordinates();
+        updateVelocities(moonCoordinates, velocities);
+        updateCoordinates(moonCoordinates, velocities);
+
+        while (!foundZeroVelY(moonCoordinates, velocities)) {
+            zeroVelStepCountY++;
+
+            for (int i = 0; i < moonCoordinates.size(); i++) {
+                for (int j = 0; j < moonCoordinates.size(); j++) {
+                    if (i != j) {
+                        int y1 = moonCoordinates.get(i).getY();
+                        int y2 = moonCoordinates.get(j).getY();
+                        int v1y = velocities.get(i).getY();
+
+                        v1y = y1 > y2 ? v1y - 1 : (y1 == y2 ? v1y : v1y + 1);
+                        velocities.set(i, new Position3d<>(0, v1y, 0));
+                    }
+                }
+            }
+
+            updateCoordinates(moonCoordinates, velocities);
+        }
+
+        moonCoordinates = getInitialMoonCoordinates();
+        updateVelocities(moonCoordinates, velocities);
+        updateCoordinates(moonCoordinates, velocities);
+
+        while (!foundZeroVelZ(moonCoordinates, velocities)) {
+            zeroVelStepCountZ++;
+
+            for (int i = 0; i < moonCoordinates.size(); i++) {
+                for (int j = 0; j < moonCoordinates.size(); j++) {
+                    if (i != j) {
+                        int z1 = moonCoordinates.get(i).getZ();
+                        int z2 = moonCoordinates.get(j).getZ();
+                        int v1z = velocities.get(i).getZ();
+
+                        v1z = z1 > z2 ? v1z - 1 : (z1 == z2 ? v1z : v1z + 1);
+                        velocities.set(i, new Position3d<>(0, 0, v1z));
+                    }
+                }
+            }
+
+            updateCoordinates(moonCoordinates, velocities);
+        }
+
+        return leastCommonMultiple(leastCommonMultiple(zeroVelStepCountX, zeroVelStepCountY), zeroVelStepCountZ);
     }
 
     private void updateCoordinates(List<Position3d<Integer>> coordinates, List<Position3d<Integer>> velocities) {
@@ -108,9 +193,76 @@ public class TheNBodyProblem implements AoCFunctionality {
             int x = Integer.parseInt(rawCoordinate.substring(rawCoordinate.indexOf('=') + 1, rawCoordinate.indexOf(',')));
             int y = Integer.parseInt(rawCoordinate.substring(rawCoordinate.indexOf('y') + 2, rawCoordinate.indexOf(',', rawCoordinate.indexOf('y'))));
             int z = Integer.parseInt(rawCoordinate.substring(rawCoordinate.indexOf('z') + 2, rawCoordinate.indexOf('>')));
+
             coordinates.add(new Position3d<>(x, y, z));
         }
 
         return coordinates;
+    }
+
+    private boolean foundZeroVelX(List<Position3d<Integer>> moonCoordinates, List<Position3d<Integer>> velocities) {
+        for (Position3d<Integer> velocity : velocities) {
+            if (velocity.getX() != 0) {
+                return false;
+            }
+        }
+
+        for (int i = 0; i < moonCoordinates.size(); i++) {
+            if (!Objects.equals(moonCoordinates.get(i).getX(), initialCoordinates.get(i).getX())) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean foundZeroVelY(List<Position3d<Integer>> moonCoordinates, List<Position3d<Integer>> velocities) {
+        for (Position3d<Integer> velocity : velocities) {
+            if (velocity.getY() != 0) {
+                return false;
+            }
+        }
+
+        for (int i = 0; i < moonCoordinates.size(); i++) {
+            if (!Objects.equals(moonCoordinates.get(i).getY(), initialCoordinates.get(i).getY())) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean foundZeroVelZ(List<Position3d<Integer>> moonCoordinates, List<Position3d<Integer>> velocities) {
+        for (Position3d<Integer> velocity : velocities) {
+            if (velocity.getZ() != 0) {
+                return false;
+            }
+        }
+
+        for (int i = 0; i < moonCoordinates.size(); i++) {
+            if (!Objects.equals(moonCoordinates.get(i).getZ(), initialCoordinates.get(i).getZ())) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private long leastCommonMultiple(long number1, long number2) {
+        if (number1 == 0 || number2 == 0) {
+            return 0;
+        }
+
+        long absNumber1 = Math.abs(number1);
+        long absNumber2 = Math.abs(number2);
+        long absHigherNumber = Math.max(absNumber1, absNumber2);
+        long absLowerNumber = Math.min(absNumber1, absNumber2);
+        long lcm = absHigherNumber;
+
+        while (lcm % absLowerNumber != 0) {
+            lcm += absHigherNumber;
+        }
+
+        return lcm;
     }
 }
