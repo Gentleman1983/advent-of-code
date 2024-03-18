@@ -17,8 +17,8 @@ class Day12Test {
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2019/day12/day12part1sample1.txt", 183L),
-                Arguments.of("de/havox_design/aoc2019/day12/day12part1sample2.txt", 14645L)
+                Arguments.of("de/havox_design/aoc2019/day12/day12sample1.txt", 183L),
+                Arguments.of("de/havox_design/aoc2019/day12/day12sample2.txt", 14645L)
         );
     }
 
@@ -30,7 +30,8 @@ class Day12Test {
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2019/day12/day12part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2019/day12/day12sample1.txt", 2772L),
+                Arguments.of("de/havox_design/aoc2019/day12/day12sample2.txt", 4686774924L)
         );
     }
 }
