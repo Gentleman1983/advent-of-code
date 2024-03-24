@@ -32,11 +32,6 @@ public class CarePackage implements AoCFunctionality {
         return instance.processTask1();
     }
 
-    public static long processTask2(String fileName) {
-        CarePackage instance = new CarePackage(fileName);
-        return instance.processTask2();
-    }
-
     public long processTask1() {
         return compute();
     }
