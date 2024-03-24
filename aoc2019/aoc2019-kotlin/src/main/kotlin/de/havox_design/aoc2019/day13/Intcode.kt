@@ -4,14 +4,17 @@ typealias Intcode = MutableMap<Int, Long>
 
 fun Intcode.read(pointer: Long) = read(pointer.toInt())
 fun Intcode.read(pointer: Int): Long {
-    if (pointer < 0)
-        throw IllegalArgumentException("Pointer can not be negative $pointer")
+    require(pointer >= 0) {
+        "Pointer can not be negative $pointer"
+    }
+
     return this.getOrDefault(pointer, 0L)
 }
 
 fun Intcode.write(pointer: Long, value: Long) = write(pointer.toInt(), value)
+@SuppressWarnings("kotlin:S1172")
 fun Intcode.write(pointer: Int, value: Long) {
-    if (pointer < 0)
-        throw IllegalArgumentException("Pointer can not be negative $pointer")
-    this[pointer] = value
+    require(pointer >= 0) {
+        "Pointer can not be negative $pointer"
+    }
 }

@@ -15,7 +15,7 @@ class Day13Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         CarePackagePart2(filename).processPart2().shouldBe(expectedResult)
 
     companion object {

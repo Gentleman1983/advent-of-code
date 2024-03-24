@@ -1,9 +1,11 @@
 package de.havox_design.aoc2019.day13
 
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+
 class Game {
-    private var ball: Loc = Loc(0, 0)
-    private var paddle: Loc = Loc(0, 0)
-    private var score: Long = 0
+    private var ball = Position2d(0, 0)
+    private var paddle = Position2d(0, 0)
+    private var score = 0L
 
     fun play(program: Intcode): Int {
         program[0] = 2
@@ -16,12 +18,12 @@ class Game {
             c.resume()
             val output3 = c.output()
 
-            if (isScoreOutput(output1, output2))
-                score = output3
-            else if (output3.isBall())
-                ball = Loc(output1.toInt(), output2.toInt())
-            else if (output3.isPaddle())
-                paddle = Loc(output1.toInt(), output2.toInt())
+            when {
+                isScoreOutput(output1, output2) -> score = output3
+                output3.isBall() -> ball = Position2d(output1.toInt(), output2.toInt())
+                output3.isPaddle() -> paddle = Position2d(output1.toInt(), output2.toInt())
+            }
+
             c.resume()
         }
         return score.toInt()
@@ -29,6 +31,7 @@ class Game {
 
     private fun isScoreOutput(output1: Long, output2: Long) = output1 == -1L && output2 == 0L
 
+    @SuppressWarnings("kotlin:S1172")
     private fun joystick(counter: Int) = ball.x.compareTo(paddle.x).toLong()
 }
 
