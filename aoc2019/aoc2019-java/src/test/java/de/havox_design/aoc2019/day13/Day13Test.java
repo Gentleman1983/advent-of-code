@@ -17,19 +17,7 @@ class Day13Test {
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2019/day13/day13part1sample.txt", 265L)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, CarePackage.processTask2(fileName));
-    }
-
-    private static Stream<Arguments> getDataForTask2() {
-        return Stream.of(
-                Arguments.of("de/havox_design/aoc2019/day13/day13part2sample.txt", 12345L)
+                Arguments.of("de/havox_design/aoc2019/day13/day13sample.txt", 265L)
         );
     }
 }

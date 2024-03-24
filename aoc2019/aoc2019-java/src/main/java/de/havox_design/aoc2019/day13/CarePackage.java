@@ -41,10 +41,6 @@ public class CarePackage implements AoCFunctionality {
         return compute();
     }
 
-    public long processTask2() {
-        return 0;
-    }
-
     @SuppressWarnings("squid:S2142")
     private long compute() {
         BlockingQueue<Long> in = new LinkedBlockingQueue<>();
