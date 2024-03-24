@@ -20,6 +20,7 @@ include("aoc2018:aoc2018-kotlin")
 
 include("aoc2019")
 include("aoc2019:aoc2019-java")
+include("aoc2019:aoc2019-kotlin")
 
 include("aoc2020")
 include("aoc2020:aoc2020-kotlin")
