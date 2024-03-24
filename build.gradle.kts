@@ -39,7 +39,7 @@ tasks.named("check") {
 // Switch to gradle "all" distribution.
 tasks.withType<Wrapper> {
     distributionType = Wrapper.DistributionType.ALL
-    gradleVersion = "8.6"
+    gradleVersion = "8.7"
 }
 
 extensions.findByName("buildScan")?.withGroovyBuilder {
