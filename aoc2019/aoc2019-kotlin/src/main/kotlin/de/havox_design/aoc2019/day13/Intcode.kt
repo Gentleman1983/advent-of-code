@@ -12,9 +12,10 @@ fun Intcode.read(pointer: Int): Long {
 }
 
 fun Intcode.write(pointer: Long, value: Long) = write(pointer.toInt(), value)
-@SuppressWarnings("kotlin:S1172")
 fun Intcode.write(pointer: Int, value: Long) {
     require(pointer >= 0) {
         "Pointer can not be negative $pointer"
     }
+
+    this[pointer] = value
 }
