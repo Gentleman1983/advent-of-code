@@ -33,7 +33,9 @@ class Day14Test {
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2019/day14/day14part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2019/day14/day14part2sample1.txt", 82892753L),
+                Arguments.of("de/havox_design/aoc2019/day14/day14part2sample2.txt", 5586022L),
+                Arguments.of("de/havox_design/aoc2019/day14/day14part2sample3.txt", 460664L)
         );
     }
 }

@@ -36,14 +36,28 @@ public class SpaceStoichiometry implements AoCFunctionality {
     }
 
     public long processTask1() {
+        return processTask1(1L);
+    }
+
+    public long processTask1(long neededNumberOfChemicals) {
         Pair<String, Integer> fuel = Pair.of(ICON_FUEL, 1);
         Map<String, Long> spareMaterials = new HashMap<>();
 
-        return oreCost(fuel, recipes, spareMaterials, fuel.getValue());
+        return oreCost(fuel, recipes, spareMaterials, neededNumberOfChemicals);
     }
 
     public long processTask2() {
-        return 0;
+        long multiplier = 1L;
+
+        while(processTask1(multiplier) < 1000000000000L) {
+            multiplier += 1000L;
+        }
+
+        while(processTask1(multiplier) > 1000000000000L) {
+            multiplier--;
+        }
+
+        return multiplier;
     }
 
     private long oreCost(
