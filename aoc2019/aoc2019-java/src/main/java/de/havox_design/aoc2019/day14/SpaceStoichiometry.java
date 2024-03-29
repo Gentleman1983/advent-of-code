@@ -2,20 +2,20 @@ package de.havox_design.aoc2019.day14;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
-public class Day14 implements AoCFunctionality {
+public class SpaceStoichiometry implements AoCFunctionality {
     private final String input;
 
-    public Day14(String fileName) {
+    public SpaceStoichiometry(String fileName) {
         input = readString(fileName);
     }
 
     public static long processTask1(String fileName) {
-        Day14 instance = new Day14(fileName);
+        SpaceStoichiometry instance = new SpaceStoichiometry(fileName);
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
-        Day14 instance = new Day14(fileName);
+        SpaceStoichiometry instance = new SpaceStoichiometry(fileName);
         return instance.processTask2();
     }
 

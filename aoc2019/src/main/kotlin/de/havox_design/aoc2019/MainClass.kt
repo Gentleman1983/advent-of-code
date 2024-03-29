@@ -15,7 +15,7 @@ import de.havox_design.aoc2019.day11.SpacePolice
 import de.havox_design.aoc2019.day12.TheNBodyProblem
 import de.havox_design.aoc2019.day13.CarePackage
 import de.havox_design.aoc2019.day13.CarePackagePart2
-import de.havox_design.aoc2019.day14.Day14
+import de.havox_design.aoc2019.day14.SpaceStoichiometry
 import de.havox_design.aoc2019.day15.Day15
 import de.havox_design.aoc2019.day16.Day16
 import de.havox_design.aoc2019.day17.Day17
@@ -155,8 +155,8 @@ class MainClass: AocMainClassHelper {
         day = 14
         day(
             getDayString(day),
-            Day14(getFileName(day))::processTask1,
-            Day14(getFileName(day))::processTask2,
+            SpaceStoichiometry(getFileName(day))::processTask1,
+            SpaceStoichiometry(getFileName(day))::processTask2,
             daysSelected,
             args
         )
