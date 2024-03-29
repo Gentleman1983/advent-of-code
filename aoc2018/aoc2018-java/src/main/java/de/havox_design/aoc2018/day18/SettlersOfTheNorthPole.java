@@ -89,15 +89,13 @@ public class SettlersOfTheNorthPole implements AoCFunctionality {
                     .stream()
                     .filter(symbol -> symbol == SYMBOL_LUMBERYARD)
                     .count() >= 3 ? SYMBOL_LUMBERYARD : SYMBOL_TREES;
+        } else if (
+                surroundingTiles.stream().anyMatch(symbol -> symbol == SYMBOL_LUMBERYARD) &&
+                        surroundingTiles.stream().anyMatch(symbol -> symbol == SYMBOL_TREES)
+        ) {
+            return SYMBOL_LUMBERYARD;
         } else {
-            if (
-                    surroundingTiles.stream().anyMatch(symbol -> symbol == SYMBOL_LUMBERYARD) &&
-                            surroundingTiles.stream().anyMatch(symbol -> symbol == SYMBOL_TREES)
-            ) {
-                return SYMBOL_LUMBERYARD;
-            } else {
-                return SYMBOL_OPEN;
-            }
+            return SYMBOL_OPEN;
         }
     }
 
