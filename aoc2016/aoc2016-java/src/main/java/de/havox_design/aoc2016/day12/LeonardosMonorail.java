@@ -33,7 +33,7 @@ public class LeonardosMonorail implements AoCFunctionality {
         return process(Map.of("a", 0, "b", 0, "c", 1, "d", 0));
     }
 
-    @SuppressWarnings("squid:S127")
+    @SuppressWarnings({"squid:S127", "squid:S6916"})
     private long process(Map<String, Integer> initial) {
         Map<String, Integer> registers = new HashMap<>(initial);
 
