@@ -61,7 +61,7 @@ rootProject.allprojects.forEach { currentProject ->
     }
 
     currentProject.jacoco {
-        toolVersion = "0.8.11"
+        toolVersion = "0.8.12"
     }
 
     val jacocoTestReportTask = currentProject.tasks.named<JacocoReport>("jacocoTestReport") {
