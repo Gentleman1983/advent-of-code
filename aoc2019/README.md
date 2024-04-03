@@ -24,7 +24,7 @@ For more information see https://adventofcode.com [2019](https://adventofcode.co
 | 12      | ⭐ ![JAVA](../img/java.png)                              | ⭐ ![JAVA](../img/java.png)     |
 | 13      | ⭐ ![JAVA](../img/java.png) ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
 | 14      | ⭐ ![JAVA](../img/java.png)                              | ⭐ ![JAVA](../img/java.png)     |
-| 15      | ❌ ![JAVA](../img/java.png)                              | ❌ ![JAVA](../img/java.png)     |
+| 15      | ⭐ ![JAVA](../img/java.png)                              | ⭐ ![JAVA](../img/java.png)     |
 | 16      | ❌ ![JAVA](../img/java.png)                              | ❌ ![JAVA](../img/java.png)     |
 | 17      | ❌ ![JAVA](../img/java.png)                              | ❌ ![JAVA](../img/java.png)     |
 | 18      | ❌ ![JAVA](../img/java.png)                              | ❌ ![JAVA](../img/java.png)     |
@@ -35,9 +35,9 @@ For more information see https://adventofcode.com [2019](https://adventofcode.co
 | 23      | ❌ ![JAVA](../img/java.png)                              | ❌ ![JAVA](../img/java.png)     |
 | 24      | ❌ ![JAVA](../img/java.png)                              | ❌ ![JAVA](../img/java.png)     |
 | 25      | ❌ ![JAVA](../img/java.png)                              | ❌ ![JAVA](../img/java.png)     |
-| **SUM** | **14 ⭐**                                                | **14 ⭐**                       |
+| **SUM** | **15 ⭐**                                                | **15 ⭐**                       |
 
-Total: 28 ⭐
+Total: 30 ⭐
 
 ## Solution image
 N/A
