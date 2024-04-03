@@ -4,6 +4,7 @@ import static de.havox_design.aoc.utils.kotlin.model.coordinates.FourDirections.
 import static java.lang.Math.min;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
+import de.havox_design.aoc.utils.java.exceptions.AdventOfCodeException;
 import de.havox_design.aoc.utils.java.model.computer.aoc2019.IntComputer;
 import de.havox_design.aoc.utils.kotlin.model.coordinates.FourDirections;
 import org.apache.commons.lang3.tuple.Pair;
@@ -56,7 +57,7 @@ public class OxygenSystem implements AoCFunctionality {
         input = Arrays
                 .stream(readString(fileName).split(VALUE_DELIMITER))
                 .map(value -> Long.parseLong(value.trim()))
-                .toList();;
+                .toList();
     }
 
     public static long processTask1(String fileName) {
@@ -70,26 +71,26 @@ public class OxygenSystem implements AoCFunctionality {
     }
 
     public long processTask1() {
-        return process();
+        return searchForOxygen();
     }
 
     public long processTask2() {
         return 0;
     }
 
-    private Long process() {
+    private Long searchForOxygen() {
         BlockingQueue<Long> in = new LinkedBlockingQueue<>();
         BlockingDeque<Long> out = new LinkedBlockingDeque<>();
         Map<Pair<Long, Long>, Pair<Character, Long>> maze = new HashMap<>();
 
         IntComputer.runComputer( input, in, out, true );
 
-
         Pair<Long, Long> droidPosition = exploreMaze( in, out, maze, Pair.of( 0L, 0L ) );
 
         return maze.get( droidPosition ).getRight();
     }
 
+    @SuppressWarnings("squid:S2142")
     private Pair<Long, Long> exploreMaze( BlockingQueue<Long> in,
                                           BlockingDeque<Long> out,
                                           Map<Pair<Long, Long>, Pair<Character, Long>> maze,
@@ -115,13 +116,9 @@ public class OxygenSystem implements AoCFunctionality {
                     droidPosition = mazePosition;
                     steps++;
 
-                    Pair<Character, Long> old;
+                    long finalSteps = steps;
 
-                    if ( ( old = maze.get( droidPosition ) ) != null ) {
-                        old = Pair.of(old.getLeft(), min( steps, old.getRight() ));
-                    } else {
-                        maze.put( droidPosition, Pair.of( UNKNOWN, steps ) );
-                    }
+                    maze.computeIfAbsent(droidPosition, k -> Pair.of(UNKNOWN, finalSteps));
                     steps = maze.get( droidPosition ).getRight();
                 }
 
@@ -129,7 +126,7 @@ public class OxygenSystem implements AoCFunctionality {
                 direction = ROTATE.get( status ).apply( direction );
             } while ( status != FOUND );
         } catch ( InterruptedException e ) {
-            throw new RuntimeException( e );
+            throw new AdventOfCodeException( e );
         }
 
         return droidPosition;
