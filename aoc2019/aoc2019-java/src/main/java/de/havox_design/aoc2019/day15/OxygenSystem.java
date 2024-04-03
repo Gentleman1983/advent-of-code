@@ -75,7 +75,7 @@ public class OxygenSystem implements AoCFunctionality {
     }
 
     public long processTask2() {
-        return 0;
+        return floodWithOxygen();
     }
 
     private Long searchForOxygen() {
@@ -88,6 +88,26 @@ public class OxygenSystem implements AoCFunctionality {
         Pair<Long, Long> droidPosition = exploreMaze( in, out, maze, Pair.of( 0L, 0L ) );
 
         return maze.get( droidPosition ).getRight();
+    }
+
+    private Long floodWithOxygen() {
+        BlockingQueue<Long> in = new LinkedBlockingQueue<>();
+        BlockingDeque<Long> out = new LinkedBlockingDeque<>();
+        Map<Pair<Long, Long>, Pair<Character, Long>> maze = new HashMap<>();
+
+        IntComputer.runComputer( input, in, out, true );
+
+        Pair<Long, Long> droidPosition = exploreMaze( in, out, maze, Pair.of( 0L, 0L ) );
+
+        Map<Pair<Long, Long>, Pair<Character, Long>> invertedMaze = new HashMap<>();
+
+        exploreMaze( in, out, invertedMaze, droidPosition );
+
+        return invertedMaze.values()
+                .stream()
+                .map( Pair::getRight )
+                .max( Long::compareTo )
+                .orElseThrow();
     }
 
     @SuppressWarnings("squid:S2142")
