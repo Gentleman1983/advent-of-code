@@ -2,20 +2,20 @@ package de.havox_design.aoc2019.day18;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
-public class Day18 implements AoCFunctionality {
+public class ManyWorldsInterpretation implements AoCFunctionality {
     private final String input;
 
-    public Day18(String fileName) {
+    public ManyWorldsInterpretation(String fileName) {
         input = readString(fileName);
     }
 
     public static long processTask1(String fileName) {
-        Day18 instance = new Day18(fileName);
+        ManyWorldsInterpretation instance = new ManyWorldsInterpretation(fileName);
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
-        Day18 instance = new Day18(fileName);
+        ManyWorldsInterpretation instance = new ManyWorldsInterpretation(fileName);
         return instance.processTask2();
     }
 
