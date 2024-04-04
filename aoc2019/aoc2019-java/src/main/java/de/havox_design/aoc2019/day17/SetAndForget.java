@@ -39,14 +39,14 @@ public class SetAndForget implements AoCFunctionality {
     }
 
     public long processTask1() {
-        return process();
+        return calculateSumOfAlignmentParameters();
     }
 
     public long processTask2() {
         return 0;
     }
 
-    private long process() {
+    private long calculateSumOfAlignmentParameters() {
         BlockingQueue<Long> in = new LinkedBlockingQueue<>();
         BlockingDeque<Long> out = new LinkedBlockingDeque<>();
         IntComputer.runComputer(input, in, out, false);
