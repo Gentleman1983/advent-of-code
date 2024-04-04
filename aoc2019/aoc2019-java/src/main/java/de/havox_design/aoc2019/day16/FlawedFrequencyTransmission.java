@@ -39,7 +39,7 @@ public class FlawedFrequencyTransmission implements AoCFunctionality {
     }
 
     public String processTask2() {
-        return "";
+        return computeRepeatedSignalAfterPhases(100);
     }
 
     private String computeFirstSymbolsAfterPhases(int phases) {
@@ -69,7 +69,7 @@ public class FlawedFrequencyTransmission implements AoCFunctionality {
         int sum = 0;
 
         for (int k = 0; k < inputNumbers.size(); k++) {
-            if(k == 0) {
+            if (k == 0) {
                 repeatAmount--;
             }
 
@@ -81,5 +81,49 @@ public class FlawedFrequencyTransmission implements AoCFunctionality {
             repeatAmount--;
         }
         return sum;
+    }
+
+    private String computeRepeatedSignalAfterPhases(int phases) {
+        List<Integer> inputNumbers = repeatedList(new ArrayList<>(input));
+        int offset = Integer
+                .parseInt(
+                        inputNumbers
+                                .stream()
+                                .limit(7)
+                                .map(String::valueOf)
+                                .collect(Collectors.joining())
+                );
+
+        for (int i = 0; i < phases; i++) {
+            calculateOutput(inputNumbers, offset);
+        }
+
+        return inputNumbers
+                .subList(offset, offset + 8)
+                .stream()
+                .map(String::valueOf)
+                .collect(Collectors.joining());
+    }
+
+    private List<Integer> repeatedList(List<Integer> nums) {
+        List<Integer> output = new ArrayList<>();
+
+        for (int i = 0; i < 10000; i++) {
+            output.addAll(nums);
+        }
+
+        return output;
+    }
+
+    private void calculateOutput(List<Integer> input, int offset) {
+        int lastIndex = input.size() - 1;
+        int sum = 0;
+
+        for (int i = lastIndex; i >= offset; i--) {
+            int result = (input.get(i) + sum) % 10;
+
+            sum = input.get(i) + sum;
+            input.set(i, result);
+        }
     }
 }
