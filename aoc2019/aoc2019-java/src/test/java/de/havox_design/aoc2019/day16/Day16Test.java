@@ -31,13 +31,15 @@ class Day16Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
+    void testTask2(String fileName, String expectation) {
         Assertions.assertEquals(expectation, FlawedFrequencyTransmission.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2019/day16/day16part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2019/day16/day16part2sample1.txt", "84462026"),
+                Arguments.of("de/havox_design/aoc2019/day16/day16part2sample2.txt", "78725270"),
+                Arguments.of("de/havox_design/aoc2019/day16/day16part2sample3.txt", "53553731")
         );
     }
 }

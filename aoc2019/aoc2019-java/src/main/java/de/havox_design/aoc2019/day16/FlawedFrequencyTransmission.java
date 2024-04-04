@@ -25,7 +25,7 @@ public class FlawedFrequencyTransmission implements AoCFunctionality {
         return instance.processTask1();
     }
 
-    public static long processTask2(String fileName) {
+    public static String processTask2(String fileName) {
         FlawedFrequencyTransmission instance = new FlawedFrequencyTransmission(fileName);
         return instance.processTask2();
     }
@@ -38,8 +38,8 @@ public class FlawedFrequencyTransmission implements AoCFunctionality {
         return computeFirstSymbolsAfterPhases(phases);
     }
 
-    public long processTask2() {
-        return 0;
+    public String processTask2() {
+        return "";
     }
 
     private String computeFirstSymbolsAfterPhases(int phases) {
