@@ -7,7 +7,7 @@ dependencies {
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation(libs.jgraph.core)
+    implementation(libs.jgrapht.core)
 
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 

@@ -20,6 +20,7 @@ import de.havox_design.aoc2019.day15.OxygenSystem
 import de.havox_design.aoc2019.day16.FlawedFrequencyTransmission
 import de.havox_design.aoc2019.day17.SetAndForget
 import de.havox_design.aoc2019.day18.ManyWorldsInterpretation
+import de.havox_design.aoc2019.day18.ManyWorldsInterpretationPart2
 import de.havox_design.aoc2019.day19.Day19
 import de.havox_design.aoc2019.day20.Day20
 import de.havox_design.aoc2019.day21.Day21
@@ -192,7 +193,7 @@ class MainClass: AocMainClassHelper {
         day(
             getDayString(day),
             ManyWorldsInterpretation(getFileName(day))::processTask1,
-            ManyWorldsInterpretation(getFileName(day))::processTask2,
+            ManyWorldsInterpretationPart2(getFileName(day).replace(".txt","part2.txt"))::processPart2,
             daysSelected,
             args
         )

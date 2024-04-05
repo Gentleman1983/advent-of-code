@@ -7,13 +7,16 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class ManyWorldsInterpretation implements AoCFunctionality {
+
     private static final char ICON_ENTRANCE = '@';
     private static final char ICON_WALL = '#';
 
+    private final List<String> input;
     private final Map<Position2d<Integer>, Character> areaMap;
 
     public ManyWorldsInterpretation(String fileName) {
-        areaMap = getAreaMap(readData(fileName));
+        input = readData(fileName);
+        areaMap = getAreaMap(input);
     }
 
     public static long processTask1(String fileName) {
@@ -21,20 +24,11 @@ public class ManyWorldsInterpretation implements AoCFunctionality {
         return instance.processTask1();
     }
 
-    public static long processTask2(String fileName) {
-        ManyWorldsInterpretation instance = new ManyWorldsInterpretation(fileName);
-        return instance.processTask2();
-    }
-
     public long processTask1() {
         return calculateLowestNumberOfSteps();
     }
 
-    public long processTask2() {
-        return 0;
-    }
-
-    public int calculateLowestNumberOfSteps() {
+    private int calculateLowestNumberOfSteps() {
         Map<Character, Map<Character, IncomparablePair<Integer, Integer>>> distanceMapping = distanceMapping(areaMap);
 
         long firstState = 0;
@@ -164,10 +158,10 @@ public class ManyWorldsInterpretation implements AoCFunctionality {
 
             visited.add(currentPos);
 
-            char areaUp = areaMap.get(up);
-            char areaDown = areaMap.get(down);
-            char areaLeft = areaMap.get(left);
-            char areaRight = areaMap.get(right);
+            char areaUp = areaMap.getOrDefault(up, ICON_WALL);
+            char areaDown = areaMap.getOrDefault(down, ICON_WALL);
+            char areaLeft = areaMap.getOrDefault(left, ICON_WALL);
+            char areaRight = areaMap.getOrDefault(right, ICON_WALL);
 
             if (areaMap.containsKey(up) && !visited.contains(up) && areaUp != ICON_WALL) {
                 int keys = requiredKeys;

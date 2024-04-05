@@ -24,19 +24,4 @@ class Day18Test {
                 Arguments.of("de/havox_design/aoc2019/day18/day18part1sample5.txt", 81L)
         );
     }
-
-    @ParameterizedTest
-    @MethodSource("getDataForTask2")
-    void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, ManyWorldsInterpretation.processTask2(fileName));
-    }
-
-    private static Stream<Arguments> getDataForTask2() {
-        return Stream.of(
-                Arguments.of("de/havox_design/aoc2019/day18/day18part2sample1.txt", 8L),
-                Arguments.of("de/havox_design/aoc2019/day18/day18part2sample2.txt", 24L),
-                Arguments.of("de/havox_design/aoc2019/day18/day18part2sample3.txt", 32L),
-                Arguments.of("de/havox_design/aoc2019/day18/day18part2sample4.txt", 72L)
-        );
-    }
 }
