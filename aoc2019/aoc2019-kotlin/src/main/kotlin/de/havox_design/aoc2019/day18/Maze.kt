@@ -9,6 +9,7 @@ class Maze(
     private val doors: Map<Coordinate, Char>,
     private val openSpaces: Set<Coordinate>
 ) {
+    @SuppressWarnings("kotlin:S6611")
     private fun findReachableKeys(
         from: Coordinate,
         haveKeys: Set<Char> = mutableSetOf()
