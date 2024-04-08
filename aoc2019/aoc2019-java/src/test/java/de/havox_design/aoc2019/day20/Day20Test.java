@@ -30,7 +30,7 @@ class Day20Test {
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2019/day20/day20part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2019/day20/day20part2sample.txt", 396L)
         );
     }
 }
