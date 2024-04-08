@@ -46,14 +46,38 @@ public class TractorBeam implements AoCFunctionality {
         }
 
         return Arrays
-                .stream( matrix )
-                .flatMapToLong( Arrays::stream )
+                .stream(matrix)
+                .flatMapToLong(Arrays::stream)
                 .filter(e -> e == 1L)
                 .count();
     }
 
     public long processTask2() {
-        return 0;
+        BlockingQueue<Long> in = new LinkedBlockingQueue<>();
+        BlockingDeque<Long> out = new LinkedBlockingDeque<>();
+        int size = 100;
+        int y = size;
+        int x = 1;
+
+        while (true) {
+            long number;
+
+            do {
+                number = getNumber(input, in, out, x, y);
+
+                if (number == 0) {
+                    x++;
+                }
+            } while (number == 0);
+
+            if (getNumber(input, in, out, x + (size - 1), y - (size - 1)) == 1L) {
+                y -= (size - 1);
+
+                return x * 10000L + y;
+            }
+
+            y++;
+        }
     }
 
     @SuppressWarnings("squid:S2142")
