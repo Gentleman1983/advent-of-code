@@ -16,6 +16,8 @@ public class DonutMaze implements AoCFunctionality {
 
     private final List<String> input;
 
+    private long direction = 0L;
+
     public DonutMaze(String fileName) {
         input = readData(fileName);
     }
@@ -39,9 +41,12 @@ public class DonutMaze implements AoCFunctionality {
     }
 
     public long processTask2() {
-        return 0;
+        direction = 1L;
+
+        return processTask1();
     }
 
+    @SuppressWarnings("squid:S3824")
     private long computeDistance(
             final Multimap<Pair<Long, Long>, Pair<Pair<Long, Long>, Long>> edges,
             final Pair<Pair<Long, Long>, Long> source,
@@ -134,6 +139,7 @@ public class DonutMaze implements AoCFunctionality {
         return map;
     }
 
+    @SuppressWarnings("squid:S107")
     private void addPortal(
             Map.Entry<Pair<Long, Long>, Character> p,
             Map<Pair<Long, Long>, Character> map,
@@ -163,8 +169,6 @@ public class DonutMaze implements AoCFunctionality {
                     out = portals.get(portal);
                     in = cell;
                 }
-
-                long direction = 0;
 
                 edges.put(in, new Pair<>(out, direction));
                 edges.put(out, new Pair<>(in, -direction));
