@@ -22,7 +22,7 @@ import de.havox_design.aoc2019.day17.SetAndForget
 import de.havox_design.aoc2019.day18.ManyWorldsInterpretation
 import de.havox_design.aoc2019.day18.ManyWorldsInterpretationPart2
 import de.havox_design.aoc2019.day19.TractorBeam
-import de.havox_design.aoc2019.day20.Day20
+import de.havox_design.aoc2019.day20.DonutMaze
 import de.havox_design.aoc2019.day21.Day21
 import de.havox_design.aoc2019.day22.Day22
 import de.havox_design.aoc2019.day23.Day23
@@ -210,8 +210,8 @@ class MainClass: AocMainClassHelper {
         day = 20
         day(
             getDayString(day),
-            Day20(getFileName(day))::processTask1,
-            Day20(getFileName(day))::processTask2,
+            DonutMaze(getFileName(day))::processTask1,
+            DonutMaze(getFileName(day))::processTask2,
             daysSelected,
             args
         )
