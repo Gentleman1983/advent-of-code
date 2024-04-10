@@ -26,7 +26,7 @@ import de.havox_design.aoc2019.day20.DonutMaze
 import de.havox_design.aoc2019.day21.SpringdroidAdventure
 import de.havox_design.aoc2019.day22.SlamShuffle
 import de.havox_design.aoc2019.day23.CategorySix
-import de.havox_design.aoc2019.day24.Day24
+import de.havox_design.aoc2019.day24.PlanetOfDiscord
 import de.havox_design.aoc2019.day25.Day25
 
 class MainClass: AocMainClassHelper {
@@ -246,8 +246,8 @@ class MainClass: AocMainClassHelper {
         day = 24
         day(
             getDayString(day),
-            Day24(getFileName(day))::processTask1,
-            Day24(getFileName(day))::processTask2,
+            PlanetOfDiscord(getFileName(day))::processTask1,
+            PlanetOfDiscord(getFileName(day))::processTask2,
             daysSelected,
             args
         )
