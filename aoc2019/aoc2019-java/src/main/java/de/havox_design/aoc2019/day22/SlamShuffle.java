@@ -2,20 +2,20 @@ package de.havox_design.aoc2019.day22;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
-public class Day22 implements AoCFunctionality {
+public class SlamShuffle implements AoCFunctionality {
     private final String input;
 
-    public Day22(String fileName) {
+    public SlamShuffle(String fileName) {
         input = readString(fileName);
     }
 
     public static long processTask1(String fileName) {
-        Day22 instance = new Day22(fileName);
+        SlamShuffle instance = new SlamShuffle(fileName);
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
-        Day22 instance = new Day22(fileName);
+        SlamShuffle instance = new SlamShuffle(fileName);
         return instance.processTask2();
     }
 
