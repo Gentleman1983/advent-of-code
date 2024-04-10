@@ -1,12 +1,17 @@
 package de.havox_design.aoc2019.day24;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class PlanetOfDiscord implements AoCFunctionality {
-    private final String input;
+    private final List<String> input;
 
     public PlanetOfDiscord(String fileName) {
-        input = readString(fileName);
+        input = readData(fileName);
     }
 
     public static long processTask1(String fileName) {
@@ -20,7 +25,14 @@ public class PlanetOfDiscord implements AoCFunctionality {
     }
 
     public long processTask1() {
-        return 0;
+        SimpleEris eris = new SimpleEris(input);
+        Set<Set<Position2d<Integer>>> states = new HashSet<>();
+
+        while (states.add(eris.getBugs())) {
+            eris.evolve();
+        }
+
+        return eris.biodiversityRating();
     }
 
     public long processTask2() {
