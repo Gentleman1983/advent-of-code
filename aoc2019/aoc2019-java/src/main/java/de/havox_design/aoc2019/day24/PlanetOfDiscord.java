@@ -46,6 +46,11 @@ public class PlanetOfDiscord implements AoCFunctionality {
     }
 
     public long processTask2(int steps) {
-        return 0;
+        ComplexEris eris = new ComplexEris(input);
+
+        for (int i = 0; i < steps; i++) {
+            eris.evolve();
+        }
+        return eris.getBugs().size();
     }
 }
