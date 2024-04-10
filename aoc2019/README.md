@@ -32,12 +32,12 @@ For more information see https://adventofcode.com [2019](https://adventofcode.co
 | 20      | ⭐ ![Java](../img/java.png)                              | ⭐ ![Java](../img/java.png)     |
 | 21      | ⭐ ![Java](../img/java.png)                              | ⭐ ![Java](../img/java.png)     |
 | 22      | ⭐ ![Java](../img/java.png)                              | ⭐ ![Java](../img/java.png)     |
-| 23      | ❌ ![Java](../img/java.png)                              | ❌ ![Java](../img/java.png)     |
+| 23      | ⭐ ![Java](../img/java.png)                              | ⭐ ![Java](../img/java.png)     |
 | 24      | ❌ ![Java](../img/java.png)                              | ❌ ![Java](../img/java.png)     |
 | 25      | ❌ ![Java](../img/java.png)                              | ❌ ![Java](../img/java.png)     |
-| **SUM** | **22 ⭐**                                                | **22 ⭐**                       |
+| **SUM** | **23 ⭐**                                                | **23 ⭐**                       |
 
-Total: 44 ⭐
+Total: 46 ⭐
 
 ## Solution image
 N/A
