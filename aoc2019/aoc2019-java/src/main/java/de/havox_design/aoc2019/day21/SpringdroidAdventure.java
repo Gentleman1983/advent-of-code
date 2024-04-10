@@ -1,12 +1,25 @@
 package de.havox_design.aoc2019.day21;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
+import de.havox_design.aoc.utils.java.model.computer.aoc2019.IntComputer;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class SpringdroidAdventure implements AoCFunctionality {
-    private final String input;
+    private static final String VALUE_DELIMITER = ",";
+
+    private final List<Long> input;
 
     public SpringdroidAdventure(String fileName) {
-        input = readString(fileName);
+        input = Arrays
+                .stream(readString(fileName).split(VALUE_DELIMITER))
+                .map(value -> Long.parseLong(value.trim()))
+                .toList();
     }
 
     public static long processTask1(String fileName) {
@@ -20,10 +33,33 @@ public class SpringdroidAdventure implements AoCFunctionality {
     }
 
     public long processTask1() {
-        return 0;
+        return caculateDamage();
     }
 
     public long processTask2() {
         return 0;
+    }
+
+    private long caculateDamage() {
+        BlockingQueue<Long> in = new LinkedBlockingQueue<>();
+        BlockingDeque<Long> out = new LinkedBlockingDeque<>();
+        initializeCommands(in);
+
+        IntComputer.runComputer(input, in, out, false);
+
+        return out.removeLast();
+    }
+
+    private void initializeCommands(BlockingQueue<Long> in) {
+        """
+                OR A J
+                AND C J
+                NOT J J
+                AND D J
+                WALK
+                """
+                .chars()
+                .boxed()
+                .forEach(c -> in.add(c.longValue()));
     }
 }
