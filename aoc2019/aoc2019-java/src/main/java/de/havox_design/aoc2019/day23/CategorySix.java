@@ -33,14 +33,14 @@ public class CategorySix implements AoCFunctionality {
     }
 
     public long processTask1() {
-        return computePacketValueTo(255);
+        return computePacketValueTo(255, true);
     }
 
     public long processTask2() {
-        return 0;
+        return computePacketValueTo(255, false);
     }
 
-    private long computePacketValueTo(int targetAdress) {
+    private long computePacketValueTo(int targetAddress, boolean firstMessageToTarget) {
         Map<Integer, BlockingQueue<Long>> in = new HashMap<>();
         List<BlockingQueue<Long>> out = new ArrayList<>();
 
@@ -51,16 +51,19 @@ public class CategorySix implements AoCFunctionality {
             new IntComputer(input, in.get(i), out.get(i)).runAsync();
         }
 
-        in.put(targetAdress, new LinkedBlockingQueue<>());
+        in.put(targetAddress, new LinkedBlockingQueue<>());
 
-        return runComputers(in, out, targetAdress);
+        return runComputers(in, out, targetAddress, firstMessageToTarget);
     }
 
-    private long runComputers(Map<Integer, BlockingQueue<Long>> receivers, List<BlockingQueue<Long>> senders, int targetAdress) {
+    @SuppressWarnings("squid:S3776")
+    private long runComputers(Map<Integer, BlockingQueue<Long>> receivers, List<BlockingQueue<Long>> senders, int targetAddress, boolean firstMessageToTarget) {
+        long lastYSent = 0L;
         while (true) {
             IntStream.range(0, COMPUTERS)
                     .parallel()
                     .forEach(to -> receivers.get(to).add(-1L));
+            boolean idle = true;
 
             for (int from = 0; from < COMPUTERS; from++) {
                 BlockingQueue<Long> sender = senders.get(from);
@@ -70,21 +73,33 @@ public class CategorySix implements AoCFunctionality {
                         .orElse(null);
 
                 if (to != null) {
-                    if (to == targetAdress) {
+                    if (to == targetAddress) {
                         receivers.get(to).clear();
                     }
 
-                    long y = dispatchPacket(from, to, receivers, sender);
+                    long y = dispatchPacket(to, receivers, sender);
 
-                    if (to == targetAdress) {
+                    if (firstMessageToTarget && to == targetAddress) {
                         return y;
                     }
                 }
             }
+
+            if ( !firstMessageToTarget && idle && isIdle( receivers, senders ) ) {
+                BlockingQueue<Long> sender = receivers.get( targetAddress );
+                long y = dispatchPacket( 0, receivers, sender );
+
+                if ( lastYSent == y ) {
+                    return y;
+                }
+
+                lastYSent = y;
+            }
         }
     }
 
-    private long dispatchPacket(int from, int to, Map<Integer, BlockingQueue<Long>> receivers, BlockingQueue<Long> sender) {
+    @SuppressWarnings("squid:S2142")
+    private long dispatchPacket(int to, Map<Integer, BlockingQueue<Long>> receivers, BlockingQueue<Long> sender) {
         try {
             BlockingQueue<Long> receiver = receivers.get(to);
             long x = sender.take();
@@ -97,5 +112,16 @@ public class CategorySix implements AoCFunctionality {
         } catch (InterruptedException e) {
             throw new AdventOfCodeException(e);
         }
+    }
+
+    private boolean isIdle(Map<Integer, BlockingQueue<Long>> in, List<BlockingQueue<Long>> out) {
+        return IntStream
+                .range(0, COMPUTERS)
+                .parallel()
+                .allMatch(address -> blocked(in.get(address), out.get(address)));
+    }
+
+    private boolean blocked(BlockingQueue<Long> in, BlockingQueue<Long> out) {
+        return in.isEmpty() && out.isEmpty();
     }
 }
