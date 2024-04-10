@@ -2,20 +2,20 @@ package de.havox_design.aoc2019.day23;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
-public class Day23 implements AoCFunctionality {
+public class CategorySix implements AoCFunctionality {
     private final String input;
 
-    public Day23(String fileName) {
+    public CategorySix(String fileName) {
         input = readString(fileName);
     }
 
     public static long processTask1(String fileName) {
-        Day23 instance = new Day23(fileName);
+        CategorySix instance = new CategorySix(fileName);
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
-        Day23 instance = new Day23(fileName);
+        CategorySix instance = new CategorySix(fileName);
         return instance.processTask2();
     }
 

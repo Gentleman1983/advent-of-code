@@ -25,7 +25,7 @@ import de.havox_design.aoc2019.day19.TractorBeam
 import de.havox_design.aoc2019.day20.DonutMaze
 import de.havox_design.aoc2019.day21.SpringdroidAdventure
 import de.havox_design.aoc2019.day22.SlamShuffle
-import de.havox_design.aoc2019.day23.Day23
+import de.havox_design.aoc2019.day23.CategorySix
 import de.havox_design.aoc2019.day24.Day24
 import de.havox_design.aoc2019.day25.Day25
 
@@ -237,8 +237,8 @@ class MainClass: AocMainClassHelper {
         day = 23
         day(
             getDayString(day),
-            Day23(getFileName(day))::processTask1,
-            Day23(getFileName(day))::processTask2,
+            CategorySix(getFileName(day))::processTask1,
+            CategorySix(getFileName(day))::processTask2,
             daysSelected,
             args
         )
