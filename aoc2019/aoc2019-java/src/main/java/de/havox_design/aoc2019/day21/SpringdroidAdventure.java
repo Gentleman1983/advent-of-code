@@ -2,20 +2,20 @@ package de.havox_design.aoc2019.day21;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
-public class Day21 implements AoCFunctionality {
+public class SpringdroidAdventure implements AoCFunctionality {
     private final String input;
 
-    public Day21(String fileName) {
+    public SpringdroidAdventure(String fileName) {
         input = readString(fileName);
     }
 
     public static long processTask1(String fileName) {
-        Day21 instance = new Day21(fileName);
+        SpringdroidAdventure instance = new SpringdroidAdventure(fileName);
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
-        Day21 instance = new Day21(fileName);
+        SpringdroidAdventure instance = new SpringdroidAdventure(fileName);
         return instance.processTask2();
     }
 
