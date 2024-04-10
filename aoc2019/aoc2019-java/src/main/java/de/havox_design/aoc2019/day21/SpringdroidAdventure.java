@@ -33,31 +33,46 @@ public class SpringdroidAdventure implements AoCFunctionality {
     }
 
     public long processTask1() {
-        return caculateDamage();
+        return caculateDamage(false);
     }
 
     public long processTask2() {
-        return 0;
+        return caculateDamage(true);
     }
 
-    private long caculateDamage() {
+    private long caculateDamage(boolean isExtendedSensorModeActive) {
         BlockingQueue<Long> in = new LinkedBlockingQueue<>();
         BlockingDeque<Long> out = new LinkedBlockingDeque<>();
-        initializeCommands(in);
+        initializeCommands(in, isExtendedSensorModeActive);
 
         IntComputer.runComputer(input, in, out, false);
 
         return out.removeLast();
     }
 
-    private void initializeCommands(BlockingQueue<Long> in) {
-        """
-                OR A J
-                AND C J
-                NOT J J
-                AND D J
-                WALK
+    private void initializeCommands(BlockingQueue<Long> in, boolean isExtendedSensorModeActive) {
+        String instructions = isExtendedSensorModeActive ?
                 """
+                        OR A J
+                        AND B J
+                        AND C J
+                        NOT J J
+                        AND D J
+                        OR E T
+                        OR H T
+                        AND T J
+                        RUN
+                        """
+                :
+                """
+                        OR A J
+                        AND C J
+                        NOT J J
+                        AND D J
+                        WALK
+                        """;
+
+        instructions
                 .chars()
                 .boxed()
                 .forEach(c -> in.add(c.longValue()));
