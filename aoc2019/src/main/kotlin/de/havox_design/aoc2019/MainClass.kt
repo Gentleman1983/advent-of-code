@@ -27,7 +27,7 @@ import de.havox_design.aoc2019.day21.SpringdroidAdventure
 import de.havox_design.aoc2019.day22.SlamShuffle
 import de.havox_design.aoc2019.day23.CategorySix
 import de.havox_design.aoc2019.day24.PlanetOfDiscord
-import de.havox_design.aoc2019.day25.Day25
+import de.havox_design.aoc2019.day25.Cryostasis
 
 class MainClass: AocMainClassHelper {
     override fun getYear(): Int = 2019
@@ -255,8 +255,8 @@ class MainClass: AocMainClassHelper {
         day = 25
         day(
             getDayString(day),
-            Day25(getFileName(day))::processTask1,
-            Day25(getFileName(day))::processTask2,
+            Cryostasis(getFileName(day))::processTask1,
+            Cryostasis(getFileName(day))::processTask2,
             daysSelected,
             args
         )

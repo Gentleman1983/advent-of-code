@@ -2,20 +2,20 @@ package de.havox_design.aoc2019.day25;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
-public class Day25 implements AoCFunctionality {
+public class Cryostasis implements AoCFunctionality {
     private final String input;
 
-    public Day25(String fileName) {
+    public Cryostasis(String fileName) {
         input = readString(fileName);
     }
 
     public static long processTask1(String fileName) {
-        Day25 instance = new Day25(fileName);
+        Cryostasis instance = new Cryostasis(fileName);
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
-        Day25 instance = new Day25(fileName);
+        Cryostasis instance = new Cryostasis(fileName);
         return instance.processTask2();
     }
 
