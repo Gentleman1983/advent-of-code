@@ -8,7 +8,7 @@ class Cryostasis(private var filename: String) {
             .solveA()
     
     fun processPart2(): Any =
-        0L
+        "Merry X-Mas!!!"
 
     private fun getResourceAsLongList(path: String) =
         this
