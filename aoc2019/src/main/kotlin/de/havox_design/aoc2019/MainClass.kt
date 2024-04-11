@@ -255,8 +255,8 @@ class MainClass: AocMainClassHelper {
         day = 25
         day(
             getDayString(day),
-            Cryostasis(getFileName(day))::processTask1,
-            Cryostasis(getFileName(day))::processTask2,
+            Cryostasis(getFileName(day))::processPart1,
+            Cryostasis(getFileName(day))::processPart2,
             daysSelected,
             args
         )
