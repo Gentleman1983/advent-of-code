@@ -34,10 +34,10 @@ For more information see https://adventofcode.com [2019](https://adventofcode.co
 | 22      | ⭐ ![Java](../img/java.png)                              | ⭐ ![Java](../img/java.png)     |
 | 23      | ⭐ ![Java](../img/java.png)                              | ⭐ ![Java](../img/java.png)     |
 | 24      | ⭐ ![Java](../img/java.png)                              | ⭐ ![Java](../img/java.png)     |
-| 25      | ❌ ![Kotlin](../img/kotlin.png)                              | ❌ ![Kotlin](../img/kotlin.png) |
-| **SUM** | **24 ⭐**                                                | **24 ⭐**                       |
+| 25      | ⭐ ![Kotlin](../img/kotlin.png)                          | ⭐ ![Kotlin](../img/kotlin.png) |
+| **SUM** | **25 ⭐**                                                | **25 ⭐**                       |
 
-Total: 48 ⭐
+Total: 50 ⭐
 
 ## Solution image
-N/A
+![AoC2019](../img/Advent_of_Code_2019.png)
