@@ -2,7 +2,7 @@ package de.havox_design.aoc2020
 
 import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
 import de.havox_design.aoc2020.day01.RepairReport
-import de.havox_design.aoc2020.day02.Day02
+import de.havox_design.aoc2020.day02.PasswordPhilosophy
 import de.havox_design.aoc2020.day03.Day03
 import de.havox_design.aoc2020.day04.Day04
 import de.havox_design.aoc2020.day05.Day05
@@ -46,8 +46,8 @@ class MainClass : AocMainClassHelper {
         day = 2
         day(
             getDayString(day),
-            Day02(getFileName(day))::processPart1,
-            Day02(getFileName(day))::processPart2,
+            PasswordPhilosophy(getFileName(day))::processPart1,
+            PasswordPhilosophy(getFileName(day))::processPart2,
             daysSelected,
             args
         )

@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020.day02
 
-class Day02(private var filename: String) {
+class PasswordPhilosophy(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
