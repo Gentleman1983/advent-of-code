@@ -1,7 +1,7 @@
 package de.havox_design.aoc2020
 
 import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
-import de.havox_design.aoc2020.day01.Day01
+import de.havox_design.aoc2020.day01.RepairReport
 import de.havox_design.aoc2020.day02.Day02
 import de.havox_design.aoc2020.day03.Day03
 import de.havox_design.aoc2020.day04.Day04
@@ -37,8 +37,8 @@ class MainClass : AocMainClassHelper {
         var day = 1
         day(
             getDayString(day),
-            Day01(getFileName(day))::processPart1,
-            Day01(getFileName(day))::processPart2,
+            RepairReport(getFileName(day))::processPart1,
+            RepairReport(getFileName(day))::processPart2,
             daysSelected,
             args
         )
