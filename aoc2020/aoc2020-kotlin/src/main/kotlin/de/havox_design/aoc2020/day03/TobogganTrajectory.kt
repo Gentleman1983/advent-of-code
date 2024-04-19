@@ -9,7 +9,16 @@ class TobogganTrajectory(private var filename: String) {
         treeCount(data, Position2d(3, 1))
 
     fun processPart2(): Any =
-        0L
+        listOf(
+            Position2d(1, 1),
+            Position2d(3, 1),
+            Position2d(5, 1),
+            Position2d(7, 1),
+            Position2d(1, 2)
+        )
+            .map { treeCount(data, it) }
+            .map { it.toLong() }
+            .reduce { acc, i -> acc * i }
 
     private fun treeCount(cells: List<String>, slope: Position2d<Int>): Int {
         val width = cells[0].length

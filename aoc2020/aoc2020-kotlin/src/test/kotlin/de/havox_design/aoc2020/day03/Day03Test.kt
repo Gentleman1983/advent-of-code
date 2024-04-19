@@ -15,20 +15,20 @@ class Day03Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Int) =
+    fun testProcessPart2(filename: String, expectedResult: Long) =
         TobogganTrajectory(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day03/day03part1sample.txt", 7)
+                Arguments.of("de/havox_design/aoc2020/day03/day03sample.txt", 7)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day03/day03part2sample.txt", 336)
+                Arguments.of("de/havox_design/aoc2020/day03/day03sample.txt", 336L)
             )
     }
 }
