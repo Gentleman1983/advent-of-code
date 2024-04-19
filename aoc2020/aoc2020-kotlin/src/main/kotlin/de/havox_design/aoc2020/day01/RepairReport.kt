@@ -8,13 +8,26 @@ class RepairReport(private var filename: String) {
             .map { it.toLong() }
             .toSet()
 
-        return findParts(numbers, 2020) ?: throw IllegalStateException("No solution found")
+        return findParts(numbers, 2020L) ?: throw IllegalStateException("No solution found")
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val numbers = data
+            .map { it.toLong() }
+            .toMutableSet()
 
-    private fun findParts(numbers: Set<Long>, requiredSum: Int): Long? {
+        for (first in numbers) {
+            val parts = findParts(numbers, 2020L - first)
+
+            if (parts != null) {
+                return parts * first
+            }
+        }
+
+        throw IllegalStateException("No solution found")
+    }
+
+    private fun findParts(numbers: Set<Long>, requiredSum: Long): Long? {
         for (first in numbers) {
             val second = requiredSum - first
 
