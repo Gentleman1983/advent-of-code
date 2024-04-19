@@ -15,23 +15,26 @@ class Day02Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         PasswordPhilosophy(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day02/day02part1sample1.txt", 2),
-                Arguments.of("de/havox_design/aoc2020/day02/day02part1sample2.txt", 1),
-                Arguments.of("de/havox_design/aoc2020/day02/day02part1sample3.txt", 0),
-                Arguments.of("de/havox_design/aoc2020/day02/day02part1sample4.txt", 1)
+                Arguments.of("de/havox_design/aoc2020/day02/day02sample1.txt", 2),
+                Arguments.of("de/havox_design/aoc2020/day02/day02sample2.txt", 1),
+                Arguments.of("de/havox_design/aoc2020/day02/day02sample3.txt", 0),
+                Arguments.of("de/havox_design/aoc2020/day02/day02sample4.txt", 1)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day02/day02part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2020/day02/day02sample1.txt", 1),
+                Arguments.of("de/havox_design/aoc2020/day02/day02sample2.txt", 1),
+                Arguments.of("de/havox_design/aoc2020/day02/day02sample3.txt", 0),
+                Arguments.of("de/havox_design/aoc2020/day02/day02sample4.txt", 0)
             )
     }
 }
