@@ -9,7 +9,10 @@ class BinaryBoarding(private var filename: String) {
 
 
     fun processPart2(): Any =
-        0L
+        getSeats(data)
+            .sorted()
+            .windowed(2, 1)
+            .first { (a, b) -> a + 1 != b }[0] + 1
 
     private fun getSeats(text: String) =
         text
@@ -27,7 +30,7 @@ class BinaryBoarding(private var filename: String) {
             .bufferedReader()
             .readText()
 
-    companion object{
+    companion object {
         private const val ICON_CARRIAGE_RETURN = "\r"
         private const val ICON_EMPTY = ""
         private const val ICON_NEWLINE = "\n"
