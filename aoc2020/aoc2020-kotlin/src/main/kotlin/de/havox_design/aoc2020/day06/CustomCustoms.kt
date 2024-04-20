@@ -4,9 +4,7 @@ class CustomCustoms(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
-        data
-            .replace(ICON_CARRIAGE_RETURN, ICON_EMPTY)
-            .split(DELIMITOR_FORMS)
+        splitCustomsForms()
             .map {
                 it
                     .toCharArray()
@@ -16,7 +14,21 @@ class CustomCustoms(private var filename: String) {
             .sumOf { it.size }
 
     fun processPart2(): Any =
-        0L
+        splitCustomsForms()
+            .map { it.lines() }
+            .map {
+                it
+                    .fold(
+                        ('a'..'z').toSet()
+                    ) { acc, s -> acc.intersect(s.toSet()) }
+            }
+            .sumOf { it.size }
+
+    private fun splitCustomsForms() =
+        data
+            .trim()
+            .replace(ICON_CARRIAGE_RETURN, ICON_EMPTY)
+            .split(DELIMITOR_FORMS)
 
     private fun getResourceAsText(path: String): String =
         this
