@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020.day08
 
-class Day08(private var filename: String) {
+class HandheldHalting(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =

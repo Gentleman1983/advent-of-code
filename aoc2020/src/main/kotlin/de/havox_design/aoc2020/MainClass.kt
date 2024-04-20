@@ -8,7 +8,7 @@ import de.havox_design.aoc2020.day04.PassportProcessing
 import de.havox_design.aoc2020.day05.BinaryBoarding
 import de.havox_design.aoc2020.day06.CustomCustoms
 import de.havox_design.aoc2020.day07.HandyHaversacks
-import de.havox_design.aoc2020.day08.Day08
+import de.havox_design.aoc2020.day08.HandheldHalting
 import de.havox_design.aoc2020.day09.Day09
 import de.havox_design.aoc2020.day10.Day10
 import de.havox_design.aoc2020.day11.Day11
@@ -100,8 +100,8 @@ class MainClass : AocMainClassHelper {
         day = 8
         day(
             getDayString(day),
-            Day08(getFileName(day))::processPart1,
-            Day08(getFileName(day))::processPart2,
+            HandheldHalting(getFileName(day))::processPart1,
+            HandheldHalting(getFileName(day))::processPart2,
             daysSelected,
             args
         )
