@@ -4,11 +4,18 @@ class HandheldHalting(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
-        0L
+        Console
+            .of(data)
+            .processPart1()
 
     fun processPart2(): Any =
         0L
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }
