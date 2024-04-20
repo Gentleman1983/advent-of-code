@@ -5,7 +5,7 @@ import de.havox_design.aoc2020.day01.RepairReport
 import de.havox_design.aoc2020.day02.PasswordPhilosophy
 import de.havox_design.aoc2020.day03.TobogganTrajectory
 import de.havox_design.aoc2020.day04.PassportProcessing
-import de.havox_design.aoc2020.day05.Day05
+import de.havox_design.aoc2020.day05.BinaryBoarding
 import de.havox_design.aoc2020.day06.Day06
 import de.havox_design.aoc2020.day07.Day07
 import de.havox_design.aoc2020.day08.Day08
@@ -73,8 +73,8 @@ class MainClass : AocMainClassHelper {
         day = 5
         day(
             getDayString(day),
-            Day05(getFileName(day))::processPart1,
-            Day05(getFileName(day))::processPart2,
+            BinaryBoarding(getFileName(day))::processPart1,
+            BinaryBoarding(getFileName(day))::processPart2,
             daysSelected,
             args
         )

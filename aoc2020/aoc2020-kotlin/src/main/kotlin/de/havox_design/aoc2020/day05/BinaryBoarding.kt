@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020.day05
 
-class Day05(private var filename: String) {
+class BinaryBoarding(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
