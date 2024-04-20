@@ -16,19 +16,19 @@ class Day09Test {
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
     fun testProcessPart2(filename: String, expectedResult: Long) =
-        EncodingError(filename).processPart2().shouldBe(expectedResult)
+        EncodingError(filename).processPart2(5).shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day09/day09part1sample.txt", 127L)
+                Arguments.of("de/havox_design/aoc2020/day09/day09sample.txt", 127L)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day09/day09part2sample.txt", 62L)
+                Arguments.of("de/havox_design/aoc2020/day09/day09sample.txt", 62L)
             )
     }
 }
