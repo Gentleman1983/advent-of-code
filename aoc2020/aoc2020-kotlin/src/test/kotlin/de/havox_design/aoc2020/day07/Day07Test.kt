@@ -10,7 +10,7 @@ class Day07Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         HandyHaversacks(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,7 +22,7 @@ class Day07Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day07/day07part1sample.txt", 4L)
+                Arguments.of("de/havox_design/aoc2020/day07/day07part1sample.txt", 4)
             )
 
         @JvmStatic
