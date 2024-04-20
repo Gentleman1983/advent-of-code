@@ -11,7 +11,7 @@ class Day09Test {
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
     fun testProcessPart1(filename: String, expectedResult: Long) =
-        EncodingError(filename).processPart1().shouldBe(expectedResult)
+        EncodingError(filename).processPart1(5).shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
