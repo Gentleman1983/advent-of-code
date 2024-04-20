@@ -10,7 +10,7 @@ import de.havox_design.aoc2020.day06.CustomCustoms
 import de.havox_design.aoc2020.day07.HandyHaversacks
 import de.havox_design.aoc2020.day08.HandheldHalting
 import de.havox_design.aoc2020.day09.EncodingError
-import de.havox_design.aoc2020.day10.Day10
+import de.havox_design.aoc2020.day10.AdapterArray
 import de.havox_design.aoc2020.day11.Day11
 import de.havox_design.aoc2020.day12.Day12
 import de.havox_design.aoc2020.day13.Day13
@@ -118,8 +118,8 @@ class MainClass : AocMainClassHelper {
         day = 10
         day(
             getDayString(day),
-            Day10(getFileName(day))::processPart1,
-            Day10(getFileName(day))::processPart2,
+            AdapterArray(getFileName(day))::processPart1,
+            AdapterArray(getFileName(day))::processPart2,
             daysSelected,
             args
         )
