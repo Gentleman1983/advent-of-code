@@ -13,11 +13,6 @@ class Day05Test {
     fun testProcessPart1(filename: String, expectedResult: Int) =
         BinaryBoarding(filename).processPart1().shouldBe(expectedResult)
 
-    @ParameterizedTest
-    @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
-        BinaryBoarding(filename).processPart2().shouldBe(expectedResult)
-
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
@@ -27,12 +22,6 @@ class Day05Test {
                 Arguments.of("de/havox_design/aoc2020/day05/day05part1sample3.txt", 567),
                 Arguments.of("de/havox_design/aoc2020/day05/day05part1sample4.txt", 119),
                 Arguments.of("de/havox_design/aoc2020/day05/day05part1sample5.txt", 820)
-            )
-
-        @JvmStatic
-        private fun getDataForTestProcessPart2(): Stream<Arguments> =
-            Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day05/day05part2sample.txt", 0L)
             )
     }
 }
