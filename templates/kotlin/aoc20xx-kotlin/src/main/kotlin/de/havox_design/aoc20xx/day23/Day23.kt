@@ -8,6 +8,7 @@ class Day23(private var filename: String) {
 
     fun processPart2(): Any =
         0L
+
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
 }
