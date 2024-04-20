@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020.day04
 
-class Day04(private var filename: String) {
+class PassportProcessing(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
