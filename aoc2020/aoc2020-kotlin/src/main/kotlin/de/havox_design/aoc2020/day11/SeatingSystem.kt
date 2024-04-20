@@ -9,11 +9,17 @@ class SeatingSystem(private var filename: String) {
                 .map { it.toCharArray() }
                 .toTypedArray()
         )
-            .simulateUntilStable(Seats::calculateOccupiedSeats)
+            .simulateUntilStable(Seats::calculateOccupiedSeatsPart1)
             .count(ICON_OCCUPIED_SEAT)
 
     fun processPart2(): Any =
-        0L
+        Seats(
+            data
+                .map { it.toCharArray() }
+                .toTypedArray()
+        )
+            .simulateUntilStable(Seats::calculateOccupiedSeatsPart2)
+            .count(ICON_OCCUPIED_SEAT)
 
     private fun getResourceAsText(path: String): List<String> =
         this

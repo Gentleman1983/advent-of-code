@@ -2,6 +2,7 @@ package de.havox_design.aoc2020.day11
 
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 import de.havox_design.aoc2020.day11.SeatingSystem.Companion.ICON_EMPTY_SEAT
+import de.havox_design.aoc2020.day11.SeatingSystem.Companion.ICON_FLOOR
 import de.havox_design.aoc2020.day11.SeatingSystem.Companion.ICON_OCCUPIED_SEAT
 
 class Seats(private val seats: Array<CharArray>) {
@@ -55,7 +56,7 @@ class Seats(private val seats: Array<CharArray>) {
         return new
     }
 
-    fun calculateOccupiedSeats(point: Position2d<Int>): Char {
+    fun calculateOccupiedSeatsPart1(point: Position2d<Int>): Char {
         val current = this[point]
         val adjacent = directions
             .map { point + it }
@@ -68,6 +69,27 @@ class Seats(private val seats: Array<CharArray>) {
             else -> this[point]
         }
     }
+
+    fun calculateOccupiedSeatsPart2(point: Position2d<Int>): Char {
+        val currentValue = this[point]
+
+        val seen = directions
+            .mapNotNull {
+                pointsInDirection(point, it)
+                    .firstOrNull { p -> this[p] != ICON_FLOOR }
+            }
+            .map { this[it] }
+
+        return when {
+            currentValue == ICON_EMPTY_SEAT && seen.count { it == ICON_OCCUPIED_SEAT } == 0 -> ICON_OCCUPIED_SEAT
+            currentValue == ICON_OCCUPIED_SEAT && seen.count { it == ICON_OCCUPIED_SEAT } >= 5 -> ICON_EMPTY_SEAT
+            else -> this[point]
+        }
+    }
+
+    private fun pointsInDirection(start: Position2d<Int>, direction: Position2d<Int>): Sequence<Position2d<Int>> =
+        generateSequence(start + direction) { it + direction }
+            .takeWhile { it in this }
 
     companion object {
         private val directions = listOf(
