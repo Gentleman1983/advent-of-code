@@ -9,7 +9,9 @@ class HandheldHalting(private var filename: String) {
             .processPart1()
 
     fun processPart2(): Any =
-        0L
+        Console
+            .of(data)
+            .processPart2()
 
     private fun getResourceAsText(path: String): List<String> =
         this

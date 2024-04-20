@@ -18,9 +18,9 @@ data class Instruction(var name: String, val value: Int) {
 
     companion object {
         private const val DELIMITOR_OPERATION_VALUE = " "
-        private const val ICON_ACCUMULATOR = "acc"
-        private const val ICON_JUMP = "jmp"
-        private const val ICON_NO_OPERATION = "nop"
+        const val ICON_ACCUMULATOR = "acc"
+        const val ICON_JUMP = "jmp"
+        const val ICON_NO_OPERATION = "nop"
 
         fun of(line: String): Instruction {
             val (key, value) = line
