@@ -15,7 +15,7 @@ class Day04Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         PassportProcessing(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
@@ -28,7 +28,9 @@ class Day04Test {
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day04/day04part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2020/day04/day04part2sample1.txt", 4),
+                Arguments.of("de/havox_design/aoc2020/day04/day04part2sample2.txt", 0),
+                Arguments.of("de/havox_design/aoc2020/day04/day04part2sample3.txt", 4)
             )
     }
 }

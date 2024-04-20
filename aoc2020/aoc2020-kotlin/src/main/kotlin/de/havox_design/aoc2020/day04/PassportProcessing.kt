@@ -12,16 +12,41 @@ class PassportProcessing(private var filename: String) {
 
         return splitEntries()
             .count { passport ->
-            passport
-                .trim()
-                .split(ICON_SPACE, ICON_NEWLINE)
-                .map { item -> item.substringBefore(DELIMITOR_KEY_VALUE) }
-                .containsAll(requiredFields)
-        }
+                passport
+                    .trim()
+                    .split(ICON_SPACE, ICON_NEWLINE)
+                    .map { item -> item.substringBefore(DELIMITOR_KEY_VALUE) }
+                    .containsAll(requiredFields)
+            }
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val requiredFields = PassportFields
+            .entries
+            .filter { field -> field != PassportFields.COUNTRY_ID }
+            .toSet()
+
+        return splitEntries()
+            .count { passport ->
+                passport
+                    .trim()
+                    .split(ICON_SPACE, ICON_NEWLINE)
+                    .map { item -> item.split(DELIMITOR_KEY_VALUE) }
+                    .filter { (key, value) ->
+                        PassportFields
+                            .entries
+                            .first { field -> field.key == key }
+                            .isValid
+                            .invoke(value)
+                    }
+                    .map { (key, _) -> key }
+                    .containsAll(
+                        requiredFields
+                            .map { field -> field.key }
+                            .toSet()
+                    )
+            }
+    }
 
     private fun splitEntries() =
         data
