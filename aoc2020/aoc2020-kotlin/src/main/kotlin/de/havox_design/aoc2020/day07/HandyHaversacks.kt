@@ -9,7 +9,8 @@ class HandyHaversacks(private var filename: String) {
             .size
 
     fun processPart2(): Any =
-        0L
+        buildGraph(data)[MY_BAG_TYPE]
+            .containsCount()
 
     private fun buildGraph(lines: List<String>): Graph {
         return Graph()
