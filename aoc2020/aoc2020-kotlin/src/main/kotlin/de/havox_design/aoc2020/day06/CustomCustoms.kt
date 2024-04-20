@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020.day06
 
-class Day06(private var filename: String) {
+class CustomCustoms(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =

@@ -11,18 +11,19 @@ class Day06Test {
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
     fun testProcessPart1(filename: String, expectedResult: Long) =
-        Day06(filename).processPart1().shouldBe(expectedResult)
+        CustomCustoms(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
     fun testProcessPart2(filename: String, expectedResult: Long) =
-        Day06(filename).processPart2().shouldBe(expectedResult)
+        CustomCustoms(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day06/day06part1sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2020/day06/day06part1sample1.txt", 6L),
+                Arguments.of("de/havox_design/aoc2020/day06/day06part1sample2.txt", 11L)
             )
 
         @JvmStatic

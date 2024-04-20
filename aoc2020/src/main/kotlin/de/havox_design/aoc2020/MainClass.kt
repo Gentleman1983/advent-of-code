@@ -6,7 +6,7 @@ import de.havox_design.aoc2020.day02.PasswordPhilosophy
 import de.havox_design.aoc2020.day03.TobogganTrajectory
 import de.havox_design.aoc2020.day04.PassportProcessing
 import de.havox_design.aoc2020.day05.BinaryBoarding
-import de.havox_design.aoc2020.day06.Day06
+import de.havox_design.aoc2020.day06.CustomCustoms
 import de.havox_design.aoc2020.day07.Day07
 import de.havox_design.aoc2020.day08.Day08
 import de.havox_design.aoc2020.day09.Day09
@@ -82,8 +82,8 @@ class MainClass : AocMainClassHelper {
         day = 6
         day(
             getDayString(day),
-            Day06(getFileName(day))::processPart1,
-            Day06(getFileName(day))::processPart2,
+            CustomCustoms(getFileName(day))::processPart1,
+            CustomCustoms(getFileName(day))::processPart2,
             daysSelected,
             args
         )
