@@ -13,7 +13,7 @@ scala3-library = "3.4.1"
 scala3-scalatest = "3.3.0-SNAP4"
 scala3-scalatestplus-junit = "3.2.18.0"
 sonarqube-plugin = "5.0.0.4638"
-struts2 = "6.3.0.2"
+struts2 = "6.4.0"
 
 [libraries]
 commons-codec = { group = "commons-codec", name = "commons-codec", version.ref = "commons-codec" }
