@@ -10,7 +10,7 @@ class Day06Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         CustomCustoms(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,8 +22,8 @@ class Day06Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day06/day06part1sample1.txt", 6L),
-                Arguments.of("de/havox_design/aoc2020/day06/day06part1sample2.txt", 11L)
+                Arguments.of("de/havox_design/aoc2020/day06/day06part1sample1.txt", 6),
+                Arguments.of("de/havox_design/aoc2020/day06/day06part1sample2.txt", 11)
             )
 
         @JvmStatic
