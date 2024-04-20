@@ -10,7 +10,7 @@ class Day12Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         RainRisk(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,7 +22,7 @@ class Day12Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day12/day12part1sample.txt", 25L)
+                Arguments.of("de/havox_design/aoc2020/day12/day12part1sample.txt", 25)
             )
 
         @JvmStatic
