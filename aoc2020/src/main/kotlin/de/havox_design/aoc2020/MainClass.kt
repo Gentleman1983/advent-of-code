@@ -11,7 +11,7 @@ import de.havox_design.aoc2020.day07.HandyHaversacks
 import de.havox_design.aoc2020.day08.HandheldHalting
 import de.havox_design.aoc2020.day09.EncodingError
 import de.havox_design.aoc2020.day10.AdapterArray
-import de.havox_design.aoc2020.day11.Day11
+import de.havox_design.aoc2020.day11.SeatingSystem
 import de.havox_design.aoc2020.day12.Day12
 import de.havox_design.aoc2020.day13.Day13
 import de.havox_design.aoc2020.day14.Day14
@@ -127,8 +127,8 @@ class MainClass : AocMainClassHelper {
         day = 11
         day(
             getDayString(day),
-            Day11(getFileName(day))::processPart1,
-            Day11(getFileName(day))::processPart2,
+            SeatingSystem(getFileName(day))::processPart1,
+            SeatingSystem(getFileName(day))::processPart2,
             daysSelected,
             args
         )

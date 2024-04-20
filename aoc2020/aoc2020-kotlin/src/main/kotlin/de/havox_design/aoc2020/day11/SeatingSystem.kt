@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020.day11
 
-class Day11(private var filename: String) {
+class SeatingSystem(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
