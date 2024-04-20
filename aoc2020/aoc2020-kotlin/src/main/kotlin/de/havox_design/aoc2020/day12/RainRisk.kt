@@ -28,7 +28,26 @@ class RainRisk(private var filename: String) {
             .abs()
 
     fun processPart2(): Any =
-        0L
+        data
+            .fold(Pair(Position2d(0, 0), Position2d(10, 1))) { (ship, waypoint), line ->
+                val action = line[0]
+                val value = line
+                    .substring(1, line.length)
+                    .toInt()
+
+                when (action) {
+                    ACTION_NORTH -> Pair(ship, waypoint + getPostition(NORTH) * value)
+                    ACTION_SOUTH -> Pair(ship, waypoint + getPostition(SOUTH) * value)
+                    ACTION_EAST -> Pair(ship, waypoint + getPostition(EAST) * value)
+                    ACTION_WEST -> Pair(ship, waypoint + getPostition(WEST) * value)
+                    ACTION_LEFT -> Pair(ship, waypoint.counterClockwise(value))
+                    ACTION_RIGHT -> Pair(ship, waypoint.clockwise(value))
+                    ACTION_FORWARD -> Pair(ship + waypoint * value, waypoint)
+                    else -> throw UnsupportedOperationException()
+                }
+            }
+            .first
+            .abs()
 
     private fun getPostition(direction: GeoDirection) =
         when (direction) {
@@ -67,3 +86,15 @@ private operator fun Position2d<Int>.times(value: Int) =
 
 private fun Position2d<Int>.abs() =
     kotlin.math.abs(x) + kotlin.math.abs(y)
+
+private fun Position2d<Int>.clockwise(degrees: Int): Position2d<Int> {
+    return when (degrees) {
+        90 -> Position2d(y, -x)
+        180 -> Position2d(-x, -y)
+        270 -> Position2d(-y, x)
+        else -> throw UnsupportedOperationException()
+    }
+}
+
+private fun Position2d<Int>.counterClockwise(degrees: Int): Position2d<Int> =
+    clockwise(360 - degrees)
