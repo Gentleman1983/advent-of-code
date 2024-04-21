@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020.day13
 
-class Day13(private var filename: String) {
+class ShuttleSearch(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
