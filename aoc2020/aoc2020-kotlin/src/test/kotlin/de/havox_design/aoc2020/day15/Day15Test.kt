@@ -15,26 +15,32 @@ class Day15Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         RambunctiousRecitation(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample1.txt", 436),
-                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample2.txt", 1),
-                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample3.txt", 10),
-                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample4.txt", 27),
-                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample5.txt", 78),
-                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample6.txt", 438),
-                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample7.txt", 1836)
+                Arguments.of("de/havox_design/aoc2020/day15/day15sample1.txt", 436),
+                Arguments.of("de/havox_design/aoc2020/day15/day15sample2.txt", 1),
+                Arguments.of("de/havox_design/aoc2020/day15/day15sample3.txt", 10),
+                Arguments.of("de/havox_design/aoc2020/day15/day15sample4.txt", 27),
+                Arguments.of("de/havox_design/aoc2020/day15/day15sample5.txt", 78),
+                Arguments.of("de/havox_design/aoc2020/day15/day15sample6.txt", 438),
+                Arguments.of("de/havox_design/aoc2020/day15/day15sample7.txt", 1836)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day15/day15part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2020/day15/day15sample1.txt", 175594),
+                Arguments.of("de/havox_design/aoc2020/day15/day15sample2.txt", 2578),
+                Arguments.of("de/havox_design/aoc2020/day15/day15sample3.txt", 3544142),
+                Arguments.of("de/havox_design/aoc2020/day15/day15sample4.txt", 261214),
+                Arguments.of("de/havox_design/aoc2020/day15/day15sample5.txt", 6895259),
+                Arguments.of("de/havox_design/aoc2020/day15/day15sample6.txt", 18),
+                Arguments.of("de/havox_design/aoc2020/day15/day15sample7.txt", 362)
             )
     }
 }
