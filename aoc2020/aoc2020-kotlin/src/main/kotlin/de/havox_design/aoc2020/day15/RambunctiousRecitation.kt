@@ -11,8 +11,13 @@ class RambunctiousRecitation(private var filename: String) {
         return playTurns(startingNumbers, 2020)
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val startingNumbers = data
+            .split(DELIMITOR_VALUES)
+            .map { it.toInt() }
+
+        return playTurns(startingNumbers, 30_000_000)
+    }
 
     private fun playTurns(startingNumbers: List<Int>, turns: Int): Int {
         val history = mutableMapOf<Int, Int>()
