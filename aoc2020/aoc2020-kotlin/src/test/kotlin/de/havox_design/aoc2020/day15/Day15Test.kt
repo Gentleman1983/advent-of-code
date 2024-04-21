@@ -10,7 +10,7 @@ class Day15Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         RambunctiousRecitation(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,13 +22,13 @@ class Day15Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample1.txt", 436L),
-                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample2.txt", 1L),
-                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample3.txt", 10L),
-                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample4.txt", 27L),
-                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample5.txt", 78L),
-                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample6.txt", 438L),
-                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample7.txt", 1836L)
+                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample1.txt", 436),
+                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample2.txt", 1),
+                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample3.txt", 10),
+                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample4.txt", 27),
+                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample5.txt", 78),
+                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample6.txt", 438),
+                Arguments.of("de/havox_design/aoc2020/day15/day15part1sample7.txt", 1836)
             )
 
         @JvmStatic
