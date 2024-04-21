@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020.day15
 
-class Day15(private var filename: String) {
+class RambunctiousRecitation(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
