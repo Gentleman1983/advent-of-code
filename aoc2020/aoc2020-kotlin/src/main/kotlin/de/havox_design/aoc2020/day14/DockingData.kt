@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020.day14
 
-class Day14(private var filename: String) {
+class DockingData(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =

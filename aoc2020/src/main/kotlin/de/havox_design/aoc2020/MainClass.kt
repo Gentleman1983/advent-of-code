@@ -14,7 +14,7 @@ import de.havox_design.aoc2020.day10.AdapterArray
 import de.havox_design.aoc2020.day11.SeatingSystem
 import de.havox_design.aoc2020.day12.RainRisk
 import de.havox_design.aoc2020.day13.ShuttleSearch
-import de.havox_design.aoc2020.day14.Day14
+import de.havox_design.aoc2020.day14.DockingData
 import de.havox_design.aoc2020.day15.Day15
 import de.havox_design.aoc2020.day16.Day16
 import de.havox_design.aoc2020.day17.Day17
@@ -154,8 +154,8 @@ class MainClass : AocMainClassHelper {
         day = 14
         day(
             getDayString(day),
-            Day14(getFileName(day))::processPart1,
-            Day14(getFileName(day))::processPart2,
+            DockingData(getFileName(day))::processPart1,
+            DockingData(getFileName(day))::processPart2,
             daysSelected,
             args
         )
