@@ -14,7 +14,10 @@ class OperationOrder(private var filename: String) {
             .sumOf { evaluatePostfix(it) }
 
     fun processPart2(): Any =
-        0L
+        data
+            .map { it.toCharArray().filter { char -> char != SPACE } }
+            .map { buildPostfix(it, mapOf(LITERAL_MULTIPLY to 1, LITERAL_PLUS to 2)) }
+            .sumOf { evaluatePostfix(it) }
 
     @SuppressWarnings("kotlin:S6611")
     private fun buildPostfix(tokens: List<Char>, operatorPrecedence: Map<Char, Int>): Queue<Char> {
