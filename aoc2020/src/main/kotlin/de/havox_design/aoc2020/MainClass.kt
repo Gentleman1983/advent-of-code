@@ -20,7 +20,7 @@ import de.havox_design.aoc2020.day16.TicketTranslation
 import de.havox_design.aoc2020.day17.ConwayCubes
 import de.havox_design.aoc2020.day18.OperationOrder
 import de.havox_design.aoc2020.day19.MonsterMessages
-import de.havox_design.aoc2020.day20.Day20
+import de.havox_design.aoc2020.day20.JurassicJigsaw
 import de.havox_design.aoc2020.day21.Day21
 import de.havox_design.aoc2020.day22.Day22
 import de.havox_design.aoc2020.day23.Day23
@@ -208,8 +208,8 @@ class MainClass : AocMainClassHelper {
         day = 20
         day(
             getDayString(day),
-            Day20(getFileName(day))::processPart1,
-            Day20(getFileName(day))::processPart2,
+            JurassicJigsaw(getFileName(day))::processPart1,
+            JurassicJigsaw(getFileName(day))::processPart2,
             daysSelected,
             args
         )

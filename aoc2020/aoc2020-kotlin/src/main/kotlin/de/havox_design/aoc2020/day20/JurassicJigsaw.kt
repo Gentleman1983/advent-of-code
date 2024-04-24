@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020.day20
 
-class Day20(private var filename: String) {
+class JurassicJigsaw(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
