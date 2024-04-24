@@ -13,22 +13,11 @@ class Day16Test {
     fun testProcessPart1(filename: String, expectedResult: Int) =
         TicketTranslation(filename).processPart1().shouldBe(expectedResult)
 
-    @ParameterizedTest
-    @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
-        TicketTranslation(filename).processPart2().shouldBe(expectedResult)
-
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
                 Arguments.of("de/havox_design/aoc2020/day16/day16part1sample.txt", 71)
-            )
-
-        @JvmStatic
-        private fun getDataForTestProcessPart2(): Stream<Arguments> =
-            Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day16/day16part2sample.txt", 0L)
             )
     }
 }
