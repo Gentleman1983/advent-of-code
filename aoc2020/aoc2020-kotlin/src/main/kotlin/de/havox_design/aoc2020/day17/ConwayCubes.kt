@@ -8,13 +8,19 @@ class ConwayCubes(private var filename: String) {
 
     fun processPart1(): Any {
         init()
-        repeat(6) { this.iterate() }
+        repeat(6) { this.iteratePart1() }
 
-        return hyperspace.count()
+        return hyperspace
+            .count()
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        init()
+        repeat(6) { this.iteratePart2() }
+
+        return hyperspace
+            .count()
+    }
 
     private fun init() {
         lowerBounds = intArrayOf(0, 0, 0, 0)
@@ -32,7 +38,7 @@ class ConwayCubes(private var filename: String) {
             }
     }
 
-    private fun iterate() {
+    private fun iteratePart1() {
         lowerBounds = lowerBounds
             .mapToInt { it - 1 }
         upperBounds = upperBounds
@@ -41,6 +47,22 @@ class ConwayCubes(private var filename: String) {
             .create(lowerBounds, upperBounds)
 
         iterateInner(0, newHyperspace)
+        hyperspace = newHyperspace
+    }
+
+    private fun iteratePart2() {
+        lowerBounds = lowerBounds
+            .mapToInt { it - 1 }
+        upperBounds = upperBounds
+            .mapToInt { it + 1 }
+        val newHyperspace = IntTrie
+            .create(lowerBounds, upperBounds)
+
+        (lowerBounds[0]..upperBounds[0])
+            .forEach { w ->
+                iterateInner(w, newHyperspace)
+            }
+
         hyperspace = newHyperspace
     }
 
