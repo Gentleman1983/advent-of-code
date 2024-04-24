@@ -15,7 +15,7 @@ class Day19Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         MonsterMessages(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
@@ -28,7 +28,7 @@ class Day19Test {
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day19/day19part2sample.txt", 12L)
+                Arguments.of("de/havox_design/aoc2020/day19/day19part2sample.txt", 12)
             )
     }
 }
