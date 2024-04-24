@@ -29,9 +29,7 @@ interface IntTrie {
 
     companion object {
         fun create(lowerBounds: IntArray, upperBounds: IntArray): IntTrie {
-            if (lowerBounds.size != upperBounds.size) {
-                throw IllegalArgumentException("Lower and upper bounds arrays must have the same size")
-            }
+            require(lowerBounds.size == upperBounds.size) { "Lower and upper bounds arrays must have the same size" }
 
             return TrieNode
                 .InnerNode(lowerBounds, upperBounds, 0)
