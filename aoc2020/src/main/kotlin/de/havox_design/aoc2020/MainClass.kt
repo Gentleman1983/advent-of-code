@@ -16,7 +16,7 @@ import de.havox_design.aoc2020.day12.RainRisk
 import de.havox_design.aoc2020.day13.ShuttleSearch
 import de.havox_design.aoc2020.day14.DockingData
 import de.havox_design.aoc2020.day15.RambunctiousRecitation
-import de.havox_design.aoc2020.day16.Day16
+import de.havox_design.aoc2020.day16.TicketTranslation
 import de.havox_design.aoc2020.day17.Day17
 import de.havox_design.aoc2020.day18.Day18
 import de.havox_design.aoc2020.day19.Day19
@@ -172,8 +172,8 @@ class MainClass : AocMainClassHelper {
         day = 16
         day(
             getDayString(day),
-            Day16(getFileName(day))::processPart1,
-            Day16(getFileName(day))::processPart2,
+            TicketTranslation(getFileName(day))::processPart1,
+            TicketTranslation(getFileName(day))::processPart2,
             daysSelected,
             args
         )

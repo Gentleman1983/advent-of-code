@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020.day16
 
-class Day16(private var filename: String) {
+class TicketTranslation(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
