@@ -7,7 +7,7 @@ class TicketTranslation(private var filename: String) {
         val fieldRules = extractFieldRules(data)
 
         val nearbyTickets = data
-            .subList(data.indexOf("nearby tickets:") + 1, data.size)
+            .subList(data.indexOf(TICKET_IDENTIFIER_NEARBY) + 1, data.size)
 
         return nearbyTickets
             .asSequence()
@@ -16,8 +16,61 @@ class TicketTranslation(private var filename: String) {
             .sum()
     }
 
-    fun processPart2(): Any =
-        0L
+    @SuppressWarnings("kotlin:S6611")
+    fun processPart2(): Any {
+        val fieldRules = extractFieldRules(data)
+
+        val yourTicket = data[data.indexOf(TICKET_IDENTIFIER_YOU) + 1]
+            .split(TICKET_DELIMITER)
+            .map(String::toInt)
+
+        val possibleFieldNames = Array(yourTicket.size) { fieldRules.keys.toMutableSet() }
+        val solvedFields = Array<String?>(yourTicket.size) { null }
+
+        data.subList(data.indexOf(TICKET_IDENTIFIER_NEARBY) + 1, data.size)
+            .map { it.split(TICKET_DELIMITER).map(String::toInt) }
+            .filter { numbers -> !containsInvalidFields(numbers, fieldRules) }
+            .forEach { ticket ->
+                ticket
+                    .forEachIndexed { i, value ->
+                        possibleFieldNames[i].removeIf { rule -> !fieldRules[rule]!!(value) }
+                    }
+            }
+
+        while (solvedFields.any { it == null }) {
+            fieldRules
+                .keys
+                .filter { it !in solvedFields }
+                .forEach { name ->
+                    val possibleIndices = possibleFieldNames
+                        .withIndex()
+                        .filter { (_, it) -> it.contains(name) }
+
+                    if (possibleIndices.size == 1) {
+                        val (index, _) = possibleIndices.first()
+                        solvedFields[index] = name
+                        possibleFieldNames[index].clear()
+                        possibleFieldNames.forEach { it.remove(name) }
+                    }
+                }
+
+            possibleFieldNames
+                .withIndex()
+                .filter { (_, names) -> names.size == 1 }
+                .forEach { (index, names) ->
+                    val name = names.first()
+                    solvedFields[index] = name
+                    possibleFieldNames[index].clear()
+                    possibleFieldNames.forEach { it.remove(name) }
+                }
+        }
+
+        return yourTicket
+            .mapIndexed { i, value -> solvedFields[i]!! to value }
+            .filter { (name, _) -> name.startsWith(KEYWORD) }
+            .map { (_, value) -> value.toLong() }
+            .product()
+    }
 
     private fun extractFieldRules(allLines: List<String>): Map<String, (Int) -> Boolean> =
         allLines
@@ -32,6 +85,10 @@ class TicketTranslation(private var filename: String) {
                 key to { value: Int -> value in (a.toInt()..b.toInt()) || value in (c.toInt()..d.toInt()) }
             }
 
+    private fun containsInvalidFields(numbers: List<Int>, fieldRules: Map<String, (Int) -> Boolean>) =
+        numbers
+            .any { value -> !fieldRules.values.any(value::let) }
+
     private fun getResourceAsText(path: String): List<String> =
         this
             .javaClass
@@ -42,9 +99,15 @@ class TicketTranslation(private var filename: String) {
 
     companion object {
         private const val CLASS_DELIMITER = ": "
+        private const val KEYWORD = "departure"
         private const val TICKET_DELIMITER = ","
+        private const val TICKET_IDENTIFIER_NEARBY = "nearby tickets:"
+        private const val TICKET_IDENTIFIER_YOU = "your ticket:"
 
         private val RANGE_PATTERN = """(\d+)-(\d+) or (\d+)-(\d+)"""
             .toRegex()
     }
 }
+
+private fun Iterable<Long>.product() =
+    reduce { acc, item -> acc * item }
