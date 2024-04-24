@@ -1,44 +1,108 @@
 package de.havox_design.aoc2020.day20
 
+import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+
 class JurassicJigsaw(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any {
-        val tiles = data
-            .replace(CARRIAGE_RETURN, EMPTY)
-            .split(DOUBLE_NEWLINE)
-            .map { it.lines() }
-            .map { (NUMBER.find(it.first())?.value?.toIntOrNull() ?: 0) to it.drop(1).map { l -> l.toList() } }
-            .map { it.first to profiles(it.second) }
-        val profileCounts = tiles
-            .flatMap { it.second }
-            .groupingBy { it }
-            .eachCount()
+        val tiles = buildTileData(data)
         val corners = tiles
-            .filter { it.second.count { prof -> profileCounts[prof] == 1 } == 4 }
+            .filter { it.isCorner(tiles) }
 
         return corners
-            .map { it.first.toLong() }
-            .reduce(Long::times)
+            .map { it.id }
+            .product()
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val tiles = buildTileData(data)
+        val topLeft = buildGrid(tiles)
 
-    private fun profiles(tile: List<List<Char>>): List<Int> {
-        val top = tile.first()
-        val bottom = tile.last()
-        val left = tile.map { it.first() }
-        val right = tile.map { it.last() }
+        val final = TileData(0, topLeft.combine())
+            .orientations()
+            .first { it.seaMonsterCount() > 0 }
 
-        return listOf(left, top, right, bottom)
-            .map {
-                it
-                .joinToString(separator = EMPTY)
-                .replace(LITERAL_WHITE, LITERAL_ONE)
-                .replace(LITERAL_BLACK, LITERAL_ZERO)
+        return final
+            .seaRoughness()
+    }
+
+    private fun buildTileData(text: String) =
+        text
+            .replace(CARRIAGE_RETURN, EMPTY)
+            .trim()
+            .split(DOUBLE_NEWLINE)
+            .map { section ->
+                val lines = section
+                    .lines()
+                val id = TILE_REGEX
+                    .matchEntire(lines[0])!!
+                    .groups[1]!!
+                    .value
+                    .toLong()
+
+                TileData(id, lines.subList(1, lines.size))
             }
-            .flatMap { listOf(it.toInt(RADIX_BINARY), it.reversed().toInt(RADIX_BINARY)) }
+
+    private fun buildGrid(tiles: List<TileData>): ImageNode {
+        var start = ImageNode(tiles.first())
+        val remaining = tiles
+            .drop(1)
+            .flatMap { it.orientations() }
+            .toMutableList()
+
+        buildChainRight(start, remaining)
+        start = buildChainLeft(start, remaining)
+
+        var current = start
+
+        while (current.linkBottom(remaining) != null) {
+            current = current.bottom!!
+            remaining.removeIf { it.id == current.id }
+            buildChainRight(current, remaining)
+        }
+
+        current = start
+
+        while (current.linkTop(remaining) != null) {
+            current = current.top!!
+            remaining.removeIf { it.id == current.id }
+            buildChainRight(current, remaining)
+        }
+
+        return current
+    }
+
+    private fun buildChainLeft(start: ImageNode, remaining: MutableList<TileData>): ImageNode {
+        var above = start.top
+        var below = start.bottom
+        var current = start
+
+        while (current.linkLeft(remaining) != null) {
+            current = current.left!!
+            remaining.removeIf { it.id == current.id }
+            above = above?.left
+            below = below?.left
+            current.linkTop(above)
+            current.linkBottom(below)
+        }
+
+        return current
+    }
+
+    private fun buildChainRight(start: ImageNode, remaining: MutableList<TileData>) {
+        var above = start.top
+        var below = start.bottom
+        var current = start
+
+        while (current.linkRight(remaining) != null) {
+            current = current.right!!
+            remaining.removeIf { it.id == current.id }
+            above = above?.right
+            below = below?.right
+            current.linkTop(above)
+            current.linkBottom(below)
+        }
     }
 
     private fun getResourceAsText(path: String): String =
@@ -52,13 +116,27 @@ class JurassicJigsaw(private var filename: String) {
     companion object {
         private const val CARRIAGE_RETURN = "\r"
         private const val DOUBLE_NEWLINE = "\n\n"
-        private const val EMPTY = ""
-        private const val LITERAL_BLACK = '.'
-        private const val LITERAL_ONE = '1'
-        private const val LITERAL_WHITE = '#'
-        private const val LITERAL_ZERO = '0'
-        private const val RADIX_BINARY = 2
+        const val EMPTY = ""
+        const val LITERAL_WHITE = '#'
 
-        private val NUMBER = "\\d+".toRegex()
+        val MONSTER = """
+    |                  # 
+    |#    ##    ##    ###
+    | #  #  #  #  #  #   
+  """
+            .trimMargin()
+        val MONSTER_INDICES = MONSTER
+            .lines()
+            .flatMapIndexed { y, line ->
+                line
+                    .withIndex()
+                    .filter { (_, value) -> value == LITERAL_WHITE }
+                    .map { (x, _) -> Position2d(x, y) }
+            }
+
+        private val TILE_REGEX = """Tile (\d+):""".toRegex()
     }
 }
+
+private fun Iterable<Long>.product() =
+    reduce { acc, item -> acc * item }
