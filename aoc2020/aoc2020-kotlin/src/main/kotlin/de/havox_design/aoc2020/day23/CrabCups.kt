@@ -1,5 +1,7 @@
 package de.havox_design.aoc2020.day23
 
+import java.util.LinkedList
+
 class CrabCups(private var filename: String) {
     private val data = getResourceAsText(filename)
 
@@ -25,8 +27,28 @@ class CrabCups(private var filename: String) {
             .toString()
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val maxCup = 1_000_000
+        val iterations = 10_000_000
+        val mutableList = LinkedList<Int>()
+
+        mutableList
+            .addAll(data.map { it.toString().toInt() })
+        mutableList
+            .addAll(10..maxCup)
+
+        val cups = IntCircularList(maxCup + 1, mutableList)
+        var currentCup = mutableList[0]
+
+        repeat(iterations) {
+            currentCup = runIteration(cups, maxCup, currentCup)
+        }
+
+        val next1 = cups.getNext(1)
+        val next2 = cups.getNext(next1)
+
+        return next1.toLong() * next2.toLong()
+    }
 
     private fun runIteration(cups: IntCircularList, maxCup: Int, currentCup: Int): Int {
         val pickup1 = cups.remove(cups.getNext(currentCup))
