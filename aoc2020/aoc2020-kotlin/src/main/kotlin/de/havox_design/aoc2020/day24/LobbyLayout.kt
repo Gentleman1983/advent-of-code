@@ -33,8 +33,36 @@ class LobbyLayout(private var filename: String) {
             .count { it.value.size % 2 == 1 }
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val items = data
+            .map { line ->
+                PATTERN
+                    .findAll(line)
+                    .map { it.groupValues[1] }
+                    .toList()
+            }
+
+        val start = items
+            .map { steps ->
+                steps
+                    .fold(Position3d(0, 0, 0)) { acc, value -> acc + DIRS.getValue(value) }
+            }
+            .groupBy { it }
+            .filterValues { it.size % 2 == 1 }
+            .keys
+
+        val result = (0..<100)
+            .fold(start) { prev, _ ->
+                val neighbors = prev
+                    .flatMap { cell -> DIRS.values.map { it + cell } }
+                    .groupingBy { it }
+                    .eachCount()
+
+                return@fold (prev.filter { neighbors[it] in 1..2 } + (neighbors.filterValues { it == 2 }.keys - prev)).toSet()
+            }
+
+        return result.size
+    }
 
     private fun getResourceAsText(path: String): List<String> =
         this

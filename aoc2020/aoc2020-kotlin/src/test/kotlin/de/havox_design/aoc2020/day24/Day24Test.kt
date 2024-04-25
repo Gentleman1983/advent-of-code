@@ -15,7 +15,7 @@ class Day24Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         LobbyLayout(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
@@ -28,7 +28,7 @@ class Day24Test {
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day24/day24sample.txt", 2208L)
+                Arguments.of("de/havox_design/aoc2020/day24/day24sample.txt", 2208)
             )
     }
 }
