@@ -2,7 +2,7 @@
 
 Simple project for Advent of Code 2020.
 
-Done in Kotlin for easier solutions. ;)
+Done in Kotlin. ;)
 
 For more information see https://adventofcode.com [2020](https://adventofcode.com/2020).
 
