@@ -10,7 +10,7 @@ class Day23Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: String) =
         CrabCups(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,7 +22,7 @@ class Day23Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day23/day23part1sample.txt", 67384529L)
+                Arguments.of("de/havox_design/aoc2020/day23/day23part1sample.txt", "67384529")
             )
 
         @JvmStatic
