@@ -26,8 +26,55 @@ class AllergenAssessment(private var filename: String) {
             .size
     }
 
-    fun processPart2(): Any =
-        0L
+    @SuppressWarnings("kotlin:S6611")
+    fun processPart2(): Any {
+        val dictionary = mutableMapOf<String, MutableSet<String>>()
+
+        data
+            .forEach { line ->
+            val (ingredients, allergens) = buildRecipe(line)
+
+                allergens
+                    .forEach {
+                dictionary.putIfAbsent(it, ingredients.toMutableSet())
+                dictionary[it]!!.removeIf { ingredient -> ingredient !in ingredients }
+            }
+        }
+
+        val reversedDictionary = mutableMapOf<String, MutableSet<String>>()
+
+        dictionary
+            .entries
+            .forEach { (allergen, possibleIngredients) ->
+            possibleIngredients
+                .forEach {
+                reversedDictionary.putIfAbsent(it, mutableSetOf())
+                reversedDictionary[it]!!.add(allergen)
+            }
+        }
+
+        val solution = mutableMapOf<String, String>()
+
+        while (reversedDictionary.any { (_, value) -> value.size == 1 }) {
+            val (ingredient, possibleAllergens) = reversedDictionary
+                .entries
+                .first { (_, value) -> value.size == 1 }
+            val allergen = possibleAllergens
+                .first()
+
+            solution[allergen] = ingredient
+            reversedDictionary
+                .remove(ingredient)
+            reversedDictionary
+                .values
+                .forEach { it.remove(allergen) }
+        }
+
+        return solution
+            .entries
+            .sortedBy { it.key }
+            .joinToString(separator = JOINER_ALLERGEN_INGREDIENT) { it.value }
+    }
 
     private fun buildRecipe(it: String): Pair<Set<String>, Set<String>> {
         val matchResult = INGRIEDIENT_REGEX
@@ -59,6 +106,7 @@ class AllergenAssessment(private var filename: String) {
         private const val DELIMITER_INGREDIENT = " "
         private const val ID_ALLERGEN = 2
         private const val ID_INGREDIENT = 1
+        private const val JOINER_ALLERGEN_INGREDIENT = ","
 
         private val INGRIEDIENT_REGEX = """([a-z ]+) \(contains ([a-z ,]+)\)""".toRegex()
     }
