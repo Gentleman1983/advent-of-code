@@ -34,10 +34,10 @@ For more information see https://adventofcode.com [2020](https://adventofcode.co
 | 22      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
 | 23      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
 | 24      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
-| 25      | ❌ ![Kotlin](../img/kotlin.png) | ❌ ![Kotlin](../img/kotlin.png) |
-| **SUM** | **24 ⭐**                       | **24 ⭐**                       |
+| 25      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
+| **SUM** | **25 ⭐**                       | **25 ⭐**                       |
 
-Total: 48 ⭐
+Total: 50 ⭐
 
 ## Solution image
-N/A
+![AoC2020](../img/Advent_of_Code_2020.png)
