@@ -24,7 +24,7 @@ import de.havox_design.aoc2020.day20.JurassicJigsaw
 import de.havox_design.aoc2020.day21.AllergenAssessment
 import de.havox_design.aoc2020.day22.CrabCombat
 import de.havox_design.aoc2020.day23.CrabCups
-import de.havox_design.aoc2020.day24.Day24
+import de.havox_design.aoc2020.day24.LobbyLayout
 import de.havox_design.aoc2020.day25.Day25
 
 class MainClass : AocMainClassHelper {
@@ -244,8 +244,8 @@ class MainClass : AocMainClassHelper {
         day = 24
         day(
             getDayString(day),
-            Day24(getFileName(day))::processPart1,
-            Day24(getFileName(day))::processPart2,
+            LobbyLayout(getFileName(day))::processPart1,
+            LobbyLayout(getFileName(day))::processPart2,
             daysSelected,
             args
         )
