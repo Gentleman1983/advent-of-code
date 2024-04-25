@@ -13,22 +13,11 @@ class Day25Test {
     fun testProcessPart1(filename: String, expectedResult: Long) =
         ComboBreaker(filename).processPart1().shouldBe(expectedResult)
 
-    @ParameterizedTest
-    @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
-        ComboBreaker(filename).processPart2().shouldBe(expectedResult)
-
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
                 Arguments.of("de/havox_design/aoc2020/day25/day25part1sample.txt", 14897079L)
-            )
-
-        @JvmStatic
-        private fun getDataForTestProcessPart2(): Stream<Arguments> =
-            Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day25/day25part2sample.txt", 0L)
             )
     }
 }

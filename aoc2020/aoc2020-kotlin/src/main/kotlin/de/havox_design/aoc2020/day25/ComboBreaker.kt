@@ -18,7 +18,7 @@ class ComboBreaker(private var filename: String) {
     }
 
     fun processPart2(): Any =
-        0L
+        "Merry X-Mas!!!"
 
     private fun getResourceAsText(path: String): List<String> =
         this
