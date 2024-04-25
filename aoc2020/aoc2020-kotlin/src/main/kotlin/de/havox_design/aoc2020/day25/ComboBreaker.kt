@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020.day25
 
-class Day25(private var filename: String) {
+class ComboBreaker(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =

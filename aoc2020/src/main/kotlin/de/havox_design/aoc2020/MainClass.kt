@@ -25,7 +25,7 @@ import de.havox_design.aoc2020.day21.AllergenAssessment
 import de.havox_design.aoc2020.day22.CrabCombat
 import de.havox_design.aoc2020.day23.CrabCups
 import de.havox_design.aoc2020.day24.LobbyLayout
-import de.havox_design.aoc2020.day25.Day25
+import de.havox_design.aoc2020.day25.ComboBreaker
 
 class MainClass : AocMainClassHelper {
     override fun getYear(): Int = 2020
@@ -253,8 +253,8 @@ class MainClass : AocMainClassHelper {
         day = 25
         day(
             getDayString(day),
-            Day25(getFileName(day))::processPart1,
-            Day25(getFileName(day))::processPart2,
+            ComboBreaker(getFileName(day))::processPart1,
+            ComboBreaker(getFileName(day))::processPart2,
             daysSelected,
             args
         )
