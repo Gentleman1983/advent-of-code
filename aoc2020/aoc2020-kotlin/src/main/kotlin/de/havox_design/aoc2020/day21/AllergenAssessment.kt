@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020.day21
 
-class Day21(private var filename: String) {
+class AllergenAssessment(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
