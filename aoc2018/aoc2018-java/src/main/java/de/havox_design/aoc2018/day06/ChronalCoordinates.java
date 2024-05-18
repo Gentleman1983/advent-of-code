@@ -120,6 +120,7 @@ public class ChronalCoordinates implements AoCFunctionality {
         return map;
     }
 
+    @SuppressWarnings("javabugs:S6466")
     private Set<Position2d<Integer>> calculateNonInfiniteCandidates(int maxX, int maxY, Position2d<Integer>[][] map) {
         Set<Position2d<Integer>> candidates = new HashSet<>(input);
         for (int x = 0; x <= maxX; x++) {
