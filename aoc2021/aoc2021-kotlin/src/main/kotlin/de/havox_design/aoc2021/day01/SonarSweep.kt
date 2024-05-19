@@ -4,13 +4,19 @@ class Day01(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
-        getResourceAsText(filename)
-            .map{ line -> line.trim().toInt()}
+        data
+            .map { line -> line.trim().toInt() }
             .zipWithNext()
             .count { (a, b) -> b > a }
 
     fun processPart2(): Any =
-        0L
+        data
+            .asSequence()
+            .map { line -> line.trim().toInt() }
+            .windowed(3)
+            .map { it.sum() }
+            .zipWithNext()
+            .count { (a, b) -> b > a }
 
     private fun getResourceAsText(path: String): List<String> =
         this
