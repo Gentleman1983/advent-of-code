@@ -15,20 +15,20 @@ class Day03Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         BinaryDiagnostic(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2021/day03/day03part1sample.txt", 198)
+                Arguments.of("de/havox_design/aoc2021/day03/day03sample.txt", 198)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2021/day03/day03part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2021/day03/day03sample.txt", 230)
             )
     }
 }
