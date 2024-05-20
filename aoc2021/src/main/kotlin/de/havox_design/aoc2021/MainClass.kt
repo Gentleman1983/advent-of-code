@@ -3,7 +3,7 @@ package de.havox_design.aoc2021
 import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
 import de.havox_design.aoc2021.day01.Day01
 import de.havox_design.aoc2021.day02.Dive
-import de.havox_design.aoc2021.day03.Day03
+import de.havox_design.aoc2021.day03.BinaryDiagnostic
 import de.havox_design.aoc2021.day04.Day04
 import de.havox_design.aoc2021.day05.Day05
 import de.havox_design.aoc2021.day06.Day06
@@ -55,8 +55,8 @@ class MainClass : AocMainClassHelper {
         day = 3
         day(
             getDayString(day),
-            Day03(getFileName(day))::processPart1,
-            Day03(getFileName(day))::processPart2,
+            BinaryDiagnostic(getFileName(day))::processPart1,
+            BinaryDiagnostic(getFileName(day))::processPart2,
             daysSelected,
             args
         )
