@@ -10,7 +10,7 @@ class Day03Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         BinaryDiagnostic(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,7 +22,7 @@ class Day03Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2021/day03/day03part1sample.txt", 198L)
+                Arguments.of("de/havox_design/aoc2021/day03/day03part1sample.txt", 198)
             )
 
         @JvmStatic
