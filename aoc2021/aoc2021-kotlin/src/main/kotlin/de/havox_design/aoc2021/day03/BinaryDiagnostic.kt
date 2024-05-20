@@ -15,8 +15,15 @@ class BinaryDiagnostic(private var filename: String) {
         return gamma * (gamma.inv() and bitmask(data.first().length))
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val lineDigits = data
+            .map { line ->
+                line
+                    .map(Char::digitToInt)
+            }
+
+        return calculateRating(lineDigits, 1) * calculateRating(lineDigits, 0)
+    }
 
     private fun Iterable<Int>.digitsToInt(radix: Int) =
         reduce { acc, digit -> acc * radix + digit }
@@ -29,6 +36,26 @@ class BinaryDiagnostic(private var filename: String) {
             .toDouble()
             .pow(n)
             .toInt()
+
+    private tailrec fun calculateRating(lists: List<List<Int>>, highBit: Int, index: Int = 0): Int {
+        return if (lists.size == 1) {
+            lists
+                .first()
+                .digitsToInt(2)
+        }
+        else {
+            val oneCounts = lists
+                .sumOf { it[index] }
+            val comparisonBit = if (oneCounts >= lists.size - oneCounts) {
+                highBit
+            }
+            else {
+                1 - highBit
+            }
+
+            calculateRating(lists.filter { it[index] == comparisonBit }, highBit, index + 1)
+        }
+    }
 
     private fun getResourceAsText(path: String): List<String> =
         this
