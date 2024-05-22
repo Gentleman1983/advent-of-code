@@ -1,21 +1,22 @@
 package de.havox_design.aoc2021.day04
 
 class GiantSquid(private var filename: String) {
+    private val ELEMENT_DELIMITER = ","
+    private val ID_FIRST_BOARD_ROW = 2
     private val data = getResourceAsText(filename)
 
-    fun processPart1(): Any {
-        val calledNumbers = data
-            .first()
-            .split(",")
-            .map { it.toInt() }
-            .iterator()
-        val boards = buildBoards(data.subList(2, data.size))
+    fun processPart1(): Any =
+        getWinningBoard(buildBoards(), parseCalledNumbers()).score()
 
-        return getWinningBoard(boards, calledNumbers).score()
+    fun processPart2(): Any {
+        val boards = buildBoards()
+            .toMutableList()
+
+        return getLastBoard(boards, parseCalledNumbers()).score()
     }
 
-    fun processPart2(): Any =
-        0L
+    private fun buildBoards() =
+        buildBoards(data.subList(ID_FIRST_BOARD_ROW, data.size))
 
     private fun buildBoards(lines: List<String>) =
         lines
@@ -39,11 +40,27 @@ class GiantSquid(private var filename: String) {
         }
     }
 
+    private tailrec fun getLastBoard(boards: List<Board>, calledNumbers: Iterator<Int>): Board {
+        return if (boards.size == 1 && boards.first().hasWon()) {
+            boards.first()
+        } else {
+            val calledNumber = calledNumbers.next()
+
+            getLastBoard(boards.filter { !it.hasWon() }.onEach { it.mark(calledNumber) }, calledNumbers)
+        }
+    }
+
     private fun parseRow(row: String, y: Int) =
         row
             .chunked(3)
             .mapIndexed { x, value -> Pair(value.trim().toInt(), BingoCell(x, y)) }
 
+    private fun parseCalledNumbers() =
+        data
+            .first()
+            .split(ELEMENT_DELIMITER)
+            .map { it.toInt() }
+            .iterator()
 
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
