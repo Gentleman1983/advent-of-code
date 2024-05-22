@@ -15,20 +15,20 @@ class Day04Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         GiantSquid(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2021/day04/day04part1sample.txt", 4512)
+                Arguments.of("de/havox_design/aoc2021/day04/day04sample.txt", 4512)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2021/day04/day04part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2021/day04/day04sample.txt", 1924)
             )
     }
 }
