@@ -12,9 +12,9 @@ class HydrothermalVenture(private var filename: String) {
         solve()
 
     fun processPart2(): Any =
-        0L
+        solve(true)
 
-    private fun solve() =
+    private fun solve(withDiagonals: Boolean=false) =
         data
             .map { line ->
                 line
@@ -22,18 +22,33 @@ class HydrothermalVenture(private var filename: String) {
                     .map { it.toInt() }
             }
             .map { (a, b, c, d) -> Position2d(a, b) to Position2d(c, d) }
-            .flatMap { (pointA, pointB) -> pointsBetween(pointA, pointB) }
+            .flatMap { (pointA, pointB) -> pointsBetween(pointA, pointB, withDiagonals) }
             .groupingBy { it }
             .eachCount()
             .count { (_, value) -> value > 1 }
 
-    private fun pointsBetween(pointA: Position2d<Int>, pointB: Position2d<Int>): List<Position2d<Int>> {
-        return if (pointA.x == pointB.x) {
-            yRange(pointA, pointB).map { y -> Position2d(pointA.x, y) }
-        } else if (pointA.y == pointB.y) {
-            xRange(pointA, pointB).map { x -> Position2d(x, pointA.y) }
-        } else {
-            emptyList()
+    private fun pointsBetween(pointA: Position2d<Int>, pointB: Position2d<Int>, withDiagonals: Boolean):
+            List<Position2d<Int>> {
+        return when {
+            pointA.x == pointB.x -> {
+                yRange(pointA, pointB)
+                    .map { y -> Position2d(pointA.x, y) }
+            }
+            pointA.y == pointB.y -> {
+                xRange(pointA, pointB)
+                    .map { x -> Position2d(x, pointA.y) }
+            }
+            withDiagonals -> {
+                val yRange = yRange(pointA, pointB)
+                val xRange = xRange(pointA, pointB)
+
+                xRange
+                    .zip(yRange)
+                    .map { (x, y) -> Position2d(x, y) }
+            }
+            else -> {
+                emptyList()
+            }
         }
     }
 
