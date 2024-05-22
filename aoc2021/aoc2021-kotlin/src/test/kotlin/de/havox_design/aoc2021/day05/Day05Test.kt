@@ -15,20 +15,20 @@ class Day05Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         HydrothermalVenture(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2021/day05/day05part1sample.txt", 5)
+                Arguments.of("de/havox_design/aoc2021/day05/day05sample.txt", 5)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2021/day05/day05part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2021/day05/day05sample.txt", 12)
             )
     }
 }
