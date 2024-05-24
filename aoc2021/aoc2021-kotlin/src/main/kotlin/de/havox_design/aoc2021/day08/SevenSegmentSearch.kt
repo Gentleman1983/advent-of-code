@@ -26,7 +26,73 @@ class SevenSegmentSearch(private var filename: String) {
             }
 
     fun processPart2(): Any =
-        0L
+        data
+            .asSequence()
+            .map { it.split(DELIMITOR_SAMPLES_OUTPUT) }
+            .map { (observedValues, outputValues) ->
+                observedValues.split(DELIMITOR_ELEMENTS) to outputValues.split(
+                    DELIMITOR_ELEMENTS
+                )
+            }
+            .sumOf { (observedValues, outputValues) ->
+                solveOutputValues(
+                    observedValues.map { it.toSet() },
+                    outputValues.map { it.toSet() })
+            }
+
+    @SuppressWarnings("kotlin:S6611")
+    private fun solveOutputValues(observedValues: List<Set<Char>>, outputValues: List<Set<Char>>): Int {
+        val uniqueLengthNumbers = mapOf(1 to 2, 4 to 4, 7 to 3, 8 to 7)
+        val observedValuesByLength = observedValues.groupBy { it.size }
+        val knownPatterns = mutableMapOf<Int, Set<Char>>()
+
+        uniqueLengthNumbers
+            .forEach { (number, length) ->
+                val observedSegment = observedValuesByLength[length]?.first()
+
+                if (observedSegment != null) {
+                    knownPatterns[number] = observedSegment
+                }
+            }
+
+        observedValuesByLength[5]
+            ?.forEach {
+                val pattern7 = knownPatterns[7]!!
+                val number = when {
+                    it.containsAll(pattern7) -> 3
+                    it.union(knownPatterns[4]!!).size == 7 -> 2
+                    else -> 5
+                }
+                knownPatterns[number] = it
+            }
+
+        observedValuesByLength[6]
+            ?.forEach {
+                val pattern1 = knownPatterns[1]!!
+                val pattern4 = knownPatterns[4]!!
+
+                val number = when {
+                    it.containsAll(pattern4) -> 9
+                    it.containsAll(pattern1) -> 0
+                    else -> 6
+                }
+
+                knownPatterns[number] = it
+            }
+
+        val mappings = knownPatterns.pivot()
+
+        return outputValues
+            .map { mappings[it]!! }
+            .digitsToInt(10)
+    }
+
+    private fun <K, V> Map<K, V>.pivot() =
+        entries
+            .associate { (key, value) -> value to key }
+
+    private fun Iterable<Int>.digitsToInt(radix: Int) =
+        reduce { acc, digit -> acc * radix + digit }
 
     private fun getResourceAsText(path: String): List<String> =
         this

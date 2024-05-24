@@ -29,7 +29,7 @@ class Day08Test {
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
                 Arguments.of("de/havox_design/aoc2021/day08/day08part2sample1.txt", 5353),
-                Arguments.of("de/havox_design/aoc2021/day08/day08part2sample1.txt", 61229)
+                Arguments.of("de/havox_design/aoc2021/day08/day08part2sample2.txt", 61229)
             )
     }
 }
