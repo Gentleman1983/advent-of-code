@@ -12,15 +12,27 @@ class TheTreacheryOfWhales(private var filename: String) {
             .map { it.toInt() }
         val (minPos, maxPos) = positions.minAndMax()
 
-        return (minPos..maxPos).minOf { calculateFuel(it, positions) }
+        return (minPos..maxPos).minOf { calculateFuelPart1(it, positions) }
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val positions = data
+            .split(VALUE_DELIMITER)
+            .map { it.toInt() }
+        val (minPos, maxPos) = positions.minAndMax()
 
-    private fun calculateFuel(target: Int, positions: List<Int>): Int =
+        return (minPos..maxPos).minOf { calculateFuelPart2(it, positions) }
+    }
+
+    private fun calculateFuelPart1(target: Int, positions: List<Int>): Int =
         positions
             .sumOf { abs(target - it) }
+
+    private fun calculateFuelPart2(target: Int, positions: List<Int>): Int = positions.sumOf {
+        val abs = abs(target - it)
+
+        abs * (abs + 1) / 2
+    }
 
     @SuppressWarnings("kotlin:S6532")
     private fun <T : Comparable<T>> Iterable<T>.minAndMax(): Pair<T, T> {
