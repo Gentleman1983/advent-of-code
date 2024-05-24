@@ -15,7 +15,7 @@ class Day06Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Int) =
+    fun testProcessPart2(filename: String, expectedResult: Long) =
         Laternfish(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
@@ -28,7 +28,7 @@ class Day06Test {
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2021/day06/day06sample.txt", 26984457539)
+                Arguments.of("de/havox_design/aoc2021/day06/day06sample.txt", 26984457539L)
             )
     }
 }
