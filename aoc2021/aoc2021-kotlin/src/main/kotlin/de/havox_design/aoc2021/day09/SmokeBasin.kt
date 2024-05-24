@@ -1,6 +1,6 @@
 package de.havox_design.aoc2021.day09
 
-class Day09(private var filename: String) {
+class SmokeBasin(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
