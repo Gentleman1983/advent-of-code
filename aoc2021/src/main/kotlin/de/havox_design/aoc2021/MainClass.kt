@@ -8,7 +8,7 @@ import de.havox_design.aoc2021.day04.GiantSquid
 import de.havox_design.aoc2021.day05.HydrothermalVenture
 import de.havox_design.aoc2021.day06.Laternfish
 import de.havox_design.aoc2021.day07.TheTreacheryOfWhales
-import de.havox_design.aoc2021.day08.Day08
+import de.havox_design.aoc2021.day08.SevenSegmentSearch
 import de.havox_design.aoc2021.day09.Day09
 import de.havox_design.aoc2021.day10.Day10
 import de.havox_design.aoc2021.day11.Day11
@@ -100,8 +100,8 @@ class MainClass : AocMainClassHelper {
         day = 8
         day(
             getDayString(day),
-            Day08(getFileName(day))::processPart1,
-            Day08(getFileName(day))::processPart2,
+            SevenSegmentSearch(getFileName(day))::processPart1,
+            SevenSegmentSearch(getFileName(day))::processPart2,
             daysSelected,
             args
         )
