@@ -15,7 +15,7 @@ class Day09Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         SmokeBasin(filename).processPart2().shouldBe(expectedResult)
 
     companion object {

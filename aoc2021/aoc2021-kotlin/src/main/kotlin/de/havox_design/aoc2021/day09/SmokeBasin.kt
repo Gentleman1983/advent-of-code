@@ -16,8 +16,22 @@ class SmokeBasin(private var filename: String) {
         return findLowPoints(cells).sumOf { cells[it] + 1 }
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val cells = data
+            .map {
+                it
+                    .toCharArray()
+                    .map { digit -> digit.digitToInt() }
+            }
+        val lowPoints = findLowPoints(cells)
+        val basins = lowPoints
+            .map { point -> findBasin(point, cells).size }
+
+        return basins
+            .sortedDescending()
+            .take(3)
+            .product()
+    }
 
     private fun findLowPoints(cells: List<List<Int>>): List<Position2d<Int>> {
         return cells
@@ -53,6 +67,20 @@ class SmokeBasin(private var filename: String) {
 
     private operator fun <E> List<List<E>>.get(point: Position2d<Int>) =
         this[point.y][point.x]
+
+    private fun findBasin(point: Position2d<Int>, cells: List<List<Int>>): Set<Position2d<Int>> {
+        val neighbours = point
+            .neighbours()
+            .filter { it in cells && cells[it] != 9 && cells[it] > cells[point] }
+
+        return mutableSetOf(point)
+            .apply {
+                addAll(neighbours.flatMap { findBasin(it, cells) })
+            }
+    }
+
+    private fun Iterable<Int>.product() =
+        reduce { acc, item -> acc * item }
 
     private fun getResourceAsText(path: String): List<String> =
         this
