@@ -1,6 +1,6 @@
 package de.havox_design.aoc2021.day12
 
-class Day12(private var filename: String) {
+class PassagePathing(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
