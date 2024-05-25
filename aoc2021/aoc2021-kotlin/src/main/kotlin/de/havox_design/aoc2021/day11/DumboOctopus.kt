@@ -18,8 +18,24 @@ class DumboOctopus(private var filename: String) {
             .sumOf { runIteration(octopuses) }
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val octopuses = data
+            .map { line ->
+                line
+                    .toCharArray()
+                    .map { it.digitToInt() }
+                    .toMutableList()
+            }
+        var step = 0
+
+        do {
+            step += 1
+
+            val flashCount = runIteration(octopuses)
+        } while (flashCount != 100)
+
+        return step
+    }
 
     private fun runIteration(octopuses: List<MutableList<Int>>): Int {
         val toFlash = mutableSetOf<Position2d<Int>>()
@@ -76,19 +92,19 @@ class DumboOctopus(private var filename: String) {
 
     private fun Position2d<Int>.neighbours() =
         listOf(
-        Position2d(x + 1, y),
-        Position2d(x - 1, y),
-        Position2d(x, y + 1),
-        Position2d(x, y - 1)
-    )
+            Position2d(x + 1, y),
+            Position2d(x - 1, y),
+            Position2d(x, y + 1),
+            Position2d(x, y - 1)
+        )
 
     private fun Position2d<Int>.diagonalNeighbours() =
         listOf(
-        Position2d(x + 1, y + 1),
-        Position2d(x + 1, y - 1),
-        Position2d(x - 1, y + 1),
-        Position2d(x - 1, y - 1)
-    )
+            Position2d(x + 1, y + 1),
+            Position2d(x + 1, y - 1),
+            Position2d(x - 1, y + 1),
+            Position2d(x - 1, y - 1)
+        )
 
     private fun getResourceAsText(path: String): List<String> =
         this
