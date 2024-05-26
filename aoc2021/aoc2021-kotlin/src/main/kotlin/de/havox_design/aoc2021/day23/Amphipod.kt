@@ -1,6 +1,6 @@
 package de.havox_design.aoc2021.day23
 
-class Day23(private var filename: String) {
+class Amphipod(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =

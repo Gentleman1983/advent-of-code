@@ -23,7 +23,7 @@ import de.havox_design.aoc2021.day19.BeaconScanner
 import de.havox_design.aoc2021.day20.TrenchMap
 import de.havox_design.aoc2021.day21.DiracDice
 import de.havox_design.aoc2021.day22.ReactorReboot
-import de.havox_design.aoc2021.day23.Day23
+import de.havox_design.aoc2021.day23.Amphipod
 import de.havox_design.aoc2021.day24.Day24
 import de.havox_design.aoc2021.day25.Day25
 
@@ -235,8 +235,8 @@ class MainClass : AocMainClassHelper {
         day = 23
         day(
             getDayString(day),
-            Day23(getFileName(day))::processPart1,
-            Day23(getFileName(day))::processPart2,
+            Amphipod(getFileName(day))::processPart1,
+            Amphipod(getFileName(day))::processPart2,
             daysSelected,
             args
         )
