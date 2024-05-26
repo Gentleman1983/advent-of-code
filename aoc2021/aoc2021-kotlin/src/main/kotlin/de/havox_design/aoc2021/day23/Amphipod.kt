@@ -39,6 +39,7 @@ class Amphipod(private var filename: String) {
         return solve(data.take(3) + insert + data.drop(3))
     }
 
+    @SuppressWarnings("kotlin:S3776")
     private fun solve(data: List<String>): Int {
         val points = data
             .flatMapIndexed { y, row ->
