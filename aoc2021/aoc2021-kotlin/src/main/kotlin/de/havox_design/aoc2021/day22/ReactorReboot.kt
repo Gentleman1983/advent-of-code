@@ -24,8 +24,12 @@ class ReactorReboot(private var filename: String) {
         return doReboot(steps)
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val steps = data
+            .map { parseLine(it) }
+
+        return doReboot(steps)
+    }
 
     private fun doReboot(steps: List<RebootStep>): Long {
         val turnedOn: List<Cuboid> = steps
