@@ -1,6 +1,7 @@
 package de.havox_design.aoc2021.day19
 
 import de.havox_design.aoc.utils.kotlin.model.positions.Position3d
+import kotlin.math.abs
 
 class BeaconScanner(private var filename: String) {
     private val ALL_ROTATIONS: List<Position3d<Int>.() -> Position3d<Int>> =
@@ -69,7 +70,11 @@ class BeaconScanner(private var filename: String) {
             .size
 
     fun processPart2(): Any =
-        0L
+        findAllData()
+            .second
+            .toList()
+            .pairs()
+            .maxOf { (a, b) -> (a - b).manhattan() }
 
     private fun findAllData(): Pair<Set<Position3d<Int>>, Set<Position3d<Int>>> {
         val visibleBeacons = data
@@ -217,6 +222,9 @@ class BeaconScanner(private var filename: String) {
 
     private fun Position3d<Int>.length2() =
         x * x + y * y + z * z
+
+    private fun Position3d<Int>.manhattan() =
+        abs(x) + abs(y) + abs(z)
 
     private fun getResourceAsText(path: String): String =
         this
