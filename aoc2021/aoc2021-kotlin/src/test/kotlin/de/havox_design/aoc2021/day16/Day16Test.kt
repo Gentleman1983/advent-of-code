@@ -23,8 +23,8 @@ class Day16Test {
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
                 Arguments.of("de/havox_design/aoc2021/day16/day16part1sample1.txt", 6),
-                Arguments.of("de/havox_design/aoc2021/day16/day16part1sample2.txt", 1),
-                Arguments.of("de/havox_design/aoc2021/day16/day16part1sample3.txt", 7),
+                Arguments.of("de/havox_design/aoc2021/day16/day16part1sample2.txt", 9),
+                Arguments.of("de/havox_design/aoc2021/day16/day16part1sample3.txt", 14),
                 Arguments.of("de/havox_design/aoc2021/day16/day16part1sample4.txt", 16),
                 Arguments.of("de/havox_design/aoc2021/day16/day16part1sample5.txt", 12),
                 Arguments.of("de/havox_design/aoc2021/day16/day16part1sample6.txt", 23),
