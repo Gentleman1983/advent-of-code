@@ -16,7 +16,16 @@ class ArithmeticLogicUnit(private var filename: String) {
             .joinToString("")
 
     fun processPart2(): Any =
-        0L
+        findDiffs()
+            .flatMap { (first, second, diff) ->
+                val match = DIGITS
+                    .filter { it in DIGITS && it + diff in DIGITS }
+                    .minOf { it }
+                listOf(first to match, second to match + diff)
+            }
+            .sortedBy { it.first }
+            .map { it.second }
+            .joinToString("")
 
     private fun findDiffs(): List<Triple<Int, Int, Int>> {
         val rawOps = data
