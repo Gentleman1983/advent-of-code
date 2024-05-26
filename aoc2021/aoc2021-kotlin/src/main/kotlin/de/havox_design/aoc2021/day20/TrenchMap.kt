@@ -1,6 +1,6 @@
 package de.havox_design.aoc2021.day20
 
-class Day20(private var filename: String) {
+class TrenchMap(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =

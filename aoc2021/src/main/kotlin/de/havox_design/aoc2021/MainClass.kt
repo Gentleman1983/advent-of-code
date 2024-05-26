@@ -20,7 +20,7 @@ import de.havox_design.aoc2021.day16.PacketDecoder
 import de.havox_design.aoc2021.day17.TrickShot
 import de.havox_design.aoc2021.day18.Snailfish
 import de.havox_design.aoc2021.day19.BeaconScanner
-import de.havox_design.aoc2021.day20.Day20
+import de.havox_design.aoc2021.day20.TrenchMap
 import de.havox_design.aoc2021.day21.Day21
 import de.havox_design.aoc2021.day22.Day22
 import de.havox_design.aoc2021.day23.Day23
@@ -208,8 +208,8 @@ class MainClass : AocMainClassHelper {
         day = 20
         day(
             getDayString(day),
-            Day20(getFileName(day))::processPart1,
-            Day20(getFileName(day))::processPart2,
+            TrenchMap(getFileName(day))::processPart1,
+            TrenchMap(getFileName(day))::processPart2,
             daysSelected,
             args
         )
