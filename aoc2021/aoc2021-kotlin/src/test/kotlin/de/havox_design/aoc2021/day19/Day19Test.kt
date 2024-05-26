@@ -15,20 +15,20 @@ class Day19Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         BeaconScanner(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2021/day19/day19part1sample.txt", 79)
+                Arguments.of("de/havox_design/aoc2021/day19/day19sample.txt", 79)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2021/day19/day19part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2021/day19/day19sample.txt", 3621)
             )
     }
 }
