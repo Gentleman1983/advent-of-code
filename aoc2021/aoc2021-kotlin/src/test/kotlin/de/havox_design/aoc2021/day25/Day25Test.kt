@@ -11,12 +11,12 @@ class Day25Test {
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
     fun testProcessPart1(filename: String, expectedResult: Long) =
-        Day25(filename).processPart1().shouldBe(expectedResult)
+        SeaCucumber(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
     fun testProcessPart2(filename: String, expectedResult: Long) =
-        Day25(filename).processPart2().shouldBe(expectedResult)
+        SeaCucumber(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic

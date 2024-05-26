@@ -25,7 +25,7 @@ import de.havox_design.aoc2021.day21.DiracDice
 import de.havox_design.aoc2021.day22.ReactorReboot
 import de.havox_design.aoc2021.day23.Amphipod
 import de.havox_design.aoc2021.day24.ArithmeticLogicUnit
-import de.havox_design.aoc2021.day25.Day25
+import de.havox_design.aoc2021.day25.SeaCucumber
 
 class MainClass : AocMainClassHelper {
     override fun getYear(): Int = 2021
@@ -255,8 +255,8 @@ class MainClass : AocMainClassHelper {
         day = 25
         day(
             getDayString(day),
-            Day25(getFileName(day))::processPart1,
-            Day25(getFileName(day))::processPart2,
+            SeaCucumber(getFileName(day))::processPart1,
+            SeaCucumber(getFileName(day))::processPart2,
             daysSelected,
             args
         )
