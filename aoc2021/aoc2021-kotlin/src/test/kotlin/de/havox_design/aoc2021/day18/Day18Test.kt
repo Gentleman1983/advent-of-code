@@ -10,7 +10,7 @@ class Day18Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         Snailfish(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,7 +22,7 @@ class Day18Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2021/day18/day18part1sample.txt", 4140L)
+                Arguments.of("de/havox_design/aoc2021/day18/day18part1sample.txt", 4140)
             )
 
         @JvmStatic
