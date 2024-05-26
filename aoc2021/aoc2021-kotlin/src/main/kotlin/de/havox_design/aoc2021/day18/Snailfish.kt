@@ -12,8 +12,24 @@ class Snailfish(private var filename: String) {
             .magnitude
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val numbers = data
+            .map { line ->
+                parseNumber(ArrayDeque(line.toList()))
+            }
+
+        return numbers
+            .maxOf { a ->
+                numbers
+                    .maxOf { b ->
+                        if (a === b) {
+                            0
+                        } else {
+                            (a.deepcopy() + b.deepcopy()).magnitude
+                        }
+                    }
+            }
+    }
 
     private fun parseNumber(tokens: ArrayDeque<Char>): Expression {
         return when (val token = tokens.removeFirst()) {
@@ -28,6 +44,7 @@ class Snailfish(private var filename: String) {
                 check(tokens.removeFirst() == ']') { "Unexpected token $token, expected \']\'" }
                 Expression.Tuple(left, right)
             }
+
             else -> error("Unexpected token $token")
         }
     }
