@@ -15,7 +15,7 @@ class ExtendedPolymerization(private var filename: String) {
         solve()
 
     fun processPart2(): Any =
-        0L
+        solve(40)
 
     private fun solve(steps: Int = 10): BigInteger {
         val (rawStart, rawPatterns) = data
