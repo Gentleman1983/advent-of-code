@@ -16,7 +16,6 @@ class PacketDecoder(private var filename: String) {
         val binary = data
             .map { it.digitToInt(RADIX_HEX) }
             .joinToString(ICON_EMPTY) { it.toString(RADIX_BINARY).padStart(4, ICON_ZERO) }
-
         val buffer = CharBuffer.wrap(binary)
         val root = readPacket(buffer)
 
@@ -28,8 +27,15 @@ class PacketDecoder(private var filename: String) {
         return root.sumVersions()
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val binary = data
+            .map { it.digitToInt(RADIX_HEX) }
+            .joinToString(ICON_EMPTY) { it.toString(RADIX_BINARY).padStart(4, ICON_ZERO) }
+        val buffer = CharBuffer.wrap(binary)
+        val root = readPacket(buffer)
+
+        return root.value()
+    }
 
     private fun readPacket(buffer: CharBuffer): Packet {
         val version = buffer
