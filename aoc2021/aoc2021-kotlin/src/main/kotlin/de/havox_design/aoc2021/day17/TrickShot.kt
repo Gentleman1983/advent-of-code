@@ -1,6 +1,6 @@
 package de.havox_design.aoc2021.day17
 
-class Day17(private var filename: String) {
+class TrickShot(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =

@@ -17,7 +17,7 @@ import de.havox_design.aoc2021.day13.TransparantOrigami
 import de.havox_design.aoc2021.day14.ExtendedPolymerization
 import de.havox_design.aoc2021.day15.Chiton
 import de.havox_design.aoc2021.day16.PacketDecoder
-import de.havox_design.aoc2021.day17.Day17
+import de.havox_design.aoc2021.day17.TrickShot
 import de.havox_design.aoc2021.day18.Day18
 import de.havox_design.aoc2021.day19.Day19
 import de.havox_design.aoc2021.day20.Day20
@@ -181,8 +181,8 @@ class MainClass : AocMainClassHelper {
         day = 17
         day(
             getDayString(day),
-            Day17(getFileName(day))::processPart1,
-            Day17(getFileName(day))::processPart2,
+            TrickShot(getFileName(day))::processPart1,
+            TrickShot(getFileName(day))::processPart2,
             daysSelected,
             args
         )
