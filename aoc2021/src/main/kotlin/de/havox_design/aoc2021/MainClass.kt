@@ -22,7 +22,7 @@ import de.havox_design.aoc2021.day18.Snailfish
 import de.havox_design.aoc2021.day19.BeaconScanner
 import de.havox_design.aoc2021.day20.TrenchMap
 import de.havox_design.aoc2021.day21.DiracDice
-import de.havox_design.aoc2021.day22.Day22
+import de.havox_design.aoc2021.day22.ReactorReboot
 import de.havox_design.aoc2021.day23.Day23
 import de.havox_design.aoc2021.day24.Day24
 import de.havox_design.aoc2021.day25.Day25
@@ -226,8 +226,8 @@ class MainClass : AocMainClassHelper {
         day = 22
         day(
             getDayString(day),
-            Day22(getFileName(day))::processPart1,
-            Day22(getFileName(day))::processPart2,
+            ReactorReboot(getFileName(day))::processPart1,
+            ReactorReboot(getFileName(day))::processPart2,
             daysSelected,
             args
         )
