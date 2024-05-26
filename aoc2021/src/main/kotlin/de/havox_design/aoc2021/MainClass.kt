@@ -232,14 +232,16 @@ class MainClass : AocMainClassHelper {
             args
         )
 
-        day = 23
-        day(
-            getDayString(day),
-            Amphipod(getFileName(day))::processPart1,
-            Amphipod(getFileName(day))::processPart2,
-            daysSelected,
-            args
-        )
+        if (!args.contains("testing")) {
+            day = 23
+            day(
+                getDayString(day),
+                Amphipod(getFileName(day))::processPart1,
+                Amphipod(getFileName(day))::processPart2,
+                daysSelected,
+                args
+            )
+        }
 
         day = 24
         day(
