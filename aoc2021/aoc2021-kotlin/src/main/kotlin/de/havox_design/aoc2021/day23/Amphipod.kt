@@ -29,8 +29,15 @@ class Amphipod(private var filename: String) {
     fun processPart1(): Any =
         solve(data)
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val insert = """
+      |  #D#C#B#A#
+      |  #D#B#A#C#
+    """.trimMargin()
+            .lines()
+
+        return solve(data.take(3) + insert + data.drop(3))
+    }
 
     private fun solve(data: List<String>): Int {
         val points = data
