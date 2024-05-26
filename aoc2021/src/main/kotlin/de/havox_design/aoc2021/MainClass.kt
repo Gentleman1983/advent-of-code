@@ -24,7 +24,7 @@ import de.havox_design.aoc2021.day20.TrenchMap
 import de.havox_design.aoc2021.day21.DiracDice
 import de.havox_design.aoc2021.day22.ReactorReboot
 import de.havox_design.aoc2021.day23.Amphipod
-import de.havox_design.aoc2021.day24.Day24
+import de.havox_design.aoc2021.day24.ArithmeticLogicUnit
 import de.havox_design.aoc2021.day25.Day25
 
 class MainClass : AocMainClassHelper {
@@ -246,8 +246,8 @@ class MainClass : AocMainClassHelper {
         day = 24
         day(
             getDayString(day),
-            Day24(getFileName(day))::processPart1,
-            Day24(getFileName(day))::processPart2,
+            ArithmeticLogicUnit(getFileName(day))::processPart1,
+            ArithmeticLogicUnit(getFileName(day))::processPart2,
             daysSelected,
             args
         )
