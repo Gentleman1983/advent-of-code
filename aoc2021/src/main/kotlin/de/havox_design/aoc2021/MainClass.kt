@@ -16,7 +16,7 @@ import de.havox_design.aoc2021.day12.PassagePathing
 import de.havox_design.aoc2021.day13.TransparantOrigami
 import de.havox_design.aoc2021.day14.ExtendedPolymerization
 import de.havox_design.aoc2021.day15.Chiton
-import de.havox_design.aoc2021.day16.Day16
+import de.havox_design.aoc2021.day16.PacketDecoder
 import de.havox_design.aoc2021.day17.Day17
 import de.havox_design.aoc2021.day18.Day18
 import de.havox_design.aoc2021.day19.Day19
@@ -172,8 +172,8 @@ class MainClass : AocMainClassHelper {
         day = 16
         day(
             getDayString(day),
-            Day16(getFileName(day))::processPart1,
-            Day16(getFileName(day))::processPart2,
+            PacketDecoder(getFileName(day))::processPart1,
+            PacketDecoder(getFileName(day))::processPart2,
             daysSelected,
             args
         )
