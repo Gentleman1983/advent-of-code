@@ -19,7 +19,7 @@ import de.havox_design.aoc2021.day15.Chiton
 import de.havox_design.aoc2021.day16.PacketDecoder
 import de.havox_design.aoc2021.day17.TrickShot
 import de.havox_design.aoc2021.day18.Snailfish
-import de.havox_design.aoc2021.day19.Day19
+import de.havox_design.aoc2021.day19.BeaconScanner
 import de.havox_design.aoc2021.day20.Day20
 import de.havox_design.aoc2021.day21.Day21
 import de.havox_design.aoc2021.day22.Day22
@@ -199,8 +199,8 @@ class MainClass : AocMainClassHelper {
         day = 19
             day(
                 getDayString(day),
-                Day19(getFileName(day))::processPart1,
-                Day19(getFileName(day))::processPart2,
+                BeaconScanner(getFileName(day))::processPart1,
+                BeaconScanner(getFileName(day))::processPart2,
                 daysSelected,
                 args
             )
