@@ -1,6 +1,6 @@
 package de.havox_design.aoc2021.day13
 
-class Day13(private var filename: String) {
+class TransparantOrigami(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =

@@ -13,7 +13,7 @@ import de.havox_design.aoc2021.day09.SmokeBasin
 import de.havox_design.aoc2021.day10.SyntaxScoring
 import de.havox_design.aoc2021.day11.DumboOctopus
 import de.havox_design.aoc2021.day12.PassagePathing
-import de.havox_design.aoc2021.day13.Day13
+import de.havox_design.aoc2021.day13.TransparantOrigami
 import de.havox_design.aoc2021.day14.Day14
 import de.havox_design.aoc2021.day15.Day15
 import de.havox_design.aoc2021.day16.Day16
@@ -145,8 +145,8 @@ class MainClass : AocMainClassHelper {
         day = 13
         day(
             getDayString(day),
-            Day13(getFileName(day))::processPart1,
-            Day13(getFileName(day))::processPart2,
+            TransparantOrigami(getFileName(day))::processPart1,
+            TransparantOrigami(getFileName(day))::processPart2,
             daysSelected,
             args
         )
