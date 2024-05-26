@@ -19,7 +19,7 @@ class TrenchMap(private var filename: String) {
         solve()
 
     fun processPart2(): Any =
-        0L
+        solve(50)
 
     private fun solve(iterations: Int = 2): Int {
         val algorithm = data
