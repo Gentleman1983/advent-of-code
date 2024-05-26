@@ -21,7 +21,7 @@ import de.havox_design.aoc2021.day17.TrickShot
 import de.havox_design.aoc2021.day18.Snailfish
 import de.havox_design.aoc2021.day19.BeaconScanner
 import de.havox_design.aoc2021.day20.TrenchMap
-import de.havox_design.aoc2021.day21.Day21
+import de.havox_design.aoc2021.day21.DiracDice
 import de.havox_design.aoc2021.day22.Day22
 import de.havox_design.aoc2021.day23.Day23
 import de.havox_design.aoc2021.day24.Day24
@@ -217,8 +217,8 @@ class MainClass : AocMainClassHelper {
         day = 21
         day(
             getDayString(day),
-            Day21(getFileName(day))::processPart1,
-            Day21(getFileName(day))::processPart2,
+            DiracDice(getFileName(day))::processPart1,
+            DiracDice(getFileName(day))::processPart2,
             daysSelected,
             args
         )
