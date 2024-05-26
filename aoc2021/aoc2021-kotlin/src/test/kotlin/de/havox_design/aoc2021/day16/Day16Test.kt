@@ -15,7 +15,7 @@ class Day16Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         PacketDecoder(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
@@ -34,7 +34,14 @@ class Day16Test {
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2021/day16/day16part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2021/day16/day16part2sample1.txt", 3),
+                Arguments.of("de/havox_design/aoc2021/day16/day16part2sample2.txt", 54),
+                Arguments.of("de/havox_design/aoc2021/day16/day16part2sample3.txt", 7),
+                Arguments.of("de/havox_design/aoc2021/day16/day16part2sample4.txt", 9),
+                Arguments.of("de/havox_design/aoc2021/day16/day16part2sample5.txt", 1),
+                Arguments.of("de/havox_design/aoc2021/day16/day16part2sample6.txt", 0),
+                Arguments.of("de/havox_design/aoc2021/day16/day16part2sample7.txt", 0),
+                Arguments.of("de/havox_design/aoc2021/day16/day16part2sample8.txt", 1)
             )
     }
 }
