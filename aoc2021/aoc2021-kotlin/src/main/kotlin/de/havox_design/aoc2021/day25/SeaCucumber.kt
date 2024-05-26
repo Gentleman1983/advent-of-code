@@ -1,7 +1,5 @@
 package de.havox_design.aoc2021.day25
 
-import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
-
 class SeaCucumber(private var filename: String) {
     private val data = getResourceAsText(filename)
 
