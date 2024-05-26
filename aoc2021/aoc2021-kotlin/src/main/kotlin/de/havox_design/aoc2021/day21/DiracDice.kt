@@ -62,6 +62,7 @@ class DiracDice(private var filename: String) {
         return max(p1WinCount, p2WinCount)
     }
 
+    @SuppressWarnings("kotlin:S6510")
     private fun getWinCount(currentState: GameState): WinCount {
         val cachedState = cache[currentState]
 
