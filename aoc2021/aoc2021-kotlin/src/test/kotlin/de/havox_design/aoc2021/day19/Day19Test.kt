@@ -10,7 +10,7 @@ class Day19Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         BeaconScanner(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,7 +22,7 @@ class Day19Test {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2021/day19/day19part1sample.txt", 79L)
+                Arguments.of("de/havox_design/aoc2021/day19/day19part1sample.txt", 79)
             )
 
         @JvmStatic
