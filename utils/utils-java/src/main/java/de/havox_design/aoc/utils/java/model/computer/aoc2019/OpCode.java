@@ -1,7 +1,7 @@
 package de.havox_design.aoc.utils.java.model.computer.aoc2019;
 
-import com.google.common.base.Strings;
 import de.havox_design.aoc.utils.java.exceptions.AdventOfCodeException;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -255,6 +255,6 @@ public enum OpCode implements Consumer<IntComputer> {
     private static String padZero(long num) {
         int pad = 4;
 
-        return Strings.padStart(Long.toString(num), pad, '0');
+        return StringUtils.leftPad(Long.toString(num), pad, '0');
     }
 }
