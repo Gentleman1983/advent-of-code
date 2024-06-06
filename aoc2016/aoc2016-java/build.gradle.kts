@@ -2,7 +2,7 @@ dependencies {
     api(project(":utils"))
 
     implementation(libs.commons.codec)
-    implementation(libs.guava)
+    //implementation(libs.guava)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
