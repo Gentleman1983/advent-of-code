@@ -1,6 +1,5 @@
 package de.havox_design.aoc2016.day23;
 
-
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.Arrays;

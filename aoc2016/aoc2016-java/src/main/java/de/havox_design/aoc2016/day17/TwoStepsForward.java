@@ -1,13 +1,12 @@
 package de.havox_design.aoc2016.day17;
 
-import com.google.common.hash.Hashing;
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 import de.havox_design.aoc.utils.java.search.BreadthFirstSearch;
 import de.havox_design.aoc.utils.java.search.PathResult;
 import de.havox_design.aoc.utils.kotlin.model.directions.UDLRDirection;
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d;
+import org.apache.commons.codec.digest.DigestUtils;
 
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -88,6 +87,7 @@ public class TwoStepsForward implements AoCFunctionality {
 
     @SuppressWarnings({ "deprecation", "squid:S1874", "squid:S4790"})
     private static String getMd5Hash(String s) {
-        return Hashing.md5().hashString(s, StandardCharsets.UTF_8).toString();
+        return DigestUtils
+                .md5Hex(s);
     }
 }
