@@ -3,9 +3,9 @@ package de.havox_design.aoc2019.day20;
 import static de.havox_design.aoc2019.day20.Pair.ZERO;
 import static java.lang.Character.isLetter;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
 import de.havox_design.aoc.utils.java.AoCFunctionality;
+import org.apache.commons.collections4.MultiValuedMap;
+import org.apache.commons.collections4.multimap.HashSetValuedHashMap;
 
 import java.util.*;
 import java.util.stream.Stream;
@@ -35,7 +35,7 @@ public class DonutMaze implements AoCFunctionality {
     public long processTask1() {
         Pair<Pair<Long, Long>, Long> source = new Pair<>(ZERO, 0L);
         Pair<Pair<Long, Long>, Long> destination = new Pair<>(ZERO, 0L);
-        Multimap<Pair<Long, Long>, Pair<Pair<Long, Long>, Long>> edges = initialize(source, destination);
+        MultiValuedMap<Pair<Long, Long>, Pair<Pair<Long, Long>, Long>> edges = initialize(source, destination);
 
         return computeDistance(edges, source, destination);
     }
@@ -48,7 +48,7 @@ public class DonutMaze implements AoCFunctionality {
 
     @SuppressWarnings("squid:S3824")
     private long computeDistance(
-            final Multimap<Pair<Long, Long>, Pair<Pair<Long, Long>, Long>> edges,
+            final MultiValuedMap<Pair<Long, Long>, Pair<Pair<Long, Long>, Long>> edges,
             final Pair<Pair<Long, Long>, Long> source,
             final Pair<Pair<Long, Long>, Long> destination
     ) {
@@ -84,7 +84,7 @@ public class DonutMaze implements AoCFunctionality {
         throw new IllegalStateException();
     }
 
-    private Multimap<Pair<Long, Long>, Pair<Pair<Long, Long>, Long>> initialize(
+    private MultiValuedMap<Pair<Long, Long>, Pair<Pair<Long, Long>, Long>> initialize(
             Pair<Pair<Long, Long>, Long> source,
             Pair<Pair<Long, Long>, Long> destination
     ) {
@@ -101,7 +101,7 @@ public class DonutMaze implements AoCFunctionality {
                 .mapToLong(Pair::getSecond)
                 .max()
                 .orElseThrow();
-        Multimap<Pair<Long, Long>, Pair<Pair<Long, Long>, Long>> edges = HashMultimap.create();
+        MultiValuedMap<Pair<Long, Long>, Pair<Pair<Long, Long>, Long>> edges = new HashSetValuedHashMap<>();
         Map<String, Pair<Long, Long>> portals = new HashMap<>();
 
         for (Map. Entry<Pair<Long, Long>, Character> p : map.entrySet()) {
@@ -144,7 +144,7 @@ public class DonutMaze implements AoCFunctionality {
             Map.Entry<Pair<Long, Long>, Character> p,
             Map<Pair<Long, Long>, Character> map,
             Map<String, Pair<Long, Long>> portals,
-            Multimap<Pair<Long, Long>, Pair<Pair<Long, Long>, Long>> edges,
+            MultiValuedMap<Pair<Long, Long>, Pair<Pair<Long, Long>, Long>> edges,
             Pair<Pair<Long, Long>, Long> source,
             Pair<Pair<Long, Long>, Long> destination,
             long maxX,

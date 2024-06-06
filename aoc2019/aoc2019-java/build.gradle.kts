@@ -1,8 +1,8 @@
 dependencies {
     api(project(":utils"))
 
+    implementation(libs.commons.collections4)
     implementation(libs.commons.lang3)
-    implementation(libs.guava)
 
     testImplementation(libs.equalsverifier)
 

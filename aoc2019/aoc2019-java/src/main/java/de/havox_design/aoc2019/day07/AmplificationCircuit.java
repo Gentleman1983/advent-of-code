@@ -1,9 +1,9 @@
 package de.havox_design.aoc2019.day07;
 
-import com.google.common.collect.Collections2;
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 import de.havox_design.aoc.utils.java.exceptions.AdventOfCodeException;
 import de.havox_design.aoc.utils.java.model.computer.aoc2019.IntComputer;
+import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.*;
 import java.util.concurrent.BlockingQueue;
@@ -42,7 +42,7 @@ public class AmplificationCircuit implements AoCFunctionality {
     }
 
     private long process(Collection<Integer> availablePhases) {
-        return Collections2
+        return CollectionUtils
                 .permutations(availablePhases)
                 .stream()
                 .map(settings -> runComputers(settings.iterator()))
