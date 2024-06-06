@@ -1,6 +1,5 @@
 package de.havox_design.aoc2019.day10;
 
-import com.google.common.math.LongMath;
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -175,7 +174,7 @@ public class MonitoringStation implements AoCFunctionality {
     private Pair<Long, Long> vaporizeAsteroids(Pair<Long, Long> station, Pair<Long, Long> direction, Set<Pair<Long, Long>> asteroids, int columns, int rows, boolean all) {
         long xDiff = direction.getLeft() - station.getLeft();
         long yDiff = direction.getRight() - station.getRight();
-        long gcd = LongMath.gcd(abs(xDiff), abs(yDiff));
+        long gcd = gcd(abs(xDiff), abs(yDiff));
 
         if (gcd != 0) {
             xDiff /= gcd;
@@ -195,6 +194,13 @@ public class MonitoringStation implements AoCFunctionality {
         } while ((!vaporized || all) && 0 <= x && x < columns && 0 <= y && y < rows);
 
         return vaporized ? vaporize : null;
+    }
+
+    private long gcd(long a, long b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
     }
 
     public double getAngle(Pair<Long, Long> station, Pair<Long, Long> target) {

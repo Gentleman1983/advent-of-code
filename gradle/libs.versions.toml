@@ -1,8 +1,8 @@
 [versions]
 commons-codec = "1.17.0"
+commons-collections4 = "4.4"
 commons-lang3 = "3.14.0"
 equalsverifier = "3.16.1"
-guava = "33.2.1-jre"
 groovy = "4.0.21"
 hamcrest = "2.2"
 jgrapht = "1.5.2"
@@ -17,9 +17,9 @@ struts2 = "6.4.0"
 
 [libraries]
 commons-codec = { group = "commons-codec", name = "commons-codec", version.ref = "commons-codec" }
+commons-collections4 = { group = "org.apache.commons", name = "commons-collections4", version.ref = "commons-collections4" }
 commons-lang3 = { group = "org.apache.commons", name = "commons-lang3", version.ref = "commons-lang3" }
 equalsverifier = { group = "nl.jqno.equalsverifier", name = "equalsverifier", version.ref = "equalsverifier" }
-guava = { group = "com.google.guava", name = "guava", version.ref = "guava" }
 groovy-all = { group = "org.apache.groovy", name = "groovy-all", version.ref = "groovy" }
 hamcrest = { group = "org.hamcrest", name = "hamcrest", version.ref = "hamcrest" }
 jgrapht-core = { group = "org.jgrapht", name = "jgrapht-core", version.ref = "jgrapht" }

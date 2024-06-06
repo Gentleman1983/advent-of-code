@@ -1,9 +1,8 @@
 package de.havox_design.aoc2016.day14;
 
-import com.google.common.hash.Hashing;
 import de.havox_design.aoc.utils.java.AoCFunctionality;
+import org.apache.commons.codec.digest.DigestUtils;
 
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -103,9 +102,7 @@ public class OneTimePad implements AoCFunctionality {
 
     @SuppressWarnings({"deprecation", "squid:S4790"})
     private static String getMd5Hash(String string) {
-        return Hashing
-                .md5()
-                .hashString(string, StandardCharsets.UTF_8)
-                .toString();
+        return DigestUtils
+                .md5Hex(string);
     }
 }

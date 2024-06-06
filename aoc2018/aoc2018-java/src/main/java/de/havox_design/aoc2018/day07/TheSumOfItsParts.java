@@ -6,26 +6,26 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class Day07 implements AoCFunctionality {
+public class TheSumOfItsParts implements AoCFunctionality {
     private final List<Task> input;
 
-    public Day07(String fileName) {
+    public TheSumOfItsParts(String fileName) {
         TaskParser parser = new TaskParser();
         input = parser.parse(readData(fileName));
     }
 
     public static String processTask1(String fileName) {
-        Day07 instance = new Day07(fileName);
+        TheSumOfItsParts instance = new TheSumOfItsParts(fileName);
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
-        Day07 instance = new Day07(fileName);
+        TheSumOfItsParts instance = new TheSumOfItsParts(fileName);
         return instance.processTask2();
     }
 
     public static long processTask2(String fileName, int workers, Map<String, Integer> processingTime) {
-        Day07 instance = new Day07(fileName);
+        TheSumOfItsParts instance = new TheSumOfItsParts(fileName);
         return instance.processTask2(workers, processingTime);
     }
 

@@ -3,7 +3,6 @@ dependencies {
 
     implementation(libs.commons.codec)
     implementation(libs.commons.lang3)
-    implementation(libs.guava)
 
     testImplementation(libs.equalsverifier)
 
