@@ -7,7 +7,7 @@ import de.havox_design.aoc2018.day03.NoMatterHowYouSliceIt
 import de.havox_design.aoc2018.day04.ReposeRecord
 import de.havox_design.aoc2018.day05.AlchemicalReduction
 import de.havox_design.aoc2018.day06.ChronalCoordinates
-import de.havox_design.aoc2018.day07.Day07
+import de.havox_design.aoc2018.day07.TheSumOfItsParts
 import de.havox_design.aoc2018.day08.MemoryManeuver
 import de.havox_design.aoc2018.day09.MarbleMania
 import de.havox_design.aoc2018.day10.TheStarsAlign
@@ -98,8 +98,8 @@ class MainClass : AocMainClassHelper {
         day = 7
         day(
             getDayString(day),
-            Day07(getFileName(day))::processTask1,
-            Day07(getFileName(day))::processTask2,
+            TheSumOfItsParts(getFileName(day))::processTask1,
+            TheSumOfItsParts(getFileName(day))::processTask2,
             daysSelected,
             args
         )
