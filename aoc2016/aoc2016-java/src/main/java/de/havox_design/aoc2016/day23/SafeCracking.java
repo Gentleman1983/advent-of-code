@@ -72,12 +72,12 @@ public class SafeCracking implements AoCFunctionality {
                 }
                 case "inc" -> {
                     if (isRegister(p[1])) {
-                        mem.inc(p[1]);
+                        mem.increment(p[1]);
                     }
                 }
                 case "dec" -> {
                     if (isRegister(p[1])) {
-                        mem.dec(p[1]);
+                        mem.decrement(p[1]);
                     }
                 }
                 case "jnz" -> {
