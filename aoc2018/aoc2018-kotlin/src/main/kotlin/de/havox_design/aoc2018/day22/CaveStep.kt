@@ -1,10 +1,6 @@
 package de.havox_design.aoc2018.day22
 
-import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
-import de.havox_design.aoc2018.day11.e
-import de.havox_design.aoc2018.day11.n
-import de.havox_design.aoc2018.day11.s
-import de.havox_design.aoc2018.day11.w
+import de.havox_design.aoc.utils.kotlin.model.positions.*
 
 data class CaveStep(val at: Region, val using: Tool, val cost: Int = 0) :
     Comparable<CaveStep> {
@@ -27,7 +23,7 @@ data class CaveStep(val at: Region, val using: Tool, val cost: Int = 0) :
         .map { CaveStep(at, it, cost + 7) }
 
     private fun getCardinal(p: Position2d<Int>): Collection<Position2d<Int>> =
-        listOf(p.e(), p.n(), p.s(), p.w())
+        listOf(p.east(), p.north(), p.south(), p.west())
 }
 
 private fun Position2d<Int>.isPositive() =

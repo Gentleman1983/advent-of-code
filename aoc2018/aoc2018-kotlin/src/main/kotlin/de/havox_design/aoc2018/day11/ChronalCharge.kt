@@ -1,6 +1,9 @@
 package de.havox_design.aoc2018.day11
 
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+import de.havox_design.aoc.utils.kotlin.model.positions.north
+import de.havox_design.aoc.utils.kotlin.model.positions.northwest
+import de.havox_design.aoc.utils.kotlin.model.positions.west
 
 class ChronalCharge(private var filename: String) {
     private val range = (1..300)
@@ -24,7 +27,7 @@ class ChronalCharge(private var filename: String) {
             }.let {
                 it.keys.asSequence().flatMap { point ->
                     toSequence(point).map { size ->
-                        Triple(point.nw(size - 1), size,
+                        Triple(point.northwest(size - 1), size,
                             squarePowerTo(it, point, size))
                     }
                 }.maxBy { (_, _, power) -> power }
@@ -35,9 +38,9 @@ class ChronalCharge(private var filename: String) {
         .associateWith { Cell(it.x, it.y, serial) }
 
     private fun squarePowerTo(grid: Map<Position2d<Int>, Int>, pointTo: Position2d<Int>, size: Int) =
-        setOf(pointTo, pointTo.nw(size)).sumOf {
+        setOf(pointTo, pointTo.northwest(size)).sumOf {
             grid[it] ?: 0
-        } - setOf(pointTo.n(size), pointTo.w(size)).sumOf {
+        } - setOf(pointTo.north(size), pointTo.west(size)).sumOf {
             grid[it] ?: 0
         }
 
