@@ -1,8 +1,8 @@
 package de.havox_design.aoc2018.day22
 
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
-import de.havox_design.aoc2018.day11.n
-import de.havox_design.aoc2018.day11.w
+import de.havox_design.aoc.utils.kotlin.model.positions.north
+import de.havox_design.aoc.utils.kotlin.model.positions.west
 
 data class Region(val point: Position2d<Int>, val cave: HardCave) {
 
@@ -16,7 +16,7 @@ data class Region(val point: Position2d<Int>, val cave: HardCave) {
         atEnds -> 0
         point.y == 0 -> point.x * 16807
         point.x == 0 -> point.y * 48271
-        else -> (cave.at(point.w()) to cave.at(point.n()))
+        else -> (cave.at(point.west()) to cave.at(point.north()))
             .let { it.first.erosionLevel * it.second.erosionLevel }
     }
 
