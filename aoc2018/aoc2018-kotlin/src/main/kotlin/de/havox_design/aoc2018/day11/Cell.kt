@@ -1,6 +1,9 @@
 package de.havox_design.aoc2018.day11
 
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+import de.havox_design.aoc.utils.kotlin.model.positions.north
+import de.havox_design.aoc.utils.kotlin.model.positions.northwest
+import de.havox_design.aoc.utils.kotlin.model.positions.west
 
 data class Cell(val position: Position2d<Int>, val value: Int) {
 
@@ -13,13 +16,7 @@ data class Cell(val position: Position2d<Int>, val value: Int) {
             )
 
     fun cumulativeSum(grid: Map<Position2d<Int>, Int>) =
-        value + setOf(position.n(), position.w()).sumOf {
+        value + setOf(position.north(), position.west()).sumOf {
             grid[it] ?: 0
-        } - (grid[position.nw()] ?: 0)
+        } - (grid[position.northwest()] ?: 0)
 }
-
-fun Position2d<Int>.e(offset: Int = 1) = Position2d(x + offset, y)
-fun Position2d<Int>.n(offset: Int = 1) = Position2d(x, y - offset)
-fun Position2d<Int>.nw(offset: Int = 1) = Position2d(x - offset, y - offset)
-fun Position2d<Int>.s(offset: Int = 1) = Position2d(x, y + offset)
-fun Position2d<Int>.w(offset: Int = 1) = Position2d(x - offset, y)

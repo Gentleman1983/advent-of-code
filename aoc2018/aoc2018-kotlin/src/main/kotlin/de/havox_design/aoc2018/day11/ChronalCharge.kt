@@ -47,5 +47,6 @@ class ChronalCharge(private var filename: String) {
 
 private fun Position2d<Int>.squareSizesTo() =
     (1..minOf(x, y)).asSequence()
+
 private fun Position2d<Int>.toCoordString(): String =
     "$x,$y"

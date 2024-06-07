@@ -1,6 +1,8 @@
 package de.havox_design.aoc2018.day23
 
 import de.havox_design.aoc.utils.kotlin.model.positions.Position3d
+import de.havox_design.aoc.utils.kotlin.model.positions.adjacent
+import de.havox_design.aoc.utils.kotlin.model.positions.manhattanDistance
 import java.util.regex.Pattern
 import kotlin.math.abs
 
@@ -57,19 +59,6 @@ class ExperimentalEmergencyTeleportationPartTwo(private var filename: String) {
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
 }
-
-fun Position3d<Int>.manhattanDistance(other: Position3d<Int>) =
-    listOf(x - other.x, y - other.y, z - other.z)
-        .sumOf { abs(it) }
-
-private fun Position3d<Int>.adjacent(offset: Int) =
-    (-1..1).flatMap { a ->
-        (-1..1).flatMap { b ->
-            (-1..1).map { c ->
-                Position3d(x + a * offset, y + b * offset, z + c * offset)
-            }
-        }
-    }
 
 private inline fun <T> List<T>.deltaBy(block: T.() -> Int) =
     with(map(block)) { abs((max()) - (min())) }

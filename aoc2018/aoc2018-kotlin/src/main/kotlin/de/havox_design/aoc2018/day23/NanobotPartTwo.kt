@@ -1,6 +1,7 @@
 package de.havox_design.aoc2018.day23
 
 import de.havox_design.aoc.utils.kotlin.model.positions.Position3d
+import de.havox_design.aoc.utils.kotlin.model.positions.manhattanDistance
 
 data class NanobotPartTwo(val point: Position3d<Int>, val radius: Int) {
 
