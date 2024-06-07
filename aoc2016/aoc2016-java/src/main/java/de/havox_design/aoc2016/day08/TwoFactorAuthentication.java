@@ -40,17 +40,17 @@ public class TwoFactorAuthentication implements AoCFunctionality {
     }
 
     private void processDisplayInputs() {
-        fillRect(display, ROWS, COLUMNS, OFF);
+        fillRectangle(display, ROWS, COLUMNS, OFF);
 
         for (var line : input) {
             if (line.startsWith("rect")) {
                 var parts = line
                         .substring(5)
                         .split("x");
-                fillRect(display, Integer.parseInt(parts[ID_COL]), Integer.parseInt(parts[ID_ROW]), ON);
+                fillRectangle(display, Integer.parseInt(parts[ID_COL]), Integer.parseInt(parts[ID_ROW]), ON);
             } else if (line.startsWith("rotate column")) {
                 var parts = line.split("=")[1].split(" by ");
-                shiftCol(display, Integer.parseInt(parts[ID_ROW]), Integer.parseInt(parts[ID_COL]));
+                shiftColumn(display, Integer.parseInt(parts[ID_ROW]), Integer.parseInt(parts[ID_COL]));
             } else if (line.startsWith("rotate row")) {
                 var parts = line.split("=")[1].split(" by ");
                 shiftRow(display, Integer.parseInt(parts[ID_ROW]), Integer.parseInt(parts[ID_COL]));
@@ -82,7 +82,7 @@ public class TwoFactorAuthentication implements AoCFunctionality {
         }
     }
 
-    private void shiftCol(char[][] display, int column, int shift) {
+    private void shiftColumn(char[][] display, int column, int shift) {
         for (int s = 0; s < shift; s++) {
             char last = display[ROWS - 1][column];
             for (int r = ROWS - 1; r > 0; r--) {
@@ -92,7 +92,7 @@ public class TwoFactorAuthentication implements AoCFunctionality {
         }
     }
 
-    private void fillRect(char[][] display, int row, int column, char character) {
+    private void fillRectangle(char[][] display, int row, int column, char character) {
         for (int r = 0; r < row; r++) {
             for (int c = 0; c < column; c++) {
                 display[r][c] = character;
