@@ -100,6 +100,3 @@ class CrabCombat(private var filename: String) {
         private const val EMPTY = ""
     }
 }
-
-private fun <T> List<T>.toPair(): Pair<T, T> =
-    Pair(get(0), get(1))
