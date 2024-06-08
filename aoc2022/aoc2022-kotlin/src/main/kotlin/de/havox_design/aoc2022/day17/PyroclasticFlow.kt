@@ -56,9 +56,9 @@ class PyroclasticFlow(private var filename: String) {
         return jetSequence
     }
 
-    private operator fun Position2d<Long>.plus(other: Position2d<Long>): Position2d<Long> =
-        Position2d(x + other.x, y + other.y)
-
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
 }
+
+operator fun Position2d<Long>.plus(other: Position2d<Long>): Position2d<Long> =
+    Position2d(x + other.x, y + other.y)
