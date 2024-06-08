@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static de.havox_design.aoc.utils.java.helper.JavaMathUtils.leastCommonMultiple;
+
 public class TheNBodyProblem implements AoCFunctionality {
     private final List<String> input;
     private final List<Position3d<Integer>> initialCoordinates;
@@ -246,23 +248,5 @@ public class TheNBodyProblem implements AoCFunctionality {
         }
 
         return true;
-    }
-
-    private long leastCommonMultiple(long number1, long number2) {
-        if (number1 == 0 || number2 == 0) {
-            return 0;
-        }
-
-        long absNumber1 = Math.abs(number1);
-        long absNumber2 = Math.abs(number2);
-        long absHigherNumber = Math.max(absNumber1, absNumber2);
-        long absLowerNumber = Math.min(absNumber1, absNumber2);
-        long lcm = absHigherNumber;
-
-        while (lcm % absLowerNumber != 0) {
-            lcm += absHigherNumber;
-        }
-
-        return lcm;
     }
 }

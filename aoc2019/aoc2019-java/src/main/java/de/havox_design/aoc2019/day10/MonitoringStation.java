@@ -7,6 +7,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
+import static de.havox_design.aoc.utils.java.helper.JavaMathUtils.greatestCommonDivisor;
 import static java.lang.Math.abs;
 
 public class MonitoringStation implements AoCFunctionality {
@@ -174,7 +175,7 @@ public class MonitoringStation implements AoCFunctionality {
     private Pair<Long, Long> vaporizeAsteroids(Pair<Long, Long> station, Pair<Long, Long> direction, Set<Pair<Long, Long>> asteroids, int columns, int rows, boolean all) {
         long xDiff = direction.getLeft() - station.getLeft();
         long yDiff = direction.getRight() - station.getRight();
-        long gcd = gcd(abs(xDiff), abs(yDiff));
+        long gcd = greatestCommonDivisor(abs(xDiff), abs(yDiff));
 
         if (gcd != 0) {
             xDiff /= gcd;
@@ -194,13 +195,6 @@ public class MonitoringStation implements AoCFunctionality {
         } while ((!vaporized || all) && 0 <= x && x < columns && 0 <= y && y < rows);
 
         return vaporized ? vaporize : null;
-    }
-
-    private long gcd(long a, long b) {
-        if (b == 0) {
-            return a;
-        }
-        return gcd(b, a % b);
     }
 
     public double getAngle(Pair<Long, Long> station, Pair<Long, Long> target) {
