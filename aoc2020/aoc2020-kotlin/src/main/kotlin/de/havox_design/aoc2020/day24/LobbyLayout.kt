@@ -1,6 +1,7 @@
 package de.havox_design.aoc2020.day24
 
 import de.havox_design.aoc.utils.kotlin.model.positions.Position3d
+import de.havox_design.aoc.utils.kotlin.model.positions.plus
 
 class LobbyLayout(private var filename: String) {
     private val data = getResourceAsText(filename)
@@ -72,6 +73,3 @@ class LobbyLayout(private var filename: String) {
             .bufferedReader()
             .readLines()
 }
-
-private operator fun Position3d<Int>.plus(other: Position3d<Int>) =
-    Position3d(x + other.x, y + other.y, z + other.z)

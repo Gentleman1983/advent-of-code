@@ -4,6 +4,7 @@ import de.havox_design.aoc2020.day20.JurassicJigsaw.Companion.EMPTY
 import de.havox_design.aoc2020.day20.JurassicJigsaw.Companion.LITERAL_WHITE
 import de.havox_design.aoc2020.day20.JurassicJigsaw.Companion.MONSTER_INDICES
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+import de.havox_design.aoc.utils.kotlin.model.positions.plus
 
 class TileData(val id: Long, val data: List<String>) {
     val top = data
@@ -70,6 +71,3 @@ class TileData(val id: Long, val data: List<String>) {
     override fun toString() =
         "TileData(id=$id)"
 }
-
-private operator fun Position2d<Int>.plus(other: Position2d<Int>) =
-    Position2d(x + other.x, y + other.y)

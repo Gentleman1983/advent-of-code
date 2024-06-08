@@ -4,6 +4,9 @@ import kotlin.math.abs
 
 data class Position3d<t>(var x: t, var y: t, var z: t)
 
+operator fun Position3d<Int>.plus(other: Position3d<Int>) =
+    Position3d(x + other.x, y + other.y, z + other.z)
+
 fun Position3d<Int>.manhattanDistance(other: Position3d<Int>) =
     listOf(x - other.x, y - other.y, z - other.z)
         .sumOf { abs(it) }
