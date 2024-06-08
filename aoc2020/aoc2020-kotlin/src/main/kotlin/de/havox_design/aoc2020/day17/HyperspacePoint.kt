@@ -1,7 +1,6 @@
 package de.havox_design.aoc2020.day17
 
 import de.havox_design.aoc.utils.kotlin.helpers.abs
-import kotlin.math.absoluteValue
 
 class HyperspacePoint constructor(val parts: IntArray) {
     val size = parts.size
