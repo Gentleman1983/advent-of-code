@@ -1,6 +1,7 @@
 package de.havox_design.aoc2022.day17
 
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+import de.havox_design.aoc.utils.kotlin.model.positions.plus
 
 class PyroclasticFlow(private var filename: String) {
     val jetPattern = readFile()
@@ -60,6 +61,3 @@ class PyroclasticFlow(private var filename: String) {
     private fun getResourceAsText(path: String): List<String> =
         this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
 }
-
-operator fun Position2d<Long>.plus(other: Position2d<Long>): Position2d<Long> =
-    Position2d(x + other.x, y + other.y)

@@ -32,3 +32,14 @@ fun Position3d<Int>.adjacent(offset: Int) =
                         }
                 }
         }
+
+fun Position3d<Int>.neighbours(): List<Position3d<Int>> {
+    return listOf(
+        Position3d<Int>(x - 1, y, z),
+        Position3d<Int>(x + 1, y, z),
+        Position3d<Int>(x, y - 1, z),
+        Position3d<Int>(x, y + 1, z),
+        Position3d<Int>(x, y, z - 1),
+        Position3d<Int>(x, y, z + 1)
+    )
+}

@@ -1,6 +1,6 @@
 package de.havox_design.aoc2022.day25
 
-import kotlin.math.*
+import de.havox_design.aoc.utils.kotlin.helpers.math.pow
 
 enum class SNAFUNumber(private var symbol: Char, private var value: Long) {
     TWO('2', 2L),
@@ -77,8 +77,6 @@ enum class SNAFUNumber(private var symbol: Char, private var value: Long) {
         }
     }
 }
-
-private fun Long.pow(e: Int): Long = this.toDouble().pow(e.toDouble()).toLong()
 
 fun List<SNAFUNumber>.toReadableString(): String {
     var result = ""
