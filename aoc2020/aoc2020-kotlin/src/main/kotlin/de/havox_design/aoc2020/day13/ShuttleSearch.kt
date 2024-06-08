@@ -1,5 +1,7 @@
 package de.havox_design.aoc2020.day13
 
+import de.havox_design.aoc.utils.kotlin.helpers.math.ExtendedGcd.Companion.extendedGcd
+
 class ShuttleSearch(private var filename: String) {
     private val data = getResourceAsText(filename)
 
@@ -59,19 +61,6 @@ class ShuttleSearch(private var filename: String) {
 
     private fun makePositive(m: Long, x: Long) =
         (m + x) % m
-
-    private fun extendedGcd(a: Long, b: Long): ExtendedGcd {
-        return when {
-            a == 0L -> ExtendedGcd(b, 0, 1)
-            b == 0L -> ExtendedGcd(a, 1, 0)
-            else -> {
-                val (g, x1, y1) = extendedGcd(b, a % b)
-                val x = y1
-                val y = x1 - y1 * (a / b)
-                ExtendedGcd(g, x, y)
-            }
-        }
-    }
 
     private fun getResourceAsText(path: String): List<String> =
         this

@@ -1,6 +1,7 @@
 package de.havox_design.aoc2020.day11
 
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+import de.havox_design.aoc.utils.kotlin.model.positions.plus
 import de.havox_design.aoc2020.day11.SeatingSystem.Companion.ICON_EMPTY_SEAT
 import de.havox_design.aoc2020.day11.SeatingSystem.Companion.ICON_FLOOR
 import de.havox_design.aoc2020.day11.SeatingSystem.Companion.ICON_OCCUPIED_SEAT
@@ -106,7 +107,4 @@ class Seats(private val seats: Array<CharArray>) {
         private fun sized(width: Int, height: Int): Seats =
             Seats(Array(height) { CharArray(width) })
     }
-
-    private operator fun Position2d<Int>.plus(other: Position2d<Int>) =
-        Position2d(x + other.x, y + other.y)
 }

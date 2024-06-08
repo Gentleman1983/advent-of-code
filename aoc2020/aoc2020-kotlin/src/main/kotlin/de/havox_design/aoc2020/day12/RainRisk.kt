@@ -2,7 +2,7 @@ package de.havox_design.aoc2020.day12
 
 import de.havox_design.aoc.utils.kotlin.model.directions.GeoDirection
 import de.havox_design.aoc.utils.kotlin.model.directions.GeoDirection.*
-import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+import de.havox_design.aoc.utils.kotlin.model.positions.*
 
 class RainRisk(private var filename: String) {
     private val data = getResourceAsText(filename)
@@ -77,24 +77,3 @@ class RainRisk(private var filename: String) {
 
     }
 }
-
-private operator fun Position2d<Int>.plus(other: Position2d<Int>) =
-    Position2d(x + other.x, y + other.y)
-
-private operator fun Position2d<Int>.times(value: Int) =
-    Position2d(x * value, y * value)
-
-private fun Position2d<Int>.abs() =
-    kotlin.math.abs(x) + kotlin.math.abs(y)
-
-private fun Position2d<Int>.clockwise(degrees: Int): Position2d<Int> {
-    return when (degrees) {
-        90 -> Position2d(y, -x)
-        180 -> Position2d(-x, -y)
-        270 -> Position2d(-y, x)
-        else -> throw UnsupportedOperationException()
-    }
-}
-
-private fun Position2d<Int>.counterClockwise(degrees: Int): Position2d<Int> =
-    clockwise(360 - degrees)

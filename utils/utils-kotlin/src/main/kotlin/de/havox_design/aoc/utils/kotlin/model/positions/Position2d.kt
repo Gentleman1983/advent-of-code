@@ -25,3 +25,24 @@ fun Position2d<Int>.southwest(offset: Int = 1) =
 
 fun Position2d<Int>.west(offset: Int = 1) =
     Position2d(x - offset, y)
+
+operator fun Position2d<Int>.plus(other: Position2d<Int>) =
+    Position2d(x + other.x, y + other.y)
+
+operator fun Position2d<Int>.times(value: Int) =
+    Position2d(x * value, y * value)
+
+fun Position2d<Int>.abs() =
+    kotlin.math.abs(x) + kotlin.math.abs(y)
+
+fun Position2d<Int>.clockwise(degrees: Int): Position2d<Int> {
+    return when (degrees) {
+        90 -> Position2d(y, -x)
+        180 -> Position2d(-x, -y)
+        270 -> Position2d(-y, x)
+        else -> throw UnsupportedOperationException()
+    }
+}
+
+fun Position2d<Int>.counterClockwise(degrees: Int): Position2d<Int> =
+    clockwise(360 - degrees)
