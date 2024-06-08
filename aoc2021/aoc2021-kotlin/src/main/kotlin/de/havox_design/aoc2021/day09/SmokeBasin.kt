@@ -1,6 +1,8 @@
 package de.havox_design.aoc2021.day09
 
+import de.havox_design.aoc.utils.kotlin.helpers.product
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+import de.havox_design.aoc.utils.kotlin.model.positions.neighbours
 
 class SmokeBasin(private var filename: String) {
     private val data = getResourceAsText(filename)
@@ -52,14 +54,6 @@ class SmokeBasin(private var filename: String) {
                     .map { x -> Position2d(x, y) }
             }
 
-    private fun Position2d<Int>.neighbours() =
-        listOf(
-            Position2d(x + 1, y),
-            Position2d(x - 1, y),
-            Position2d(x, y + 1),
-            Position2d(x, y - 1)
-        )
-
     private operator fun <E> List<List<E>>.contains(point: Position2d<Int>): Boolean =
         this.isNotEmpty() &&
                 point.y in this.indices &&
@@ -78,9 +72,6 @@ class SmokeBasin(private var filename: String) {
                 addAll(neighbours.flatMap { findBasin(it, cells) })
             }
     }
-
-    private fun Iterable<Int>.product() =
-        reduce { acc, item -> acc * item }
 
     private fun getResourceAsText(path: String): List<String> =
         this

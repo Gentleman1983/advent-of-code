@@ -1,7 +1,7 @@
 package de.havox_design.aoc2021.day19
 
-import de.havox_design.aoc.utils.kotlin.model.positions.Position3d
-import kotlin.math.abs
+import de.havox_design.aoc.utils.kotlin.helpers.parseInts
+import de.havox_design.aoc.utils.kotlin.model.positions.*
 
 class BeaconScanner(private var filename: String) {
     private val ALL_ROTATIONS: List<Position3d<Int>.() -> Position3d<Int>> =
@@ -74,7 +74,7 @@ class BeaconScanner(private var filename: String) {
             .second
             .toList()
             .pairs()
-            .maxOf { (a, b) -> (a - b).manhattan() }
+            .maxOf { (a, b) -> (a - b).manhattanDistance() }
 
     private fun findAllData(): Pair<Set<Position3d<Int>>, Set<Position3d<Int>>> {
         val visibleBeacons = data
@@ -196,12 +196,6 @@ class BeaconScanner(private var filename: String) {
         return beacons to scanners
     }
 
-    private fun String?.parseInts(vararg delimiters: String, radix: Int = 10): List<Int> =
-        this
-            ?.split(*delimiters)
-            ?.mapNotNull { it.trim().toIntOrNull(radix) }
-            .orEmpty()
-
     private fun <T : Any> List<T>.pairs(): Sequence<Pair<T, T>> {
         require(size > 1)
 
@@ -213,18 +207,6 @@ class BeaconScanner(private var filename: String) {
             }
         }
     }
-
-    private operator fun Position3d<Int>.plus(other: Position3d<Int>) =
-        Position3d(x + other.x, y + other.y, z + other.z)
-
-    private operator fun Position3d<Int>.minus(other: Position3d<Int>) =
-        Position3d(x - other.x, y - other.y, z - other.z)
-
-    private fun Position3d<Int>.length2() =
-        x * x + y * y + z * z
-
-    private fun Position3d<Int>.manhattan() =
-        abs(x) + abs(y) + abs(z)
 
     private fun getResourceAsText(path: String): String =
         this

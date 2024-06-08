@@ -1,5 +1,6 @@
 package de.havox_design.aoc2021.day14
 
+import de.havox_design.aoc.utils.kotlin.helpers.toPair
 import java.math.BigInteger
 
 class ExtendedPolymerization(private var filename: String) {
@@ -54,9 +55,6 @@ class ExtendedPolymerization(private var filename: String) {
 
         return (charMap.maxOf { it.value } - charMap.minOf { it.value }).divide(BigInteger.TWO)
     }
-
-    private fun <T> List<T>.toPair(): Pair<T, T> =
-        Pair(get(0), get(1))
 
     private fun getResourceAsText(path: String): String =
         this

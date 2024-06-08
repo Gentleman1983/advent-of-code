@@ -1,6 +1,9 @@
 package de.havox_design.aoc2021.day15
 
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+import de.havox_design.aoc.utils.kotlin.model.positions.abs
+import de.havox_design.aoc.utils.kotlin.model.positions.minus
+import de.havox_design.aoc.utils.kotlin.model.positions.neighbours
 import de.havox_design.aoc.utils.kotlin.model.search.graph.a_star_search.findShortestPath
 
 class Chiton(private var filename: String) {
@@ -37,14 +40,6 @@ class Chiton(private var filename: String) {
         return shortestPath.getScore()
     }
 
-    private fun Position2d<Int>.neighbours() =
-        listOf(
-            Position2d(x + 1, y),
-            Position2d(x - 1, y),
-            Position2d(x, y + 1),
-            Position2d(x, y - 1)
-        )
-
     private operator fun <E> List<List<E>>.get(point: Position2d<Int>) =
         this[point.y][point.x]
 
@@ -52,12 +47,6 @@ class Chiton(private var filename: String) {
         this.isNotEmpty() &&
                 point.y in this.indices &&
                 point.x in this.first().indices
-
-    private operator fun Position2d<Int>.minus(other: Position2d<Int>): Position2d<Int> =
-        Position2d(x - other.x, y - other.y)
-
-    private fun Position2d<Int>.abs(): Int =
-        kotlin.math.abs(x) + kotlin.math.abs(y)
 
     private fun parseNumbers(): NumberGrid = data
         .map { it.toCharArray().map { c -> c.digitToInt() } }

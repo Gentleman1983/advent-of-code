@@ -1,6 +1,7 @@
 package de.havox_design.aoc2021.day17
 
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+import de.havox_design.aoc.utils.kotlin.model.positions.plus
 import kotlin.math.sign
 
 class TrickShot(private var filename: String) {
@@ -82,9 +83,6 @@ class TrickShot(private var filename: String) {
                     }
             }
     }
-
-    private operator fun Position2d<Int>.plus(other: Position2d<Int>): Position2d<Int> =
-        Position2d(x + other.x, y + other.y)
 
     private fun getResourceAsText(path: String): String =
         this

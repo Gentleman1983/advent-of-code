@@ -29,6 +29,9 @@ fun Position2d<Int>.west(offset: Int = 1) =
 operator fun Position2d<Int>.plus(other: Position2d<Int>) =
     Position2d(x + other.x, y + other.y)
 
+operator fun Position2d<Int>.minus(other: Position2d<Int>): Position2d<Int> =
+    Position2d(x - other.x, y - other.y)
+
 operator fun Position2d<Int>.times(value: Int) =
     Position2d(x * value, y * value)
 
@@ -46,3 +49,19 @@ fun Position2d<Int>.clockwise(degrees: Int): Position2d<Int> {
 
 fun Position2d<Int>.counterClockwise(degrees: Int): Position2d<Int> =
     clockwise(360 - degrees)
+
+fun Position2d<Int>.neighbours() =
+    listOf(
+        Position2d(x + 1, y),
+        Position2d(x - 1, y),
+        Position2d(x, y + 1),
+        Position2d(x, y - 1)
+    )
+
+fun Position2d<Int>.diagonalNeighbours() =
+    listOf(
+        Position2d(x + 1, y + 1),
+        Position2d(x + 1, y - 1),
+        Position2d(x - 1, y + 1),
+        Position2d(x - 1, y - 1)
+    )

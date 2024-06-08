@@ -1,6 +1,8 @@
 package de.havox_design.aoc2021.day11
 
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+import de.havox_design.aoc.utils.kotlin.model.positions.diagonalNeighbours
+import de.havox_design.aoc.utils.kotlin.model.positions.neighbours
 
 class DumboOctopus(private var filename: String) {
     private val data = getResourceAsText(filename)
@@ -89,22 +91,6 @@ class DumboOctopus(private var filename: String) {
         this.isNotEmpty() &&
                 point.y in this.indices &&
                 point.x in this.first().indices
-
-    private fun Position2d<Int>.neighbours() =
-        listOf(
-            Position2d(x + 1, y),
-            Position2d(x - 1, y),
-            Position2d(x, y + 1),
-            Position2d(x, y - 1)
-        )
-
-    private fun Position2d<Int>.diagonalNeighbours() =
-        listOf(
-            Position2d(x + 1, y + 1),
-            Position2d(x + 1, y - 1),
-            Position2d(x - 1, y + 1),
-            Position2d(x - 1, y - 1)
-        )
 
     private fun getResourceAsText(path: String): List<String> =
         this

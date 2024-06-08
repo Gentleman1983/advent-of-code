@@ -1,5 +1,8 @@
 package de.havox_design.aoc2021.day08
 
+import de.havox_design.aoc.utils.kotlin.helpers.digitsToInt
+import de.havox_design.aoc.utils.kotlin.helpers.pivot
+
 class SevenSegmentSearch(private var filename: String) {
     private val DELIMITOR_ELEMENTS = " "
     private val DELIMITOR_SAMPLES_OUTPUT = " | "
@@ -86,13 +89,6 @@ class SevenSegmentSearch(private var filename: String) {
             .map { mappings[it]!! }
             .digitsToInt(10)
     }
-
-    private fun <K, V> Map<K, V>.pivot() =
-        entries
-            .associate { (key, value) -> value to key }
-
-    private fun Iterable<Int>.digitsToInt(radix: Int) =
-        reduce { acc, digit -> acc * radix + digit }
 
     private fun getResourceAsText(path: String): List<String> =
         this

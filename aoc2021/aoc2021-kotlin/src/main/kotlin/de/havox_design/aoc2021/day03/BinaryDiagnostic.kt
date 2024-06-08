@@ -1,5 +1,6 @@
 package de.havox_design.aoc2021.day03
 
+import de.havox_design.aoc.utils.kotlin.helpers.sumWith
 import kotlin.math.pow
 
 class BinaryDiagnostic(private var filename: String) {
@@ -65,6 +66,3 @@ class BinaryDiagnostic(private var filename: String) {
             .bufferedReader()
             .readLines()
 }
-
-private fun List<Int>.sumWith(other: List<Int>) =
-    zip(other, Int::plus)
