@@ -1,5 +1,6 @@
 package de.havox_design.aoc2020.day20
 
+import de.havox_design.aoc.utils.kotlin.helpers.math.product
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 
 class JurassicJigsaw(private var filename: String) {
@@ -137,6 +138,3 @@ class JurassicJigsaw(private var filename: String) {
         private val TILE_REGEX = """Tile (\d+):""".toRegex()
     }
 }
-
-private fun Iterable<Long>.product() =
-    reduce { acc, item -> acc * item }

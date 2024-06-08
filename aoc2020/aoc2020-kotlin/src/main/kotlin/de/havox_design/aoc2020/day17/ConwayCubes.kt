@@ -1,5 +1,7 @@
 package de.havox_design.aoc2020.day17
 
+import de.havox_design.aoc.utils.kotlin.helpers.mapToInt
+
 class ConwayCubes(private var filename: String) {
     private val data = getResourceAsText(filename)
     lateinit var lowerBounds: IntArray
@@ -99,6 +101,3 @@ class ConwayCubes(private var filename: String) {
         private const val INACTIVE = 0
     }
 }
-
-private fun IntArray.mapToInt(transform: (Int) -> Int): IntArray =
-    IntArray(this.size) { transform(this[it]) }

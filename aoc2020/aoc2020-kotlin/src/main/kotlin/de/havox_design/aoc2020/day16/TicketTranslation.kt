@@ -1,5 +1,7 @@
 package de.havox_design.aoc2020.day16
 
+import de.havox_design.aoc.utils.kotlin.helpers.math.product
+
 class TicketTranslation(private var filename: String) {
     private val data = getResourceAsText(filename)
 
@@ -108,6 +110,3 @@ class TicketTranslation(private var filename: String) {
             .toRegex()
     }
 }
-
-private fun Iterable<Long>.product() =
-    reduce { acc, item -> acc * item }
