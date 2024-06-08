@@ -26,7 +26,7 @@ fun Position2d<Int>.southwest(offset: Int = 1) =
 fun Position2d<Int>.west(offset: Int = 1) =
     Position2d(x - offset, y)
 
-operator fun Position2d<Int>.plus(other: Position2d<Int>) =
+operator fun Position2d<Long>.plus(other: Position2d<Long>): Position2d<Long> =
     Position2d(x + other.x, y + other.y)
 
 operator fun Position2d<Int>.minus(other: Position2d<Int>): Position2d<Int> =
