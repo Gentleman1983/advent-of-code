@@ -9,8 +9,11 @@ enum class SNAFUNumber(private var symbol: Char, private var value: Long) {
     MINUS('-', -1L),
     DOUBLE_MINUS('=', -2L);
 
-    fun toSnafuSymbol(): Char = symbol
-    fun toLong(): Long = value
+    fun toSnafuSymbol(): Char =
+        symbol
+
+    fun toLong(): Long =
+        value
 
     fun getIncrement(): SNAFUNumber =
         when (this) {
@@ -20,7 +23,6 @@ enum class SNAFUNumber(private var symbol: Char, private var value: Long) {
             MINUS -> ZERO
             DOUBLE_MINUS -> MINUS
         }
-
 
     fun getDecrement(): SNAFUNumber =
         when (this) {
@@ -59,8 +61,10 @@ enum class SNAFUNumber(private var symbol: Char, private var value: Long) {
                 return listOf(ZERO)
             }
 
-            val snafuNumber = emptyList<SNAFUNumber>().toMutableList()
-            var workingNumber = number
+            val snafuNumber =
+                emptyList<SNAFUNumber>().toMutableList()
+            var workingNumber =
+                number
 
             while (workingNumber != 0L) {
                 when ("012=-"[workingNumber.mod(5)]) {
