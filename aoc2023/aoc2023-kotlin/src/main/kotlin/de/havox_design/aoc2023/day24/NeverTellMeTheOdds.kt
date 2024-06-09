@@ -19,7 +19,6 @@ class NeverTellMeTheOdds(private var filename: String) {
         maxWindow: Long = 400000000000000L
     ): Int {
         val windowRange = minWindow..maxWindow
-
         val hailstones = input
             .map { line ->
                 line
@@ -44,5 +43,10 @@ class NeverTellMeTheOdds(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

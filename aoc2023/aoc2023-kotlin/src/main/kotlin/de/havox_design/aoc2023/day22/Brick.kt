@@ -20,15 +20,15 @@ data class Brick(val startPosition: Position3d<Int>, val endPosition: Position3d
                 position.z >= startPosition.z && position.z <= endPosition.z
 
     @SuppressWarnings("kotlin:S3776")
-    fun intersect(other: Brick): Boolean {
-        return when {
+    fun intersect(other: Brick): Boolean =
+        when {
             other.startPosition.z > endPosition.z || other.endPosition.z < startPosition.z -> false
             else -> {
                 for (x in other.startPosition.x..other.endPosition.x) {
                     for (y in other.startPosition.y..other.endPosition.y) {
                         for (z in other.startPosition.z..other.endPosition.z) {
                             when {
-                                contains(Position3d(x, y, z)) -> return true
+                                contains(Position3d(x, y, z)) -> true
                             }
                         }
                     }
@@ -36,7 +36,6 @@ data class Brick(val startPosition: Position3d<Int>, val endPosition: Position3d
                 false
             }
         }
-    }
 
     fun canFall(bricks: ArrayList<Brick>): Boolean {
         val f = fallen
