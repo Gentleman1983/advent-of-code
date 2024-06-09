@@ -18,13 +18,13 @@ class BoilingBoulders(private var filename: String) {
         val xLimits = data.minOf { it.x } - 1..data.maxOf { it.x } + 1
         val yLimits = data.minOf { it.y } - 1..data.maxOf { it.y } + 1
         val zLimits = data.minOf { it.z } - 1..data.maxOf { it.z } + 1
-
         val toVisit = mutableListOf(Position3d(xLimits.first, yLimits.first, zLimits.first))
         val visited = mutableSetOf<Position3d<Int>>()
-
         var sides = 0
+
         while (toVisit.isNotEmpty()) {
             val current = toVisit.removeFirst()
+
             if (current !in visited) {
                 current.neighbours()
                     .filter { it.x in xLimits && it.y in yLimits && it.z in zLimits }
@@ -32,6 +32,7 @@ class BoilingBoulders(private var filename: String) {
                 visited += current
             }
         }
+
         return sides
     }
 
@@ -49,5 +50,10 @@ class BoilingBoulders(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

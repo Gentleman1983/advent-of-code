@@ -22,7 +22,6 @@ class HillClimbingAlgorithm(private var filename: String) {
 
         var searchers = listOf(Searcher(movementMap, startingPosition, landscape))
 
-
         while (searchers.none { searcher -> searcher.finished }) {
             val nextIteration = emptyList<Searcher>().toMutableList()
 
@@ -32,12 +31,15 @@ class HillClimbingAlgorithm(private var filename: String) {
 
             // If we are lost quit
             searchers = nextIteration
+
             if (searchers.isEmpty()) {
                 return Int.MAX_VALUE
             }
         }
 
-        return searchers.first { searcher -> searcher.finished }.step
+        return searchers
+            .first { searcher -> searcher.finished }
+            .step
     }
 
     private fun readFile(): Landscape {
@@ -61,7 +63,8 @@ class HillClimbingAlgorithm(private var filename: String) {
             movementMap += rowList
         }
 
-        return movementMap.toList()
+        return movementMap
+            .toList()
     }
 
     private fun findStartingPosition(): Position =
@@ -80,5 +83,10 @@ class HillClimbingAlgorithm(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

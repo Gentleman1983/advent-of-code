@@ -4,7 +4,8 @@ class BeaconExclusionZone(private var filename: String) {
     private val data = readFile()
 
     fun processPart1(desiredRow: Int = 2000000): Int =
-        data.mapNotNull { it.findRange(desiredRow) }
+        data
+            .mapNotNull { it.findRange(desiredRow) }
             .reduce()
             .sumOf { it.last - it.first }
 
@@ -20,44 +21,54 @@ class BeaconExclusionZone(private var filename: String) {
             (up.lineTo(right) + right.lineTo(down) + down.lineTo(left) + left.lineTo(up))
                 .filter { location -> location.x in cave && location.y in cave }
                 .firstOrNull { possibleLocation -> data.none { sensor -> sensor.isInRange(possibleLocation) } }
-        }.calculateTuningFrequency()
+        }
+            .calculateTuningFrequency()
     }
 
     private fun readFile(): Set<Sensor> {
         val fileData = getResourceAsText(filename)
 
-        return fileData.map { row ->
-            Sensor(
-                Point2D(
-                    row
-                        .substringAfter("x=")
-                        .substringBefore(",")
-                        .toInt(),
-                    row
-                        .substringAfter("y=")
-                        .substringBefore(":")
-                        .toInt()
-                ),
-                Point2D(
-                    row
-                        .substringAfterLast("x=")
-                        .substringBefore(",")
-                        .toInt(),
-                    row
-                        .substringAfterLast("y=")
-                        .toInt()
+        return fileData
+            .map { row ->
+                Sensor(
+                    Point2D(
+                        row
+                            .substringAfter("x=")
+                            .substringBefore(",")
+                            .toInt(),
+                        row
+                            .substringAfter("y=")
+                            .substringBefore(":")
+                            .toInt()
+                    ),
+                    Point2D(
+                        row
+                            .substringAfterLast("x=")
+                            .substringBefore(",")
+                            .toInt(),
+                        row
+                            .substringAfterLast("y=")
+                            .toInt()
+                    )
                 )
-            )
-        }.toSet()
+            }
+            .toSet()
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 
     private fun List<IntRange>.reduce(): List<IntRange> =
-        if (this.size <= 1) this
-        else {
+        if (this.size <= 1) {
+            this
+        } else {
             val sorted = this.sortedBy { it.first }
+
             sorted
                 .drop(1)
                 .fold(mutableListOf(sorted.first())) { reduced, range ->

@@ -7,7 +7,6 @@ class RopeBridge(private var filename: String) {
         var fieldsVisited = 0
         val rows = 1000
         val cols = 1000
-
         val grid = Grid(rows, cols)
         grid.visitPosition(rows / 2, cols / 2, Knot.HEAD_AND_TAIL)
 
@@ -30,7 +29,6 @@ class RopeBridge(private var filename: String) {
         var fieldsVisited = 0
         val rows = 1000
         val cols = 1000
-
         val gridSegmentH1 = Grid(rows, cols)
         val gridSegment12 = Grid(rows, cols)
         val gridSegment23 = Grid(rows, cols)
@@ -40,6 +38,7 @@ class RopeBridge(private var filename: String) {
         val gridSegment67 = Grid(rows, cols)
         val gridSegment78 = Grid(rows, cols)
         val gridSegment89 = Grid(rows, cols)
+
         gridSegmentH1.visitPosition(rows / 2, cols / 2, Knot.HEAD_AND_TAIL)
         gridSegment12.visitPosition(rows / 2, cols / 2, Knot.HEAD_AND_TAIL)
         gridSegment23.visitPosition(rows / 2, cols / 2, Knot.HEAD_AND_TAIL)
@@ -56,6 +55,7 @@ class RopeBridge(private var filename: String) {
 
             for (step in 0 until fields) {
                 var d = gridSegmentH1.moveHead(Move(direction))
+
                 d = gridSegment12.moveHead(Move(d))
                 d = gridSegment23.moveHead(Move(d))
                 d = gridSegment34.moveHead(Move(d))
@@ -94,5 +94,10 @@ class RopeBridge(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

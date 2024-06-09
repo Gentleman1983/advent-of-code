@@ -24,7 +24,6 @@ class BlizzardBasin(private var filename: String) {
         )
     }
 
-
     fun getStart(): Position2d<Int> =
         Position2d(data.first().indexOf('.'), 0)
 
@@ -35,13 +34,17 @@ class BlizzardBasin(private var filename: String) {
     private fun findWay(startPosition: Position2d<Int>, endPosition: Position2d<Int>, startTime: Int = 0): Int {
         val seen = mutableSetOf(IndexedValue(startTime, startPosition))
         val queue = PriorityQueue(compareBy(IndexedValue<IndexedValue<Position2d<Int>>>::index))
+
         queue.add(IndexedValue(0, IndexedValue(startTime, startPosition)))
+
         while (!queue.isEmpty()) {
             val entry = queue.remove().value
             val (time, position) = entry
+
             if (position == endPosition) {
                 return time
             }
+
             for (position2 in arrayOf(
                 WAIT.getDirection(position),
                 NORTH.getDirection(position),
@@ -50,17 +53,24 @@ class BlizzardBasin(private var filename: String) {
                 WEST.getDirection(position)
             )
             ) {
-                if (!isFree(position2, time + 1)) continue
+                if (!isFree(position2, time + 1)) {
+                    continue
+                }
+
                 val state = IndexedValue(time + 1, position2)
-                if (seen.add(state)) queue.add(
-                    IndexedValue(
-                        time + abs(position2.x - endPosition.x) + abs(
-                            position2.y - endPosition.y
-                        ), state
-                    )
-                )
+
+                if (seen.add(state)) {
+                    queue
+                        .add(
+                            IndexedValue(
+                                time + abs(position2.x - endPosition.x) + abs(position2.y - endPosition.y),
+                                state
+                            )
+                        )
+                }
             }
         }
+
         throw NoSuchElementException()
     }
 
@@ -82,8 +92,10 @@ class BlizzardBasin(private var filename: String) {
         getResourceAsText(filename)
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }
-
-private fun Pair<Int, Int>.getX(): Int = this.first
-private fun Pair<Int, Int>.getY(): Int = this.second

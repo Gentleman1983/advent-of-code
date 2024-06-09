@@ -32,6 +32,7 @@ class Knapsack(private val leftCompartment: List<Item>, private val rightCompart
         for (item: Item in leftCompartment) {
             items += item
         }
+
         for (item: Item in rightCompartment) {
             items += item
         }

@@ -77,7 +77,8 @@ enum class SNAFUNumber(private var symbol: Char, private var value: Long) {
                 workingNumber = (workingNumber + 2).floorDiv(5)
             }
 
-            return snafuNumber.reversed()
+            return snafuNumber
+                .reversed()
         }
     }
 }
@@ -85,7 +86,7 @@ enum class SNAFUNumber(private var symbol: Char, private var value: Long) {
 fun List<SNAFUNumber>.toReadableString(): String {
     var result = ""
 
-    for(digit in this) {
+    for (digit in this) {
         result += digit.toSnafuSymbol()
     }
 

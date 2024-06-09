@@ -13,7 +13,8 @@ data class Directory(var parent: Directory?, var name: String, var dirs: Set<Dir
         return size
     }
 
-    fun calculateSizeOfFilesInDirAndSubDirs(): Int = calculateSizeOfFilesInDirAndSubDirs(Int.MAX_VALUE)
+    fun calculateSizeOfFilesInDirAndSubDirs(): Int =
+        calculateSizeOfFilesInDirAndSubDirs(Int.MAX_VALUE)
 
     fun calculateSizeOfFilesInDirAndSubDirs(limit: Int): Int {
         var size = 0
@@ -33,6 +34,7 @@ data class Directory(var parent: Directory?, var name: String, var dirs: Set<Dir
 
     fun findSmallestDirLargerThanLimit(limit: Int): Int {
         var size = calculateSizeOfFilesInDirAndSubDirs()
+
         if (size < limit) {
             return Int.MAX_VALUE
         }
@@ -46,6 +48,7 @@ data class Directory(var parent: Directory?, var name: String, var dirs: Set<Dir
 
     fun file(name: String, size: Int): File {
         val file = File(name, size)
+
         files += file
 
         return file
@@ -55,6 +58,7 @@ data class Directory(var parent: Directory?, var name: String, var dirs: Set<Dir
 
     private fun subDir(name: String, dirs: Set<Directory>, files: Set<File>): Directory {
         val subDir = Directory(this, name, dirs, files)
+
         this.dirs += subDir
 
         return subDir
@@ -67,6 +71,10 @@ data class Directory(var parent: Directory?, var name: String, var dirs: Set<Dir
                 && files == other.files
                 && parent?.name == other.parent?.name
 
-    override fun hashCode(): Int = Objects.hash(parent?.name, name, dirs, files)
-    override fun toString(): String = "Directory[parent=${parent?.name}, name=$name, dirs=$dirs, files=$files]"
+    override fun hashCode(): Int =
+        Objects
+            .hash(parent?.name, name, dirs, files)
+
+    override fun toString(): String =
+        "Directory[parent=${parent?.name}, name=$name, dirs=$dirs, files=$files]"
 }

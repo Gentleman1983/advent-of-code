@@ -15,5 +15,10 @@ class FullOfHotAir(private var filename: String) {
             .map { snafuValue -> SNAFUNumber.toSnafu(snafuValue) }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

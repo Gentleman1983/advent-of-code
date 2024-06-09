@@ -19,6 +19,7 @@ class MonkeyInTheMiddle(private var filename: String) {
         // Search the quantity of inspections of two most active monkeys
         var mostInspections = BigInteger.valueOf(-666)
         var secondMostInspections = BigInteger.valueOf(-666)
+
         for (monkey in monkeys) {
             if (monkey.numberOfInspectedItems > mostInspections) {
                 secondMostInspections = mostInspections
@@ -43,13 +44,13 @@ class MonkeyInTheMiddle(private var filename: String) {
     private fun readData(): List<Monkey> {
         val fileData = getResourceAsText(filename)
         val monkeys = emptyList<Monkey>().toMutableList()
-
         var currentMonkey: Monkey? = null
         var currentStartingItems: List<Item> = emptyList()
         var currentOperation: (BigInteger) -> BigInteger = { a -> a }
         var currentTest: BigInteger? = null
         var currentTrueMonkey: Int? = null
         var currentFalseMonkey: Int? = null
+
         for (row in fileData) {
             if (row.isBlank()) {
                 createMonkey(
@@ -61,7 +62,6 @@ class MonkeyInTheMiddle(private var filename: String) {
                     currentFalseMonkey!!
                 )
                 monkeys.add(currentMonkey)
-
                 currentMonkey = null
                 currentStartingItems = emptyList()
                 currentOperation = { a -> a }
@@ -112,13 +112,14 @@ class MonkeyInTheMiddle(private var filename: String) {
 
     private fun processMonkeyRow(row: String): Monkey {
         val id = row.substring(7).split(":")
+
         return Monkey(id[0].toInt())
     }
 
     private fun processStartingItemsRow(row: String): List<Item> {
         val startingItems = emptyList<Item>().toMutableList()
-
         val items = row.trim().split(":")[1].split(",")
+
         for (item in items) {
             startingItems += Item(BigInteger.valueOf(item.trim().toLong()))
         }
@@ -153,17 +154,35 @@ class MonkeyInTheMiddle(private var filename: String) {
     }
 
     private fun processTestRow(row: String): BigInteger =
-        BigInteger.valueOf(row.split("divisible by")[1].trim().toLong())
+        BigInteger
+            .valueOf(
+                row
+                    .split("divisible by")[1]
+                    .trim()
+                    .toLong()
+            )
 
     private fun processThrowToMonkeyRow(row: String): Int =
-        row.split("throw to monkey")[1].trim().toInt()
+        row
+            .split("throw to monkey")[1]
+            .trim()
+            .toInt()
 
     private fun getCorrectValue(value: String, other: BigInteger, paramName: String = "old"): BigInteger {
         val trimmedValue = value.trim()
 
-        return if (trimmedValue == paramName) other else BigInteger.valueOf(trimmedValue.toLong())
+        return if (trimmedValue == paramName) {
+            other
+        } else {
+            BigInteger.valueOf(trimmedValue.toLong())
+        }
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

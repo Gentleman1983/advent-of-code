@@ -5,7 +5,6 @@ class ProboscideaVolcanium(private var filename: String) {
     private val usefulValves = valves.filter { valve -> valve.value.rate > 0 }
     private val distances = computeDistances()
 
-
     fun processPart1(): Int =
         traverse(minutes = 30)
 
@@ -58,7 +57,8 @@ class ProboscideaVolcanium(private var filename: String) {
                         }
                 }
                 distances
-            }.associateBy { it.keys.first() }
+            }
+            .associateBy { it.keys.first() }
 
     private fun readFile(): Map<String, Valve> {
         val fileData = getResourceAsText(filename)
@@ -69,5 +69,10 @@ class ProboscideaVolcanium(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

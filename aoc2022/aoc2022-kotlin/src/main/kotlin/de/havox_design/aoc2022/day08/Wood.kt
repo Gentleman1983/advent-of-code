@@ -19,7 +19,10 @@ class Wood {
         addRow(trees)
     }
 
-    fun getRows(): Int = rows.size
+    fun getRows(): Int =
+        rows
+            .size
+
     fun getCols(): Int =
         if (rows.isEmpty()) {
             0
@@ -27,7 +30,8 @@ class Wood {
             rows[0].size
         }
 
-    fun getTree(row: Int, col: Int): Tree = rows[row][col]
+    fun getTree(row: Int, col: Int): Tree =
+        rows[row][col]
 
     fun calculateScenicScores() {
         for(rowIndex in rows.indices) {
