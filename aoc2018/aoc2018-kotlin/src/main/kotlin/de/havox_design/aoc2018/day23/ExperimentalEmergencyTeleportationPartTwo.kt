@@ -57,7 +57,12 @@ class ExperimentalEmergencyTeleportationPartTwo(private var filename: String) {
             .toList()
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }
 
 private inline fun <T> List<T>.deltaBy(block: T.() -> Int) =

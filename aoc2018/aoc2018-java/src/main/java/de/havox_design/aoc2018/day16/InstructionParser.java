@@ -10,10 +10,10 @@ public class InstructionParser {
             throw new IllegalArgumentException(String.format("Could not parse instructions from line '%s'.", toParse));
         }
 
-        final var opcode = Integer.parseInt(segments[0].trim());
-        final var a = Integer.parseInt(segments[1].trim());
-        final var b = Integer.parseInt(segments[2].trim());
-        final var c = Integer.parseInt(segments[3].trim());
+        final int opcode = Integer.parseInt(segments[0].trim());
+        final int a = Integer.parseInt(segments[1].trim());
+        final int b = Integer.parseInt(segments[2].trim());
+        final int c = Integer.parseInt(segments[3].trim());
 
         return new NumberedInstruction(opcode, a, b, c);
     }

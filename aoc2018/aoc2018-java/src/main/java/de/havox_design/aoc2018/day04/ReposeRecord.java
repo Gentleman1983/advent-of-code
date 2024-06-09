@@ -17,11 +17,13 @@ public class ReposeRecord implements AoCFunctionality {
 
     public static int processTask1(String fileName) {
         ReposeRecord instance = new ReposeRecord(fileName);
+
         return instance.processTask1();
     }
 
     public static int processTask2(String fileName) {
         ReposeRecord instance = new ReposeRecord(fileName);
+
         return instance.processTask2();
     }
 

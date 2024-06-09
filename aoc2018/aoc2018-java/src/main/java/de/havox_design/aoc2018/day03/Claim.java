@@ -11,7 +11,6 @@ public record Claim(int id, Set<Position2d<Integer>> positions) {
     public static Claim from(String claimMessage) {
         int id = 0;
         Set<Position2d<Integer>> positions = new HashSet<>();
-
         Pattern pattern = Pattern.compile("#(\\d+) @ (\\d+),(\\d+): (\\d+)x(\\d+)");
         Matcher matcher = pattern.matcher(claimMessage);
 

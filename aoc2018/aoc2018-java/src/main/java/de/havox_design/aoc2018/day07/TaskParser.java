@@ -16,6 +16,7 @@ public class TaskParser {
 
         for (String line : input) {
             Matcher matcher = TASK_PATTERN.matcher(line);
+
             if (matcher.matches()) {
                 String dependency = matcher.group(1);
                 String dependent = matcher.group(2);
@@ -26,6 +27,7 @@ public class TaskParser {
         }
 
         List<String> missingKeys = new ArrayList<>();
+
         for(Set<String> children : dependencies.values()) {
             for(String child : children) {
                 if(!dependencies.containsKey(child)) {
@@ -33,6 +35,7 @@ public class TaskParser {
                 }
             }
         }
+
         for(String missingKey : missingKeys) {
             dependencies.put(missingKey, Collections.emptySet());
         }
@@ -60,7 +63,6 @@ public class TaskParser {
                     .map(Map.Entry::getKey)
                     .findFirst()
                     .orElseThrow(() -> new IllegalStateException(ILLEGAL_STATE_MESSAGE));
-
             Task task = new Task(
                     independantKey,
                     dependencies
@@ -75,6 +77,7 @@ public class TaskParser {
                             )
                             .collect(Collectors.toSet())
             );
+
             tasks.add(task);
         }
 

@@ -16,11 +16,13 @@ public class InventoryManagementSystem implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         InventoryManagementSystem instance = new InventoryManagementSystem(fileName);
+
         return instance.processTask1();
     }
 
     public static String processTask2(String fileName) {
         InventoryManagementSystem instance = new InventoryManagementSystem(fileName);
+
         return instance.processTask2();
     }
 
@@ -45,7 +47,6 @@ public class InventoryManagementSystem implements AoCFunctionality {
 
     public String processTask2() {
         List<String> correctBoxes = findCorrectBoxes();
-
         StringBuilder commonLetters = new StringBuilder();
 
         for(int i = 0; i < correctBoxes.get(0).length(); i++) {

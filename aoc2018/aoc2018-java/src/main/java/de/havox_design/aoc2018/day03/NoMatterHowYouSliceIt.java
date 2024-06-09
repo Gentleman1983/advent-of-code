@@ -17,11 +17,13 @@ public class NoMatterHowYouSliceIt implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         NoMatterHowYouSliceIt instance = new NoMatterHowYouSliceIt(fileName);
+
         return instance.processTask1();
     }
 
     public static int processTask2(String fileName) {
         NoMatterHowYouSliceIt instance = new NoMatterHowYouSliceIt(fileName);
+
         return instance.processTask2();
     }
 

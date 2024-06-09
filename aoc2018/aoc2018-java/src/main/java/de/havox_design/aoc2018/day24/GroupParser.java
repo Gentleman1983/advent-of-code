@@ -44,8 +44,10 @@ public class GroupParser {
             Set<String> immunities = splitList(resistances, IDENTIFIER_IMMUNITIES);
 
             incrementGroupNumber();
+
             return new Group(groupName, id, numberOfUnits, hitpoints, initiative, weaknesses, immunities, damageType, damage);
         }
+
         throw new IllegalArgumentException("Expected the input '" + input + "' to match pattern '" + GROUP_PATTERN + "'.");
     }
 

@@ -26,11 +26,11 @@ public class MineParser {
                         .max()
                         .orElseThrow()
                 ][input.size()];
-
         Coordinate point;
 
         for (int i = 0; i < input.size(); i++) {
             String[] s = input.get(i).split("(?!^)");
+
             for (int j = 0; j < s.length; j++) {
                 point = new Coordinate(j, i);
                 parseCharacters(point, s[j], paths, carts);

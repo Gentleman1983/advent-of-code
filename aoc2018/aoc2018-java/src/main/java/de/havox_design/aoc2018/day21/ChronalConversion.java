@@ -15,9 +15,9 @@ public class ChronalConversion implements AoCFunctionality {
 
     public ChronalConversion(String fileName) {
         List<String> input = readData(fileName);
-
         final IPRegisterParser ipIndexParser = new IPRegisterParser();
         final InstructionParser instructionParser = new InstructionParser();
+
         this.indexIP = ipIndexParser.parse(input.getFirst());
         this.instructions = input
                 .stream()
@@ -28,11 +28,13 @@ public class ChronalConversion implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         ChronalConversion instance = new ChronalConversion(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         ChronalConversion instance = new ChronalConversion(fileName);
+
         return instance.processTask2();
     }
 

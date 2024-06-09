@@ -19,11 +19,13 @@ public class ChronalCalibration implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         ChronalCalibration instance = new ChronalCalibration(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         ChronalCalibration instance = new ChronalCalibration(fileName);
+
         return instance.processTask2();
     }
 

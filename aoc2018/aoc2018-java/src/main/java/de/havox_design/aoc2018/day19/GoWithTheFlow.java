@@ -25,6 +25,7 @@ public class GoWithTheFlow implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         GoWithTheFlow instance = new GoWithTheFlow(fileName);
+
         return instance.processTask1();
     }
 

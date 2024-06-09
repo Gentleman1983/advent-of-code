@@ -16,9 +16,9 @@ public class ChronalClassification implements AoCFunctionality {
         BlankLinePartitioner partitioner = new BlankLinePartitioner();
         InstructionParser instructionParser = new InstructionParser();
         SamplesParser samplesParser = new SamplesParser();
-
         List<String> input = readData(fileName);
         List<List<String>> partitions = partitioner.partition(input);
+
         samples = partitions
                 .stream()
                 .limit(partitions.size() - 1L)
@@ -33,11 +33,13 @@ public class ChronalClassification implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         ChronalClassification instance = new ChronalClassification(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         ChronalClassification instance = new ChronalClassification(fileName);
+
         return instance.processTask2();
     }
 

@@ -12,13 +12,14 @@ data class Region(val point: Position2d<Int>, val cave: HardCave) {
 
     private val atEnds = point in setOf(Position2d(0, 0), cave.target)
 
-    private fun deriveGeologicIndex() = when {
-        atEnds -> 0
-        point.y == 0 -> point.x * 16807
-        point.x == 0 -> point.y * 48271
-        else -> (cave.at(point.west()) to cave.at(point.north()))
-            .let { it.first.erosionLevel * it.second.erosionLevel }
-    }
+    private fun deriveGeologicIndex() =
+        when {
+            atEnds -> 0
+            point.y == 0 -> point.x * 16807
+            point.x == 0 -> point.y * 48271
+            else -> (cave.at(point.west()) to cave.at(point.north()))
+                .let { it.first.erosionLevel * it.second.erosionLevel }
+        }
 
     fun toolsRequired(): Set<Tool> = if (atEnds) setOf(Tool.TORCH) else
         when (regionType) {

@@ -44,7 +44,12 @@ class GoWithTheFlowKotlin(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }
 
 inline fun <T> String.parseFor(
@@ -53,4 +58,5 @@ inline fun <T> String.parseFor(
 ) =
     (toRegex().matchEntire(input)
         ?: throw IllegalArgumentException("Wrong format."))
-        .destructured.let(mapper)
+        .destructured
+        .let(mapper)

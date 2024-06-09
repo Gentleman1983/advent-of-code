@@ -11,16 +11,19 @@ public class SubterraneanSustainability implements AoCFunctionality {
 
     public SubterraneanSustainability(String fileName) {
         GardenInputParser parser = new GardenInputParser();
+
         input = parser.parse(readData(fileName));
     }
 
     public static long processTask1(String fileName) {
         SubterraneanSustainability instance = new SubterraneanSustainability(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         SubterraneanSustainability instance = new SubterraneanSustainability(fileName);
+
         return instance.processTask2();
     }
 
@@ -38,6 +41,7 @@ public class SubterraneanSustainability implements AoCFunctionality {
 
         while (states.size() <= generation) {
             Pots pots = nextGeneration(states.getLast());
+
             index = IntStream
                     .range(0, states.size())
                     .filter(i -> states.get(i).pots().equals(pots.pots()))
@@ -58,11 +62,9 @@ public class SubterraneanSustainability implements AoCFunctionality {
 
     private long calculateValueForCycle(List<Pots> states, Pots pots, int match, long generation) {
         long repeat = Math.subtractExact(states.size(), match);
-
         long sub = generation - states.size() + 1;
         long div = sub / repeat;
         int remainder = (int) (sub % repeat);
-
         long offsetDifferenceBetweenMatch = Math.subtractExact(
                 pots.offset(),
                 states.get(match).offset()

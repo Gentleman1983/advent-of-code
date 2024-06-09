@@ -19,11 +19,13 @@ public class FourDimensionalAdventure implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         FourDimensionalAdventure instance = new FourDimensionalAdventure(fileName);
+
         return instance.processTask1();
     }
 
     public static String processTask2(String fileName) {
         FourDimensionalAdventure instance = new FourDimensionalAdventure(fileName);
+
         return instance.processTask2();
     }
 

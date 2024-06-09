@@ -12,7 +12,6 @@ public class MapParser {
     private static final String ELF_FORMAT = "E";
 
     public GameMap parse(List<String> input) {
-
         Field[][] field = new Field[
                 input
                         .stream()

@@ -25,11 +25,13 @@ public class ARegularMap implements AoCFunctionality {
 
     public static int processTask1(String fileName) {
         ARegularMap instance = new ARegularMap(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         ARegularMap instance = new ARegularMap(fileName);
+
         return instance.processTask2();
     }
 
@@ -53,7 +55,6 @@ public class ARegularMap implements AoCFunctionality {
     @SuppressWarnings("squid:S1149")
     private Map<Position2d<Integer>, Integer> calculateDistances(List<String> inputs) {
         Stack<Position2d<Integer>> junction = new Stack<>();
-
         Position2d<Integer> current = new Position2d<>(0, 0);
         Position2d<Integer> previous = new Position2d<>(0, 0);
         Map<Position2d<Integer>, Integer> distanceMap = new HashMap<>();
