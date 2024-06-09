@@ -19,16 +19,19 @@ public class ReindeerOlympics implements AoCFunctionality {
 
     public static int solvePart1(String fileName) {
         ReindeerOlympics instance = new ReindeerOlympics(fileName);
+
         return instance.solvePart1();
     }
 
     public static int solvePart2(String fileName) {
         ReindeerOlympics instance = new ReindeerOlympics(fileName);
+
         return instance.solvePart2();
     }
 
     protected static int race(String fileName, int time, boolean newScoringSystem) {
         ReindeerOlympics instance = new ReindeerOlympics(fileName);
+
         return instance.race(time, newScoringSystem);
     }
 

@@ -44,6 +44,7 @@ public class PresentDelivery implements AoCFunctionality {
         Position2d<Integer> currentLocationSanta = new Position2d<>(0, 0);
         Position2d<Integer> currentLocationRoboSanta = new Position2d<>(0, 0);
         boolean santaMoves = true;
+
         visitedHouses.add(currentLocationSanta);
         visitedHouses.add(currentLocationRoboSanta);
 

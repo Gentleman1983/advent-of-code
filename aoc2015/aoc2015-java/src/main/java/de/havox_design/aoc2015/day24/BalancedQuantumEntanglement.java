@@ -15,11 +15,13 @@ public class BalancedQuantumEntanglement implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         BalancedQuantumEntanglement instance = new BalancedQuantumEntanglement(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         BalancedQuantumEntanglement instance = new BalancedQuantumEntanglement(fileName);
+
         return instance.solvePart2();
     }
 
@@ -46,9 +48,11 @@ public class BalancedQuantumEntanglement implements AoCFunctionality {
 
     private long findSolution(final List<Integer> weights, final int groupWeight, final boolean isPart2) {
         final LengthSortedResult combinations = calcCombinations(weights, groupWeight);
+
         for (Integer[] firstCombination : combinations) {
             List<Integer> remaining = difference(weights, firstCombination);
             final LengthSortedResult combinationsForSecondGroup = calcCombinations(remaining, groupWeight);
+
             if (isPart2) {
                 if (combinationsForSecondGroup.size() > 0) {
                     return quantumEntanglement(firstCombination);
@@ -62,11 +66,14 @@ public class BalancedQuantumEntanglement implements AoCFunctionality {
                 }
             }
         }
+
         return -1;
     }
     private LengthSortedResult calcCombinations(List<Integer> weights, int groupWeight) {
         LengthSortedResult res = new LengthSortedResult(weights.size() + 1);
+
         calcCombinations(weights, groupWeight, new ArrayList<>(), 0, res);
+
         return res;
     }
 
@@ -79,32 +86,40 @@ public class BalancedQuantumEntanglement implements AoCFunctionality {
     ) {
         for (int i = startAt; i < weights.size(); i++) {
             final Integer current = weights.get(i);
+
             if (current > remaining) {
                 break;
             }
+
             combination.add(current);
+
             if (remaining == current) {
                 result.add(combination.toArray(Integer[]::new));
             } else {
                 calcCombinations(weights, remaining - current, combination, i + 1, result);
             }
+
             combination.remove(combination.size() - 1);
         }
     }
 
     private List<Integer> difference(final List<Integer> elements, final Integer[] elementsToRemove) {
         final List<Integer> remaining = new ArrayList<>(elements);
+
         for (final Integer elementToRemove : elementsToRemove) {
             remaining.remove(elementToRemove);
         }
+
         return remaining;
     }
 
     public final long quantumEntanglement(final Integer[] list) {
         long result = list[0];
+
         for (int i = list.length - 1; i > 0; i--) {
             result *= list[i];
         }
+
         return result;
     }
 }

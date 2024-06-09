@@ -14,11 +14,13 @@ public class SantasPasswordPolicy implements AoCFunctionality {
 
     public static String solvePart1(String fileName) {
         SantasPasswordPolicy instance = new SantasPasswordPolicy(fileName);
+
         return instance.solvePart1();
     }
 
     public static String solvePart2(String fileName) {
         SantasPasswordPolicy instance = new SantasPasswordPolicy(fileName);
+
         return instance.solvePart2();
     }
 
@@ -43,13 +45,16 @@ public class SantasPasswordPolicy implements AoCFunctionality {
             increment(encoded);
             validator = PasswordValidator.getInstance(encoded);
         }
+
         return decodeString(encoded);
     }
 
     private void increment(byte[] password) {
         byte increment = (byte) 1;
+
         for (int i = password.length - 1; i >= 0 && increment > (byte) 0; --i) {
             byte incrementedPassword = (byte) (password[i] + increment);
+
             password[i] = (byte) (incrementedPassword % LETTER_RANGE);
             increment = (byte) (incrementedPassword / LETTER_RANGE);
         }
@@ -57,17 +62,21 @@ public class SantasPasswordPolicy implements AoCFunctionality {
 
     private byte[] encodeString(String string) {
         byte[] encodedString = new byte[string.length()];
+
         for (int i = 0; i < encodedString.length; ++i) {
             encodedString[i] = (byte) (Character.getNumericValue(string.charAt(i)) - FIRST_VALID_LETTER_VALUE);
         }
+
         return encodedString;
     }
 
     private String decodeString(byte[] encodedString) {
         StringBuilder password = new StringBuilder();
+
         for (byte b : encodedString) {
             password.append((char) (FIRST_VALID_LETTER + b));
         }
+
         return password.toString();
     }
 }

@@ -4,6 +4,7 @@ package de.havox_design.aoc2015.day09;
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 
 import java.util.*;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class AllInASingleNight implements AoCFunctionality {
@@ -16,50 +17,66 @@ public class AllInASingleNight implements AoCFunctionality {
 
     public static int solvePart1(String fileName) {
         AllInASingleNight instance = new AllInASingleNight(fileName);
+
         return instance.solvePart1();
     }
 
     public static int solvePart2(String fileName) {
         AllInASingleNight instance = new AllInASingleNight(fileName);
+
         return instance.solvePart2();
     }
 
     public int solvePart1() {
         Queue<DeliveryNetwork> queue = new PriorityQueue<>();
+
         input.keySet().forEach(city -> queue.add(new DeliveryNetwork(city)));
+
         while (!queue.isEmpty() && queue.peek().getSize() < input.size()) {
-            var top = queue.poll();
+            DeliveryNetwork top = queue.poll();
+
             assert top != null;
             queue.addAll(top.getNexts(input.get(top.lastCity())));
         }
+
         assert queue.peek() != null;
+
         return queue.peek().getDistance();
     }
 
     public int solvePart2() {
         Queue<DeliveryNetwork> queue = new PriorityQueue<>(
-                Comparator.comparingInt(DeliveryNetwork::getSize).thenComparing(DeliveryNetwork::getDistance, Comparator.reverseOrder()));
+                Comparator
+                        .comparingInt(DeliveryNetwork::getSize)
+                        .thenComparing(DeliveryNetwork::getDistance, Comparator.reverseOrder()));
+
         input.keySet().forEach(city -> queue.add(new DeliveryNetwork(city)));
+
         while (!queue.isEmpty() && queue.peek().getSize() != input.size()) {
-            var top = queue.poll();
+            DeliveryNetwork top = queue.poll();
+
             assert top != null;
             queue.addAll(top.getNexts(input.get(top.lastCity())));
         }
+
         assert queue.peek() != null;
+
         return queue.peek().getDistance();
     }
 
     private Map<String, Map<String, Integer>> parseData(String fileName) {
         List<String> fileDataRows = readData(fileName);
-
         Map<String, Map<String, Integer>> landscape = new HashMap<>();
+
         for (String line : fileDataRows) {
-            var matcher = DISTANCE_PATTERN.matcher(line);
+            Matcher matcher = DISTANCE_PATTERN.matcher(line);
+
             if (!matcher.matches()) {
                 throw new IllegalArgumentException("I cannot interprete line: " + line);
             }
             addToNetwork(landscape, matcher.group(1), matcher.group(2), Integer.parseInt(matcher.group(3)));
         }
+
         return landscape;
     }
 

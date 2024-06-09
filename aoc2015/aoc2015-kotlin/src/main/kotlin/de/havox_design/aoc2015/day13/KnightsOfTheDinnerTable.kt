@@ -1,7 +1,6 @@
 package de.havox_design.aoc2015.day13
 
 
-
 class KnightsOfTheDinnerTable(private var filename: String) {
     private val data = readData()
 
@@ -30,33 +29,49 @@ class KnightsOfTheDinnerTable(private var filename: String) {
             }
 
     private fun readData(): Map<Pair<Guest, Guest>, Int> {
-        val fileData = getResourceAsText(filename).associate { line ->
-            val (guest, gainLose, happiness, neighbor) = STATEMENT_PATTERN.matchEntire(line)!!.destructured
-            Pair(Guest(guest), Guest(neighbor)) to if (gainLose == "gain") happiness.toInt() else -happiness.toInt()
-        }.toMap()
+        val fileData = getResourceAsText(filename)
+            .associate { line ->
+                val (guest, gainLose, happiness, neighbor) = STATEMENT_PATTERN.matchEntire(line)!!.destructured
+                Pair(Guest(guest), Guest(neighbor)) to if (gainLose == "gain") happiness.toInt() else -happiness.toInt()
+            }
+            .toMap()
 
         return fileData
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
-
-
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 
     private fun Map<Pair<Guest, Guest>, Int>.guests() =
-        keys.map { it.first }.toSet()
+        keys
+            .map { it.first }
+            .toSet()
 
     private fun <T> Collection<T>.arrangements(): Set<List<T>> {
-        if (size <= 3) return setOf(this.toList())
+        if (size <= 3) {
+            return setOf(this.toList())
+        }
+
         val result: MutableSet<List<T>> = mutableSetOf()
         val first = first()
-        this.drop(1).arrangements().forEach { list ->
-            for (index in list.indices) {
-                val new = list.toMutableList()
-                new.add(index, first)
-                result.add(new)
+
+        this
+            .drop(1)
+            .arrangements()
+            .forEach { list ->
+                for (index in list.indices) {
+                    val new = list.toMutableList()
+
+                    new.add(index, first)
+                    result.add(new)
+                }
             }
-        }
+
         return result
     }
 
@@ -65,6 +80,7 @@ class KnightsOfTheDinnerTable(private var filename: String) {
         return this.sumOf { person ->
             val leftNeighbor = this[(indexOf(person) - 1 + size) % size]
             val rightNeighbor = this[(indexOf(person) + 1) % size]
+
             mutableMap[person to leftNeighbor]!! + mutableMap[person to rightNeighbor]!!
         }
     }

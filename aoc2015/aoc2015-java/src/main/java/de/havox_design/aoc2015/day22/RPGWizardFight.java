@@ -54,20 +54,26 @@ public class RPGWizardFight implements AoCFunctionality {
 
     public Iterable<RPGState> producer(StateWrapper<RPGState> wrappedState) {
         RPGState state = wrappedState.getState();
+
         if (state.player.hitPoints() <= 0 || state.boss.hitPoints() <= 0) {
             return Collections.emptyList();
         }
+
         RPGSpell[] spells = RPGSpell.getPossibleSpells(state.player.mana(), state.getSpellDuration());
         List<RPGState> result = new ArrayList<>();
+
         for (RPGSpell spell : spells) {
             RPGState test = state.apply(spell);
+
             if (test.player.manaSpent() < test.best.get()) {
                 result.add(test);
             }
         }
+
         if (result.stream().anyMatch(s -> s.player.hitPoints() > 0 && s.boss.hitPoints() <= 0)) {
             result.removeIf(s -> s.player.hitPoints() <= 0 || s.boss.hitPoints() > 0);
         }
+
         return result;
     }
 
@@ -77,6 +83,7 @@ public class RPGWizardFight implements AoCFunctionality {
 
     public static Matcher matchRegex(final Pattern pattern, final CharSequence input) {
         final Matcher matcher = pattern.matcher(input);
+
         if (matcher.matches()) {
             return matcher;
         } else {

@@ -58,9 +58,11 @@ public class RPGState {
         if (newSpellDuration[RPGSpell.POISON.ordinal()] > 0) {
             bossHitPoints -= 3;
         }
+
         if (newSpellDuration[RPGSpell.RECHARGE.ordinal()] > 0) {
             playerMana += 101;
         }
+
         for (int i = 0; i < newSpellDuration.length; i++) {
             newSpellDuration[i] = Math.max(0, newSpellDuration[i] - 1);
         }
@@ -69,6 +71,7 @@ public class RPGState {
         if (spell == RPGSpell.MAGIC_MISSILE) {
             bossHitPoints -= 4;
         }
+
         if (spell == RPGSpell.DRAIN) {
             bossHitPoints -= 2;
             playerHitPoints += 2;
@@ -98,12 +101,15 @@ public class RPGState {
         if (newSpellDuration[RPGSpell.POISON.ordinal()] > 0) {
             bossHitPoints -= 3;
         }
+
         if (newSpellDuration[RPGSpell.RECHARGE.ordinal()] > 0) {
             playerMana += 101;
         }
+
         for (int i = 0; i < newSpellDuration.length; i++) {
             newSpellDuration[i] = Math.max(0, newSpellDuration[i] - 1);
         }
+
         if (bossHitPoints <= 0) { // win
             return new RPGState
                     (

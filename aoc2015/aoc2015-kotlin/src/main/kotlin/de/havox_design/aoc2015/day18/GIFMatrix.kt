@@ -19,5 +19,10 @@ class GIFMatrix(private var filename: String) {
         BooleanGrid.from(getResourceAsText(filename))
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

@@ -24,6 +24,7 @@ public class Operation {
                 } else {
                     state.registerB /= 2;
                 }
+
                 state.processCount++;
                 break;
             case OPERATION_TRIPLE:
@@ -32,6 +33,7 @@ public class Operation {
                 } else {
                     state.registerB *= 3;
                 }
+
                 state.processCount++;
                 break;
             case OPERATION_INCREMENT:
@@ -40,6 +42,7 @@ public class Operation {
                 } else {
                     state.registerB++;
                 }
+
                 state.processCount++;
                 break;
             case OPERATION_JUMP:
@@ -53,6 +56,7 @@ public class Operation {
                 } else {
                     state.processCount++;
                 }
+
                 break;
             case OPERATION_JUMP_ON_ONE:
                 if (register.equals(REGISTER_A) && state.registerA == 1) {
@@ -62,6 +66,7 @@ public class Operation {
                 } else {
                     state.processCount++;
                 }
+
                 break;
             default:
                 throw new IllegalStateException("unknown operation: " + op);
