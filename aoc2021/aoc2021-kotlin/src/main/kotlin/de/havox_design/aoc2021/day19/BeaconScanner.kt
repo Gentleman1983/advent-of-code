@@ -58,10 +58,8 @@ class BeaconScanner(private var filename: String) {
 
     private val DELIMITER_COORDINATES = ","
     private val DELIMITER_SCANNERS = "\n\n"
-
     private val ICON_CARRIAGE_RETURN = "\r"
     private val ICON_EMPTY = ""
-
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
@@ -87,7 +85,6 @@ class BeaconScanner(private var filename: String) {
                     .map { it.parseInts(DELIMITER_COORDINATES) }
                     .map { Position3d(it[0], it[1], it[2]) }
             }
-
         val dists = visibleBeacons
             .map { beacons ->
                 beacons
@@ -97,7 +94,6 @@ class BeaconScanner(private var filename: String) {
                         }
                     }.toSet()
             }
-
         val possiblePairs = visibleBeacons.indices
             .toList()
             .pairs()
@@ -106,7 +102,6 @@ class BeaconScanner(private var filename: String) {
             }
             .flatMap { listOf(it, it.second to it.first) }
             .groupBy { it.first }
-
         val oriented = mutableSetOf(0)
         val beacons = visibleBeacons[0].toMutableSet()
         val scanners = mutableSetOf(Position3d(0, 0, 0))
@@ -121,7 +116,6 @@ class BeaconScanner(private var filename: String) {
                 curr.second in oriented -> curr.second to curr.first
                 else -> error("One of points should be already oriented")
             }
-
             val baseDists = orientedBeacons[base]
                 .indices
                 .toList()
@@ -132,7 +126,6 @@ class BeaconScanner(private var filename: String) {
                     Triple(a, b, (beaconB - beaconA).length2())
                 }
                 .toList()
-
             val newDists = visibleBeacons[new]
                 .indices
                 .toList()
@@ -143,7 +136,6 @@ class BeaconScanner(private var filename: String) {
                     Triple(a, b, (beaconB - beaconA).length2())
                 }
                 .toList()
-
             val matchCount = mutableMapOf<Pair<Int, Int>, Int>()
             baseDists.forEach { baseTriple ->
                 newDists.forEach { newTriple ->
@@ -161,7 +153,6 @@ class BeaconScanner(private var filename: String) {
             }
 
             val matches = matchCount.filterValues { it == 11 }.keys
-
             val rotation = ALL_ROTATIONS.first { currRotation ->
                 matches
                     .map { (baseIndex, newIndex) ->
@@ -180,7 +171,6 @@ class BeaconScanner(private var filename: String) {
                 val convertedA = rotation(newA)
                 baseA - convertedA
             }
-
             val rotatedPoints = visibleBeacons[new]
                 .map { point ->
                     rotation(point) + delta

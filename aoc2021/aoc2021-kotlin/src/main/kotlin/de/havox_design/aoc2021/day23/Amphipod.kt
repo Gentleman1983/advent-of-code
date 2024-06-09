@@ -9,21 +9,17 @@ class Amphipod(private var filename: String) {
     private val COST_BRONZE = 10
     private val COST_COPPER = 100
     private val COST_DESERT = 1000
-
     private val ICON_SPACE = '.'
-
     private val ID_AMBER = 'A'
     private val ID_BRONZE = 'B'
     private val ID_COPPER = 'C'
     private val ID_DESERT = 'D'
-
     private val COST = mapOf(
         ID_AMBER to COST_AMBER,
         ID_BRONZE to COST_BRONZE,
         ID_COPPER to COST_COPPER,
         ID_DESERT to COST_DESERT
     )
-
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =

@@ -5,10 +5,7 @@ import de.havox_design.aoc.utils.kotlin.model.positions.plus
 import kotlin.math.sign
 
 class TrickShot(private var filename: String) {
-    private val PATTERN = "target area: x=(-?\\d+)\\.\\.(-?\\d+), y=(-?\\d+)\\.\\.(-?\\d+)"
-        .toRegex()
-
-
+    private val PATTERN = "target area: x=(-?\\d+)\\.\\.(-?\\d+), y=(-?\\d+)\\.\\.(-?\\d+)".toRegex()
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any {

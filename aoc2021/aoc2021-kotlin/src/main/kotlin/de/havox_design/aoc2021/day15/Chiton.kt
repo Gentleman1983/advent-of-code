@@ -48,8 +48,9 @@ class Chiton(private var filename: String) {
                 point.y in this.indices &&
                 point.x in this.first().indices
 
-    private fun parseNumbers(): NumberGrid = data
-        .map { it.toCharArray().map { c -> c.digitToInt() } }
+    private fun parseNumbers(): NumberGrid =
+        data
+            .map { it.toCharArray().map { c -> c.digitToInt() } }
 
     private fun increaseByOne(nums: NumberGrid) =
         nums

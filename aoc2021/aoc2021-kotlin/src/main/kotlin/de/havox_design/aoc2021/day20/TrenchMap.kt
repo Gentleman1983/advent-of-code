@@ -7,11 +7,8 @@ import de.havox_design.aoc.utils.kotlin.model.positions.neighbours
 
 class TrenchMap(private var filename: String) {
     private val ICON_BLACK = '.'
-
     private val ID_BLACK = 0
     private val ID_WHITE = 1
-
-
     private val data = getResourceAsText(filename)
     private val pointComparator: Comparator<Position2d<Int>> =
         Comparator
@@ -84,11 +81,12 @@ class TrenchMap(private var filename: String) {
         val rows = image
             .points()
             .groupBy { it.y }
-        val nextInfiniteColour = if (infiniteColour == 0) {
-            algorithm.first()
-        } else {
-            algorithm.last()
-        }
+        val nextInfiniteColour =
+            if (infiniteColour == 0) {
+                algorithm.first()
+            } else {
+                algorithm.last()
+            }
 
         return buildList {
             for (row in rows.values) {

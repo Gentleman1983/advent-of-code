@@ -6,7 +6,6 @@ import kotlin.math.min
 
 class DiracDice(private var filename: String) {
     private val DELIMITER_STARTING_POSITION = ": "
-
     private val data = getResourceAsText(filename)
     val cache = mutableMapOf<GameState, WinCount>()
     val possibleRolls = (1..3)
@@ -71,15 +70,12 @@ class DiracDice(private var filename: String) {
             cachedState != null -> {
                 return cachedState
             }
-
             currentState.score1 >= 21 -> {
                 return WinCount(1, 0)
             }
-
             currentState.score2 >= 21 -> {
                 return WinCount(0, 1)
             }
-
             else -> {
                 val finalWinCount = possibleRolls.map { roll1 ->
                     val pos1 = (currentState.pos1 + roll1 - 1) % 10 + 1

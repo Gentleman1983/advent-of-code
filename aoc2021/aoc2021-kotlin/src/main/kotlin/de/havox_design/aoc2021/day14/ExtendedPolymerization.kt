@@ -6,7 +6,6 @@ import java.math.BigInteger
 class ExtendedPolymerization(private var filename: String) {
     private val DELIMITER_ELEMENTS = "\n\n"
     private val DELIMITER_TEMPLATE = " -> "
-
     private val ICON_CARRIAGE_RETURN = "\r"
     private val ICON_EMPTY = ""
 
