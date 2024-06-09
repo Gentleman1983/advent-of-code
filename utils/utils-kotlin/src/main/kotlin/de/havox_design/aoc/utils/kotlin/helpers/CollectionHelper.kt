@@ -1,5 +1,6 @@
 package de.havox_design.aoc.utils.kotlin.helpers
 
+import java.util.*
 import java.util.concurrent.BlockingQueue
 import kotlin.math.absoluteValue
 
@@ -58,3 +59,24 @@ fun Iterable<Int>.digitsToInt(radix: Int) =
 
 fun <A, B, R> Iterable<A>.cartesianProduct(other: Iterable<B>, transform: (A, B) -> R): List<R> =
     flatMap { a -> other.map { b -> transform(a, b) } }
+
+fun <T> List<List<T>>.transpose(): List<List<T>> {
+    return when {
+        this.isEmpty() -> this
+        else -> (this[0].indices)
+            .map { i ->
+                (this.indices)
+                    .map { j -> this[j][i] }
+            }
+    }
+}
+
+fun <T> priorityQueueOf(comparator: Comparator<T>, vararg args: T): PriorityQueue<T> {
+    val queue = PriorityQueue<T>(comparator)
+    queue.addAll(args)
+
+    return queue
+}
+
+fun <T> linkedListOf(vararg elements: T) =
+    elements.toCollection(LinkedList())

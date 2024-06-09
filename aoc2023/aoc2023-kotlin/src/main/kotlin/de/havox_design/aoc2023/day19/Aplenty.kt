@@ -1,6 +1,6 @@
 package de.havox_design.aoc2023.day19
 
-import java.util.*
+import de.havox_design.aoc.utils.kotlin.helpers.linkedListOf
 
 class Aplenty(private var filename: String) {
     private val ICON_ACCEPT = "A"
@@ -71,9 +71,6 @@ class Aplenty(private var filename: String) {
         return results
             .sumOf { it.sum() }
     }
-
-    private fun <T> linkedListOf(vararg elements: T) =
-        elements.toCollection(LinkedList())
 
     private fun readInput(): Pair<Map<String, SortRule>, List<Assignment>> {
         val input = getResourceAsText(filename)

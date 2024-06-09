@@ -1,5 +1,6 @@
 package de.havox_design.aoc2023.day17
 
+import de.havox_design.aoc.utils.kotlin.helpers.priorityQueueOf
 import de.havox_design.aoc.utils.kotlin.model.coordinates.*
 import java.util.*
 
@@ -56,13 +57,6 @@ class ClumsyCrucible(private var filename: String) {
 
         return min
 
-    }
-
-    private fun <T> priorityQueueOf(comparator: Comparator<T>, vararg args: T): PriorityQueue<T> {
-        val queue = PriorityQueue<T>(comparator)
-        queue.addAll(args)
-
-        return queue
     }
 
     private fun parseCoordinateMap(): Map<Coordinate, Int> =

@@ -1,5 +1,6 @@
 package de.havox_design.aoc2023.day23
 
+import de.havox_design.aoc.utils.kotlin.helpers.priorityQueueOf
 import de.havox_design.aoc.utils.kotlin.model.coordinates.*
 import java.util.*
 
@@ -209,13 +210,6 @@ class ALongWalk(private var filename: String) {
             FourDirectionsFlipped.RIGHT -> ICON_SLOPE_LEFT
             FourDirectionsFlipped.UP -> ICON_SLOPE_DOWN
         }
-
-    private fun <T> priorityQueueOf(comparator: java.util.Comparator<T>, vararg args: T): PriorityQueue<T> {
-        val queue = PriorityQueue<T>(comparator)
-        queue.addAll(args)
-
-        return queue
-    }
 
     private fun parseCoordinateMap(): Map<Coordinate, Char> =
         getResourceAsText(filename)

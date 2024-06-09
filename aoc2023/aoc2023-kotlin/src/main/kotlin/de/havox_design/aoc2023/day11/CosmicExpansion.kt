@@ -1,5 +1,6 @@
 package de.havox_design.aoc2023.day11
 
+import de.havox_design.aoc.utils.kotlin.helpers.transpose
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 import kotlin.math.abs
 
@@ -61,17 +62,6 @@ class CosmicExpansion(private var filename: String) {
 
     private fun calculateDistance(galaxy1: Position2d<Long>, galaxy2: Position2d<Long>): Long {
         return abs(galaxy2.y - galaxy1.y) + abs(galaxy2.x - galaxy1.x)
-    }
-
-    private fun <T> List<List<T>>.transpose(): List<List<T>> {
-        return when {
-            this.isEmpty() -> this
-            else -> (this[0].indices)
-                .map { i ->
-                    (this.indices)
-                        .map { j -> this[j][i] }
-                }
-        }
     }
 
     private fun getResourceAsText(path: String): List<String> =
