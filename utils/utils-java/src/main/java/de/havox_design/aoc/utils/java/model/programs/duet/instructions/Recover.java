@@ -8,6 +8,7 @@ import java.math.BigInteger;
 
 public class Recover implements Instruction {
     private final Token value;
+
     public Recover(final String value) {
         this.value = TokenProvider.createToken(value);
     }
@@ -18,6 +19,7 @@ public class Recover implements Instruction {
 
         if (intValue.signum() != 0) {
             final BigInteger currentSound = state.getCurrentSound();
+
             state.recoverSound(currentSound);
         }
     }

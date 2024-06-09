@@ -13,6 +13,7 @@ public class BlankLinePartitioner implements Partitioner<String> {
 
         for (String line : lines) {
             boolean isBlank = line.isBlank();
+
             if (isBlank) {
                 if (!lastLineBlank) {
                     partitions.add(Collections.unmodifiableList(currentPartition));
@@ -23,6 +24,7 @@ public class BlankLinePartitioner implements Partitioner<String> {
                 }
                 currentPartition.add(line);
             }
+
             lastLineBlank = isBlank;
         }
 

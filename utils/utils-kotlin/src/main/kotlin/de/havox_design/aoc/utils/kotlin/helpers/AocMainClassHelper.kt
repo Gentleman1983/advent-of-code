@@ -20,6 +20,7 @@ interface AocMainClassHelper {
 
     fun getFileName(day: Int): String {
         var dayString = day.toString()
+
         if (day < 10) {
             dayString = "0$dayString"
         }
@@ -31,6 +32,7 @@ interface AocMainClassHelper {
 
     fun getDayString(day: Int): String {
         var dayString = day.toString()
+
         if (day < 10) {
             dayString = "0$dayString"
         }

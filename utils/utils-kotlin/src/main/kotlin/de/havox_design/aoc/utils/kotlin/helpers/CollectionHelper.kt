@@ -31,6 +31,7 @@ fun Iterable<Int>.product() =
 @SuppressWarnings("kotlin:S6532")
 fun <T : Comparable<T>> Iterable<T>.minAndMax(): Pair<T, T> {
     val iterator = iterator()
+
     if (!iterator.hasNext()) {
         throw IllegalArgumentException("Cannot get min and max of empty collection")
     }
@@ -73,10 +74,12 @@ fun <T> List<List<T>>.transpose(): List<List<T>> {
 
 fun <T> priorityQueueOf(comparator: Comparator<T>, vararg args: T): PriorityQueue<T> {
     val queue = PriorityQueue<T>(comparator)
+
     queue.addAll(args)
 
     return queue
 }
 
 fun <T> linkedListOf(vararg elements: T) =
-    elements.toCollection(LinkedList())
+    elements
+        .toCollection(LinkedList())

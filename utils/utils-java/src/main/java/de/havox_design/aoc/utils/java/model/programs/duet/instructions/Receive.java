@@ -6,6 +6,7 @@ import java.math.BigInteger;
 
 public class Receive implements Instruction {
     private final String varName;
+
     public Receive(final String value) {
         varName = value;
     }
@@ -13,6 +14,7 @@ public class Receive implements Instruction {
     @Override
     public void execute(final State state) {
         final BigInteger value = state.receiveValue();
+
         if (value == null) {
             state.setRunning(false);
         } else {

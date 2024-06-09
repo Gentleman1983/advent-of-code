@@ -18,6 +18,7 @@ public class Add implements Instruction {
     @Override
     public void execute(final State state) {
         BigInteger currentValue = state.getValue(variableName);
+
         currentValue = currentValue.add(addend.intValue(state));
         state.setValue(variableName, currentValue);
     }
