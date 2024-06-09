@@ -38,9 +38,10 @@ class ChronalCharge(private var filename: String) {
                     .maxBy { (_, _, power) -> power }
             }
 
-    private fun generateGrid(serial: Int) = range
-        .flatMap { x -> range.map { y -> Position2d(x, y) } }
-        .associateWith { Cell(it.x, it.y, serial) }
+    private fun generateGrid(serial: Int) =
+        range
+            .flatMap { x -> range.map { y -> Position2d(x, y) } }
+            .associateWith { Cell(it.x, it.y, serial) }
 
     private fun squarePowerTo(grid: Map<Position2d<Int>, Int>, pointTo: Position2d<Int>, size: Int) =
         setOf(
