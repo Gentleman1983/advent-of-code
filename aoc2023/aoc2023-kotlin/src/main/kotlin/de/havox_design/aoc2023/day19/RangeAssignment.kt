@@ -21,22 +21,18 @@ data class RangeAssignment(
                 true -> copy(xMax = condition.value - 1) to copy(xMin = condition.value)
                 else -> copy(xMin = condition.value + 1) to copy(xMax = condition.value)
             }
-
             ICON_MUSICAL -> when (condition.lessThen) {
                 true -> copy(mMax = condition.value - 1) to copy(mMin = condition.value)
                 else -> copy(mMin = condition.value + 1) to copy(mMax = condition.value)
             }
-
             ICON_AERODYNAMIC -> when (condition.lessThen) {
                 true -> copy(aMax = condition.value - 1) to copy(aMin = condition.value)
                 else -> copy(aMin = condition.value + 1) to copy(aMax = condition.value)
             }
-
             ICON_SHINY -> when (condition.lessThen) {
                 true -> copy(sMax = condition.value - 1) to copy(sMin = condition.value)
                 else -> copy(sMin = condition.value + 1) to copy(sMax = condition.value)
             }
-
             else -> error("Invalid state")
         }
 

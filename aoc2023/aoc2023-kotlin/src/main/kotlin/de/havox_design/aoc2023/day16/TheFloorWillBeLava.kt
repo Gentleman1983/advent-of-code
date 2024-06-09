@@ -64,6 +64,7 @@ class TheFloorWillBeLava(private var filename: String) {
                     }
                 }
             }
+
         return results
             .maxOf { it.second }
             .toLong()
@@ -114,8 +115,19 @@ class TheFloorWillBeLava(private var filename: String) {
     }
 
     private fun parseTiles(input: List<String>) =
-        input.mapIndexed { row, line -> line.mapIndexed { column, c -> Tile(Position2d(column, row), c) } }
+        input
+            .mapIndexed { row, line ->
+                line
+                    .mapIndexed { column, c ->
+                        Tile(Position2d(column, row), c)
+                    }
+            }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

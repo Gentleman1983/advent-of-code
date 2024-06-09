@@ -12,6 +12,7 @@ data class DigInstruction(val direction: FourDirectionsFlipped, val amount: Int,
             '3' -> FourDirectionsFlipped.UP
             else -> error("invalid $colorCode")
         }
+
         return copy(direction = direction, amount = steps)
     }
 }

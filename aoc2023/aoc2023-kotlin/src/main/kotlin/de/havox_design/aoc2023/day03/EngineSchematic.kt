@@ -74,8 +74,8 @@ class EngineSchematic(input: List<String>) {
                         .map { coordinate -> getPosition(coordinate) }
                         .filter { point -> point.isNumber() }
                         .toSet()
-
                     val parts = HashSet<PartNumber>()
+
                     for (point: Point in neighboringPartNumbers) {
                         partNumbers
                             .filter { partNumber -> partNumber.containsPoint(point) }
@@ -84,6 +84,7 @@ class EngineSchematic(input: List<String>) {
 
                     if (parts.size > 1) {
                         var gearRatio = 1L
+
                         for (partNumber: PartNumber in parts) {
                             gearRatio *= partNumber.getValue()
                         }
@@ -97,7 +98,9 @@ class EngineSchematic(input: List<String>) {
 
     private fun detectPartNumber(point: Point): PartNumber? {
         val partNumber = ArrayList<Point>()
+
         partNumber.add(point)
+
         var currentPoint = point
 
         do {
@@ -113,6 +116,7 @@ class EngineSchematic(input: List<String>) {
         } while (true)
 
         var neighboringSymbol = false
+
         for (current: Point in partNumber) {
             neighboringSymbol = neighboringSymbol || current
                 .getNeighboringCoordinates()
@@ -138,6 +142,7 @@ class EngineSchematic(input: List<String>) {
         if (isOnGrid(position)) {
             return schematic[position.y][position.x]
         }
+
         throw IllegalArgumentException("Position '$position' not on schematic.")
     }
 }

@@ -22,7 +22,11 @@ class CubeConundrum(private var filename: String) {
         val subsets = parseSubsets(indicators)
         val valid = subsets.all(::isValidSubset)
 
-        return if (valid) gameId else null
+        return if (valid) {
+            gameId
+        } else {
+            null
+        }
     }
 
     private fun parseGameId(game: String): Int =
@@ -57,14 +61,19 @@ class CubeConundrum(private var filename: String) {
         val countMap = mutableMapOf("red" to 0, "green" to 0, "blue" to 0)
         subsets
             .forEach { (color, count) ->
-            if (count > countMap[color]!!) {
-                countMap[color] = count
+                if (count > countMap[color]!!) {
+                    countMap[color] = count
+                }
             }
-        }
 
         return Triple(countMap["red"]!!, countMap["green"]!!, countMap["blue"]!!)
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

@@ -12,5 +12,10 @@ class GearRatios(private var filename: String) {
                     .sumOfGearRatios()
 
     private fun getResourceAsText(path: String): List<String> =
-            this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+            this
+                .javaClass
+                .classLoader
+                .getResourceAsStream(path)!!
+                .bufferedReader()
+                .readLines()
 }

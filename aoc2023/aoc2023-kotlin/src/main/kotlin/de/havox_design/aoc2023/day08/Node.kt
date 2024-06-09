@@ -22,18 +22,24 @@ data class Node(val name: String, var left: Node?, var right: Node?) : Comparabl
         }
 
     override fun compareTo(other: Node): Int =
-        name.compareTo(other.name)
+        name
+            .compareTo(other.name)
 
     override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
+        if (this === other) {
+            return true
+        }
+
+        if (javaClass != other?.javaClass) {
+            return false
+        }
 
         other as Node
 
         return name == other.name
     }
 
-    override fun hashCode(): Int {
-        return name.hashCode()
-    }
+    override fun hashCode(): Int =
+        name
+            .hashCode()
 }

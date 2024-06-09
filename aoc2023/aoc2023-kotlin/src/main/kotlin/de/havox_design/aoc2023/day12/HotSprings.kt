@@ -6,7 +6,6 @@ class HotSprings(private var filename: String) {
     private val ICON_BROKEN_SPRING = "#"
     private val ICON_OPERATIONAL_SPRING = "."
     private val ICON_UNKNOWN_SPRING = '?'
-
     // For Quicksolve
     private var springs: String = ""
     private var sizes: ArrayList<Int> = ArrayList<Int>()
@@ -43,10 +42,11 @@ class HotSprings(private var filename: String) {
                     .map { it.toInt() }
                     .toList()
             )
-            cache.clear()
 
+            cache.clear()
             springs = "$springs?$springs?$springs?$springs?$springs"
             sizes.clear();
+
             for (i in 1..5) {
                 sizes.addAll(tmpSizes)
             }
@@ -76,7 +76,6 @@ class HotSprings(private var filename: String) {
                     else -> 0
                 }
             }
-
             else -> {
                 var result: Long = 0
 
@@ -95,6 +94,7 @@ class HotSprings(private var filename: String) {
                 }
 
                 cache[Pair(prefix.length, group)] = result
+
                 return result
             }
         }
@@ -127,5 +127,10 @@ class HotSprings(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

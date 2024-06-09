@@ -23,11 +23,9 @@ data class History(
                     count < minConsecutive -> {
                         listOf(forward)
                     }
-
                     count == maxConsecutive -> {
                         leftRight
                     }
-
                     else -> leftRight + forward
                 }
             }

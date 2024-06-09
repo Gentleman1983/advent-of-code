@@ -21,7 +21,9 @@ enum class GameType(private var order: Int) {
         }
 
         fun compare(a: GameType, b: GameType): Int =
-            a.order.compareTo(b.order)
+            a
+                .order
+                .compareTo(b.order)
 
         private fun fromPartOne(hand: Hand): GameType {
             val cardMap = getCardMap(hand)
@@ -29,21 +31,25 @@ enum class GameType(private var order: Int) {
             if (cardMap.size == 1) {
                 return FIVE_OF_A_KIND
             }
+
             if (cardMap.size == 2) {
                 if (cardMap.values.max() == 4) {
                     return FOUR_OF_A_KIND
                 }
                 return FULL_HOUSE
             }
+
             if (cardMap.size == 3) {
                 if (cardMap.values.max() == 3) {
                     return THREE_OF_A_KIND
                 }
                 return TWO_PAIRS
             }
+
             if (cardMap.values.max() == 2) {
                 return ONE_PAIR
             }
+
             return HIGH_CARD
         }
 
@@ -61,9 +67,11 @@ enum class GameType(private var order: Int) {
             if (numberOfJokers == 5 || cardMap.values.max() + numberOfJokers == 5) {
                 return FIVE_OF_A_KIND
             }
+
             if (cardMap.values.max() + numberOfJokers == 4) {
                 return FOUR_OF_A_KIND
             }
+
             if (cardMap.values.max() + numberOfJokers >= 3) {
                 if (cardMap.size == 2 && numberOfJokers <= 1) {
                     return FULL_HOUSE
@@ -71,6 +79,7 @@ enum class GameType(private var order: Int) {
 
                 return THREE_OF_A_KIND
             }
+
             if (cardMap.values.max() == 2 && numberOfJokers == 1) {
                 return TWO_PAIRS
             }

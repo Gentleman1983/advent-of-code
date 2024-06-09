@@ -19,6 +19,7 @@ data class Condition(
             ICON_SHINY -> assignment.s
             else -> error(this)
         }
+
         return when (lessThen) {
             true -> target < value
             else -> target > value

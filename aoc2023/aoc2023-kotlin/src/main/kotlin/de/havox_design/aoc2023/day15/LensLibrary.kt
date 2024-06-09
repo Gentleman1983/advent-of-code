@@ -17,6 +17,7 @@ class LensLibrary(private var filename: String) {
         for (instruction in instructions) {
             val (label, focalLength) = instruction.split('=', '-')
             val hash = calculateHash(label)
+
             when {
                 focalLength.isBlank() -> {
                     boxes[hash]?.remove(label)
@@ -39,5 +40,10 @@ class LensLibrary(private var filename: String) {
             .fold(0) { acc, c -> ((acc + c.code) * 17) % 256 }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

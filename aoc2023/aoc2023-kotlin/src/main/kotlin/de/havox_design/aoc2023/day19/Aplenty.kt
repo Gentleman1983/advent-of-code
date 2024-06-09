@@ -44,7 +44,6 @@ class Aplenty(private var filename: String) {
                     results.add(current)
                     continue
                 }
-
                 ICON_REJECT -> continue
             }
 
@@ -74,7 +73,6 @@ class Aplenty(private var filename: String) {
 
     private fun readInput(): Pair<Map<String, SortRule>, List<Assignment>> {
         val input = getResourceAsText(filename)
-
         val rules = input
             .takeWhile { it.isNotBlank() }
             .associate { row ->
@@ -91,7 +89,6 @@ class Aplenty(private var filename: String) {
                 }
                 name to SortRule(name, conditions, elseCondition)
             }
-
         val regex = Regex("\\{x=(\\d+),m=(\\d+),a=(\\d+),s=(\\d+)}")
         val assignments = input
             .dropWhile { it.isNotBlank() }
@@ -109,9 +106,15 @@ class Aplenty(private var filename: String) {
                         )
                     }
             }
+
         return rules to assignments
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

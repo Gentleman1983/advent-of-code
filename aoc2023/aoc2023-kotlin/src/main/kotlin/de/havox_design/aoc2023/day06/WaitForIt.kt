@@ -29,8 +29,8 @@ class WaitForIt(private var filename: String) {
     }
 
     private fun fixInput(input: List<Pair<Long, Long>>): Pair<Long, Long> {
-        var duration = StringBuilder()
-        var distance = StringBuilder()
+        val duration = StringBuilder()
+        val distance = StringBuilder()
 
         for(entry in input) {
             duration.append(entry.first)
@@ -73,5 +73,10 @@ class WaitForIt(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

@@ -69,7 +69,12 @@ class ClumsyCrucible(private var filename: String) {
             .toMap()
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 
     private fun Char.toIntValue() =
         code - '0'.code
