@@ -28,11 +28,13 @@ public class ImmuneSystemSimulator20XX implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         ImmuneSystemSimulator20XX instance = new ImmuneSystemSimulator20XX(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         ImmuneSystemSimulator20XX instance = new ImmuneSystemSimulator20XX(fileName);
+
         return instance.processTask2();
     }
 
@@ -43,6 +45,7 @@ public class ImmuneSystemSimulator20XX implements AoCFunctionality {
     public long processTask2() {
         for (int boost = 1; true; boost++) {
             Optional<MutableArmy> result = calculateFight(boost);
+
             if (result.filter(winner -> winner.getName().equals(ARMY_NAME_IMMUNE_SYSTEM)).isPresent()) {
                 return calculateRemainingUnits(result.get());
             }
@@ -98,26 +101,40 @@ public class ImmuneSystemSimulator20XX implements AoCFunctionality {
     }
 
     private static int fight(final List<MutableArmy> armies) {
-        final var attacks = target(armies);
+        final List<Attack> attacks = target(armies);
         return attack(armies, attacks);
     }
 
     private static List<Attack> target(final List<MutableArmy> armies) {
-        final var attacks = new ArrayList<Attack>();
-        final var targeted = new HashSet<MutableGroup>();
+        final List<Attack> attacks = new ArrayList<>();
+        final Set<MutableGroup> targeted = new HashSet<>();
 
-        for (final var army : armies) {
-            final var otherArmies = otherArmies(armies, army);
-            final var otherGroups = otherArmies.stream().flatMap(otherArmy -> otherArmy.getGroups().stream())
-                    .filter(not(targeted::contains)).collect(Collectors.toCollection(ArrayList::new));
-            army.getGroups().stream()
-                    .sorted(Comparator.<MutableGroup>comparingInt(GroupAbilities::getEffectivePower)
-                            .thenComparingInt(MutableGroup::getInitiative).reversed())
-                    .forEachOrdered(group -> target(group, otherGroups).ifPresent(attack -> {
-                        targeted.add(attack.defender());
-                        otherGroups.remove(attack.defender());
-                        attacks.add(attack);
-                    }));
+        for (final MutableArmy army : armies) {
+            final List<MutableArmy> otherArmies = otherArmies(armies, army);
+            final List<MutableGroup> otherGroups = otherArmies
+                    .stream()
+                    .flatMap(otherArmy -> otherArmy.getGroups().stream())
+                    .filter(not(targeted::contains))
+                    .collect(Collectors.toCollection(ArrayList::new));
+
+            army
+                    .getGroups()
+                    .stream()
+                    .sorted(
+                            Comparator
+                                    .<MutableGroup>comparingInt(GroupAbilities::getEffectivePower)
+                                    .thenComparingInt(MutableGroup::getInitiative)
+                                    .reversed()
+                    )
+                    .forEachOrdered(group ->
+                            target(group, otherGroups)
+                                    .ifPresent(attack -> {
+                                                targeted.add(attack.defender());
+                                                otherGroups.remove(attack.defender());
+                                                attacks.add(attack);
+                                            }
+                                    )
+                    );
         }
 
         attacks.sort(Comparator.<Attack>comparingInt(attack -> attack.attacker().getInitiative()).reversed());
@@ -126,7 +143,8 @@ public class ImmuneSystemSimulator20XX implements AoCFunctionality {
     }
 
     private static Optional<Attack> target(final MutableGroup attacker, final List<MutableGroup> defenders) {
-        return defenders.stream()
+        return defenders
+                .stream()
                 .filter(defender -> !defender.getImmunities().contains(attacker.getDamageType()))
                 .max(Comparator.<MutableGroup>comparingInt(defender -> computeDamage(attacker, defender))
                         .thenComparingInt(GroupAbilities::getEffectivePower)
@@ -138,6 +156,7 @@ public class ImmuneSystemSimulator20XX implements AoCFunctionality {
         if (defender.getImmunities().contains(attacker.getDamageType())) {
             return 0;
         }
+
         if (defender.getWeaknesses().contains(attacker.getDamageType())) {
             return attacker.getEffectivePower() * 2;
         }
@@ -146,9 +165,11 @@ public class ImmuneSystemSimulator20XX implements AoCFunctionality {
     }
 
     private static List<MutableArmy> otherArmies(final List<MutableArmy> armies, final MutableArmy army) {
-        final var ret = new ArrayList<>(armies);
-        ret.removeIf(someArmy -> someArmy.equals(army));
-        return Collections.unmodifiableList(ret);
+        final List<MutableArmy> result = new ArrayList<>(armies);
+
+        result.removeIf(someArmy -> someArmy.equals(army));
+
+        return Collections.unmodifiableList(result);
     }
 
     private static int attack(final List<MutableArmy> armies, final List<Attack> attacks) {
@@ -157,12 +178,15 @@ public class ImmuneSystemSimulator20XX implements AoCFunctionality {
                 .sum();
 
         armies.forEach(army -> army.getGroups().removeIf(group -> group.getUnits() <= 0));
+
         return killed;
     }
 
     private static int damage(final MutableGroup group, final int damage) {
         int deaths = Math.min(damage / group.getHitPoints(), group.getUnits());
+
         group.reduceUnits(deaths);
+
         return deaths;
     }
 }

@@ -5,14 +5,14 @@ public record Range(long lowerBond, long upperBond) {
     private static final int LOWER_BOND = 0;
     private static final int UPPER_BOND = 1;
 
-    protected Range(String line) {
+    Range(String line) {
         this(
                 Long.parseLong(line.split(VALUE_DELIMITER)[LOWER_BOND]),
                 Long.parseLong(line.split(VALUE_DELIMITER)[UPPER_BOND])
         );
     }
 
-    protected boolean contains(long i) {
+    boolean contains(long i) {
         return i >= lowerBond
                 && i <= upperBond;
     }

@@ -23,6 +23,7 @@ public class PasswordValidator {
 
     private PasswordValidator(final byte[] objectUnderTest) {
         super();
+
         this.objectUnderTest = objectUnderTest;
     }
 
@@ -41,10 +42,12 @@ public class PasswordValidator {
             int currentCharValue = objectUnderTest[i];
             int nextCharValue = objectUnderTest[i + 1];
             int nextNextCharValue = objectUnderTest[i + 2];
+
             if (currentCharValue == nextCharValue - 1 && currentCharValue == nextNextCharValue - 2) {
                 return true;
             }
         }
+
         return false;
     }
 
@@ -54,26 +57,33 @@ public class PasswordValidator {
                 return false;
             }
         }
+
         return true;
     }
 
     protected boolean containsTwoDoubleLetters() {
         int firstStart = calculateStartOfDoubleLetters(0);
+
         if (firstStart < 0) {
             return false;
         }
+
         int secondStart = calculateStartOfDoubleLetters(firstStart + 2);
+
         return secondStart > 0;
     }
 
     private int calculateStartOfDoubleLetters(int from) {
         int i = from;
+
         while (i < objectUnderTest.length - 1) {
             if (objectUnderTest[i] == objectUnderTest[i + 1]) {
                 return i;
             }
+
             ++i;
         }
+
         return -1;
     }
 }

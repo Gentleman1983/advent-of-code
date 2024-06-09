@@ -28,6 +28,7 @@ class Map(val chars: List<List<Char>>) : List<List<Char>> by chars {
                 newMap[origin] = '.'
                 newMap[target] = '>'
             }
+
         return points.size to Map(newMap)
     }
 
@@ -44,6 +45,7 @@ class Map(val chars: List<List<Char>>) : List<List<Char>> by chars {
                 newMap[origin] = '.'
                 newMap[target] = 'v'
             }
+
         return points.size to Map(newMap)
     }
 

@@ -23,11 +23,13 @@ public class SpaceImageFormat implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         SpaceImageFormat instance = new SpaceImageFormat(fileName);
+
         return instance.processTask1();
     }
 
     public static String processTask2(String fileName) {
         SpaceImageFormat instance = new SpaceImageFormat(fileName);
+
         return instance.processTask2();
     }
 

@@ -33,9 +33,9 @@ public final class BreadthFirstSearch {
             Function<T, Iterable<T>> neighborProvider,
             Predicate<T> targetPredicate
     ) {
-        var results = new HashMap<T, PathResult<T>>();
+        Map<T, PathResult<T>> results = new HashMap<>();
+        Deque<T> queue = new ArrayDeque<>();
 
-        var queue = new ArrayDeque<T>();
         for (T source : sources) {
             results.put(source, new PathResult<>(source, 0, targetPredicate.test(source), null));
             queue.add(source);
@@ -43,10 +43,12 @@ public final class BreadthFirstSearch {
 
         while (!queue.isEmpty()) {
             T node = queue.poll();
-            var result = results.get(node);
+            PathResult<T> result = results.get(node);
+
             if (result.isTarget()) {
                 break;
             }
+
             for (T neighbor : neighborProvider.apply(node)) {
                 if (!results.containsKey(neighbor)) {
                     results.put(

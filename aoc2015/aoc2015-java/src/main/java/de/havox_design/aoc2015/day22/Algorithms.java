@@ -22,6 +22,7 @@ public final class Algorithms {
     ) {
         final Queue<StateWrapper<S>> queue = new LinkedList<>();
         StateWrapper<S> currentState = new StateWrapper<>(state, null);
+
         queue.add(currentState);
 
         if (consumer != null) {
@@ -30,18 +31,24 @@ public final class Algorithms {
 
         while (!queue.isEmpty()) {
             currentState = queue.poll();
+
             final Iterable<S> possibleStates = stateProducer.apply(currentState);
+
             for (final S possibleState : possibleStates) {
                 final StateWrapper<S> newState = new StateWrapper<>(possibleState, currentState);
+
                 if (consumer != null) {
                     consumer.accept(newState);
                 }
+
                 if (acceptanceCriterion.test(newState)) {
                     return newState.getStates();
                 }
+
                 queue.add(newState);
             }
         }
+
         return Collections.emptyList();
     }
 }

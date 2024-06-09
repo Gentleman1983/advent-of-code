@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Pair<T, U> {
     public static final Pair<Long, Long> ZERO = new Pair<>(0L, 0L);
+
     private T first;
     private U second;
 
@@ -40,9 +41,16 @@ public class Pair<T, U> {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
         final Pair<?, ?> pair = (Pair<?, ?>) o;
+
         return getFirst().equals(pair.getFirst()) &&
                 getSecond().equals(pair.getSecond());
     }

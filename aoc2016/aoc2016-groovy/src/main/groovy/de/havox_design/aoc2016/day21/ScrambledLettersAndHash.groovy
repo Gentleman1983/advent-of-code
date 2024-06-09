@@ -61,6 +61,7 @@ class ScrambledLettersAndHash {
         def m = line =~ /swap position (\d+) with position (\d+)/
         int from = m[0][1] as int
         int to = m[0][2] as int
+
         return (chars) -> {
             swap(chars, from, to)
         }
@@ -70,6 +71,7 @@ class ScrambledLettersAndHash {
         def m = line =~ /swap letter (\w+) with letter (\w+)/
         char from = m[0][1] as char
         char to = m[0][2] as char
+
         return (chars) -> {
             swap(chars, chars.indexOf(from), chars.indexOf(to))
         }
@@ -78,6 +80,7 @@ class ScrambledLettersAndHash {
     private static Closure handleRotatePositionOfLetter(String line, reverse) {
         def m = line =~ /rotate based on position of letter (\w+)/
         char c = m[0][1] as char
+
         return (chars) -> {
             if (reverse) {
                 reverseFromPosition(chars.indexOf(c)).times {
@@ -96,6 +99,7 @@ class ScrambledLettersAndHash {
         def m = line =~ /rotate (left|right) (\d+) step[s]?/
         boolean isLeft = m[0][1] == 'left'
         int steps = m[0][2] as int
+
         return (chars) -> {
             steps.times {
                 if (!reverse) {
@@ -121,6 +125,7 @@ class ScrambledLettersAndHash {
         int to = m[0][2] as int
         int diff = to - from
         int steps = (diff / 2 + diff % 2)
+
         return (chars) -> {
             for (int i = 0; i < steps; ++i) {
                 swap(chars, i + from, to - i)
@@ -132,6 +137,7 @@ class ScrambledLettersAndHash {
         def m = line =~ /move position (\d+) to position (\d+)/
         int from = m[0][1] as int
         int to = m[0][2] as int
+
         return (chars) -> {
             if (!reverse) {
                 movePosition(chars, from, to)

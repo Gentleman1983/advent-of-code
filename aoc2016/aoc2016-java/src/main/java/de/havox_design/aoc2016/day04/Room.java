@@ -8,6 +8,7 @@ public record Room(String name, int sectorId, String checksum) {
     private static final Comparator<Map.Entry<String, Long>> COMPARATOR =
             (a, b) -> {
         var roomNumberComparison = b.getValue().compareTo(a.getValue());
+
         return roomNumberComparison == 0 ? a.getKey().compareTo(b.getKey()) : roomNumberComparison;
     };
 

@@ -46,5 +46,10 @@ class SettlersOfTheNorthPoleKotlin(private var filename: String) {
         processTask1(1000000000)
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

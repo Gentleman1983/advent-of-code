@@ -10,7 +10,6 @@ public class Wire implements Iterable<GridPoint> {
 
     public static Wire parseWirePath(GridPoint startingPoint, String wirePathStr) {
         Wire wire = new Wire();
-
         List<GridDirection> wirePathDirections = Pattern
                 .compile(DIRECTION_DELIMITER)
                 .splitAsStream(wirePathStr)
@@ -19,13 +18,16 @@ public class Wire implements Iterable<GridPoint> {
         int distance = 0;
 
         wire.wirePath.put(startingPoint, distance++);
+
         GridPoint currentPoint = startingPoint;
 
         for (GridDirection wirePathDirection : wirePathDirections) {
             List<GridPoint> wirePath = wirePathDirection.pathFrom(currentPoint);
+
             for (GridPoint point : wirePath) {
                 wire.wirePath.putIfAbsent(point, distance++);
             }
+
             currentPoint = wirePath.getLast();
         }
 
@@ -40,16 +42,13 @@ public class Wire implements Iterable<GridPoint> {
         return intersectionPoints;
     }
 
-
     public int signalDistanceTo(GridPoint intersectionPoint) {
         return wirePath.getOrDefault(intersectionPoint, Integer.MAX_VALUE);
     }
 
-
     public Set<GridPoint> intersectionPoints() {
         return wirePath.keySet();
     }
-
 
     @Override
     public Iterator<GridPoint> iterator() {

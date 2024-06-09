@@ -19,16 +19,19 @@ public class CodeLock implements AoCFunctionality {
 
     public static BigInteger solvePart1(String fileName) {
         CodeLock instance = new CodeLock(fileName);
+
         return instance.solvePart1();
     }
 
     public static int solvePart2(String fileName) {
         CodeLock instance = new CodeLock(fileName);
+
         return instance.solvePart2();
     }
 
     public BigInteger solvePart1() {
-        Matcher matcher = matchRegex(PATTERN, input.get(0));
+        Matcher matcher = matchRegex(PATTERN, input.getFirst());
+
         return calculateCode(Long.parseLong(matcher.group(2)), Long.parseLong(matcher.group(1)));
     }
 
@@ -37,11 +40,13 @@ public class CodeLock implements AoCFunctionality {
         BigInteger c = BigInteger.valueOf(20151125L);
         BigInteger f = BigInteger.valueOf(252533L);
         BigInteger m = BigInteger.valueOf(33554393L);
+
         return c.multiply(f.modPow(BigInteger.valueOf(v - 1), m)).mod(m);
     }
 
     public Matcher matchRegex(final Pattern pattern, final CharSequence input) {
         final Matcher matcher = pattern.matcher(input);
+
         if (matcher.matches()) {
             return matcher;
         } else {

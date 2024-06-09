@@ -11,21 +11,25 @@ public class TheSumOfItsParts implements AoCFunctionality {
 
     public TheSumOfItsParts(String fileName) {
         TaskParser parser = new TaskParser();
+
         input = parser.parse(readData(fileName));
     }
 
     public static String processTask1(String fileName) {
         TheSumOfItsParts instance = new TheSumOfItsParts(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         TheSumOfItsParts instance = new TheSumOfItsParts(fileName);
+
         return instance.processTask2();
     }
 
     public static long processTask2(String fileName, int workers, Map<String, Integer> processingTime) {
         TheSumOfItsParts instance = new TheSumOfItsParts(fileName);
+
         return instance.processTask2(workers, processingTime);
     }
 
@@ -36,6 +40,7 @@ public class TheSumOfItsParts implements AoCFunctionality {
 
         while (!available.isEmpty()) {
             Task next = getFirst(done, available);
+
             available.remove(next);
             done.add(next);
             available.addAll(next.children());
@@ -49,6 +54,7 @@ public class TheSumOfItsParts implements AoCFunctionality {
 
     public long processTask2() {
         Map<String, Integer> processingTime = new HashMap<>();
+
         processingTime.put("A", 61);
         processingTime.put("B", 62);
         processingTime.put("C", 63);
@@ -104,6 +110,7 @@ public class TheSumOfItsParts implements AoCFunctionality {
             updateState(workforce, done, available, nextTime);
             time = nextTime;
         }
+
         return time;
     }
 

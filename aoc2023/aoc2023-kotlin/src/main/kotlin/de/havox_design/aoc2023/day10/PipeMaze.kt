@@ -33,10 +33,8 @@ class PipeMaze(private var filename: String) {
         val (startIndex, newStart) = loop
             .withIndex()
             .minWith(compareBy<IndexedValue<Pair<Int, Int>>> { it.value.first }.thenBy { it.value.second })
-
         val counterClockwise = loop[startIndex + 1].first > newStart.first
                 || loop[startIndex + 1].second < newStart.second
-
         val enclosedTiles = loop
             .indices
             .asSequence()
@@ -57,6 +55,7 @@ class PipeMaze(private var filename: String) {
                         !counterClockwise && prevTile.first < currentTile.first || counterClockwise && prevTile.second > currentTile.second -> {
                             left(loop, currentTile, maze).asSequence()
                         }
+
                         else -> {
                             emptySequence()
                         }
@@ -69,6 +68,7 @@ class PipeMaze(private var filename: String) {
                         !counterClockwise && prevTile.first > currentTile.first || counterClockwise && prevTile.second < currentTile.second -> {
                             right(loop, currentTile, maze).asSequence()
                         }
+
                         else -> {
                             emptySequence()
                         }
@@ -81,6 +81,7 @@ class PipeMaze(private var filename: String) {
                         !counterClockwise && prevTile.second > currentTile.second || counterClockwise && prevTile.first > currentTile.first -> {
                             left(loop, currentTile, maze).asSequence()
                         }
+
                         else -> {
                             emptySequence()
                         }
@@ -93,6 +94,7 @@ class PipeMaze(private var filename: String) {
                         !counterClockwise && prevTile.second < currentTile.second || counterClockwise && prevTile.first < currentTile.first -> {
                             right(loop, currentTile, maze).asSequence()
                         }
+
                         else -> {
                             emptySequence()
                         }
@@ -103,9 +105,11 @@ class PipeMaze(private var filename: String) {
                             !counterClockwise == prevTile.first < currentTile.first -> {
                                 left(loop, currentTile, maze).asSequence()
                             }
+
                             !counterClockwise == prevTile.first > currentTile.first -> {
                                 right(loop, currentTile, maze).asSequence()
                             }
+
                             else -> {
                                 emptySequence()
                             }
@@ -194,7 +198,8 @@ class PipeMaze(private var filename: String) {
                 .filter { this.connectedCells(it).any { next -> next == currentLocation } }
 
             else -> emptyList()
-        }.filter { (it.first in indices) && (it.second in this[it.first].indices) }
+        }
+            .filter { (it.first in indices) && (it.second in this[it.first].indices) }
     }
 
     private fun Pair<Int, Int>.getAdjacentField(direction: GeoDirection): Pair<Int, Int> {
@@ -220,6 +225,7 @@ class PipeMaze(private var filename: String) {
             rowTiles.isEmpty() -> {
                 return emptyList()
             }
+
             else -> {
                 val nextTile = rowTiles
                     .maxWith(compareBy { it.second })
@@ -245,6 +251,7 @@ class PipeMaze(private var filename: String) {
             rowTiles.isEmpty() -> {
                 return emptyList()
             }
+
             else -> {
                 val nextTile = rowTiles
                     .minWith(compareBy { it.second })
@@ -271,5 +278,10 @@ class PipeMaze(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

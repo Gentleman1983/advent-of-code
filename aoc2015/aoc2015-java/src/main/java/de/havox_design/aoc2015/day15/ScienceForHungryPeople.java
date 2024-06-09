@@ -24,11 +24,13 @@ public class ScienceForHungryPeople implements AoCFunctionality {
 
     public static int solvePart1(String fileName) {
         ScienceForHungryPeople instance = new ScienceForHungryPeople(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         ScienceForHungryPeople instance = new ScienceForHungryPeople(fileName);
+
         return instance.solvePart2();
     }
 
@@ -53,6 +55,7 @@ public class ScienceForHungryPeople implements AoCFunctionality {
         int durability = mix(distribution, ingredients, Ingredient::durability);
         int flavour = mix(distribution, ingredients, Ingredient::flavor);
         int texture = mix(distribution, ingredients, Ingredient::texture);
+
         return capacity * durability * flavour * texture;
     }
 
@@ -60,21 +63,26 @@ public class ScienceForHungryPeople implements AoCFunctionality {
         if (mix(distribution, ingredients, Ingredient::calories) != calories) {
             return 0;
         }
+
         return scoreOfDistribution(distribution, ingredients);
     }
 
     private int mix(int[] distribution, List<Ingredient> ingredients, ToIntFunction<Ingredient> getValue) {
         int sum = 0;
+
         for (int i = 0; i < distribution.length; ++i) {
             sum += distribution[i] * getValue.applyAsInt(ingredients.get(i));
         }
+
         return Math.max(sum, 0);
     }
 
     private List<int[]> cutToPieces(int number, int maxPieces) {
         int[] pieces = new int[maxPieces];
         List<int[]> result = new ArrayList<>();
+
         cutToPieces(pieces, 0, number, result);
+
         return result;
     }
 
@@ -91,6 +99,7 @@ public class ScienceForHungryPeople implements AoCFunctionality {
                     cutToPieces(pieces, index + 1, reduced - i, result);
                 }
             }
+
             pieces[index] = 0;
         }
     }

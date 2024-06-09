@@ -16,6 +16,7 @@ data class Almanac(val seeds: List<Long>, val maps: List<List<Position3d<Long>>>
         for (range in ranges) {
             for (i in range.first..range.last) {
                 val location = computeLocation(i)
+
                 if (location < lowest) {
                     lowest = location
                 }
@@ -31,13 +32,16 @@ data class Almanac(val seeds: List<Long>, val maps: List<List<Position3d<Long>>>
         for (element in maps) {
             for (entry in element) {
                 val (destStart, sourceStart, length) = entry
+
                 if (current in sourceStart..<sourceStart + length) {
                     val delta = current - sourceStart
+
                     current = destStart + (delta)
                     break
                 }
             }
         }
+
         return current
     }
 
@@ -50,6 +54,7 @@ data class Almanac(val seeds: List<Long>, val maps: List<List<Position3d<Long>>>
             val sublist = input.subList(1, input.size)
             val maps = mutableListOf<List<Position3d<Long>>>()
             var submap = mutableListOf<Position3d<Long>>()
+
             for (i in sublist.indices) {
                 if ("map:" in sublist[i]) {
                     if (submap.isNotEmpty()) maps.add(submap)
@@ -64,7 +69,11 @@ data class Almanac(val seeds: List<Long>, val maps: List<List<Position3d<Long>>>
                     )
                 }
             }
-            if (submap.isNotEmpty()) maps.add(submap)
+
+            if (submap.isNotEmpty()) {
+                maps.add(submap)
+            }
+
             return Almanac(seeds, maps)
         }
     }

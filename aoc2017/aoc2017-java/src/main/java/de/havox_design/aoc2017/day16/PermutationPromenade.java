@@ -20,11 +20,13 @@ public class PermutationPromenade implements AoCFunctionality {
 
     public static String solvePart1(String fileName, String initialWord) {
         PermutationPromenade instance = new PermutationPromenade(fileName);
+
         return instance.solvePart1(initialWord);
     }
 
     public static String solvePart2(String fileName, String initialWord, int iterations) {
         PermutationPromenade instance = new PermutationPromenade(fileName);
+
         return instance.solvePart2(initialWord, iterations);
     }
 

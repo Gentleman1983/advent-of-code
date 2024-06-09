@@ -13,16 +13,19 @@ public class BeverageBandits implements AoCFunctionality {
 
     public BeverageBandits(String fileName) {
         MapParser parser = new MapParser();
+
         input = parser.parse(readData(fileName));
     }
 
     public static int processTask1(String fileName) {
         BeverageBandits instance = new BeverageBandits(fileName);
+
         return instance.processTask1();
     }
 
     public static int processTask2(String fileName) {
         BeverageBandits instance = new BeverageBandits(fileName);
+
         return instance.processTask2();
     }
 
@@ -45,6 +48,7 @@ public class BeverageBandits implements AoCFunctionality {
 
         do {
             Map<Integer, Unit> units = updateElfishAttackPower(input.units(), ++attackPower);
+
             outcome = process(units);
         } while (countElfishDeaths(input.units(), outcome.units().values()) > 0);
 
@@ -136,7 +140,6 @@ public class BeverageBandits implements AoCFunctionality {
         }
 
         int[][] distanceMap = getDistanceMap(units, target);
-
         Set<Coordinate> options = getValidSurrounding(units, unit.getLocation())
                 .stream()
                 .filter(position -> distanceMap[position.getX()][position.getY()] >= 0)
@@ -170,12 +173,12 @@ public class BeverageBandits implements AoCFunctionality {
         );
 
         units.put(newUnit.getId(), newUnit);
+
         return newUnit;
     }
 
     private Coordinate getTarget(Map<Integer, Unit> units, Unit unit) {
         int[][] distanceMap = getDistanceMap(units, unit.getLocation());
-
         Set<Coordinate> targets = units
                 .values()
                 .stream()
@@ -208,6 +211,7 @@ public class BeverageBandits implements AoCFunctionality {
 
     private int[][] getDistanceMap(Map<Integer, Unit> units, Coordinate... positions) {
         int[][] distanceMap = new int[input.field().length][input.field()[0].length];
+
         for (int[] distances : distanceMap) {
             Arrays.fill(distances, -1);
         }

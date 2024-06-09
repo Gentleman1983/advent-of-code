@@ -21,11 +21,13 @@ public class ProgramAlarm1202 implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         ProgramAlarm1202 instance = new ProgramAlarm1202(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         ProgramAlarm1202 instance = new ProgramAlarm1202(fileName);
+
         return instance.processTask2();
     }
 

@@ -59,6 +59,7 @@ data class Grid(var rows: Int, var cols: Int) {
 
     private fun move(row: Int, col: Int, targetRow: Int, targetCol: Int) {
         var knot = getPosition(row, col).knot
+
         if (Knot.HEAD_AND_TAIL == knot) {
             knot = Knot.HEAD
         }
@@ -72,6 +73,7 @@ data class Grid(var rows: Int, var cols: Int) {
     private fun checkMoveOfTailNeeded() {
         val rowDifference = posHead[ROW_INDEX] - posTail[ROW_INDEX]
         val colDifference = posHead[COL_INDEX] - posTail[COL_INDEX]
+
         if (abs(rowDifference) > 1 || abs(colDifference) > 1) {
             getPosition(posTail[ROW_INDEX], posTail[COL_INDEX]).leave()
 
@@ -89,18 +91,22 @@ data class Grid(var rows: Int, var cols: Int) {
     }
 
     override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
+        if (this === other) {
+            return true
+        }
+
+        if (javaClass != other?.javaClass) {
+            return false
+        }
 
         other as Grid
 
-        if (data != other.data) return false
-
-        return true
+        return data == other.data
     }
 
     override fun hashCode(): Int {
-        return data.hashCode()
+        return data
+            .hashCode()
     }
 
     override fun toString(): String {

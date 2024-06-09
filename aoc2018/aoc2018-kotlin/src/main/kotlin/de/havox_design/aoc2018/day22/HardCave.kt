@@ -6,7 +6,12 @@ data class HardCave(val depth: Int, val target: Position2d<Int>) {
 
     private val state = mutableMapOf<Position2d<Int>, Region>()
 
-    fun at(point: Position2d<Int>) = state.getOrPut(point) { Region(point, this) }
+    fun at(point: Position2d<Int>) =
+        state
+            .getOrPut(point) { Region(point, this) }
 
-    fun getTotalRiskRiskLevel() = state.values.sumOf { it.regionType.riskLevel }
+    fun getTotalRiskRiskLevel() =
+        state
+            .values
+            .sumOf { it.regionType.riskLevel }
 }

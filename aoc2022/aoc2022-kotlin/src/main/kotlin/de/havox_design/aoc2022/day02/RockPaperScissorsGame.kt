@@ -3,7 +3,6 @@ package de.havox_design.aoc2022.day02
 class RockPaperScissorsGame(private val filename: String) {
     fun getResultForGuide(): Int {
         var score = 0
-
         val turns: List<String>? = getResourceAsText(filename)
 
         if (!turns.isNullOrEmpty()) {
@@ -13,8 +12,8 @@ class RockPaperScissorsGame(private val filename: String) {
                 if (actions.isNotEmpty()) {
                     val opponent: RockPaperScissorsFigures = RockPaperScissorsFigures.getValueBySymbol(actions[0])
                     val turn: RockPaperScissorsFigures = RockPaperScissorsFigures.getValueBySymbol(actions[1])
-                    score += turn.score
 
+                    score += turn.score
                     score += getScoreByResult(opponent, turn)
                 }
             }
@@ -36,8 +35,8 @@ class RockPaperScissorsGame(private val filename: String) {
                     val opponent: RockPaperScissorsFigures = RockPaperScissorsFigures.getValueBySymbol(actions[0])
                     val expectedResult: RockPaperScissorsResult = RockPaperScissorsResult.getValueBySymbol(actions[1])
                     val turn: RockPaperScissorsFigures = getTurnByExpectedResult(opponent, expectedResult)
-                    score += turn.score
 
+                    score += turn.score
                     score += getScoreByResult(opponent, turn)
                 }
             }
@@ -93,7 +92,11 @@ class RockPaperScissorsGame(private val filename: String) {
         }
     }
 
-
     private fun getResourceAsText(path: String): List<String>? =
-        this.javaClass.classLoader.getResourceAsStream(path)?.bufferedReader()?.readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)
+            ?.bufferedReader()
+            ?.readLines()
 }

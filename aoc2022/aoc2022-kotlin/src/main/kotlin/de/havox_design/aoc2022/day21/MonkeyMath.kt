@@ -28,6 +28,7 @@ class MonkeyMath(private var filename: String) {
                 .calculateValue(data) == 0L
 
             println("humn: $i -> root: $result")
+
             if (result) {
                 return i
             }
@@ -41,6 +42,7 @@ class MonkeyMath(private var filename: String) {
             .calculateValue(data) == 0L
 
         println("humn: 301 -> root: $result")
+
         if (result) {
             return 301L
         }
@@ -59,6 +61,7 @@ class MonkeyMath(private var filename: String) {
             .substringAfter(": ")
         var monkeyRiddle: Riddle? = null
         var monkeyNumber: Long? = null
+
         if (monkeyValue.contains(" ")) {
             val monkeyValues = monkeyValue
                 .split(" ")
@@ -72,6 +75,7 @@ class MonkeyMath(private var filename: String) {
                 else -> throw IllegalArgumentException("Unknown operand '${monkeyValues[1]}'")
             }
             val secondOperand = monkeyValues[2]
+
             monkeyRiddle = Riddle(firstOperand, operator, secondOperand)
         } else {
             monkeyNumber = monkeyValue
@@ -82,5 +86,10 @@ class MonkeyMath(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

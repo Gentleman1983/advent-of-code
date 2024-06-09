@@ -2,7 +2,6 @@ package de.havox_design.aoc2021.day22
 
 class ReactorReboot(private var filename: String) {
     private val ICON_ON = "on"
-
     private val ID_STATUS = 1
     private val ID_X_MAX = 3
     private val ID_X_MIN = 2
@@ -10,7 +9,6 @@ class ReactorReboot(private var filename: String) {
     private val ID_Y_MIN = 4
     private val ID_Z_MAX = 7
     private val ID_Z_MIN = 6
-
     private val data = getResourceAsText(filename)
     private val pattern = "(on|off) x=([-0-9]+)..([-0-9]+),y=([-0-9]+)..([-0-9]+),z=([-0-9]+)..([-0-9]+)"
         .toRegex()
@@ -64,6 +62,7 @@ class ReactorReboot(private var filename: String) {
         val x = matchResult.groupValues[ID_X_MIN].toInt()..matchResult.groupValues[ID_X_MAX].toInt()
         val y = matchResult.groupValues[ID_Y_MIN].toInt()..matchResult.groupValues[ID_Y_MAX].toInt()
         val z = matchResult.groupValues[ID_Z_MIN].toInt()..matchResult.groupValues[ID_Z_MAX].toInt()
+
         return RebootStep(on, Cuboid(x, y, z))
     }
 

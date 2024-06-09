@@ -14,16 +14,13 @@ public final class ObjectInSpace {
     private final String name;
     private ObjectInSpace centerObject;
 
-
     public ObjectInSpace(String name) {
         this.name = Objects.requireNonNull(name);
     }
 
-
     public Stream<ObjectInSpace> toCenterOfMass() {
         return Stream.iterate(this.getCenterObject(), Objects::nonNull, ObjectInSpace::getCenterObject);
     }
-
 
     public boolean isCenterOfMass() {
         return centerObject == null;

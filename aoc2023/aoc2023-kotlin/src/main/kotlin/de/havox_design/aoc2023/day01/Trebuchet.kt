@@ -26,7 +26,6 @@ class Trebuchet(private var filename: String) {
 
     fun solvePart1(): Long {
         val payloads = getResourceAsText(filename)
-
         var calibrationValue = 0L
 
         for(payload:String in payloads) {
@@ -37,11 +36,10 @@ class Trebuchet(private var filename: String) {
                 .mapToInt { c -> c.digitToInt() }
                 .toArray()
                 .toList()
-
             val firstNumber = numbers.first()
             val lastNumber = numbers.last()
-
             val currentCalibrationValue = firstNumber * 10 + lastNumber
+
             calibrationValue += currentCalibrationValue
         }
 
@@ -55,7 +53,6 @@ class Trebuchet(private var filename: String) {
     private fun replaceDigitWordsSmart(row: String): Long {
         val firstDigit: String
         val lastDigit: String
-
         val wordPositions = words
             .flatMap { digit -> getDigitIndices(row, digit) }
             .filter { pos -> pos.position != -1 }
@@ -82,6 +79,7 @@ class Trebuchet(private var filename: String) {
         val indices = ArrayList<Int>()
         var index: Int = input
             .indexOf(digit.word)
+
         while (index >= 0) {
             indices.add(index)
             index = input

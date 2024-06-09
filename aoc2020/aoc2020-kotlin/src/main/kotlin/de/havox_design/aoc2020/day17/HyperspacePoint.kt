@@ -1,6 +1,6 @@
 package de.havox_design.aoc2020.day17
 
-import kotlin.math.absoluteValue
+import de.havox_design.aoc.utils.kotlin.helpers.abs
 
 class HyperspacePoint constructor(val parts: IntArray) {
     val size = parts.size
@@ -58,6 +58,4 @@ class HyperspacePoint constructor(val parts: IntArray) {
     }
 }
 
-private val IntArray.abs: Int
-    get() =
-        sumOf { it.absoluteValue }
+

@@ -45,11 +45,13 @@ public class RPGBossFight implements AoCFunctionality {
 
     public static int solvePart1(String fileName) {
         RPGBossFight instance = new RPGBossFight(fileName);
+
         return instance.solvePart1();
     }
 
     public static int solvePart2(String fileName) {
         RPGBossFight instance = new RPGBossFight(fileName);
+
         return instance.solvePart2();
     }
 
@@ -72,12 +74,14 @@ public class RPGBossFight implements AoCFunctionality {
                         if (ring1 == ring2) {
                             continue;
                         }
+
                         int cost = weapon.getCost() + armor.getCost() + ring1.getCost() + ring2.getCost();
                         RPGPlayer player = new RPGPlayer(
                                 100,
                                 weapon.getDamage() + armor.getDamage() + ring1.getDamage() + ring2.getDamage(),
                                 weapon.getArmor() + armor.getArmor() + ring1.getArmor() + ring2.getArmor()
                         );
+
                         if (expectedToWin == simulate(player)) {
                             resultCost = resultAggregator.apply(resultCost, cost);
                         }
@@ -91,12 +95,16 @@ public class RPGBossFight implements AoCFunctionality {
     public boolean simulate(RPGPlayer player) {
         int bossHit = boss.hitPoints;
         int playherHit = player.hitPoints;
+
         while (true) {
             bossHit -= Math.max(1, player.damage - boss.armor);
+
             if (bossHit <= 0) {
                 return true;
             }
+
             playherHit -= Math.max(1, boss.damage - player.armor);
+
             if (playherHit <= 0) {
                 return false;
             }

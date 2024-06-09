@@ -13,7 +13,6 @@ class UnstableDiffusion(private var filename: String) {
 
     fun processPart1(endInRound: Int = 10): Int {
         data = readFile()
-
         processElves(endInRound)
 
         // detect rectangle data
@@ -37,12 +36,16 @@ class UnstableDiffusion(private var filename: String) {
 
         while (true) {
             val proposals: MutableMap<Point, MutableList<Point>> = mutableMapOf()
+
             for ((y, x) in data) {
-                val checkFields = directions.map { checkDirections ->
-                    checkDirections.map { direction ->
-                        Point(y + direction.getY(), x + direction.getX())
+                val checkFields = directions
+                    .map { checkDirections ->
+                        checkDirections
+                            .map { direction ->
+                                Point(y + direction.getY(), x + direction.getX())
+                            }
                     }
-                }
+
                 if (
                     checkFields
                         .flatten()
@@ -52,14 +55,17 @@ class UnstableDiffusion(private var filename: String) {
                         if (directions.count { data.contains(it) } > 0) {
                             continue
                         }
+
                         if (directions.getDirection() !in proposals) {
                             proposals[directions.getDirection()] = mutableListOf()
                         }
+
                         proposals[directions.getDirection()]!!.add(Point(y, x))
                         break
                     }
                 }
             }
+
             for ((point, candidates) in proposals) {
                 if (candidates.size == 1) {
                     data.remove(candidates[0])
@@ -68,7 +74,6 @@ class UnstableDiffusion(private var filename: String) {
             }
 
             directions.add(directions.removeAt(0))
-
             round++
 
             if (round == endInRound || proposals.isEmpty()) {
@@ -82,33 +87,47 @@ class UnstableDiffusion(private var filename: String) {
     private fun readFile() =
         getResourceAsText(filename)
             .flatMapIndexed { y, row ->
-                row.mapIndexed { x, value -> Pair(Point(y, x), value) }
+                row
+                    .mapIndexed { x, value -> Pair(Point(y, x), value) }
             }
             .filter { it.getSymbol() == '#' }
             .map { it.getPosition() }
             .toMutableSet()
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }
 
 private fun Pair<Pair<Int, Int>, Char>.getPosition(): Pair<Int, Int> =
-    this.first
+    this
+        .first
 
 private fun Pair<Pair<Int, Int>, Char>.getSymbol(): Char =
-    this.second
+    this
+        .second
 
 private fun Pair<Int, Int>.getX(): Int =
-    this.second
+    this
+        .second
 
 private fun Pair<Int, Int>.getY(): Int =
-    this.first
+    this
+        .first
 
 private fun Direction.getX(): Int =
-    this.direction.getX()
+    this
+        .direction
+        .getX()
 
 private fun Direction.getY(): Int =
-    this.direction.getY()
+    this
+        .direction
+        .getY()
 
 private fun List<Point>.getDirection(): Point =
     this[1]

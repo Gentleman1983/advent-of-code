@@ -13,5 +13,6 @@ data class PartNumber(val points: List<Point>) {
     }
 
     fun containsPoint(point: Point): Boolean =
-            points.contains(point)
+            points
+                .contains(point)
 }

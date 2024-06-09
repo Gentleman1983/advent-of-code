@@ -6,7 +6,6 @@ data class Record(val text: String, val groups: List<Int>) {
     private val ICON_BROKEN_SPRING = '#'
     private val ICON_OPERATIONAL_SPRING = '.'
     private val ICON_UNKNOWN_SPRING = '?'
-
     private val possibilities = replaceQuestionmark(sequenceOf(text), text.count { it == '?' })
     val possibleGroups = possibilities
         .asStream()
@@ -23,12 +22,13 @@ data class Record(val text: String, val groups: List<Int>) {
     private tailrec fun replaceQuestionmark(lines: Sequence<String>, count: Int): Sequence<String> {
         if (count > 0) {
             return replaceQuestionmark(
-                lines.flatMap {
-                    listOf(
-                        it.replaceFirst(ICON_UNKNOWN_SPRING, ICON_OPERATIONAL_SPRING),
-                        it.replaceFirst(ICON_UNKNOWN_SPRING, ICON_BROKEN_SPRING)
-                    )
-                },
+                lines
+                    .flatMap {
+                        listOf(
+                            it.replaceFirst(ICON_UNKNOWN_SPRING, ICON_OPERATIONAL_SPRING),
+                            it.replaceFirst(ICON_UNKNOWN_SPRING, ICON_BROKEN_SPRING)
+                        )
+                    },
                 count - 1
             )
         }
@@ -92,6 +92,7 @@ data class Record(val text: String, val groups: List<Int>) {
                     }
 
                     cache[Triple(line, sizes, doneInGroup)] = solutions
+
                     return solutions
                 }
             }

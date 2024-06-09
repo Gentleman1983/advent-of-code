@@ -13,12 +13,14 @@ class DistressSignal(private var filename: String) {
     fun processPart2(): Int {
         var positionOfLowerDecoderPacket = 1
         var positionOfUpperDecoderPacket = 1
+
         for (packet in packetList) {
             when {
                 packet < Packet.decoderPackets[0] -> positionOfLowerDecoderPacket++
                 packet < Packet.decoderPackets[1] -> positionOfUpperDecoderPacket++
             }
         }
+
         return positionOfLowerDecoderPacket * (positionOfLowerDecoderPacket + positionOfUpperDecoderPacket)
     }
 
@@ -35,5 +37,10 @@ class DistressSignal(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

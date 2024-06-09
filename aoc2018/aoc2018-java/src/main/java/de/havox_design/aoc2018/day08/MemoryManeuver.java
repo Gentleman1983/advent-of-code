@@ -21,21 +21,25 @@ public class MemoryManeuver implements AoCFunctionality {
 
     public static int processTask1(String fileName) {
         MemoryManeuver instance = new MemoryManeuver(fileName);
+
         return instance.processTask1();
     }
 
     public static int processTask2(String fileName) {
         MemoryManeuver instance = new MemoryManeuver(fileName);
+
         return instance.processTask2();
     }
 
     public int processTask1() {
         Node root = buildTree(input);
+
         return countMetaData(root);
     }
 
     public int processTask2() {
         Node root = buildTree(input);
+
         return calculateNodeValue(root);
     }
 

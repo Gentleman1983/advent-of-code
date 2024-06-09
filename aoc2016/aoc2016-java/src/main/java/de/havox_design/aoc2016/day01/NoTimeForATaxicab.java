@@ -17,11 +17,13 @@ public class NoTimeForATaxicab implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         NoTimeForATaxicab instance = new NoTimeForATaxicab(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         NoTimeForATaxicab instance = new NoTimeForATaxicab(fileName);
+
         return instance.solvePart2();
     }
 

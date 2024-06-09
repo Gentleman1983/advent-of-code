@@ -12,16 +12,18 @@ public class SpinLock implements AoCFunctionality {
     private final int input;
 
     public SpinLock(String fileName) {
-        input = Integer.parseInt(readData(fileName).get(0));
+        input = Integer.parseInt(readData(fileName).getFirst());
     }
 
     public static long solvePart1(String fileName) {
         SpinLock instance = new SpinLock(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         SpinLock instance = new SpinLock(fileName);
+
         return instance.solvePart2();
     }
 

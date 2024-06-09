@@ -19,13 +19,17 @@ fun getBoundary(points: Collection<Position2d<Int>>): Boundary {
     return Position2d(xMin, yMin) to Position2d(xMax, yMax)
 }
 
-fun Boundary.getWidth() = second.x - first.x + 1
+fun Boundary.getWidth() =
+    second.x - first.x + 1
 
-fun Boundary.getHeight() = second.y - first.y + 1
+fun Boundary.getHeight() =
+    second.y - first.y + 1
 
-fun Boundary.getArea() = getWidth().toLong() * getHeight().toLong()
+fun Boundary.getArea() =
+    getWidth().toLong() * getHeight().toLong()
 
-fun Boundary.getOffset(target: Position2d<Int>) = target.x - first.x to target.y - first.y
+fun Boundary.getOffset(target: Position2d<Int>) =
+    target.x - first.x to target.y - first.y
 
 fun Boundary.contains(point: Position2d<Int>) =
     point.x in (first.x..second.x) && point.y in (first.y..second.y)

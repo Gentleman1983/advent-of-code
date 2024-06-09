@@ -11,10 +11,14 @@ class MedicineForRudolph(private var filename: String) {
 
     fun processPart1(): Int {
         val molecules = mutableSetOf<String>()
-        input.dropLast(2).forEach { line ->
-            val (match, _, replace) = line.split(" ")
-            molecules.addAll(allReplacements(base, match, replace))
-        }
+
+        input
+            .dropLast(2)
+            .forEach { line ->
+                val (match, _, replace) = line.split(" ")
+
+                molecules.addAll(allReplacements(base, match, replace))
+            }
         return molecules.size
     }
 
@@ -25,28 +29,39 @@ class MedicineForRudolph(private var filename: String) {
         var oldMolecule: String
         var molecule = base.reversed()
         val joiner = StringJoiner("|", "(", ")")
-        reversedReplacementKeySet.forEach{key -> joiner.add(key)}
+        reversedReplacementKeySet.forEach { key -> joiner.add(key) }
         val regex = Pattern.compile(joiner.toString())
         var stepCount = 0
 
         do {
             oldMolecule = molecule
+
             val matcher = regex.matcher(oldMolecule)
             val buffer = StringBuffer()
+
             while (matcher.find()) {
-                matcher.appendReplacement(buffer, reversedReplacements.single { pair -> pair.first == matcher.group() }.second)
+                matcher.appendReplacement(
+                    buffer,
+                    reversedReplacements.single { pair -> pair.first == matcher.group() }.second
+                )
                 stepCount++
             }
+
             matcher.appendTail(buffer)
             molecule = buffer.toString()
-        }while (molecule != oldMolecule)
+        } while (molecule != oldMolecule)
 
         return stepCount
     }
 
     private fun allReplacements(base: String, match: String, replace: String): Sequence<String> {
-        val indices = match.toRegex().findAll(base).map { it.range.first }
-        return indices.map { base.substring(0, it) + replace + base.substring(it + match.length) }
+        val indices = match
+            .toRegex()
+            .findAll(base)
+            .map { it.range.first }
+
+        return indices
+            .map { base.substring(0, it) + replace + base.substring(it + match.length) }
     }
 
     private fun parseMedicine() =
@@ -70,5 +85,10 @@ class MedicineForRudolph(private var filename: String) {
         getResourceAsText(filename)
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

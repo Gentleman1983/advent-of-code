@@ -22,7 +22,8 @@ data class Landscape(val landscapeData: List<String>) {
         }
     }
 
-    fun get(pos: Position): Field? = map[pos]
+    fun get(pos: Position): Field? =
+        map[pos]
 
     @SuppressWarnings("kotlin:S6611")
     fun visit(pos: Position) {

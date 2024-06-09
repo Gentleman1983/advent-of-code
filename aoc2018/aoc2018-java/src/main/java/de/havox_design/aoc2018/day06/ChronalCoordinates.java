@@ -18,11 +18,13 @@ public class ChronalCoordinates implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         ChronalCoordinates instance = new ChronalCoordinates(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName, int maxDistance) {
         ChronalCoordinates instance = new ChronalCoordinates(fileName);
+
         return instance.processTask2(maxDistance);
     }
 
@@ -37,7 +39,6 @@ public class ChronalCoordinates implements AoCFunctionality {
                 .mapToInt(Position2d::getY)
                 .max()
                 .orElseThrow(() -> new IllegalStateException(ILLEGAL_STATE_MESSAGE));
-
         Position2d<Integer>[][] map = calculateCoordinateDistances(maxX, maxY);
         Set<Position2d<Integer>> candidates = calculateNonInfiniteCandidates(maxX, maxY, map);
         Map<Position2d<Integer>, Long> counts = countCandidates(maxX, maxY, map, candidates);
@@ -64,10 +65,9 @@ public class ChronalCoordinates implements AoCFunctionality {
                 .mapToInt(Position2d::getY)
                 .min()
                 .orElseThrow(() -> new IllegalStateException(ILLEGAL_STATE_MESSAGE));
-
         Integer[][] map = calculateSumOfDistancesMap(maxDistance, minX, minY);
-
         long count = 0L;
+
         for (Integer[] column : map) {
             for (Integer field : column) {
                 if (field != null) {
@@ -81,8 +81,10 @@ public class ChronalCoordinates implements AoCFunctionality {
 
     private Position2d<Integer> detectNearestCoordinate(int x, int y) {
         Map<Position2d<Integer>, Integer> distances = new HashMap<>();
+
         for (Position2d<Integer> coordinate : this.input) {
             int distance = Math.abs(x - coordinate.getX()) + Math.abs(y - coordinate.getY());
+
             distances.put(coordinate, distance);
         }
 
@@ -91,13 +93,11 @@ public class ChronalCoordinates implements AoCFunctionality {
                 .stream()
                 .min(Comparator.naturalOrder())
                 .orElseThrow(() -> new IllegalStateException(ILLEGAL_STATE_MESSAGE));
-
         boolean multipleMinDistances = distances
                .values()
                 .stream()
                 .filter(distance -> distance == minDistance)
                 .count() > 1;
-
         Position2d<Integer> minCoordinate = distances
                 .entrySet()
                 .stream()
@@ -112,29 +112,34 @@ public class ChronalCoordinates implements AoCFunctionality {
     @SuppressWarnings("unchecked")
     private Position2d<Integer>[][] calculateCoordinateDistances(int maxX, int maxY) {
         Position2d<Integer>[][] map = new Position2d[maxX + 1][maxY + 1];
+
         for (int x = 0; x <= maxX; x++) {
             for (int y = 0; y <= maxY; y++) {
                 map[x][y] = this.detectNearestCoordinate(x, y);
             }
         }
+
         return map;
     }
 
     @SuppressWarnings("javabugs:S6466")
     private Set<Position2d<Integer>> calculateNonInfiniteCandidates(int maxX, int maxY, Position2d<Integer>[][] map) {
         Set<Position2d<Integer>> candidates = new HashSet<>(input);
+
         for (int x = 0; x <= maxX; x++) {
             int minY = 0;
 
             candidates.remove(map[x][minY]);
             candidates.remove(map[x][maxY]);
         }
+
         for (int y = 0; y <= maxY; y++) {
             int minX = 0;
 
             candidates.remove(map[minX][y]);
             candidates.remove(map[maxX][y]);
         }
+
         return candidates;
     }
 
@@ -145,29 +150,36 @@ public class ChronalCoordinates implements AoCFunctionality {
             Set<Position2d<Integer>> candidates
     ) {
         Map<Position2d<Integer>, Long> counts = new HashMap<>();
+
         for (int x = 0; x <= maxX; x++) {
             for (int y = 0; y <= maxY; y++) {
                 Position2d<Integer> coordinate = map[x][y];
+
                 if (candidates.contains(coordinate)) {
                     counts.put(coordinate, counts.getOrDefault(coordinate, 0L) + 1);
                 }
             }
         }
+
         return counts;
     }
 
     private Integer[][] calculateSumOfDistancesMap(int maxDistance, int minX, int minY) {
         Integer[][] map = new Integer[minX + maxDistance][minY + maxDistance];
+
         for (int x = 0; x < map.length; x++) {
             for (int y = 0; y < map[x].length; y++) {
                 int distances = 0;
+
                 for (Position2d<Integer> coordinate : this.input) {
                     int distance = Math.abs(x - coordinate.getX()) + Math.abs(y - coordinate.getY());
                     distances += distance;
                 }
+
                 map[x][y] = distances >= maxDistance ? null : distances;
             }
         }
+
         return map;
     }
 }

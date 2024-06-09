@@ -14,6 +14,7 @@ public record Key(int x, int y) {
         }
 
         Key point = (Key) o;
+
         return x == point.x && y == point.y;
     }
 

@@ -1,7 +1,5 @@
 package de.havox_design.aoc2022.day25
 
-import kotlin.math.*
-
 class FullOfHotAir(private var filename: String) {
     val data = readFile()
 
@@ -17,7 +15,10 @@ class FullOfHotAir(private var filename: String) {
             .map { snafuValue -> SNAFUNumber.toSnafu(snafuValue) }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
-
-    private fun Long.pow(e: Int): Long = Math.pow(this.toDouble(), e.toDouble()).toLong()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

@@ -21,11 +21,13 @@ public class SignalsAndNoise implements AoCFunctionality {
 
     public static String solvePart1(String fileName) {
         SignalsAndNoise instance = new SignalsAndNoise(fileName);
+
         return instance.solvePart1();
     }
 
     public static String solvePart2(String fileName) {
         SignalsAndNoise instance = new SignalsAndNoise(fileName);
+
         return instance.solvePart2();
     }
 

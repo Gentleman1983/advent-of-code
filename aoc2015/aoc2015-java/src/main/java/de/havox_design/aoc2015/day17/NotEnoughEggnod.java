@@ -17,23 +17,28 @@ public class NotEnoughEggnod implements AoCFunctionality {
 
     public static int solvePart1(String fileName) {
         NotEnoughEggnod instance = new NotEnoughEggnod(fileName);
+
         return instance.solvePart1();
     }
 
     protected static int countCombinations(String fileName, int amountOfEggnod) {
         NotEnoughEggnod instance = new NotEnoughEggnod(fileName);
+
         return instance.countWays(instance.input, 0, amountOfEggnod, 0);
     }
 
     public static int solvePart2(String fileName) {
         NotEnoughEggnod instance = new NotEnoughEggnod(fileName);
+
         return instance.solvePart2();
     }
 
     protected static int countLimitedCombinations(String fileName, int amountOfEggnod) {
         NotEnoughEggnod instance = new NotEnoughEggnod(fileName);
         int minContainerRequirement = instance.findMinimumContainerCount(instance.input, 0, amountOfEggnod, 0);
-        return instance.countWaysWithLimitedContainers(instance.input, 0, amountOfEggnod, 0, minContainerRequirement);
+
+        return instance
+                .countWaysWithLimitedContainers(instance.input, 0, amountOfEggnod, 0, minContainerRequirement);
     }
 
     public int solvePart1() {
@@ -42,6 +47,7 @@ public class NotEnoughEggnod implements AoCFunctionality {
 
     public int solvePart2() {
         int minContainerRequirement = findMinimumContainerCount(input, 0, 150, 0);
+
         return countWaysWithLimitedContainers(input, 0, 150, 0, minContainerRequirement);
     }
 
@@ -52,9 +58,11 @@ public class NotEnoughEggnod implements AoCFunctionality {
             return 0;
         } else {
             int count = countSoFar;
+
             for (int i = startIndex; i < containers.size(); ++i) {
                 count += countWays(containers, i + 1, target - containers.get(i), countSoFar);
             }
+
             return count;
         }
     }
@@ -66,10 +74,15 @@ public class NotEnoughEggnod implements AoCFunctionality {
             return Integer.MAX_VALUE;
         } else {
             int min = Integer.MAX_VALUE;
+
             for (int i = startIndex; i < containers.size(); ++i) {
-                min = Math.min(min,
-                        findMinimumContainerCount(containers, i + 1, target - containers.get(i), containerCount + 1));
+                min = Math
+                        .min(
+                                min,
+                                findMinimumContainerCount(containers, i + 1, target - containers.get(i), containerCount + 1)
+                        );
             }
+
             return min;
         }
     }
@@ -81,10 +94,17 @@ public class NotEnoughEggnod implements AoCFunctionality {
             return 0;
         } else {
             int count = countSoFar;
+
             for (int i = startIndex; i < containers.size(); ++i) {
-                count += countWaysWithLimitedContainers(containers, i + 1, target - containers.get(i), countSoFar,
-                        usableContainers - 1);
+                count += countWaysWithLimitedContainers(
+                        containers,
+                        i + 1,
+                        target - containers.get(i),
+                        countSoFar,
+                        usableContainers - 1
+                );
             }
+
             return count;
         }
     }

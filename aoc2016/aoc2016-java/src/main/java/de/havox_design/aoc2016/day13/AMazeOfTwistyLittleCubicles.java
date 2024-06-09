@@ -10,21 +10,24 @@ public class AMazeOfTwistyLittleCubicles implements AoCFunctionality {
     private final Long input;
 
     public AMazeOfTwistyLittleCubicles(String fileName) {
-        input = Long.parseLong(readData(fileName).get(0));
+        input = Long.parseLong(readData(fileName).getFirst());
     }
 
     public static long solvePart1(String fileName) {
         AMazeOfTwistyLittleCubicles instance = new AMazeOfTwistyLittleCubicles(fileName);
+
         return instance.solvePart1(1, 1, 31, 39);
     }
 
     public static long solvePart2(String fileName) {
         AMazeOfTwistyLittleCubicles instance = new AMazeOfTwistyLittleCubicles(fileName);
+
         return instance.solvePart2(1, 1, 50);
     }
 
     public long solvePart1(int startColumn, int startRow, int endColumn, int endRow) {
         Point target = new Point(endColumn, endRow);
+
         return process(startColumn, startRow)
                 .get(target)
                 .getDistance();

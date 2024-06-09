@@ -49,7 +49,12 @@ class ReservoirResearch(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 
     private fun Coordinate.getNeighbor(direction: FourDirectionsFlipped) =
         Coordinate(this.x + direction.dx(), this.y + direction.dy())

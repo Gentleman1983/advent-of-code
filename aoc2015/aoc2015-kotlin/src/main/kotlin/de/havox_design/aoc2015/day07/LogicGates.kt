@@ -54,7 +54,12 @@ class LogicGates(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }
 
 fun <A, B, C, D> Function3<A, B, C, D>.partial(a: A, b: B): (C) -> D {

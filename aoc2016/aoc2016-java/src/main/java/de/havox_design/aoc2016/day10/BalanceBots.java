@@ -21,11 +21,13 @@ public class BalanceBots implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         BalanceBots instance = new BalanceBots(fileName);
+
         return instance.solvePart1(17, 61);
     }
 
     public static long solvePart2(String fileName) {
         BalanceBots instance = new BalanceBots(fileName);
+
         return instance.solvePart2();
     }
 
@@ -62,6 +64,7 @@ public class BalanceBots implements AoCFunctionality {
                 if (valueMatcher.matches()) {
                     int id = Integer.parseInt(valueMatcher.group("id"));
                     int value = Integer.parseInt(valueMatcher.group("value"));
+
                     bots.merge(id, new Bot(id, value), (a, b) -> a.merge(b.low()));
                     iterator.remove();
                 } else if (giveMatcher.matches()) {
@@ -74,7 +77,9 @@ public class BalanceBots implements AoCFunctionality {
                             giveMatcher.group("highTarget"),
                             Integer.parseInt(giveMatcher.group("highId"))
                     );
+
                     bots.merge(id, new Bot(id, lowTarget, highTarget, null, null), Bot::merge);
+
                     if (bots.get(id).isInstructionProcessed(bots, outputs)) {
                         iterator.remove();
                     }

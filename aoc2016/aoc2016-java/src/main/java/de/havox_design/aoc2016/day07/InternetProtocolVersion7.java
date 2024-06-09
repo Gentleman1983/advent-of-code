@@ -21,11 +21,13 @@ public class InternetProtocolVersion7 implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         InternetProtocolVersion7 instance = new InternetProtocolVersion7(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         InternetProtocolVersion7 instance = new InternetProtocolVersion7(fileName);
+
         return instance.solvePart2();
     }
 
@@ -74,16 +76,19 @@ public class InternetProtocolVersion7 implements AoCFunctionality {
                 .stream()
                 .filter(
                         value -> {
-                            var supernet = new HashSet<String>();
-                            var hypernet = new HashSet<String>();
-                            var isHypernet = isHypernet(value);
+                            Set<String> supernet = new HashSet<>();
+                            Set<String> hypernet = new HashSet<>();
+                            boolean isHypernet = isHypernet(value);
+
                             for (String part : getSubAddresses(value)) {
                                 (isHypernet ? hypernet : supernet).add(part);
                                 isHypernet = !isHypernet;
                             }
+
                             return predicate
                                     .test(new Address(Set.copyOf(supernet), Set.copyOf(hypernet)));
-                        })
+                        }
+                )
                 .count();
     }
 

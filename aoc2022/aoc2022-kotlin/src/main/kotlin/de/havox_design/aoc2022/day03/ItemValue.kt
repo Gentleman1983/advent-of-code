@@ -1,5 +1,6 @@
 package de.havox_design.aoc2022.day03
 
+import de.havox_design.aoc.utils.kotlin.helpers.isLowerCase
 import java.util.*
 
 enum class ItemValue(val lowerCaseValue: Int, val upperCaseValue: Int, val symbol: String) {
@@ -55,9 +56,3 @@ enum class ItemValue(val lowerCaseValue: Int, val upperCaseValue: Int, val symbo
         }
     }
 }
-
-private fun String.isUpperCase(): Boolean =
-    this.uppercase(Locale.getDefault()) == this
-
-private fun String.isLowerCase(): Boolean =
-    !this.isUpperCase()

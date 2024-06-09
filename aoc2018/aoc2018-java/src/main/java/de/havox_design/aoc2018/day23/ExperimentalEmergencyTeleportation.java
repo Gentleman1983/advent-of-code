@@ -10,6 +10,7 @@ public class ExperimentalEmergencyTeleportation implements AoCFunctionality {
 
     public ExperimentalEmergencyTeleportation(String fileName) {
         NanobotParser parser = new NanobotParser();
+
         List<String> input = readData(fileName);
 
         this.nanobots = parser.parse(input);
@@ -17,6 +18,7 @@ public class ExperimentalEmergencyTeleportation implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         ExperimentalEmergencyTeleportation instance = new ExperimentalEmergencyTeleportation(fileName);
+
         return instance.processTask1();
     }
 

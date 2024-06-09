@@ -7,10 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static de.havox_design.aoc.utils.java.helper.JavaMathUtils.leastCommonMultiple;
+
 public class TheNBodyProblem implements AoCFunctionality {
     private final List<String> input;
     private final List<Position3d<Integer>> initialCoordinates;
-
 
     public TheNBodyProblem(String fileName) {
         this.input = readData(fileName);
@@ -19,11 +20,13 @@ public class TheNBodyProblem implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         TheNBodyProblem instance = new TheNBodyProblem(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         TheNBodyProblem instance = new TheNBodyProblem(fileName);
+
         return instance.processTask2();
     }
 
@@ -47,7 +50,6 @@ public class TheNBodyProblem implements AoCFunctionality {
         for (int i = 0; i < moonCoordinates.size(); i++) {
             Position3d<Integer> moonPos = moonCoordinates.get(i);
             Position3d<Integer> velocity = velocities.get(i);
-
             int potentialEnergy = Math.abs(moonPos.getX()) + Math.abs(moonPos.getY()) + Math.abs(moonPos.getZ());
             int kineticEnergy = Math.abs(velocity.getX()) + Math.abs(velocity.getY()) + Math.abs(velocity.getZ());
 
@@ -167,11 +169,9 @@ public class TheNBodyProblem implements AoCFunctionality {
                     int x1 = coordinates.get(i).getX();
                     int y1 = coordinates.get(i).getY();
                     int z1 = coordinates.get(i).getZ();
-
                     int x2 = coordinates.get(j).getX();
                     int y2 = coordinates.get(j).getY();
                     int z2 = coordinates.get(j).getZ();
-
                     int v1x = velocities.get(i).getX();
                     int v1y = velocities.get(i).getY();
                     int v1z = velocities.get(i).getZ();
@@ -179,7 +179,6 @@ public class TheNBodyProblem implements AoCFunctionality {
                     v1x = x1 > x2 ? v1x - 1 : (x1 == x2 ? v1x : v1x + 1);
                     v1y = y1 > y2 ? v1y - 1 : (y1 == y2 ? v1y : v1y + 1);
                     v1z = z1 > z2 ? v1z - 1 : (z1 == z2 ? v1z : v1z + 1);
-
                     velocities.set(i, new Position3d<>(v1x, v1y, v1z));
                 }
             }
@@ -246,23 +245,5 @@ public class TheNBodyProblem implements AoCFunctionality {
         }
 
         return true;
-    }
-
-    private long leastCommonMultiple(long number1, long number2) {
-        if (number1 == 0 || number2 == 0) {
-            return 0;
-        }
-
-        long absNumber1 = Math.abs(number1);
-        long absNumber2 = Math.abs(number2);
-        long absHigherNumber = Math.max(absNumber1, absNumber2);
-        long absLowerNumber = Math.min(absNumber1, absNumber2);
-        long lcm = absHigherNumber;
-
-        while (lcm % absLowerNumber != 0) {
-            lcm += absHigherNumber;
-        }
-
-        return lcm;
     }
 }

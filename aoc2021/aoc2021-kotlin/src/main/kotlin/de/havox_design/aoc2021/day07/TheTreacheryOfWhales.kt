@@ -1,5 +1,6 @@
 package de.havox_design.aoc2021.day07
 
+import de.havox_design.aoc.utils.kotlin.helpers.minAndMax
 import kotlin.math.abs
 
 class TheTreacheryOfWhales(private var filename: String) {
@@ -32,28 +33,6 @@ class TheTreacheryOfWhales(private var filename: String) {
         val abs = abs(target - it)
 
         abs * (abs + 1) / 2
-    }
-
-    @SuppressWarnings("kotlin:S6532")
-    private fun <T : Comparable<T>> Iterable<T>.minAndMax(): Pair<T, T> {
-        val iterator = iterator()
-        if (!iterator.hasNext()) {
-            throw IllegalArgumentException("Cannot get min and max of empty collection")
-        }
-
-        var min = iterator.next()
-        var max = min
-
-        while (iterator.hasNext()) {
-            val next = iterator.next()
-
-            when {
-                next < min -> min = next
-                next > max -> max = next
-            }
-        }
-
-        return min to max
     }
 
     private fun getResourceAsText(path: String): String =

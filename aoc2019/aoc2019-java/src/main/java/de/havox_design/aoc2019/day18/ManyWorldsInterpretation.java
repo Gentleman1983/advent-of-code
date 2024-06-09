@@ -21,6 +21,7 @@ public class ManyWorldsInterpretation implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         ManyWorldsInterpretation instance = new ManyWorldsInterpretation(fileName);
+
         return instance.processTask1();
     }
 
@@ -30,7 +31,6 @@ public class ManyWorldsInterpretation implements AoCFunctionality {
 
     private int calculateLowestNumberOfSteps() {
         Map<Character, Map<Character, IncomparablePair<Integer, Integer>>> distanceMapping = distanceMapping(areaMap);
-
         long firstState = 0;
         Map<Long, Integer> stateStepMapping = new HashMap<>();
         int alphabetLen = distanceMapping.size() - 1;
@@ -218,7 +218,6 @@ public class ManyWorldsInterpretation implements AoCFunctionality {
 
                 queue.add(nodeRight);
             }
-
         }
 
         return targetMapping;

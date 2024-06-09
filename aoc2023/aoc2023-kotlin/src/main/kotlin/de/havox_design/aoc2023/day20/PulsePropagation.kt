@@ -1,12 +1,10 @@
 package de.havox_design.aoc2023.day20
 
+import de.havox_design.aoc.utils.java.helper.JavaMathUtils.leastCommonMultiple
 import de.havox_design.aoc2023.day20.Module.Companion.ICON_BROADCASTER
 import de.havox_design.aoc2023.day20.Module.Companion.ICON_BUTTON
 import de.havox_design.aoc2023.day20.Module.Companion.ICON_CONJUCTION
 import de.havox_design.aoc2023.day20.Module.Companion.ICON_FLIP_FLOP
-import kotlin.math.abs
-import kotlin.math.max
-import kotlin.math.min
 
 class PulsePropagation(private var filename: String) {
     private val SIGNAL_DELIMITER = " -> "
@@ -14,7 +12,6 @@ class PulsePropagation(private var filename: String) {
 
     fun solvePart1(runs: Int = 1000): Long {
         val (modules, assignment, conjunctionInputs) = parseInput()
-
         var count = 0
         var currentAssignment = assignment
             .toMutableMap()
@@ -48,6 +45,7 @@ class PulsePropagation(private var filename: String) {
 
         for (row in getResourceAsText(filename)) {
             val name = row.split(SIGNAL_DELIMITER)[0]
+
             modules[name] = ArrayList(
                 row
                     .split(SIGNAL_DELIMITER)[1]
@@ -66,7 +64,6 @@ class PulsePropagation(private var filename: String) {
                 when {
                     modules.contains(ICON_FLIP_FLOP + module.value[i]) -> module.value[i] =
                         ICON_FLIP_FLOP + module.value[i]
-
                     modules.contains(ICON_CONJUCTION + module.value[i]) -> module.value[i] =
                         ICON_CONJUCTION + module.value[i]
                 }
@@ -94,13 +91,17 @@ class PulsePropagation(private var filename: String) {
         sent[true] = 0
 
         fun send(from: String, to: String, value: Boolean) {
-            if (conjunctions.contains(to)) conjunctions[to]!![from] = value
+            if (conjunctions.contains(to)) {
+                conjunctions[to]!![from] = value
+            }
+
             pulses.add(Pair(value, to))
             sent[value] = sent[value]!! + 1
         }
 
         for (i in 1..1000) {
             send(ICON_BUTTON, ICON_BROADCASTER, false)
+
             while (pulses.isNotEmpty()) {
                 val pulse = pulses.removeFirst()
                 val value = pulse.first
@@ -114,7 +115,6 @@ class PulsePropagation(private var filename: String) {
                     to == ICON_BROADCASTER -> for (output in modules[to]!!) {
                         send(to, output, value)
                     }
-
                     to.startsWith(ICON_FLIP_FLOP) -> when {
                         !value -> {
                             on[to] = !on[to]!!
@@ -123,7 +123,6 @@ class PulsePropagation(private var filename: String) {
                             }
                         }
                     }
-
                     to.startsWith(ICON_CONJUCTION) -> {
                         for (output in modules[to]!!) {
                             send(to, output, !conjunctions[to]!!.all { it.value })
@@ -165,7 +164,7 @@ class PulsePropagation(private var filename: String) {
 
                         when (cycles.keys) {
                             conjunctions[parentName]!!.keys -> {
-                                return cycles.values.reduce { acc, c -> lcm(acc, c) }
+                                return cycles.values.reduce { acc, c -> leastCommonMultiple(acc, c) }
                             }
                         }
                     }
@@ -248,33 +247,12 @@ class PulsePropagation(private var filename: String) {
         return nextState to nextConjunctionInputs
     }
 
-    private fun lcm(number1: Long, number2: Long): Long =
-        when {
-            number1 == 0L || number2 == 0L -> 0
-            else -> {
-                val absHigherNumber = absoluteMax(number1, number2)
-                val absLowerNumber = absoluteMin(number1, number2)
-                var lcm = absHigherNumber
-
-                while (lcm % absLowerNumber != 0L) {
-                    lcm += absHigherNumber
-                }
-
-                lcm
-            }
-        }
-
-    private fun absoluteMax(num1: Long, num2: Long) =
-        max(abs(num1), abs(num2))
-
-    private fun absoluteMin(num1: Long, num2: Long) =
-        min(abs(num1), abs(num2))
-
     private fun parseInput(): Triple<Map<String, Module>, Map<String, Boolean>, Map<String, MutableMap<String, Boolean>>> {
         val modules = getResourceAsText(filename)
             .associate { line ->
                 val (name, connections) = line.split(SIGNAL_DELIMITER, limit = 2)
                 val (type, realName) = ModuleType.parseModule(name)
+
                 realName to Module(realName, type, connections.split(", "))
             }
 
@@ -293,5 +271,10 @@ class PulsePropagation(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

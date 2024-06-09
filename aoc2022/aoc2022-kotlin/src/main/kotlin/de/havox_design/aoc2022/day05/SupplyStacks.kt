@@ -21,6 +21,7 @@ class SupplyStacks(private val filename: String) {
 
                         // Read stack numbers
                         val lastRow = stackRows[stackRows.size - 1]
+
                         for (index in lastRow.indices) {
                             val currentPos = lastRow.substring(index, index + 1)
 
@@ -54,7 +55,6 @@ class SupplyStacks(private val filename: String) {
                     val regex = Regex("\\d+")
                     // Results should Contain entries in format [numberOfItems, fromStackNumber, toStackNumber].
                     val results = regex.findAll(row).map { it.value.toInt() }.toList()
-
                     val numberOfElements = results[0]
                     val fromStack = data[results[1]]!!
                     val toStack = data[results[2]]!!
@@ -82,6 +82,7 @@ class SupplyStacks(private val filename: String) {
                 val topElement = step.fromStack.stack.removeLast()
                 tmpStack.addLast(topElement)
             }
+
             for (i in 1..step.numberOfItems) {
                 val topElement = tmpStack.removeLast()
                 step.toStack.stack.addLast(topElement)
@@ -118,5 +119,10 @@ class SupplyStacks(private val filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String>? =
-        this.javaClass.classLoader.getResourceAsStream(path)?.bufferedReader()?.readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)
+            ?.bufferedReader()
+            ?.readLines()
 }

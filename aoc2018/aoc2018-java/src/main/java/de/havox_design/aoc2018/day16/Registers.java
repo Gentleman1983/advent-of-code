@@ -14,7 +14,8 @@ public record Registers(List<Integer> registers) {
     }
 
     public Registers with(final int register, final int value) {
-        final var result = new ArrayList<>(registers);
+        final List<Integer> result = new ArrayList<>(registers);
+
         result.set(register, value);
 
         return new Registers(Collections.unmodifiableList(result));

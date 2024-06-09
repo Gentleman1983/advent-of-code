@@ -22,11 +22,13 @@ public class FlawedFrequencyTransmission implements AoCFunctionality {
 
     public static String processTask1(String fileName) {
         FlawedFrequencyTransmission instance = new FlawedFrequencyTransmission(fileName);
+
         return instance.processTask1();
     }
 
     public static String processTask2(String fileName) {
         FlawedFrequencyTransmission instance = new FlawedFrequencyTransmission(fileName);
+
         return instance.processTask2();
     }
 
@@ -51,6 +53,7 @@ public class FlawedFrequencyTransmission implements AoCFunctionality {
 
             for (int j = 0; j < inputNumbers.size(); j++) {
                 int sum = calculateSum(j, inputNumbers, patternLength);
+
                 output.add(Math.abs(sum % 10));
             }
             inputNumbers = output;
@@ -77,9 +80,11 @@ public class FlawedFrequencyTransmission implements AoCFunctionality {
                 patternIndex = (patternIndex + 1) % patternLength;
                 repeatAmount = j + 1;
             }
+
             sum += inputNumbers.get(k) * basePattern.get(patternIndex);
             repeatAmount--;
         }
+
         return sum;
     }
 

@@ -13,17 +13,18 @@ public class ChocolateCharts implements AoCFunctionality {
 
     public static String processTask1(String fileName) {
         ChocolateCharts instance = new ChocolateCharts(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         ChocolateCharts instance = new ChocolateCharts(fileName);
+
         return instance.processTask2();
     }
 
     public String processTask1() {
         StringBuilder scores = new StringBuilder("37");
-
         int[] elfIndices = new int[]{0, 1};
 
         while (scores.length() < input + 10) {
@@ -43,7 +44,6 @@ public class ChocolateCharts implements AoCFunctionality {
     public long processTask2() {
         StringBuilder scores = new StringBuilder("37");
         String wanted = String.valueOf(input);
-
         int[] elfIndices = new int[]{0, 1};
         long indexOf = -1L;
 

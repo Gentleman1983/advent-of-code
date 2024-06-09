@@ -20,11 +20,13 @@ public class Turing implements AoCFunctionality {
 
     public static int solvePart1(String fileName) {
         Turing instance = new Turing(fileName);
+
         return instance.solvePart1();
     }
 
     public static int solvePart2(String fileName) {
         Turing instance = new Turing(fileName);
+
         return instance.solvePart2();
     }
 
@@ -39,10 +41,12 @@ public class Turing implements AoCFunctionality {
     private int processData(int initialA, int initialB) {
         List<Operation> operations = tokenStream(input, PATTERN, this::parseOperation).toList();
         State state = new State(initialA, initialB);
+
         while (state.processCount < operations.size()) {
             Operation operation = operations.get(state.processCount);
             operation.operate(state);
         }
+
         return state.registerB;
     }
 
@@ -50,15 +54,19 @@ public class Turing implements AoCFunctionality {
         Operation operation = new Operation();
         operation.op = matcher.group(1);
         String first = matcher.group(2);
+
         if (first.length() == 1 && Character.isLetter(first.charAt(0))) {
             operation.register = first;
         } else {
             operation.value = Integer.parseInt(first);
         }
+
         String second = matcher.group(4);
+
         if (second != null && !second.isEmpty()) {
             operation.value = Integer.parseInt(second);
         }
+
         return operation;
     }
 
@@ -71,6 +79,7 @@ public class Turing implements AoCFunctionality {
 
     public Matcher matchRegex(final Pattern pattern, final CharSequence input) {
         final Matcher matcher = pattern.matcher(input);
+
         if (matcher.matches()) {
             return matcher;
         } else {

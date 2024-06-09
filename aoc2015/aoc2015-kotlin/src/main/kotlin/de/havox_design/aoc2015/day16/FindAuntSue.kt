@@ -9,14 +9,14 @@ class FindAuntSue(private var filename: String) {
     fun processPart1(): Int =
         data
             .toMutableSet()
-            .apply { removeIf{!signature.matchesButOutdated(it)} }
+            .apply { removeIf { !signature.matchesButOutdated(it) } }
             .single()
             .id
 
     fun processPart2(): Int =
         data
             .toMutableSet()
-            .apply { removeIf{ !signature.matchesWithRanges(it)} }
+            .apply { removeIf { !signature.matchesWithRanges(it) } }
             .single()
             .id
 
@@ -27,7 +27,12 @@ class FindAuntSue(private var filename: String) {
             .collect(Collectors.toSet())
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 
     private object AuntSueSignature {
         private val properties: Map<String, Int> = """
@@ -41,23 +46,29 @@ class FindAuntSue(private var filename: String) {
              trees: 3
              cars: 2
              perfumes: 1
-             """.trimIndent().lines()
+             """
+            .trimIndent()
+            .lines()
             .associate { it.substringBefore(": ") to it.substringAfter(": ").toInt() }
 
         fun matchesButOutdated(description: AuntSueDescription): Boolean =
-            description.properties.all { (key, value) ->
-                properties.containsKey(key) && properties[key] == value
-            }
+            description
+                .properties
+                .all { (key, value) ->
+                    properties.containsKey(key) && properties[key] == value
+                }
 
         @SuppressWarnings("kotlin:S6611")
         fun matchesWithRanges(description: AuntSueDescription) =
-            description.properties.all { (key, value) ->
-                properties.containsKey(key) &&
-                        when (key) {
-                            "cats", "trees" -> properties[key]!! < value
-                            "pomeranians", "goldfish" -> properties[key]!! > value
-                            else -> properties[key] == value
-                        }
-            }
+            description
+                .properties
+                .all { (key, value) ->
+                    properties.containsKey(key) &&
+                            when (key) {
+                                "cats", "trees" -> properties[key]!! < value
+                                "pomeranians", "goldfish" -> properties[key]!! > value
+                                else -> properties[key] == value
+                            }
+                }
     }
 }

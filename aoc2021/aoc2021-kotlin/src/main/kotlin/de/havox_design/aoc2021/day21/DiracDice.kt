@@ -1,11 +1,11 @@
 package de.havox_design.aoc2021.day21
 
+import de.havox_design.aoc.utils.kotlin.helpers.cartesianProduct
 import kotlin.math.max
 import kotlin.math.min
 
 class DiracDice(private var filename: String) {
     private val DELIMITER_STARTING_POSITION = ": "
-
     private val data = getResourceAsText(filename)
     val cache = mutableMapOf<GameState, WinCount>()
     val possibleRolls = (1..3)
@@ -70,15 +70,12 @@ class DiracDice(private var filename: String) {
             cachedState != null -> {
                 return cachedState
             }
-
             currentState.score1 >= 21 -> {
                 return WinCount(1, 0)
             }
-
             currentState.score2 >= 21 -> {
                 return WinCount(0, 1)
             }
-
             else -> {
                 val finalWinCount = possibleRolls.map { roll1 ->
                     val pos1 = (currentState.pos1 + roll1 - 1) % 10 + 1
@@ -95,9 +92,6 @@ class DiracDice(private var filename: String) {
             }
         }
     }
-
-    private fun <A, B, R> Iterable<A>.cartesianProduct(other: Iterable<B>, transform: (A, B) -> R): List<R> =
-        flatMap { a -> other.map { b -> transform(a, b) } }
 
     private fun getResourceAsText(path: String): List<String> =
         this

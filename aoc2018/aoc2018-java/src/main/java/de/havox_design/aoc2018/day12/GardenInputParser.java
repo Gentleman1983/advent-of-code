@@ -16,6 +16,7 @@ public class GardenInputParser {
 
     public GardenInput parse(List<String> input) {
         Matcher initialStateMatcher = INITIAL_STATE_PATTERN.matcher(input.getFirst());
+
         if (initialStateMatcher.matches()) {
             List<Boolean> initialState = Arrays
                     .stream(initialStateMatcher.group(1).split("(?!^)"))
@@ -25,6 +26,7 @@ public class GardenInputParser {
 
             for (int i = 2; i < input.size(); i++) {
                 Matcher spreadMatcher = SPREAD_PATTERN.matcher(input.get(i));
+
                 if (!spreadMatcher.matches()) {
                     throw new IllegalArgumentException(EXCEPTION_MESSAGE);
                 }

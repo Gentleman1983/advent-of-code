@@ -15,11 +15,13 @@ public class PacketScanners implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         PacketScanners instance = new PacketScanners(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         PacketScanners instance = new PacketScanners(fileName);
+
         return instance.solvePart2();
     }
 

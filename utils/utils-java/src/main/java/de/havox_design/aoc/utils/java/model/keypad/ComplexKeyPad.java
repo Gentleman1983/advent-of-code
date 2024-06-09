@@ -5,7 +5,6 @@ import java.util.Set;
 
 public class ComplexKeyPad extends KeyPad {
     private static KeyPad instance;
-
     public static final Key ONE = new Key(2, 0);
     public static final Key TWO = new Key(1, 1);
     public static final Key THREE = new Key(2, 1);

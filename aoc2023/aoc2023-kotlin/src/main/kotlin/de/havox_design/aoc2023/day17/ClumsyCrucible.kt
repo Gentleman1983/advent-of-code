@@ -1,5 +1,6 @@
 package de.havox_design.aoc2023.day17
 
+import de.havox_design.aoc.utils.kotlin.helpers.priorityQueueOf
 import de.havox_design.aoc.utils.kotlin.model.coordinates.*
 import java.util.*
 
@@ -58,13 +59,6 @@ class ClumsyCrucible(private var filename: String) {
 
     }
 
-    private fun <T> priorityQueueOf(comparator: Comparator<T>, vararg args: T): PriorityQueue<T> {
-        val queue = PriorityQueue<T>(comparator)
-        queue.addAll(args)
-
-        return queue
-    }
-
     private fun parseCoordinateMap(): Map<Coordinate, Int> =
         getResourceAsText(filename)
             .flatMapIndexed { rowNumber, row ->
@@ -75,7 +69,12 @@ class ClumsyCrucible(private var filename: String) {
             .toMap()
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 
     private fun Char.toIntValue() =
         code - '0'.code

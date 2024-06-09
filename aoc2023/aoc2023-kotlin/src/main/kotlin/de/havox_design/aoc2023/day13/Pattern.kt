@@ -99,12 +99,14 @@ data class Pattern(val rows: List<String>) {
     private fun List<String>.flipMirror(rowIndex: Int, columnIndex: Int): List<String> {
         val mutableList = this.toMutableList()
         val rowToReplace = mutableList[rowIndex].toMutableList()
+
         rowToReplace[columnIndex] = when {
             rowToReplace[columnIndex] == ICON_ASH -> ICON_ROCK
             else -> ICON_ASH
         }
         mutableList[rowIndex] = rowToReplace.joinToString("")
 
-        return mutableList.toList()
+        return mutableList
+            .toList()
     }
 }

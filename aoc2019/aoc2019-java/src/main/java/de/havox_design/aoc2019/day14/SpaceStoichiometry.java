@@ -27,11 +27,13 @@ public class SpaceStoichiometry implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         SpaceStoichiometry instance = new SpaceStoichiometry(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         SpaceStoichiometry instance = new SpaceStoichiometry(fileName);
+
         return instance.processTask2();
     }
 
@@ -119,10 +121,10 @@ public class SpaceStoichiometry implements AoCFunctionality {
         return recipes
                 .keySet()
                 .stream()
-                .anyMatch(key -> compairKeys(key, chemical));
+                .anyMatch(key -> compareKeys(key, chemical));
     }
 
-    private boolean compairKeys(Pair<String, Integer> chemicalA, Pair<String, Integer> chemicalB) {
+    private boolean compareKeys(Pair<String, Integer> chemicalA, Pair<String, Integer> chemicalB) {
         return chemicalA.getKey().equals(chemicalB.getKey());
     }
 
@@ -133,7 +135,7 @@ public class SpaceStoichiometry implements AoCFunctionality {
         return recipes
                 .entrySet()
                 .stream()
-                .filter(entry -> compairKeys(entry.getKey(), chemical))
+                .filter(entry -> compareKeys(entry.getKey(), chemical))
                 .findFirst()
                 .orElseThrow()
                 .getValue();
@@ -189,6 +191,7 @@ public class SpaceStoichiometry implements AoCFunctionality {
 
             reactionComponents.add(reactionPair);
         }
+
         return reactionComponents;
     }
 }

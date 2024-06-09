@@ -49,27 +49,49 @@ class Monkey(
     }
 
     override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
+        if (this === other) {
+            return true
+        }
+
+        if (javaClass != other?.javaClass) {
+            return false
+        }
 
         other as Monkey
 
-        if (id != other.id) return false
-        if (startingItems != other.startingItems) return false
-        if (divisibleBy != other.divisibleBy) return false
-        if (falseThrowToMonkey != other.falseThrowToMonkey) return false
-        if (trueThrowToMonkey != other.trueThrowToMonkey) return false
+        if (id != other.id) {
+            return false
+        }
+
+        if (startingItems != other.startingItems) {
+            return false
+        }
+
+        if (divisibleBy != other.divisibleBy) {
+            return false
+        }
+
+        if (falseThrowToMonkey != other.falseThrowToMonkey) {
+            return false
+        }
+
+        if (trueThrowToMonkey != other.trueThrowToMonkey) {
+            return false
+        }
 
         return true
     }
 
     override fun hashCode(): Int {
         var result: Long = id.toLong()
+
         result = 31 * result + startingItems.hashCode()
         result = 31 * result + divisibleBy.toLong()
         result = 31 * result + falseThrowToMonkey
         result = 31 * result + trueThrowToMonkey
-        return (result % Int.MAX_VALUE.toLong()).toInt()
+
+        return (result % Int.MAX_VALUE.toLong())
+            .toInt()
     }
 
     companion object {

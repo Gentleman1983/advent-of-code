@@ -1,5 +1,6 @@
 package de.havox_design.aoc2021.day13
 
+import de.havox_design.aoc.utils.kotlin.helpers.parseInts
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 
 class TransparantOrigami(private var filename: String) {
@@ -84,12 +85,6 @@ class TransparantOrigami(private var filename: String) {
                     }
             }
     }
-
-    private fun String?.parseInts(vararg delimiters: String, radix: Int = 10): List<Int> =
-        this
-            ?.split(*delimiters)
-            ?.mapNotNull { it.trim().toIntOrNull(radix) }
-            .orEmpty()
 
     private fun getResourceAsText(path: String): String =
         this

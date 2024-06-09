@@ -7,7 +7,6 @@ class Computer(
 ) {
     private val state = ComputerState()
 
-
     fun execute() {
         while (!program.read(state.counter).isHaltOpcode() && !state.pause) {
             val opcode = program.read(state.counter)
@@ -105,7 +104,6 @@ class Computer(
         }
     }
 
-
     private fun inputCommand(mode: Char) {
         if (inputSupplier != null) {
             writeValue(state.counter + 1, inputSupplier!!.invoke(state.inputCounter), mode)
@@ -114,7 +112,6 @@ class Computer(
         } else
             error("Supplier is not specified")
     }
-
 
     private fun isEquals(modes: String) =
         compareCommand(modes) { x, y -> x == y }
@@ -174,7 +171,6 @@ class Computer(
 
         state.adjustRelativeAddress(operand1.toInt())
         state.increaseCounter(2)
-
     }
 
     private fun compareCommand(modes: String, compare: (Long, Long) -> Boolean) {
@@ -193,7 +189,6 @@ class Computer(
     fun isReady() =
         state
             .isReady
-
 
     fun resume() {
         state.pause = false

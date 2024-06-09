@@ -19,11 +19,13 @@ public class FractalArt implements AoCFunctionality {
 
     public static long solvePart1(String fileName, int iterations) {
         FractalArt instance = new FractalArt(fileName);
+
         return instance.solvePart1(iterations);
     }
 
     public static long solvePart2(String fileName) {
         FractalArt instance = new FractalArt(fileName);
+
         return instance.solvePart2();
     }
 

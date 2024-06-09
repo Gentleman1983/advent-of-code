@@ -1,8 +1,5 @@
 package de.havox_design.aoc2021.day06
 
-import java.util.*
-
-
 class Laternfish(private var filename: String) {
     private val FISH_DELIMITER = ","
     private val FISH_TIMER_BIRTH = -1

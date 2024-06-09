@@ -1,5 +1,7 @@
 package de.havox_design.aoc2020.day19
 
+import de.havox_design.aoc.utils.kotlin.helpers.toPair
+
 class MonsterMessages(private var filename: String) {
     private val data = getResourceAsText(filename)
 
@@ -95,9 +97,6 @@ class MonsterMessages(private var filename: String) {
         private val CHAR_RULE_PATTERN = "\"(.)\"".toRegex()
     }
 }
-
-private fun <T> List<T>.toPair(): Pair<T, T> =
-    Pair(get(0), get(1))
 
 private fun String?.parseInts(vararg delimiters: String, radix: Int = 10): List<Int> =
     this

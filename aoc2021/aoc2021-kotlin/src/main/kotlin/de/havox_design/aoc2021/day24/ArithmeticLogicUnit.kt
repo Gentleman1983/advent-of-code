@@ -71,7 +71,6 @@ class ArithmeticLogicUnit(private var filename: String) {
 
     companion object {
         private val DIGITS = 1..9
-
         val MAPPING =
             listOf(
                 'w',

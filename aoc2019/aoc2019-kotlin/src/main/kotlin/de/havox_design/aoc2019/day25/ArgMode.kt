@@ -15,5 +15,5 @@ enum class ArgMode(
     RELATIVE(
         { value, intCode -> intCode[intCode.relativeBase + value.toInt()] },
         { value, intCode -> value.toInt() + intCode.relativeBase }
-    ),
+    )
 }

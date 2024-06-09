@@ -9,7 +9,6 @@ public class PathResult<T> {
     private final long distance;
     private final boolean target;
     private final PathResult<T> prev;
-
     private List<T> path;
 
     public PathResult(T node, long distance, boolean target, PathResult<T> prev) {

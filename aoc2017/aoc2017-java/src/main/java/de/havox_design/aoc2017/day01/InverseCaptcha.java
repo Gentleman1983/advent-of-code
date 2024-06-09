@@ -16,16 +16,19 @@ public class InverseCaptcha implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         InverseCaptcha instance = new InverseCaptcha(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         InverseCaptcha instance = new InverseCaptcha(fileName);
+
         return instance.solvePart2();
     }
 
     public long solvePart1() {
         List<Integer> data = parseInput();
+
         data.add(data.get(0));
 
         long sum = 0L;

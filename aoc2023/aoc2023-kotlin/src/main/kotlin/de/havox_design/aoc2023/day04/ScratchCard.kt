@@ -11,6 +11,7 @@ data class ScratchCard(val winningNumbers: List<Int>, val playerNumbers: List<In
                 score *= 2
             }
         }
+
         return score
     }
 

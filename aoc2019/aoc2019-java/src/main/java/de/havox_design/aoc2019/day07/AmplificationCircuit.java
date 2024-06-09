@@ -25,11 +25,13 @@ public class AmplificationCircuit implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         AmplificationCircuit instance = new AmplificationCircuit(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         AmplificationCircuit instance = new AmplificationCircuit(fileName);
+
         return instance.processTask2();
     }
 
@@ -58,7 +60,9 @@ public class AmplificationCircuit implements AoCFunctionality {
 
         while (settings.hasNext()) {
             previousConnection.add(settings.next().longValue());
+
             BlockingQueue<Long> nextConnection = settings.hasNext() ? new LinkedBlockingQueue<>() : firstConnection;
+
             computers.add(IntComputer.runComputer(input, previousConnection, nextConnection, true));
             previousConnection = nextConnection;
         }

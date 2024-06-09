@@ -39,11 +39,13 @@ data class Searcher(
         return if (landscape.canVisitFieldFrom(currentPosition, position)) {
             val newMap = map.toMutableList()
             val row = newMap[currentPosition.y].toMutableList()
+
             row[currentPosition.x] = symbol
             newMap[currentPosition.y] = row.toList()
             landscape.visit(position)
 
             val newSearcher = Searcher(newMap.toList(), position, landscape, step + 1)
+
             listOf(newSearcher)
         } else {
             emptyList()

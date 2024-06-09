@@ -17,16 +17,19 @@ public class MineCartMadness implements AoCFunctionality {
 
     public MineCartMadness(String fileName) {
         MineParser parser = new MineParser();
+
         input = parser.parse(readData(fileName));
     }
 
     public static String processTask1(String fileName) {
         MineCartMadness instance = new MineCartMadness(fileName);
+
         return instance.processTask1();
     }
 
     public static String processTask2(String fileName) {
         MineCartMadness instance = new MineCartMadness(fileName);
+
         return instance.processTask2();
     }
 
@@ -106,11 +109,13 @@ public class MineCartMadness implements AoCFunctionality {
                 if (c.equals(d)) {
                     continue;
                 }
+
                 if (c.location().equals(d.location())) {
                     return c.location();
                 }
             }
         }
+
         return null;
     }
 
@@ -126,7 +131,6 @@ public class MineCartMadness implements AoCFunctionality {
                 cart.location().getX() + currentCartDirection.dx(),
                 cart.location().getY() + currentCartDirection.dy()
         );
-
         Path nextPath = input.paths()[nextLocation.getX()][nextLocation.getY()];
         FourDirectionsFlipped nextDirection;
 
@@ -146,6 +150,7 @@ public class MineCartMadness implements AoCFunctionality {
 
     private Iterator<String> getTurns() {
         String[] turns = new String[]{TURN_LEFT, TURN_STRAIGHT, TURN_RIGHT};
+
         return IntStream
                 .iterate(0, i -> (i + 1) % turns.length)
                 .mapToObj(i -> turns[i])

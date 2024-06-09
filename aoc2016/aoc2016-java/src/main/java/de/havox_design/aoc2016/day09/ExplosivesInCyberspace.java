@@ -14,16 +14,18 @@ public class ExplosivesInCyberspace implements AoCFunctionality {
     private final String input;
 
     public ExplosivesInCyberspace(String fileName) {
-        input = readData(fileName).get(0);
+        input = readData(fileName).getFirst();
     }
 
     public static long solvePart1(String fileName) {
         ExplosivesInCyberspace instance = new ExplosivesInCyberspace(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         ExplosivesInCyberspace instance = new ExplosivesInCyberspace(fileName);
+
         return instance.solvePart2();
     }
 
@@ -37,8 +39,9 @@ public class ExplosivesInCyberspace implements AoCFunctionality {
 
     @SuppressWarnings("squid:S127")
     private static long process(String input, boolean isNested) {
-        var length = 0L;
+        long length = 0L;
         Marker marker = null;
+
         for (int i = 0; i < input.length(); ) {
             if (marker == null) {
                 if (input.charAt(i) == MARKER_FORMAT.charAt(0)) {
@@ -58,11 +61,13 @@ public class ExplosivesInCyberspace implements AoCFunctionality {
                 marker = null;
             }
         }
+
         return length;
     }
 
     private static Marker parseMarker(int index, String input) {
-        return Optional.of(
+        return Optional
+                .of(
                         PATTERN.matcher(
                                 input.substring(index + 1, input.indexOf(MARKER_FORMAT.charAt(6), index + 1))
                         )

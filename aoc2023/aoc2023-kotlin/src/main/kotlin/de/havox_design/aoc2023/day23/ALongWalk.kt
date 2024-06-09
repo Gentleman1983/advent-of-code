@@ -1,5 +1,6 @@
 package de.havox_design.aoc2023.day23
 
+import de.havox_design.aoc.utils.kotlin.helpers.priorityQueueOf
 import de.havox_design.aoc.utils.kotlin.model.coordinates.*
 import java.util.*
 
@@ -10,7 +11,6 @@ class ALongWalk(private var filename: String) {
     private val ICON_SLOPE_LEFT = '<'
     private val ICON_SLOPE_RIGHT = '>'
     private val ICON_SLOPE_UP = '^'
-
 
     fun solvePart1(): Long =
         findLongestWay(parseCoordinateMap())
@@ -44,6 +44,7 @@ class ALongWalk(private var filename: String) {
         var longestTrail = 0L
 
         queue.add(Triple(start, 0L, setOf(start)))
+
         while (queue.isNotEmpty()) {
             val (current, length, path) = queue.poll()
 
@@ -72,6 +73,7 @@ class ALongWalk(private var filename: String) {
                 .map { (_, it) -> Triple(it, length + 1, path + it) }
                 .toCollection(queue)
         }
+
         return longestTrail
     }
 
@@ -104,6 +106,7 @@ class ALongWalk(private var filename: String) {
         val fixQueue = canBeFixed
             .keys
             .toMutableList()
+
         while (fixQueue.isNotEmpty()) {
             val current = fixQueue.removeFirst()
 
@@ -145,7 +148,6 @@ class ALongWalk(private var filename: String) {
                         else -> it
                     }
                 }
-
             adjacencyMap[to] = adjacencyMap[to]!!
                 .mapNotNull {
                     when (it) {
@@ -154,7 +156,6 @@ class ALongWalk(private var filename: String) {
                         else -> it
                     }
                 }
-
             distanceMap[from to to] = diff
             distanceMap[to to from] = diff
         }
@@ -210,13 +211,6 @@ class ALongWalk(private var filename: String) {
             FourDirectionsFlipped.UP -> ICON_SLOPE_DOWN
         }
 
-    private fun <T> priorityQueueOf(comparator: java.util.Comparator<T>, vararg args: T): PriorityQueue<T> {
-        val queue = PriorityQueue<T>(comparator)
-        queue.addAll(args)
-
-        return queue
-    }
-
     private fun parseCoordinateMap(): Map<Coordinate, Char> =
         getResourceAsText(filename)
             .flatMapIndexed { rowNumber, row ->
@@ -228,5 +222,10 @@ class ALongWalk(private var filename: String) {
             .toMap()
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

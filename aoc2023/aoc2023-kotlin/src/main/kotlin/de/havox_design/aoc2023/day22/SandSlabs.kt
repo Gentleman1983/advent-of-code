@@ -9,19 +9,21 @@ class SandSlabs(private var filename: String) {
     private val ID_BRICK_START_X = 0
     private val ID_BRICK_START_Y = 1
     private val ID_BRICK_START_Z = 2
-
     private val number = Regex("-?\\d+")
-
     private var results: Pair<Long, Long>? = null
 
     fun solvePart1(): Long {
         calculateResults()
-        return results!!.first
+
+        return results!!
+            .first
     }
 
     fun solvePart2(): Long {
         calculateResults()
-        return results!!.second
+
+        return results!!
+            .second
     }
 
     @SuppressWarnings("kotlin:S3776")
@@ -60,6 +62,7 @@ class SandSlabs(private var filename: String) {
 
         for (i in 0..<bricks.size) {
             val save = bricks[i]
+
             bricks[i] = Brick(
                 Position3d(-1, -1, -1),
                 Position3d(-1, -1, -1)
@@ -90,7 +93,12 @@ class SandSlabs(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 
     companion object {
         private val bricks = ArrayList<Brick>()

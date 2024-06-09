@@ -19,11 +19,13 @@ public class CorruptionChecksum implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         CorruptionChecksum instance = new CorruptionChecksum(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         CorruptionChecksum instance = new CorruptionChecksum(fileName);
+
         return instance.solvePart2();
     }
 
@@ -66,7 +68,6 @@ public class CorruptionChecksum implements AoCFunctionality {
 
     private int calculateChecksum(List<Integer> integers) {
         String errorMessage = "No data in row " + integers;
-
         int min = integers
                 .stream()
                 .min(Integer::compare)
@@ -84,7 +85,6 @@ public class CorruptionChecksum implements AoCFunctionality {
 
         for (String row : input) {
             String[] splittedRow = row.split("\\s+");
-
             List<Integer> numbers = Arrays
                     .stream(splittedRow)
                     .map(String::trim)

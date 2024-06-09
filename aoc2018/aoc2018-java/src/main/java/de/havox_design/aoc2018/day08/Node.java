@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Node {
     private int size;
-
     private final List<Node> children = new ArrayList<>();
     private List<Integer> metaData = new ArrayList<>();
 

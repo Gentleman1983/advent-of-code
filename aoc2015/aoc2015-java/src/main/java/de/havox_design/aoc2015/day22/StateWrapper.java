@@ -24,12 +24,15 @@ public  class StateWrapper<S> {
 
     public List<S> getStates() {
         final List<S> stateList;
+
         if (predecessor == null) {
             stateList = new ArrayList<>();
         } else {
             stateList = predecessor.getStates();
         }
+
         stateList.add(state);
+
         return stateList;
     }
 }

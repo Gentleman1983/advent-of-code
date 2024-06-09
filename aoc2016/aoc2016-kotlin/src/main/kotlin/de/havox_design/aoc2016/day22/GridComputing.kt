@@ -8,6 +8,7 @@ class GridComputing(private var filename: String) {
         val nodes = getResourceAsText(filename)
             .drop(2)
             .mapNotNull { parse(it) }
+
         return nodes
             .flatMap { node ->
                 nodes.mapNotNull { other ->
@@ -41,5 +42,10 @@ class GridComputing(private var filename: String) {
             ?.let { (x, y, size, used) -> Node(Position2d(x.toInt(), y.toInt()), size.toInt(), used.toInt()) }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

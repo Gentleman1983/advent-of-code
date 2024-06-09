@@ -24,11 +24,13 @@ class MonkeyMap(private var filename: String) {
     }
 
     fun processPart2(): Int =
-        MonkeyCubeSolver().solvePart2(getResourceAsText(filename).toMutableList())
+        MonkeyCubeSolver()
+            .solvePart2(getResourceAsText(filename).toMutableList())
 
     private fun readFile(): List<String> {
         val input = getResourceAsText(filename).toMutableList()
         val orderRow = input[input.size - 1]
+
         input -= orderRow
         // remove empty row at the end
         input.removeAt(input.size - 1)
@@ -57,6 +59,7 @@ class MonkeyMap(private var filename: String) {
             }
 
             val currentCharIsDigit = char.isDigit()
+
             if(currentCharIsDigit != isDigit) {
                 orders += currentOrder
                 currentOrder = ""
@@ -71,7 +74,12 @@ class MonkeyMap(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 
     private fun String.isMove(): Boolean =
         this.isEmpty() || this[0].isDigit()

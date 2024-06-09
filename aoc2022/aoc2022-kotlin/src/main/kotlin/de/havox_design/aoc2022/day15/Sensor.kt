@@ -7,7 +7,9 @@ class Sensor(val location: Point2D, closestBeacon: Point2D) {
 
     fun findRange(y: Int): IntRange? {
         val scanWidth = distance - (location.y - y).absoluteValue
-        return (location.x - scanWidth..location.x + scanWidth).takeIf { it.first <= it.last }
+
+        return (location.x - scanWidth..location.x + scanWidth)
+            .takeIf { it.first <= it.last }
     }
 
     fun isInRange(other: Point2D): Boolean =

@@ -18,13 +18,13 @@ class HauntedWasteland(private var filename: String) {
         convertInput()
         val startNodeName = "AAA"
         val endNodeName = "ZZZ"
-
         var steps = 0L
         var currentNode = NODES.first { node -> node.name == startNodeName }
         var instructionIndex = 0
 
         while (currentNode.name != endNodeName) {
             val currentInstruction = INSTRUCTIONS[instructionIndex]
+
             instructionIndex++
             instructionIndex %= INSTRUCTIONS.size
             currentNode = currentNode.getNode(currentInstruction)
@@ -94,7 +94,9 @@ class HauntedWasteland(private var filename: String) {
 
             val row = input[index]
             val matcher = NODE_PATTERN.matcher(row)
+
             matcher.matches()
+
             val nodeName = matcher.group(PATTERN_GROUP_NODE_NAME)
             val leftNodeName = matcher.group(PATTERN_GROUP_LEFT_NODE_NAME)
             val rightNodeName = matcher.group(PATTERN_GROUP_RIGHT_NODE_NAME)
@@ -107,7 +109,6 @@ class HauntedWasteland(private var filename: String) {
             val nodeName = entry.first
             val leftName = entry.second
             val rightName = entry.third
-
             val node = NODES.first { n -> n.name == nodeName }
             val left = NODES.first { n -> n.name == leftName }
             val right = NODES.first { n -> n.name == rightName }
@@ -117,5 +118,10 @@ class HauntedWasteland(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

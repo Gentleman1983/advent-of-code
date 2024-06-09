@@ -25,11 +25,13 @@ public class TractorBeam implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         TractorBeam instance = new TractorBeam(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         TractorBeam instance = new TractorBeam(fileName);
+
         return instance.processTask2();
     }
 
@@ -93,6 +95,7 @@ public class TractorBeam implements AoCFunctionality {
 
         try {
             IntComputer.runComputer(program, in, out, false);
+
             return out.take();
         } catch (InterruptedException e) {
             throw new AdventOfCodeException(e);

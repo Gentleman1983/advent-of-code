@@ -15,7 +15,6 @@ public class DonutMaze implements AoCFunctionality {
     private static final char ICON_WALL = '#';
 
     private final List<String> input;
-
     private long direction = 0L;
 
     public DonutMaze(String fileName) {
@@ -24,11 +23,13 @@ public class DonutMaze implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         DonutMaze instance = new DonutMaze(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         DonutMaze instance = new DonutMaze(fileName);
+
         return instance.processTask2();
     }
 

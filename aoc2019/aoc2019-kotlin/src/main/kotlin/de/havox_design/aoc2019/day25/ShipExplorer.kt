@@ -1,8 +1,8 @@
 package de.havox_design.aoc2019.day25
 
+import de.havox_design.aoc.utils.kotlin.helpers.drainToList
 import de.havox_design.aoc.utils.kotlin.model.directions.GeoDirection
 import java.util.*
-import java.util.concurrent.BlockingQueue
 import java.util.concurrent.CancellationException
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ExecutionException
@@ -294,13 +294,5 @@ class ShipExplorer(private val program: List<Long>) {
             ?.run {
                 subList(0, lastIndex)
             } ?: emptyList()
-    }
-
-    private fun <T> BlockingQueue<T>.drainToList(): List<T> {
-        val outputList = mutableListOf<T>()
-
-        drainTo(outputList)
-
-        return outputList
     }
 }

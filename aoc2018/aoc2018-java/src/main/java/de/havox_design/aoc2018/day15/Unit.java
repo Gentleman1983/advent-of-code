@@ -17,8 +17,6 @@ public class Unit {
         this.setLocation(location);
     }
 
-
-
     public Unit(final int id, final Team team, int health, int attackPower, final Coordinate location) {
         this(id, team, location);
         this.setHealth(health);

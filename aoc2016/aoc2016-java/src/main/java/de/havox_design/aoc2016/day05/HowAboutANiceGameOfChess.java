@@ -13,16 +13,18 @@ public class HowAboutANiceGameOfChess implements AoCFunctionality {
     private final String input;
 
     public HowAboutANiceGameOfChess(String fileName) {
-        input = readData(fileName).get(0);
+        input = readData(fileName).getFirst();
     }
 
     public static String solvePart1(String fileName) {
         HowAboutANiceGameOfChess instance = new HowAboutANiceGameOfChess(fileName);
+
         return instance.solvePart1();
     }
 
     public static String solvePart2(String fileName) {
         HowAboutANiceGameOfChess instance = new HowAboutANiceGameOfChess(fileName);
+
         return instance.solvePart2();
     }
 
@@ -43,7 +45,8 @@ public class HowAboutANiceGameOfChess implements AoCFunctionality {
         var pattern = Pattern.compile("^00000[0-7]");
 
         for (long i = 0; password.contains(" "); i++) {
-            var md5 = DigestUtils.md5Hex(input + i);
+            String md5 = DigestUtils.md5Hex(input + i);
+
             if (pattern.matcher(md5).find()) {
                 var index = Integer.parseInt(String.valueOf(md5.charAt(5)));
 

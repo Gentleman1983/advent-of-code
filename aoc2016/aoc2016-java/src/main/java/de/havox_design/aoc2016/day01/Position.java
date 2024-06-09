@@ -8,15 +8,18 @@ public record Position(Direction direction, Point point) {
 
     public Position next(String instruction) {
         Matcher matcher = PATTERN.matcher(instruction);
+
         if (!matcher.matches()) {
             throw new IllegalArgumentException("Unmatched instruction " + instruction + ".");
         }
+
         int offset = Integer.parseInt(matcher.group("offset"));
         Direction nextDirection = switch (matcher.group("turn")) {
             case "L" -> direction.left();
             case "R" -> direction.right();
             default -> throw new IllegalArgumentException("Unexpected turn.");
         };
+
         return new Position(nextDirection, nextDirection.next(point, offset));
     }
 }

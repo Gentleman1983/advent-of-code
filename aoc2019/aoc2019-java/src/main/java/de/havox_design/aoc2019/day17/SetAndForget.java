@@ -54,11 +54,13 @@ public class SetAndForget implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         SetAndForget instance = new SetAndForget(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         SetAndForget instance = new SetAndForget(fileName);
+
         return instance.processTask2();
     }
 
@@ -74,7 +76,6 @@ public class SetAndForget implements AoCFunctionality {
         BlockingQueue<Long> in = new LinkedBlockingQueue<>();
         BlockingDeque<Long> out = new LinkedBlockingDeque<>();
         IntComputer.runComputer(input, in, out, false);
-
         Map<Pair<Long, Long>, Character> grid = initializeGrid(out);
 
         return computeIntersections(grid);
@@ -90,6 +91,7 @@ public class SetAndForget implements AoCFunctionality {
 
             grid.put(Pair.of(position), c);
             position = Pair.of(position.getLeft() + 1, position.getRight());
+
             if (symbol == '\n') {
                 position = Pair.of(0L, position.getRight() + 1);
             }
@@ -106,6 +108,7 @@ public class SetAndForget implements AoCFunctionality {
                 result += (point.getLeft() * point.getRight());
             }
         }
+
         return result;
     }
 
@@ -128,19 +131,17 @@ public class SetAndForget implements AoCFunctionality {
         BlockingQueue<Long> in = new LinkedBlockingQueue<>();
         BlockingDeque<Long> out = new LinkedBlockingDeque<>();
         IntComputer.runComputer(input, in, out, false);
-
         Map<Pair<Long, Long>, Character> grid = initializeGrid(out);
-
         String[] commands = findCommands(findMovements(grid));
         Arrays
                 .stream(commands)
                 .map(String::chars)
                 .flatMap(IntStream::boxed)
                 .forEach(c -> in.add(c.longValue()));
-
         List<Long> program = new ArrayList<>(input);
 
         program.set(0, 2L);
+
         IntComputer.runComputer(program, in, out, false);
 
         return out.removeLast();
@@ -167,7 +168,6 @@ public class SetAndForget implements AoCFunctionality {
                 .replaceAll(functionB, ICON_FUNCTION_B)
                 .replaceAll(functionC, ICON_FUNCTION_C)
                 .replaceAll(",$", ICON_EMPTY);
-
         String[] commands = new String[5];
 
         commands[0] = mainRoutine + '\n';
@@ -208,6 +208,7 @@ public class SetAndForget implements AoCFunctionality {
                 }
 
                 assert direction != null;
+
                 if (grid.getOrDefault(
                         MOVE_POSITION.get(direction.turnRight()).apply(droid),
                         ICON_OPEN_SPACE) == ICON_SCAFFOLD) {

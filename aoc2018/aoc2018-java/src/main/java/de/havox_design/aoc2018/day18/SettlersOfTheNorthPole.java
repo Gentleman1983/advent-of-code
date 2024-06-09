@@ -19,11 +19,13 @@ public class SettlersOfTheNorthPole implements AoCFunctionality {
 
     public static long processTask1(String fileName, long endMinute) {
         SettlersOfTheNorthPole instance = new SettlersOfTheNorthPole(fileName);
+
         return instance.processTask1(endMinute);
     }
 
     public static long processTask2(String fileName) { // This takes ages... ;)
         SettlersOfTheNorthPole instance = new SettlersOfTheNorthPole(fileName);
+
         return instance.processTask2();
     }
 
@@ -105,10 +107,8 @@ public class SettlersOfTheNorthPole implements AoCFunctionality {
         getTile(map, row - 1, column - 1).ifPresent(surroundingTiles::add);
         getTile(map, row - 1, column).ifPresent(surroundingTiles::add);
         getTile(map, row - 1, column + 1).ifPresent(surroundingTiles::add);
-
         getTile(map, row, column - 1).ifPresent(surroundingTiles::add);
         getTile(map, row, column + 1).ifPresent(surroundingTiles::add);
-
         getTile(map, row + 1, column - 1).ifPresent(surroundingTiles::add);
         getTile(map, row + 1, column).ifPresent(surroundingTiles::add);
         getTile(map, row + 1, column + 1).ifPresent(surroundingTiles::add);

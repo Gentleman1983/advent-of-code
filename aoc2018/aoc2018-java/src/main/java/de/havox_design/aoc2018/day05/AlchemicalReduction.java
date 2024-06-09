@@ -16,11 +16,13 @@ public class AlchemicalReduction implements AoCFunctionality {
 
     public static int processTask1(String fileName) {
         AlchemicalReduction instance = new AlchemicalReduction(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         AlchemicalReduction instance = new AlchemicalReduction(fileName);
+
         return instance.processTask2();
     }
 

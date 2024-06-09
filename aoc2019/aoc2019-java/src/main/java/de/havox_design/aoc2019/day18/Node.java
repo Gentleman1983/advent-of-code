@@ -32,12 +32,12 @@ public class Node {
         if (this == o) {
             return true;
         }
+
         if (!(o instanceof Node tmp)) {
             return false;
         }
 
         return this.keys == tmp.keys && this.pos.equals(tmp.pos);
-
     }
 
     @Override

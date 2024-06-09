@@ -19,6 +19,7 @@ public class DeliveryNetwork implements Comparable<DeliveryNetwork> {
         if (history.contains(next)) {
             throw new IllegalArgumentException("city: " + next + " is already visited");
         }
+
         steps.addAll(history.steps);
         seen.addAll(history.seen);
         steps.add(next);
@@ -43,8 +44,12 @@ public class DeliveryNetwork implements Comparable<DeliveryNetwork> {
     }
 
     List<DeliveryNetwork> getNexts(Map<String, Integer> availables) {
-        return availables.entrySet().stream().filter(e -> !contains(e.getKey()))
-                .map(e -> new DeliveryNetwork(e.getKey(), e.getValue(), this)).toList();
+        return availables
+                .entrySet()
+                .stream()
+                .filter(e -> !contains(e.getKey()))
+                .map(e -> new DeliveryNetwork(e.getKey(), e.getValue(), this))
+                .toList();
     }
 
     @Override

@@ -16,6 +16,7 @@ public class JSONAbacus implements AoCFunctionality {
 
     public static int solvePart1(String fileName) {
         JSONAbacus instance = new JSONAbacus(fileName);
+
         return instance.solvePart1();
     }
 
@@ -37,6 +38,7 @@ public class JSONAbacus implements AoCFunctionality {
     @SuppressWarnings("squid:S2259")
     public int solvePart2() {
         JSONEntity e = readEntity(new CharacterIterator(input));
+
         return e
                 .getIntegersWithoutRed()
                 .stream()
@@ -47,9 +49,11 @@ public class JSONAbacus implements AoCFunctionality {
     private JSONEntity readEntity(CharacterIterator iterator) {
         if (iterator.hasNext()) {
             char c = iterator.next();
+
             if (c == ',') {
                 c = iterator.next();
             }
+
             if (c == '{') {
                 return readObject(iterator);
             } else if (c == '[') {
@@ -62,6 +66,7 @@ public class JSONAbacus implements AoCFunctionality {
                 return null;
             }
         }
+
         return null;
     }
 
@@ -69,69 +74,91 @@ public class JSONAbacus implements AoCFunctionality {
         JSONObject result = new JSONObject();
         String key = null;
         char current = iterator.current();
+
         while (iterator.hasNext() && current != '}' && (key = readKey(iterator)) != null) {
             char colon = iterator.next();
+
             if (colon != ':') {
                 throw new IllegalStateException("expected ':' but got '" + colon + "'");
             }
+
             JSONEntity entity = readEntity(iterator);
+
             result.put(key, entity);
             current = iterator.current();
         }
+
         if (current == '}') {
             iterator.next();
         }
+
         return result;
     }
 
     private String readKey(CharacterIterator iterator) {
         char c = iterator.next();
+
         if (c == ',') {
             iterator.next();
         }
+
         c = iterator.next();
+
         StringBuilder keyBuilder = new StringBuilder();
+
         while (iterator.hasNext() && c != '"') {
             keyBuilder.append(c);
             c = iterator.next();
         }
+
         return keyBuilder.toString();
     }
 
     private JSONArray readArray(CharacterIterator iterator) {
         JSONArray result = new JSONArray();
         JSONEntity entity = null;
+
         while (iterator.hasNext() && ((entity = readEntity(iterator)) != null)) {
             result.add(entity);
         }
+
         return result;
     }
 
     private JSONString readString(CharacterIterator iterator) {
         StringBuilder string = new StringBuilder();
         char c = iterator.next();
+
         while (iterator.hasNext() && c != '"') {
             string.append(c);
             c = iterator.next();
         }
+
         return new JSONString(string.toString());
     }
 
     private JSONNumber readNumber(char startChar, CharacterIterator iterator) {
         StringBuilder numberBuilder = new StringBuilder();
+
         numberBuilder.append(startChar);
+
         char c = iterator.next();
+
         while (iterator.hasNext() && JSONNumber.canBeInnerPartOfANumber(c)) {
             numberBuilder.append(c);
             c = iterator.next();
         }
+
         if (c == '}' || c == ']') {
             iterator.back();
         }
+
         String numberLiteral = numberBuilder.toString();
+
         if (numberLiteral.contains(".")) {
             return new JSONNumber(Double.parseDouble(numberLiteral));
         }
+
         return new JSONNumber(Integer.parseInt(numberLiteral));
     }
 }

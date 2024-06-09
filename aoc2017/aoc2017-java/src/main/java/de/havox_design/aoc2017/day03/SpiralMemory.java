@@ -16,16 +16,19 @@ public class SpiralMemory implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         SpiralMemory instance = new SpiralMemory(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         SpiralMemory instance = new SpiralMemory(fileName);
+
         return instance.solvePart2();
     }
 
     public int solvePart1() {
         Point position = calculatePosition(input);
+
         return Math.abs(position.x()) + Math.abs(position.y());
     }
 
@@ -93,6 +96,6 @@ public class SpiralMemory implements AoCFunctionality {
     }
 
     private int parseInput(List<String> input) {
-        return Integer.parseInt(input.get(0));
+        return Integer.parseInt(input.getFirst());
     }
 }

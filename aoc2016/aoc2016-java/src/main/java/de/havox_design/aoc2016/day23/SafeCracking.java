@@ -21,11 +21,13 @@ public class SafeCracking implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         SafeCracking instance = new SafeCracking(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         SafeCracking instance = new SafeCracking(fileName);
+
         return instance.solvePart2();
     }
 
@@ -44,14 +46,16 @@ public class SafeCracking implements AoCFunctionality {
                 .map(String::trim)
                 .toList();
         CounterMap<String> mem = new CounterMap<>();
+
         mem.put("a", initialValue);
 
         boolean[] toggled = new boolean[rows.size()];
+
         for (int i = 0; i < rows.size(); ) {
-            var p = rows
+            String[] p = rows
                     .get(i)
                     .split(" ");
-            var cmd = p[0];
+            String cmd = p[0];
 
             if (toggled[i]) {
                 cmd = switch (cmd) {
@@ -72,12 +76,12 @@ public class SafeCracking implements AoCFunctionality {
                 }
                 case "inc" -> {
                     if (isRegister(p[1])) {
-                        mem.inc(p[1]);
+                        mem.increment(p[1]);
                     }
                 }
                 case "dec" -> {
                     if (isRegister(p[1])) {
-                        mem.dec(p[1]);
+                        mem.decrement(p[1]);
                     }
                 }
                 case "jnz" -> {

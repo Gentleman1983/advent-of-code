@@ -9,13 +9,19 @@ class Game {
 
     fun play(program: Intcode): Int {
         program[0] = 2
+
         val c = Computer(program, inputSupplier = ::joystick, resumeOnOutput = true)
+
         c.execute()
         while (!c.isReady()) {
             val output1 = c.output()
+
             c.resume()
+
             val output2 = c.output()
+
             c.resume()
+
             val output3 = c.output()
 
             when {
@@ -26,15 +32,27 @@ class Game {
 
             c.resume()
         }
-        return score.toInt()
+
+        return score
+            .toInt()
     }
 
-    private fun isScoreOutput(output1: Long, output2: Long) = output1 == -1L && output2 == 0L
+    private fun isScoreOutput(output1: Long, output2: Long) =
+        output1 == -1L && output2 == 0L
 
     @SuppressWarnings("kotlin:S1172")
-    private fun joystick(counter: Int) = ball.x.compareTo(paddle.x).toLong()
+    private fun joystick(counter: Int) =
+        ball
+            .x
+            .compareTo(paddle.x)
+            .toLong()
 }
 
-fun Long.isBlock() = this == 2L
-fun Long.isBall() = this == 4L
-fun Long.isPaddle() = this == 3L
+fun Long.isBlock() =
+    this == 2L
+
+fun Long.isBall() =
+    this == 4L
+
+fun Long.isPaddle() =
+    this == 3L

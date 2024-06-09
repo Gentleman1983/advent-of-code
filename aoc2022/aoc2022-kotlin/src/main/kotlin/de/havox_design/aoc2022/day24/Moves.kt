@@ -12,6 +12,3 @@ enum class Moves(private val function: (Position2d<Int>) -> Position2d<Int>) {
     fun getDirection(pos: Position2d<Int>): Position2d<Int> =
         function(pos)
 }
-
-private fun Pair<Int, Int>.getX(): Int = this.first
-private fun Pair<Int, Int>.getY(): Int = this.second

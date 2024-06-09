@@ -20,11 +20,13 @@ public class DuelingGenerators implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         DuelingGenerators instance = new DuelingGenerators(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         DuelingGenerators instance = new DuelingGenerators(fileName);
+
         return instance.solvePart2();
     }
 

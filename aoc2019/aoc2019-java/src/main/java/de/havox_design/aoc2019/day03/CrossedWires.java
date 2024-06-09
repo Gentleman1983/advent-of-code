@@ -24,11 +24,13 @@ public class CrossedWires implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         CrossedWires instance = new CrossedWires(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         CrossedWires instance = new CrossedWires(fileName);
+
         return instance.processTask2();
     }
 
@@ -53,6 +55,7 @@ public class CrossedWires implements AoCFunctionality {
             for (int j = i + 1; j < wires.size(); j++) {
                 Wire wire = wires.get(i);
                 Wire otherWire = wires.get(j);
+
                 resultingIntersectionPoints.addAll(wire.intersectionPointsWith(otherWire));
             }
         }

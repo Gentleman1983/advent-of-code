@@ -21,6 +21,7 @@ class CathodeRayTube(private var filename: String, var registerX: Int = 1) {
         }
 
         var sum = 0
+
         for (entry in listOf(20, 60, 100, 140, 180, 220)) {
             if (registerXLog.keys.contains(entry)) {
                 sum += registerXLog[entry]!! * entry
@@ -33,6 +34,7 @@ class CathodeRayTube(private var filename: String, var registerX: Int = 1) {
     @SuppressWarnings("kotlin:S6611")
     fun processPart2(): String {
         processPart1()
+
         var output = ""
 
         for (index in 0..239) {
@@ -64,5 +66,10 @@ class CathodeRayTube(private var filename: String, var registerX: Int = 1) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

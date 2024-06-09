@@ -2,7 +2,8 @@ package de.havox_design.aoc2022.day12
 
 data class Field(var elevation: String = "", var visited: Boolean = false) {
     fun getElevation(): Int =
-        HeightMapping.getElevationBySymbol(elevation)
+        HeightMapping
+            .getElevationBySymbol(elevation)
 
     fun canVisitField(field: Field): Boolean =
         canVisitField(this, field)

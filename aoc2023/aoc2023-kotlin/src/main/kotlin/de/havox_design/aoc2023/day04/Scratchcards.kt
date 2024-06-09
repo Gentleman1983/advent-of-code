@@ -16,6 +16,7 @@ class Scratchcards(private var filename: String) {
             val winnings = cards[i]
                 .countMatching()
             val originalCount = cards[i].count
+
             for (w in 1..winnings) {
                 cards[i + w].count += originalCount
             }
@@ -26,5 +27,10 @@ class Scratchcards(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

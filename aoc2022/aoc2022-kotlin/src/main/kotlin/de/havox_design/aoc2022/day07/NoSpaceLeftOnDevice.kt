@@ -9,6 +9,7 @@ class NoSpaceLeftOnDevice(private var filename: String) {
         val limit = 100000
 
         readData()
+
         val dirs = collectAllDirs(filesystem)
 
         for (dir in dirs) {
@@ -89,5 +90,10 @@ class NoSpaceLeftOnDevice(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

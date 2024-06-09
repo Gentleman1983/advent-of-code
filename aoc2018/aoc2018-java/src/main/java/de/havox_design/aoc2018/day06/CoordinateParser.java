@@ -11,7 +11,6 @@ public class CoordinateParser {
     private static final String COORDINATE_FORMAT = "(\\d+), (\\d+)";
     private static final Pattern COORDINATE_PATTERN = Pattern.compile(COORDINATE_FORMAT);
 
-
     public List<Position2d<Integer>> parse(Collection<String> input) {
         return input
                 .stream()

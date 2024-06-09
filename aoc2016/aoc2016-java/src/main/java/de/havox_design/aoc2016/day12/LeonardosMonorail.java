@@ -17,11 +17,13 @@ public class LeonardosMonorail implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         LeonardosMonorail instance = new LeonardosMonorail(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         LeonardosMonorail instance = new LeonardosMonorail(fileName);
+
         return instance.solvePart2();
     }
 
@@ -39,6 +41,7 @@ public class LeonardosMonorail implements AoCFunctionality {
 
         for (int i = 0; i < input.size(); ) {
             String[] values = input.get(i).split(" ");
+
             i++;
 
             switch (values[0]) {

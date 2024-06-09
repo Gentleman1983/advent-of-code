@@ -9,7 +9,7 @@ enum class PassportFields(val key: String, val isValid: (String) -> Boolean) {
     BIRTH_YEAR("byr", { byr -> byr.toInt() in 1920..2002 }),
     ISSUE_YEAR("iyr", { iyr -> iyr.toInt() in 2010..2020 }),
     EXPIRATION_YEAR("eyr", { eyr -> eyr.toInt() in 2020..2030 }),
-    HEIGHT("hgt", {hgt -> isHeightValid(hgt)}),
+    HEIGHT("hgt", { hgt -> isHeightValid(hgt) }),
     HAIR_COLOR("hcl", { hcl -> isHairColorValid(hcl) }),
     EYE_COLOR("ecl", { ecl -> ecl in PassportEyeColors.entries.map { color -> color.key }.toSet() }),
     PASSPORT_ID("pid", { pid -> isPassportIdValid(pid) }),
@@ -26,23 +26,26 @@ enum class PassportFields(val key: String, val isValid: (String) -> Boolean) {
 }
 
 private fun isHairColorValid(value: String) =
-    value.matches(REGEX_HAIR_COLOR)
+    value
+        .matches(REGEX_HAIR_COLOR)
 
-private fun isHeightValid(value: String): Boolean {
-    return if(value.endsWith(ICON_CENTIMETERS)) {
+private fun isHeightValid(value: String): Boolean =
+    if (value.endsWith(ICON_CENTIMETERS)) {
         isHeightValidCentimeters(value)
-    } else if(value.endsWith(ICON_INCHES)) {
+    } else if (value.endsWith(ICON_INCHES)) {
         isHeightValidInches(value)
     } else {
         false
     }
-}
 
 private fun isHeightValidCentimeters(value: String) =
-    value.substringBefore(ICON_CENTIMETERS).toInt() in 150..193
+    value
+        .substringBefore(ICON_CENTIMETERS).toInt() in 150..193
 
 private fun isHeightValidInches(value: String) =
-    value.substringBefore(ICON_INCHES).toInt() in 59..76
+    value
+        .substringBefore(ICON_INCHES).toInt() in 59..76
 
 private fun isPassportIdValid(value: String) =
-    value.matches(REGEX_PASSPORT_ID)
+    value
+        .matches(REGEX_PASSPORT_ID)

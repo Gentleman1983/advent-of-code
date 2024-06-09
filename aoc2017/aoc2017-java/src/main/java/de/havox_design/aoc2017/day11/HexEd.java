@@ -12,16 +12,18 @@ public class HexEd implements AoCFunctionality {
 
     public HexEd(String fileName) {
         input = readData(fileName)
-                .get(0);
+                .getFirst();
     }
 
     public static int solvePart1(String fileName) {
         HexEd instance = new HexEd(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         HexEd instance = new HexEd(fileName);
+
         return instance.solvePart2();
     }
 

@@ -14,11 +14,13 @@ public class Matchsticks implements AoCFunctionality {
 
     public static int solvePart1(String fileName) {
         Matchsticks instance = new Matchsticks(fileName);
+
         return instance.solvePart1();
     }
 
     public static int solvePart2(String fileName) {
         Matchsticks instance = new Matchsticks(fileName);
+
         return instance.solvePart2();
     }
 
@@ -60,9 +62,11 @@ public class Matchsticks implements AoCFunctionality {
         int length = rawString.length();
 
         int count = rawString.length();
+
         if (count == 0) {
             return count;
         }
+
         int i = 0;
 
         do {
@@ -79,11 +83,13 @@ public class Matchsticks implements AoCFunctionality {
                 i += 1;
             }
         } while (i < length);
+
         return count;
     }
 
     private static int encodedLength(String line) {
         StringBuilder builder = new StringBuilder();
+
         builder.append("\\\"");
         for (int i = 1; i < line.length(); i++) {
             if (line.charAt(i) == '\\' || line.charAt(i) == '"') {
@@ -92,6 +98,7 @@ public class Matchsticks implements AoCFunctionality {
             builder.append(line.charAt(i));
         }
         builder.append("\\\"");
+
         return builder.toString().length();
     }
 }

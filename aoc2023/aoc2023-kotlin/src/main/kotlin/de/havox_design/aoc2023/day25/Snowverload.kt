@@ -28,6 +28,7 @@ class Snowverload(private var filename: String) {
                 .toMutableList()
 
             graph.addVertex(source)
+
             for (destination in destinationSplit) {
                 graph.addVertex(destination)
                 graph.addEdge(source, destination)
@@ -45,5 +46,10 @@ class Snowverload(private var filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

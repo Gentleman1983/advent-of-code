@@ -15,11 +15,13 @@ public class SquaresWithThreeSides implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         SquaresWithThreeSides instance = new SquaresWithThreeSides(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         SquaresWithThreeSides instance = new SquaresWithThreeSides(fileName);
+
         return instance.solvePart2();
     }
 

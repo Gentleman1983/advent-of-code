@@ -8,7 +8,8 @@ fun Intcode.read(pointer: Int): Long {
         "Pointer can not be negative $pointer"
     }
 
-    return this.getOrDefault(pointer, 0L)
+    return this
+        .getOrDefault(pointer, 0L)
 }
 
 fun Intcode.write(pointer: Long, value: Long) = write(pointer.toInt(), value)

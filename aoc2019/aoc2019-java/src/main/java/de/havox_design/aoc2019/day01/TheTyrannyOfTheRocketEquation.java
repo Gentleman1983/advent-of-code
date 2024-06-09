@@ -13,11 +13,13 @@ public class TheTyrannyOfTheRocketEquation implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         TheTyrannyOfTheRocketEquation instance = new TheTyrannyOfTheRocketEquation(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         TheTyrannyOfTheRocketEquation instance = new TheTyrannyOfTheRocketEquation(fileName);
+
         return instance.processTask2();
     }
 

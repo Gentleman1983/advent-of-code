@@ -1,14 +1,14 @@
 package de.havox_design.aoc2021.day20
 
+import de.havox_design.aoc.utils.kotlin.helpers.digitsToInt
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+import de.havox_design.aoc.utils.kotlin.model.positions.diagonalNeighbours
+import de.havox_design.aoc.utils.kotlin.model.positions.neighbours
 
 class TrenchMap(private var filename: String) {
     private val ICON_BLACK = '.'
-
     private val ID_BLACK = 0
     private val ID_WHITE = 1
-
-
     private val data = getResourceAsText(filename)
     private val pointComparator: Comparator<Position2d<Int>> =
         Comparator
@@ -81,11 +81,12 @@ class TrenchMap(private var filename: String) {
         val rows = image
             .points()
             .groupBy { it.y }
-        val nextInfiniteColour = if (infiniteColour == 0) {
-            algorithm.first()
-        } else {
-            algorithm.last()
-        }
+        val nextInfiniteColour =
+            if (infiniteColour == 0) {
+                algorithm.first()
+            } else {
+                algorithm.last()
+            }
 
         return buildList {
             for (row in rows.values) {
@@ -116,22 +117,6 @@ class TrenchMap(private var filename: String) {
             }
             .digitsToInt(2)
 
-    private fun Position2d<Int>.neighbours() =
-        listOf(
-            Position2d(x + 1, y),
-            Position2d(x - 1, y),
-            Position2d(x, y + 1),
-            Position2d(x, y - 1)
-        )
-
-    private fun Position2d<Int>.diagonalNeighbours() =
-        listOf(
-            Position2d(x + 1, y + 1),
-            Position2d(x + 1, y - 1),
-            Position2d(x - 1, y + 1),
-            Position2d(x - 1, y - 1)
-        )
-
     private operator fun <E> List<List<E>>.get(point: Position2d<Int>) =
         this[point.y][point.x]
 
@@ -148,9 +133,6 @@ class TrenchMap(private var filename: String) {
                     .map { x -> Position2d(x, y) }
             }
     }
-
-    private fun Iterable<Int>.digitsToInt(radix: Int) =
-        reduce { acc, digit -> acc * radix + digit }
 
     private fun getResourceAsText(path: String): List<String> =
         this

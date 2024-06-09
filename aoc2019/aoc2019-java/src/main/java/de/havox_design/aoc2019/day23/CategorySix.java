@@ -24,11 +24,13 @@ public class CategorySix implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         CategorySix instance = new CategorySix(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         CategorySix instance = new CategorySix(fileName);
+
         return instance.processTask2();
     }
 
@@ -59,6 +61,7 @@ public class CategorySix implements AoCFunctionality {
     @SuppressWarnings("squid:S3776")
     private long runComputers(Map<Integer, BlockingQueue<Long>> receivers, List<BlockingQueue<Long>> senders, int targetAddress, boolean firstMessageToTarget) {
         long lastYSent = 0L;
+
         while (true) {
             IntStream.range(0, COMPUTERS)
                     .parallel()

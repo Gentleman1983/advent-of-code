@@ -18,7 +18,6 @@ data class Riddle(private var operandA: String, private var operation: Operator,
     fun toCalculation(monkeys: Collection<Monkey>, variablesMonkey: String): String {
         val monkeyA = monkeys.first { monkey -> monkey.name == operandA }
         val monkeyB = monkeys.first { monkey -> monkey.name == operandB }
-
         var monkeyAString = monkeyA.toCalculation(monkeys, variablesMonkey)
         val operatorString = when (operation) {
             Operator.PLUS -> "+"
@@ -34,6 +33,7 @@ data class Riddle(private var operandA: String, private var operation: Operator,
         if (!monkeyAString.contains(" x ")) {
             monkeyAString = monkeyA.calculateValue(monkeys).toString()
         }
+
         if (!monkeyBString.contains(" x ")) {
             monkeyBString = monkeyB.calculateValue(monkeys).toString()
         }

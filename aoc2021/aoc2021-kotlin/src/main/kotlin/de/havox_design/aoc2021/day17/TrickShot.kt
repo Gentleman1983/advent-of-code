@@ -1,13 +1,11 @@
 package de.havox_design.aoc2021.day17
 
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
+import de.havox_design.aoc.utils.kotlin.model.positions.plus
 import kotlin.math.sign
 
 class TrickShot(private var filename: String) {
-    private val PATTERN = "target area: x=(-?\\d+)\\.\\.(-?\\d+), y=(-?\\d+)\\.\\.(-?\\d+)"
-        .toRegex()
-
-
+    private val PATTERN = "target area: x=(-?\\d+)\\.\\.(-?\\d+), y=(-?\\d+)\\.\\.(-?\\d+)".toRegex()
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any {
@@ -82,9 +80,6 @@ class TrickShot(private var filename: String) {
                     }
             }
     }
-
-    private operator fun Position2d<Int>.plus(other: Position2d<Int>): Position2d<Int> =
-        Position2d(x + other.x, y + other.y)
 
     private fun getResourceAsText(path: String): String =
         this

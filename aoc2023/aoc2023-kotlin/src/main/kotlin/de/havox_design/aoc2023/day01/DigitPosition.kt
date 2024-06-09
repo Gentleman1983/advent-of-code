@@ -2,10 +2,17 @@ package de.havox_design.aoc2023.day01
 
 class DigitPosition(val digit: Digit, val position: Int) {
     override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is DigitPosition) return false
+        if (this === other) {
+            return true
+        }
 
-        if (position != other.position) return false
+        if (other !is DigitPosition) {
+            return false
+        }
+
+        if (position != other.position) {
+            return false
+        }
 
         return true
     }

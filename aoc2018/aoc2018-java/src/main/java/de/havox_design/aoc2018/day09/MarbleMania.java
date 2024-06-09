@@ -12,16 +12,19 @@ public class MarbleMania implements AoCFunctionality {
 
     public MarbleMania(String fileName) {
         GameParser parser = new GameParser();
+
         input = parser.parse(readString(fileName));
     }
 
     public static long processTask1(String fileName) {
         MarbleMania instance = new MarbleMania(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         MarbleMania instance = new MarbleMania(fileName);
+
         return instance.processTask2();
     }
 

@@ -22,7 +22,9 @@ class StepCounter(private var filename: String) {
         }
 
         var reachablePlots = HashSet<Position2d<Int>>()
+
         reachablePlots.add(start)
+
         for (i in 1..steps) {
             val next = HashSet<Position2d<Int>>()
 
@@ -83,24 +85,25 @@ class StepCounter(private var filename: String) {
         rocks: HashSet<Position2d<Int>>,
         evenGrids: Long,
         grids: Long
-    ) = oddGrids * reachable(start, rows * 2 + 1, rocks, rows) +
-            evenGrids * reachable(start, rows * 2, rocks, rows) +
-            reachable(Position2d(start.x, rows - 1), rows - 1, rocks, rows) +
-            reachable(Position2d(0, start.y), rows - 1, rocks, rows) +
-            reachable(Position2d(start.x, 0), rows - 1, rocks, rows) +
-            reachable(Position2d(rows - 1, start.y), rows - 1, rocks, rows) +
-            (
-                    (grids + 1) * (reachable(Position2d(0, rows - 1), rows / 2 - 1, rocks, rows) +
-                            reachable(Position2d(rows - 1, rows - 1), rows / 2 - 1, rocks, rows) +
-                            reachable(Position2d(0, 0), rows / 2 - 1, rocks, rows) +
-                            reachable(Position2d(rows - 1, 0), rows / 2 - 1, rocks, rows))
-                    ) +
-            (
-                    grids * (reachable(Position2d(0, rows - 1), rows * 3 / 2 - 1, rocks, rows) +
-                            reachable(Position2d(rows - 1, rows - 1), rows * 3 / 2 - 1, rocks, rows) +
-                            reachable(Position2d(0, 0), rows * 3 / 2 - 1, rocks, rows) +
-                            reachable(Position2d(rows - 1, 0), rows * 3 / 2 - 1, rocks, rows))
-                    )
+    ) =
+        oddGrids * reachable(start, rows * 2 + 1, rocks, rows) +
+                evenGrids * reachable(start, rows * 2, rocks, rows) +
+                reachable(Position2d(start.x, rows - 1), rows - 1, rocks, rows) +
+                reachable(Position2d(0, start.y), rows - 1, rocks, rows) +
+                reachable(Position2d(start.x, 0), rows - 1, rocks, rows) +
+                reachable(Position2d(rows - 1, start.y), rows - 1, rocks, rows) +
+                (
+                        (grids + 1) * (reachable(Position2d(0, rows - 1), rows / 2 - 1, rocks, rows) +
+                                reachable(Position2d(rows - 1, rows - 1), rows / 2 - 1, rocks, rows) +
+                                reachable(Position2d(0, 0), rows / 2 - 1, rocks, rows) +
+                                reachable(Position2d(rows - 1, 0), rows / 2 - 1, rocks, rows))
+                        ) +
+                (
+                        grids * (reachable(Position2d(0, rows - 1), rows * 3 / 2 - 1, rocks, rows) +
+                                reachable(Position2d(rows - 1, rows - 1), rows * 3 / 2 - 1, rocks, rows) +
+                                reachable(Position2d(0, 0), rows * 3 / 2 - 1, rocks, rows) +
+                                reachable(Position2d(rows - 1, 0), rows * 3 / 2 - 1, rocks, rows))
+                        )
 
     private fun move(
         position: Position2d<Int>,
@@ -127,14 +130,18 @@ class StepCounter(private var filename: String) {
 
     private fun reachable(from: Position2d<Int>, steps: Int, rocks: HashSet<Position2d<Int>>, rows: Int): Int {
         var reachablePlots = HashSet<Position2d<Int>>()
+
         reachablePlots.add(from)
+
         for (i in 1..steps) {
             val next = HashSet<Position2d<Int>>()
+
             fun move(p: Position2d<Int>, dir: Position2d<Int>) {
                 if (!rocks.contains(Position2d(p.x + dir.x, p.y + dir.y))) {
                     next.add(Position2d(p.x + dir.x, p.y + dir.y))
                 }
             }
+
             for (position in reachablePlots) {
                 move(position, UDLRDirection.UP, rocks)
                     ?.let { next.add(it) }
@@ -145,11 +152,19 @@ class StepCounter(private var filename: String) {
                 move(position, UDLRDirection.LEFT, rocks)
                     ?.let { next.add(it) }
             }
+
             reachablePlots = next
         }
-        return reachablePlots.count { it.x >= 0 && it.y >= 0 && it.x < rows && it.y < rows }
+
+        return reachablePlots
+            .count { it.x >= 0 && it.y >= 0 && it.x < rows && it.y < rows }
     }
 
     private fun getResourceAsText(path: String): List<String> =
-        this.javaClass.classLoader.getResourceAsStream(path)!!.bufferedReader().readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)!!
+            .bufferedReader()
+            .readLines()
 }

@@ -21,6 +21,7 @@ public class DataReader {
         try {
             URL url = ClassLoaderUtil.getResource(fileName, callingClass);
             Path path = Paths.get(url.toURI());
+
             return Files.readAllLines(path, StandardCharsets.UTF_8);
         }
         catch (IOException|URISyntaxException e) {
@@ -35,6 +36,7 @@ public class DataReader {
         try {
             URL url = ClassLoaderUtil.getResource(fileName, callingClass);
             Path path = Paths.get(url.toURI());
+
             return Files.readString(path, StandardCharsets.UTF_8);
         }
         catch (IOException|URISyntaxException e) {

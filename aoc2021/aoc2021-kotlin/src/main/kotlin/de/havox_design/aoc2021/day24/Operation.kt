@@ -56,10 +56,11 @@ sealed interface Operation {
             }
         }
 
-        private fun parseArgument(raw: String): Argument = try {
-            Argument.Value(raw.toInt())
-        } catch (_: Exception) {
-            Argument.Register(MAPPING.getValue(raw.first()))
-        }
+        private fun parseArgument(raw: String): Argument =
+            try {
+                Argument.Value(raw.toInt())
+            } catch (_: Exception) {
+                Argument.Register(MAPPING.getValue(raw.first()))
+            }
     }
 }

@@ -21,11 +21,13 @@ public class SporificaVirus implements AoCFunctionality {
 
     public static long solvePart1(String fileName, int iterations) {
         SporificaVirus instance = new SporificaVirus(fileName);
+
         return instance.solvePart1(iterations);
     }
 
     public static long solvePart2(String fileName, int iterations) {
         SporificaVirus instance = new SporificaVirus(fileName);
+
         return instance.solvePart2(iterations);
     }
 

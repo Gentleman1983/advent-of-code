@@ -14,8 +14,11 @@ data class Point2D(val x: Int = 0, val y: Int = 0) {
         val deltaX = (other.x - x).sign
         val deltaY = (other.y - y).sign
         val steps = maxOf((x - other.x).absoluteValue, (y - other.y).absoluteValue)
-        return (1..steps).scan(this) { last, _ -> Point2D(last.x + deltaX, last.y + deltaY) }
+
+        return (1..steps)
+            .scan(this) { last, _ -> Point2D(last.x + deltaX, last.y + deltaY) }
     }
 
-    fun calculateTuningFrequency(): Long = (x * 4000000L) + y
+    fun calculateTuningFrequency(): Long =
+        (x * 4000000L) + y
 }

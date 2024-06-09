@@ -6,7 +6,8 @@ class Chamber(var width: Long = 7L) {
     var obstacles: Set<Position2d<Long>> = emptySet<Position2d<Long>>().toMutableSet()
 
     fun getMaxHeight(): Long =
-        obstacles.maxOfOrNull { position -> position.y + 1 } ?: 0
+        obstacles
+            .maxOfOrNull { position -> position.y + 1 } ?: 0
 
     fun getStartPositionForRock(
         distanceToLeftWall: Long = 2,

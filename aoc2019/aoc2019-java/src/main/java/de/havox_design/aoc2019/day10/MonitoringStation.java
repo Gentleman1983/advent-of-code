@@ -7,6 +7,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
+import static de.havox_design.aoc.utils.java.helper.JavaMathUtils.greatestCommonDivisor;
 import static java.lang.Math.abs;
 
 public class MonitoringStation implements AoCFunctionality {
@@ -21,11 +22,13 @@ public class MonitoringStation implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         MonitoringStation instance = new MonitoringStation(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         MonitoringStation instance = new MonitoringStation(fileName);
+
         return instance.processTask2();
     }
 
@@ -44,7 +47,6 @@ public class MonitoringStation implements AoCFunctionality {
     @SuppressWarnings("squid:S2259")
     private long computePart2() {
         Pair<Long, Long> station = computeStation().getRight();
-
         int x = 0;
         int y = 0;
         Set<Pair<Long, Long>> asteroids = new HashSet<>();
@@ -56,6 +58,7 @@ public class MonitoringStation implements AoCFunctionality {
                 if (c == ICON_ASTEROID) {
                     asteroids.add(Pair.of((long) x, (long) y));
                 }
+
                 x++;
             }
 
@@ -65,6 +68,7 @@ public class MonitoringStation implements AoCFunctionality {
         asteroids.remove(station);
 
         Map<Double, Set<Pair<Long, Long>>> targets = new ConcurrentHashMap<>();
+
         for (Pair<Long, Long> asteroid : asteroids) {
             double direction = getAngle(station, asteroid);
 
@@ -75,7 +79,6 @@ public class MonitoringStation implements AoCFunctionality {
         Pair<Long, Long> target = null;
         int i = 0;
         Iterator<Double> laserDirectionIterator = targets.keySet().stream().sorted().iterator();
-
 
         while (i < 200 && !asteroids.isEmpty()) {
             if (!laserDirectionIterator.hasNext()) {
@@ -95,6 +98,7 @@ public class MonitoringStation implements AoCFunctionality {
 
             if (Set.of(1, 2, 3, 10, 20, 50, 100, 199, 200).contains(i)) {
                 Pair<Long, Long> finalTarget = target;
+
                 int finalI = i;
                 LOGGER.info(() -> String.format("%s. asteroid vaporised: %s", finalI, finalTarget));
             }
@@ -174,7 +178,7 @@ public class MonitoringStation implements AoCFunctionality {
     private Pair<Long, Long> vaporizeAsteroids(Pair<Long, Long> station, Pair<Long, Long> direction, Set<Pair<Long, Long>> asteroids, int columns, int rows, boolean all) {
         long xDiff = direction.getLeft() - station.getLeft();
         long yDiff = direction.getRight() - station.getRight();
-        long gcd = gcd(abs(xDiff), abs(yDiff));
+        long gcd = greatestCommonDivisor(abs(xDiff), abs(yDiff));
 
         if (gcd != 0) {
             xDiff /= gcd;
@@ -194,13 +198,6 @@ public class MonitoringStation implements AoCFunctionality {
         } while ((!vaporized || all) && 0 <= x && x < columns && 0 <= y && y < rows);
 
         return vaporized ? vaporize : null;
-    }
-
-    private long gcd(long a, long b) {
-        if (b == 0) {
-            return a;
-        }
-        return gcd(b, a % b);
     }
 
     public double getAngle(Pair<Long, Long> station, Pair<Long, Long> target) {

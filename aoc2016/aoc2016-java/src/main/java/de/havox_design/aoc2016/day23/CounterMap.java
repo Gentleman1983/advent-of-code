@@ -18,26 +18,31 @@ public class CounterMap<K> extends HashMap<K, Long> {
 
     public long put(K key, int value) {
         put(key, Long.valueOf(value));
+
         return value;
     }
 
-    public long inc(K key) {
+    public long increment(K key) {
         return add(key, 1);
     }
 
-    public long dec(K key) {
+    public long decrement(K key) {
         return add(key, -1);
     }
 
     public long add(K key, long delta) {
         long newValue = getValue(key) + delta;
+
         put(key, newValue);
+
         return newValue;
     }
 
     public long multiply(K key, long factor) {
         long newValue = getValue(key) * factor;
+
         put(key, newValue);
+
         return newValue;
     }
 
@@ -49,11 +54,11 @@ public class CounterMap<K> extends HashMap<K, Long> {
         return valueStream().sum();
     }
 
-    public long min() {
+    public long minimum() {
         return valueStream().min().orElseThrow();
     }
 
-    public long max() {
+    public long maximum() {
         return valueStream().max().orElseThrow();
     }
 

@@ -76,9 +76,11 @@ public class IntComputer implements Runnable {
 
     protected int getMode(final long value, final int param) {
         int position = 10;
+
         for (int i = 0; i < param; i++) {
             position *= 10;
         }
+
         return (int) ((value / position) % 10);
     }
 
@@ -96,6 +98,7 @@ public class IntComputer implements Runnable {
 
     protected String printParameter(final int mode, final int param) {
         final Long address = getValueDirect(pointer + param);
+
         if (mode == 0) {
             return String.format("m[%s]", address);
         } else {
@@ -105,6 +108,7 @@ public class IntComputer implements Runnable {
 
     private Long getValueIndirect(final Long index, final boolean relative) {
         final long offSet = relative ? relativeBase : 0;
+
         return getValueDirect(getValueDirect(index) + offSet);
     }
 
@@ -114,16 +118,19 @@ public class IntComputer implements Runnable {
 
     private Long setValueIndirect(final Long index, final Long val, final boolean relative) {
         final long offSet = relative ? relativeBase : 0;
+
         return setValueDirect(getValueDirect(index) + offSet, val);
     }
 
     private Long setValueDirect(final Long address, final Long val) {
         Objects.requireNonNull(val);
+
         return memory.put(address, val);
     }
 
     private void loadProgram(final List<Long> program) {
         memory = new HashMap<>();
+
         for (long i = 0L; i < program.size(); i++) {
             memory.put(i, program.get((int) i));
         }
@@ -135,9 +142,11 @@ public class IntComputer implements Runnable {
 
     private Optional<OpCode> getCurrentOpCode() {
         long opCode = currentInstruction();
+
         if (modes) {
             opCode %= 100;
         }
+
         return Optional.ofNullable(OpCode.valueOf(opCode));
     }
 
@@ -145,12 +154,14 @@ public class IntComputer implements Runnable {
     public static Future<?> runComputer(final List<Long> program, final BlockingQueue<Long> in, final BlockingQueue<Long> out, final boolean async) {
         final IntComputer computer = new IntComputer(program, in, out);
         final Future<?> future;
+
         if (async) {
             future = computer.runAsync();
         } else {
             computer.run();
             future = CompletableFuture.completedFuture(null);
         }
+
         return future;
     }protected Long currentInstruction() {
         return getValueDirect(pointer);
@@ -158,8 +169,10 @@ public class IntComputer implements Runnable {
 
     public boolean executeOneStep() {
         final Optional<OpCode> opCode = getCurrentOpCode();
+
         opCode.orElse(NOP).accept(this);
         advancePointer();
+
         return opCode.orElse(HALT) != HALT;
     }
 
@@ -192,7 +205,9 @@ public class IntComputer implements Runnable {
 
     public Optional<OpCode> printOneStep() {
         final Optional<OpCode> opCode = getCurrentOpCode();
+
         LOGGER.info(() -> opCode.orElse(NOP).toString(this));
+
         return opCode;
     }
 
@@ -201,10 +216,12 @@ public class IntComputer implements Runnable {
         final long origPointer = pointer;
 
         setPointer(0);
+
         while (memory.containsKey(pointer)) {
             final Optional<OpCode> opCode = printOneStep();
             pointer += opCode.orElse(NOP).getNumberOfParameters() + 1;
         }
+
         LOGGER.info("========END PROGRAM========");
 
         this.pointer = origPointer;

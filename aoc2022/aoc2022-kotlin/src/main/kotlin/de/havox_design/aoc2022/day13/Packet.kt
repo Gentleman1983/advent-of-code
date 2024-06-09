@@ -54,7 +54,8 @@ sealed class Packet : Comparable<Packet> {
                     .build()
             }
 
-            return super.equals(other)
+            return super
+                .equals(other)
         }
     }
 
@@ -79,17 +80,24 @@ sealed class Packet : Comparable<Packet> {
                         index = if (string[endIndex] == ',') endIndex + 1 else endIndex
                     }
                 }
+
                 IndexedValue(index + 1, PacketList(list))
             } else {
                 var index = startIndex + 1
-                while (index < string.length && string[index] in '0'..'9') index++
+
+                while (index < string.length && string[index] in '0'..'9') {
+                    index++
+                }
+
                 IndexedValue(index, PacketLiteral(string.substring(startIndex, index).toInt()))
             }
         }
 
         fun parsePacket(code: String): Packet {
             val (index, packet) = parser.invoke(IndexedValue(0, code))
+
             require(index == code.length)
+
             return packet
         }
     }

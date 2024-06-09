@@ -4,13 +4,14 @@ class CaloriesCounter(private val filename: String) {
     fun processFile(): String {
         val elves: List<Elf> = readFile()
         val maxCaloriesElf: Elf = findElfWithMaxCalories(elves)
+
         return maxCaloriesElf.sumCalories().toString()
     }
 
     fun processFileTopThree(): String {
         val elves = readFile().toMutableList()
-
         val topElves = emptyList<Elf>().toMutableList()
+
         for (index in 1..3) {
             val maxCaloriesElf: Elf = findElfWithMaxCalories(elves)
             topElves += maxCaloriesElf
@@ -18,6 +19,7 @@ class CaloriesCounter(private val filename: String) {
         }
 
         var sumCalories = 0
+
         for (index in topElves.indices) {
             sumCalories += topElves[index].sumCalories()
         }
@@ -27,6 +29,7 @@ class CaloriesCounter(private val filename: String) {
 
     private fun readFile(): List<Elf> {
         val contentRows = getResourceAsText(filename)
+
         return convertDataToSetOfElves(contentRows)
     }
 
@@ -49,6 +52,7 @@ class CaloriesCounter(private val filename: String) {
         if (!rows.isNullOrEmpty()) {
             for (index in rows.indices) {
                 val row: String = rows[index]
+
                 if (row.isBlank()) {
                     val elf = Elf(currentItems)
                     elves += elf
@@ -69,5 +73,10 @@ class CaloriesCounter(private val filename: String) {
     }
 
     private fun getResourceAsText(path: String): List<String>? =
-        this.javaClass.classLoader.getResourceAsStream(path)?.bufferedReader()?.readLines()
+        this
+            .javaClass
+            .classLoader
+            .getResourceAsStream(path)
+            ?.bufferedReader()
+            ?.readLines()
 }
