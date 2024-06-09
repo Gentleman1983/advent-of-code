@@ -31,6 +31,7 @@ public class State {
 
         for (int f = 0; f < FLOOR_COUNT; f++) {
             String line = input.get(f);
+
             if (line.contains("nothing relevant")) {
                 continue;
             }
@@ -39,6 +40,7 @@ public class State {
                 int typeId = types.indexOf(generator.replace(" generator", ""));
                 items[typeId * 2] = f;
             }
+
             for (String microchip : getAllMatches(line, "[^ ]*-compatible microchip")) {
                 int typeId = types.indexOf(microchip.replace("-compatible microchip", ""));
                 items[typeId * 2 + 1] = f;
@@ -95,6 +97,7 @@ public class State {
                 return true;
             }
         }
+
         return false;
     }
 
@@ -126,8 +129,8 @@ public class State {
 
         State other = (State) o;
 
-        return elevator == other.elevator
-                && Arrays.equals(getCanonicalRepresentationOfItems(), other.getCanonicalRepresentationOfItems());
+        return elevator == other.elevator &&
+                Arrays.equals(getCanonicalRepresentationOfItems(), other.getCanonicalRepresentationOfItems());
     }
 
     @Override

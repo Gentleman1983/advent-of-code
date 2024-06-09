@@ -20,11 +20,13 @@ public class BathroomSecurity implements AoCFunctionality {
 
     public static String solvePart1(String fileName) {
         BathroomSecurity instance = new BathroomSecurity(fileName);
+
         return instance.solvePart1();
     }
 
     public static String solvePart2(String fileName) {
         BathroomSecurity instance = new BathroomSecurity(fileName);
+
         return instance.solvePart2();
     }
 
@@ -32,7 +34,9 @@ public class BathroomSecurity implements AoCFunctionality {
         KeyPad keypad = SimpleKeyPad.getInstance();
         Key currentElement = SimpleKeyPad.FIVE;
         StringBuilder bathroomCode = new StringBuilder();
+
         searchBathroomCode(currentElement, keypad, bathroomCode);
+
         return bathroomCode.toString();
     }
 
@@ -40,7 +44,9 @@ public class BathroomSecurity implements AoCFunctionality {
         KeyPad keypad = ComplexKeyPad.getInstance();
         Key currentElement = ComplexKeyPad.FIVE;
         StringBuilder bathroomCode = new StringBuilder();
+
         searchBathroomCode(currentElement, keypad, bathroomCode);
+
         return bathroomCode.toString();
     }
 

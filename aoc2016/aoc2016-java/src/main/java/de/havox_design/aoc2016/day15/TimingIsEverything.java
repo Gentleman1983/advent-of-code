@@ -24,11 +24,13 @@ public class TimingIsEverything implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         TimingIsEverything instance = new TimingIsEverything(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         TimingIsEverything instance = new TimingIsEverything(fileName);
+
         return instance.solvePart2();
     }
 

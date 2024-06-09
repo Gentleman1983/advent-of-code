@@ -12,6 +12,7 @@ public record Point(int x, int y) {
 
     public List<Point> range(Point other) {
         List<Point> result = new ArrayList<>();
+
         if (x == other.x) {
             for(int i : getRange(y, other.y)) {
                 result.add(new Point(x, i));
@@ -45,6 +46,7 @@ public record Point(int x, int y) {
         }
 
         Point point = (Point) o;
+
         return x == point.x && y == point.y;
     }
 

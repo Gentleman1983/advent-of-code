@@ -19,11 +19,13 @@ public class OneTimePad implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         OneTimePad instance = new OneTimePad(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         OneTimePad instance = new OneTimePad(fileName);
+
         return instance.solvePart2();
     }
 
@@ -33,6 +35,7 @@ public class OneTimePad implements AoCFunctionality {
 
     public long solvePart2() {
         stretched = true;
+
         return solve();
     }
 
@@ -57,7 +60,7 @@ public class OneTimePad implements AoCFunctionality {
         }
 
         return keyIndices
-                .get(keyIndices.size() - 1);
+                .getLast();
     }
 
     private Optional<Character> getTripletChar(String string) {
@@ -100,7 +103,7 @@ public class OneTimePad implements AoCFunctionality {
         return stretched ? 2017 : 1;
     }
 
-    @SuppressWarnings({"deprecation", "squid:S4790"})
+    @SuppressWarnings({"squid:S4790"})
     private static String getMd5Hash(String string) {
         return DigestUtils
                 .md5Hex(string);

@@ -19,11 +19,13 @@ public class SecurityThroughObscurity implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         SecurityThroughObscurity instance = new SecurityThroughObscurity(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         SecurityThroughObscurity instance = new SecurityThroughObscurity(fileName);
+
         return instance.solvePart2();
     }
 
@@ -49,6 +51,7 @@ public class SecurityThroughObscurity implements AoCFunctionality {
 
     private Room parse(String roomName) {
         var matcher = PATTERN.matcher(roomName);
+
         if (matcher.matches()) {
             return new Room(
                     matcher.group("name").replace("-", " "),

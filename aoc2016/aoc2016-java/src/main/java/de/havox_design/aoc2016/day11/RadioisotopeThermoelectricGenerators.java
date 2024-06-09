@@ -22,11 +22,13 @@ public class RadioisotopeThermoelectricGenerators implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         RadioisotopeThermoelectricGenerators instance = new RadioisotopeThermoelectricGenerators(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         RadioisotopeThermoelectricGenerators instance = new RadioisotopeThermoelectricGenerators(fileName);
+
         return instance.solvePart2();
     }
 
@@ -36,7 +38,8 @@ public class RadioisotopeThermoelectricGenerators implements AoCFunctionality {
 
     public long solvePart2() {
         List<String> part2Input = new ArrayList<>(input);
-        part2Input.set(0, part2Input.get(0) + " AND an elerium generator, an elerium-compatible microchip, "
+
+        part2Input.set(0, part2Input.getFirst() + " AND an elerium generator, an elerium-compatible microchip, "
                 + "a dilithium generator, a dilithium-compatible microchip.");
 
         return solve(part2Input);
@@ -45,8 +48,8 @@ public class RadioisotopeThermoelectricGenerators implements AoCFunctionality {
     @SuppressWarnings({"squid:S3655", "squid:S3776"})
     private long solve(List<String> lines) {
         State startState = new State(lines);
-
-        PathResult<State> result = BreadthFirstSearch.run(
+        PathResult<State> result = BreadthFirstSearch
+                .run(
                         startState,
                         state -> {
                             visitedNodeCount++;

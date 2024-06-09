@@ -9,16 +9,18 @@ public class LikeARogue implements AoCFunctionality {
     private final String input;
 
     public LikeARogue(String fileName) {
-        input = readData(fileName).get(0);
+        input = readData(fileName).getFirst();
     }
 
     public static long solvePart1(String fileName) {
         LikeARogue instance = new LikeARogue(fileName);
+
         return instance.solvePart1(40);
     }
 
     public static long solvePart2(String fileName) {
         LikeARogue instance = new LikeARogue(fileName);
+
         return instance.solvePart2();
     }
 
@@ -45,6 +47,7 @@ public class LikeARogue implements AoCFunctionality {
                         || ".^^".equals(parents)
                         || "..^".equals(parents)
                         || "^..".equals(parents);
+
                 builder.append(isTrap ? '^' : '.');
             }
 

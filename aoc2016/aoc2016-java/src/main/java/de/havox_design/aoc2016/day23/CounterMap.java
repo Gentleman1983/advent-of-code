@@ -18,6 +18,7 @@ public class CounterMap<K> extends HashMap<K, Long> {
 
     public long put(K key, int value) {
         put(key, Long.valueOf(value));
+
         return value;
     }
 
@@ -31,13 +32,17 @@ public class CounterMap<K> extends HashMap<K, Long> {
 
     public long add(K key, long delta) {
         long newValue = getValue(key) + delta;
+
         put(key, newValue);
+
         return newValue;
     }
 
     public long multiply(K key, long factor) {
         long newValue = getValue(key) * factor;
+
         put(key, newValue);
+
         return newValue;
     }
 

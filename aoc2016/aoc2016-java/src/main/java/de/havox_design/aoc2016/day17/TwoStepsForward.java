@@ -26,16 +26,18 @@ public class TwoStepsForward implements AoCFunctionality {
     private final String input;
 
     public TwoStepsForward(String fileName) {
-        input = readData(fileName).get(0);
+        input = readData(fileName).getFirst();
     }
 
     public static String solvePart1(String fileName) {
         TwoStepsForward instance = new TwoStepsForward(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         TwoStepsForward instance = new TwoStepsForward(fileName);
+
         return instance.solvePart2();
     }
 
@@ -71,12 +73,14 @@ public class TwoStepsForward implements AoCFunctionality {
 
         String hash = getMd5Hash(passCode + state.path());
 
-        var result = new ArrayList<State>(4);
+        List<State> result = new ArrayList<>(4);
+
         for (int i = 0; i < 4; i++) {
             Tile neighbor = state.tile().neighbor(ORDERED_DIRECTIONS.get(i));
             boolean doorIsOpen = neighbor.isValid(SIZE, SIZE)
                     && hash.charAt(i) >= 'b'
                     && hash.charAt(i) <= 'f';
+
             if (doorIsOpen) {
                 result.add(new State(neighbor, state.path() + ORDERED_DIRECTIONS.get(i).getSymbol()));
             }
@@ -85,7 +89,7 @@ public class TwoStepsForward implements AoCFunctionality {
         return result;
     }
 
-    @SuppressWarnings({ "deprecation", "squid:S1874", "squid:S4790"})
+    @SuppressWarnings({"squid:S1874", "squid:S4790"})
     private static String getMd5Hash(String s) {
         return DigestUtils
                 .md5Hex(s);

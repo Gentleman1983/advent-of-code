@@ -15,11 +15,13 @@ public class FirewallRules implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         FirewallRules instance = new FirewallRules(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         FirewallRules instance = new FirewallRules(fileName);
+
         return instance.solvePart2();
     }
 
@@ -39,12 +41,11 @@ public class FirewallRules implements AoCFunctionality {
                 .stream()
                 .map(Range::new)
                 .toList();
-
         long firstIP = -1;
         long allowedIPs = 0;
 
         for (long i = 0; i <= 4294967295L; i++) {
-            var range = findRange(ranges, i);
+            Optional<Range> range = findRange(ranges, i);
 
             if (range.isPresent()) {
                 i = range
@@ -52,6 +53,7 @@ public class FirewallRules implements AoCFunctionality {
                         .upperBond();
             } else {
                 allowedIPs++;
+
                 if (firstIP == -1) {
                     firstIP = i;
                 }

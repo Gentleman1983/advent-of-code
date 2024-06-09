@@ -23,11 +23,13 @@ public class TwoFactorAuthentication implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         TwoFactorAuthentication instance = new TwoFactorAuthentication(fileName);
+
         return instance.solvePart1();
     }
 
     public static String solvePart2(String fileName) {
         TwoFactorAuthentication instance = new TwoFactorAuthentication(fileName);
+
         return instance.solvePart2();
     }
 
@@ -44,15 +46,18 @@ public class TwoFactorAuthentication implements AoCFunctionality {
 
         for (var line : input) {
             if (line.startsWith("rect")) {
-                var parts = line
+                String[] parts = line
                         .substring(5)
                         .split("x");
+
                 fillRectangle(display, Integer.parseInt(parts[ID_COL]), Integer.parseInt(parts[ID_ROW]), ON);
             } else if (line.startsWith("rotate column")) {
-                var parts = line.split("=")[1].split(" by ");
+                String[] parts = line.split("=")[1].split(" by ");
+
                 shiftColumn(display, Integer.parseInt(parts[ID_ROW]), Integer.parseInt(parts[ID_COL]));
             } else if (line.startsWith("rotate row")) {
-                var parts = line.split("=")[1].split(" by ");
+                String[] parts = line.split("=")[1].split(" by ");
+
                 shiftRow(display, Integer.parseInt(parts[ID_ROW]), Integer.parseInt(parts[ID_COL]));
             }
         }
@@ -75,9 +80,11 @@ public class TwoFactorAuthentication implements AoCFunctionality {
     private void shiftRow(char[][] display, int row, int shift) {
         for (int s = 0; s < shift; s++) {
             char last = display[row][COLUMNS - 1];
+
             for (int c = COLUMNS - 1; c > 0; c--) {
                 display[row][c] = display[row][c - 1];
             }
+
             display[row][0] = last;
         }
     }
@@ -85,9 +92,11 @@ public class TwoFactorAuthentication implements AoCFunctionality {
     private void shiftColumn(char[][] display, int column, int shift) {
         for (int s = 0; s < shift; s++) {
             char last = display[ROWS - 1][column];
+
             for (int r = ROWS - 1; r > 0; r--) {
                 display[r][column] = display[r - 1][column];
             }
+
             display[0][column] = last;
         }
     }
@@ -109,6 +118,7 @@ public class TwoFactorAuthentication implements AoCFunctionality {
                 }
             }
         }
+
         return count;
     }
 }
