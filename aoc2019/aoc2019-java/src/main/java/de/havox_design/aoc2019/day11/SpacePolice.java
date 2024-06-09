@@ -57,11 +57,13 @@ public class SpacePolice implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         SpacePolice instance = new SpacePolice(fileName);
+
         return instance.processTask1();
     }
 
     public static String processTask2(String fileName) {
         SpacePolice instance = new SpacePolice(fileName);
+
         return instance.processTask2();
     }
 
@@ -80,8 +82,8 @@ public class SpacePolice implements AoCFunctionality {
         BlockingQueue<Long> in = new LinkedBlockingQueue<>();
         BlockingDeque<Long> out = new LinkedBlockingDeque<>();
         Future<?> future = IntComputer.runComputer(input, in, out, true);
-
         FourDirections direction = UP;
+
         try {
             do {
                 in.add(PANEL_IN.get(grid.getOrDefault(pos, start)));
@@ -134,8 +136,7 @@ public class SpacePolice implements AoCFunctionality {
         return registrationIdentifier.toString();
     }
 
-    public Long readOutput(final BlockingDeque<Long> output, final Future<?> writer)
-            throws InterruptedException {
+    public Long readOutput(final BlockingDeque<Long> output, final Future<?> writer) throws InterruptedException {
         Long x;
 
         do {

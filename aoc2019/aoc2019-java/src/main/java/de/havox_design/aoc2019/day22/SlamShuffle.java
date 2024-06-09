@@ -20,11 +20,13 @@ public class SlamShuffle implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         SlamShuffle instance = new SlamShuffle(fileName);
+
         return instance.processTask1();
     }
 
     public static BigInteger processTask2(String fileName) {
         SlamShuffle instance = new SlamShuffle(fileName);
+
         return instance.processTask2();
     }
 
@@ -68,11 +70,23 @@ public class SlamShuffle implements AoCFunctionality {
     }
 
     private int extractInstructionValue(String instruction) {
-        return Integer.parseInt(instruction.substring(instruction.lastIndexOf(INSTRUCTION_VALUE_DELIMITER) + 1));
+        return Integer
+                .parseInt(
+                        instruction
+                                .substring(
+                                        instruction.lastIndexOf(INSTRUCTION_VALUE_DELIMITER) + 1
+                                )
+                );
     }
 
     private Long extractInstructionLongValue(String instruction) {
-        return Long.parseLong(instruction.substring(instruction.lastIndexOf(INSTRUCTION_VALUE_DELIMITER) + 1));
+        return Long
+                .parseLong(
+                        instruction
+                                .substring(
+                                        instruction.lastIndexOf(INSTRUCTION_VALUE_DELIMITER) + 1
+                                )
+                );
     }
 
     private Pair<BigInteger, BigInteger> getFinalCoefficients(long size) {
@@ -109,6 +123,10 @@ public class SlamShuffle implements AoCFunctionality {
         BigInteger c = cd.getLeft();
         BigInteger d = cd.getRight();
 
-        return Pair.of(a.multiply(c).mod(BigInteger.valueOf(size)), b.multiply(c).add(d).mod(BigInteger.valueOf(size)));
+        return Pair
+                .of(
+                        a.multiply(c).mod(BigInteger.valueOf(size)),
+                        b.multiply(c).add(d).mod(BigInteger.valueOf(size))
+                );
     }
 }

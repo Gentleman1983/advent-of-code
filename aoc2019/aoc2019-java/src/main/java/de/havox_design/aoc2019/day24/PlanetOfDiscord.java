@@ -18,6 +18,7 @@ public class PlanetOfDiscord implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         PlanetOfDiscord instance = new PlanetOfDiscord(fileName);
+
         return instance.processTask1();
     }
 
@@ -27,6 +28,7 @@ public class PlanetOfDiscord implements AoCFunctionality {
 
     public static long processTask2(String fileName, int steps) {
         PlanetOfDiscord instance = new PlanetOfDiscord(fileName);
+
         return instance.processTask2(steps);
     }
 

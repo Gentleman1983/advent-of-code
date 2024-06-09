@@ -22,11 +22,13 @@ public class MonitoringStation implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         MonitoringStation instance = new MonitoringStation(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         MonitoringStation instance = new MonitoringStation(fileName);
+
         return instance.processTask2();
     }
 
@@ -45,7 +47,6 @@ public class MonitoringStation implements AoCFunctionality {
     @SuppressWarnings("squid:S2259")
     private long computePart2() {
         Pair<Long, Long> station = computeStation().getRight();
-
         int x = 0;
         int y = 0;
         Set<Pair<Long, Long>> asteroids = new HashSet<>();
@@ -57,6 +58,7 @@ public class MonitoringStation implements AoCFunctionality {
                 if (c == ICON_ASTEROID) {
                     asteroids.add(Pair.of((long) x, (long) y));
                 }
+
                 x++;
             }
 
@@ -66,6 +68,7 @@ public class MonitoringStation implements AoCFunctionality {
         asteroids.remove(station);
 
         Map<Double, Set<Pair<Long, Long>>> targets = new ConcurrentHashMap<>();
+
         for (Pair<Long, Long> asteroid : asteroids) {
             double direction = getAngle(station, asteroid);
 
@@ -76,7 +79,6 @@ public class MonitoringStation implements AoCFunctionality {
         Pair<Long, Long> target = null;
         int i = 0;
         Iterator<Double> laserDirectionIterator = targets.keySet().stream().sorted().iterator();
-
 
         while (i < 200 && !asteroids.isEmpty()) {
             if (!laserDirectionIterator.hasNext()) {
@@ -96,6 +98,7 @@ public class MonitoringStation implements AoCFunctionality {
 
             if (Set.of(1, 2, 3, 10, 20, 50, 100, 199, 200).contains(i)) {
                 Pair<Long, Long> finalTarget = target;
+
                 int finalI = i;
                 LOGGER.info(() -> String.format("%s. asteroid vaporised: %s", finalI, finalTarget));
             }

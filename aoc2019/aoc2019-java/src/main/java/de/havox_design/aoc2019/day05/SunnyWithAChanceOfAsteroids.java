@@ -26,11 +26,13 @@ public class SunnyWithAChanceOfAsteroids implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         SunnyWithAChanceOfAsteroids instance = new SunnyWithAChanceOfAsteroids(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         SunnyWithAChanceOfAsteroids instance = new SunnyWithAChanceOfAsteroids(fileName);
+
         return instance.processTask2();
     }
 

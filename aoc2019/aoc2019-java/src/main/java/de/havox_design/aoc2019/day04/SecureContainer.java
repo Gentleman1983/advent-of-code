@@ -29,11 +29,13 @@ public class SecureContainer implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         SecureContainer instance = new SecureContainer(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         SecureContainer instance = new SecureContainer(fileName);
+
         return instance.processTask2();
     }
 

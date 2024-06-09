@@ -62,11 +62,13 @@ public class OxygenSystem implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         OxygenSystem instance = new OxygenSystem(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         OxygenSystem instance = new OxygenSystem(fileName);
+
         return instance.processTask2();
     }
 
@@ -82,9 +84,7 @@ public class OxygenSystem implements AoCFunctionality {
         BlockingQueue<Long> in = new LinkedBlockingQueue<>();
         BlockingDeque<Long> out = new LinkedBlockingDeque<>();
         Map<Pair<Long, Long>, Pair<Character, Long>> maze = new HashMap<>();
-
         IntComputer.runComputer( input, in, out, true );
-
         Pair<Long, Long> droidPosition = exploreMaze( in, out, maze, Pair.of( 0L, 0L ) );
 
         return maze.get( droidPosition ).getRight();
@@ -94,11 +94,8 @@ public class OxygenSystem implements AoCFunctionality {
         BlockingQueue<Long> in = new LinkedBlockingQueue<>();
         BlockingDeque<Long> out = new LinkedBlockingDeque<>();
         Map<Pair<Long, Long>, Pair<Character, Long>> maze = new HashMap<>();
-
         IntComputer.runComputer( input, in, out, true );
-
         Pair<Long, Long> droidPosition = exploreMaze( in, out, maze, Pair.of( 0L, 0L ) );
-
         Map<Pair<Long, Long>, Pair<Character, Long>> invertedMaze = new HashMap<>();
 
         exploreMaze( in, out, invertedMaze, droidPosition );
@@ -119,6 +116,7 @@ public class OxygenSystem implements AoCFunctionality {
         Pair<Long, Long> droidPosition = start;
 
         maze.put( droidPosition, Pair.of( ROOM, 0L ) );
+
         long status = 0L;
         long steps = 0L;
         FourDirections direction = RIGHT;

@@ -24,11 +24,13 @@ public class SpringdroidAdventure implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         SpringdroidAdventure instance = new SpringdroidAdventure(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         SpringdroidAdventure instance = new SpringdroidAdventure(fileName);
+
         return instance.processTask2();
     }
 
@@ -44,7 +46,6 @@ public class SpringdroidAdventure implements AoCFunctionality {
         BlockingQueue<Long> in = new LinkedBlockingQueue<>();
         BlockingDeque<Long> out = new LinkedBlockingDeque<>();
         initializeCommands(in, isExtendedSensorModeActive);
-
         IntComputer.runComputer(input, in, out, false);
 
         return out.removeLast();

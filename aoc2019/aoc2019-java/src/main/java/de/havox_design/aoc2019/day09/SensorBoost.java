@@ -28,11 +28,13 @@ public class SensorBoost implements AoCFunctionality {
 
     public static String processTask1(String fileName) {
         SensorBoost instance = new SensorBoost(fileName);
+
         return instance.processTask1();
     }
 
     public static String processTask2(String fileName) {
         SensorBoost instance = new SensorBoost(fileName);
+
         return instance.processTask2();
     }
 
@@ -49,6 +51,7 @@ public class SensorBoost implements AoCFunctionality {
         BlockingDeque<Long> out = new LinkedBlockingDeque<>();
 
         in.add( inputNumber );
+
         IntComputer.runComputer( input, in, out, false );
 
         return out

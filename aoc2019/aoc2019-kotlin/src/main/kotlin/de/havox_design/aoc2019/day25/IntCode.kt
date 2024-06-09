@@ -91,17 +91,22 @@ class IntCode(
         val currentMemory = memory
 
         memory = MutableList(maxIndex + 1) { 0L }
-        currentMemory.forEachIndexed { index, value ->
+        currentMemory
+            .forEachIndexed { index, value ->
             memory[index] = value
         }
     }
 
     fun sendAscii(commands: Collection<String>) {
-        commands.forEach { sendAscii(it) }
+        commands
+            .forEach { sendAscii(it) }
     }
 
     fun sendAscii(command: String) {
-        command.forEach { char -> inputs.add(char.code.toLong()) }
+        command
+            .forEach { char ->
+                inputs.add(char.code.toLong())
+            }
         inputs.add(10L)
     }
 }

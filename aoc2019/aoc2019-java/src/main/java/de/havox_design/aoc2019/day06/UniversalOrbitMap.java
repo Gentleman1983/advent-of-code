@@ -20,11 +20,13 @@ public class UniversalOrbitMap implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         UniversalOrbitMap instance = new UniversalOrbitMap(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         UniversalOrbitMap instance = new UniversalOrbitMap(fileName);
+
         return instance.processTask2();
     }
 
@@ -39,20 +41,17 @@ public class UniversalOrbitMap implements AoCFunctionality {
     public long processTask2() {
         ObjectInSpace youObject = findObjectInSpace("YOU");
         ObjectInSpace sanObject = findObjectInSpace("SAN");
-
         List<ObjectInSpace> toCenterPathYou = youObject
                 .toCenterOfMass()
                 .toList();
         List<ObjectInSpace> toCenterPathSan = sanObject
                 .toCenterOfMass()
                 .toList();
-
         ObjectInSpace intersectionObject = toCenterPathYou
                 .stream()
                 .filter(toCenterPathSan::contains)
                 .findFirst()
                 .orElseThrow();
-
         int stepsYou = toCenterPathYou
                 .indexOf(intersectionObject);
         int stepsSan = toCenterPathSan
@@ -70,9 +69,9 @@ public class UniversalOrbitMap implements AoCFunctionality {
 
         String centerObjectName = matcher.group(1);
         ObjectInSpace centerObject = putObjectInSpace(centerObjectName);
-
         String orbitObjectName = matcher.group(2);
         ObjectInSpace orbitObject = putObjectInSpace(orbitObjectName);
+
         orbitObject.setCenterObject(centerObject);
     }
 

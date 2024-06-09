@@ -27,11 +27,13 @@ public class SpaceStoichiometry implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         SpaceStoichiometry instance = new SpaceStoichiometry(fileName);
+
         return instance.processTask1();
     }
 
     public static long processTask2(String fileName) {
         SpaceStoichiometry instance = new SpaceStoichiometry(fileName);
+
         return instance.processTask2();
     }
 
@@ -189,6 +191,7 @@ public class SpaceStoichiometry implements AoCFunctionality {
 
             reactionComponents.add(reactionPair);
         }
+
         return reactionComponents;
     }
 }

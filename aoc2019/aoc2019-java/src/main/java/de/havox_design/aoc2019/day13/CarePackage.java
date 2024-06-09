@@ -29,6 +29,7 @@ public class CarePackage implements AoCFunctionality {
 
     public static long processTask1(String fileName) {
         CarePackage instance = new CarePackage(fileName);
+
         return instance.processTask1();
     }
 
@@ -41,7 +42,6 @@ public class CarePackage implements AoCFunctionality {
         BlockingQueue<Long> in = new LinkedBlockingQueue<>();
         BlockingDeque<Long> out = new LinkedBlockingDeque<>();
         Future<?> future = IntComputer.runComputer(input, in, out, true);
-
         Map<Pair<Long, Long>, Character> grid = new HashMap<>();
         long paddlePosition = 0L;
 
@@ -64,15 +64,20 @@ public class CarePackage implements AoCFunctionality {
             throw new AdventOfCodeException(e);
         }
 
-        return grid.values().stream().filter(c -> c == BLOCK).count();
+        return grid
+                .values()
+                .stream()
+                .filter(c -> c == BLOCK)
+                .count();
     }
 
-    public Long readOutput(BlockingDeque<Long> output, Future<?> writer)
-            throws InterruptedException {
+    public Long readOutput(BlockingDeque<Long> output, Future<?> writer) throws InterruptedException {
         Long x;
+
         do {
             x = output.poll( 50, TimeUnit.MILLISECONDS );
         } while ( x == null && !writer.isDone() );
+
         return x;
     }
 }
