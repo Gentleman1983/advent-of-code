@@ -19,11 +19,13 @@ public class ASeriesOfTubes implements AoCFunctionality {
 
     public static String solvePart1(String fileName) {
         ASeriesOfTubes instance = new ASeriesOfTubes(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         ASeriesOfTubes instance = new ASeriesOfTubes(fileName);
+
         return instance.solvePart2();
     }
 

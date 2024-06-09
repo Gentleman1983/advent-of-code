@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Rule {
@@ -31,7 +32,7 @@ public class Rule {
     }
 
     static Rule from(String rule) {
-        var matcher = RULE_PARSER.matcher(rule);
+        Matcher matcher = RULE_PARSER.matcher(rule);
 
         if (!matcher.matches()) {
             throw new IllegalArgumentException("Expected rule but got: " + rule);

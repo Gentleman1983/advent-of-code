@@ -17,11 +17,13 @@ public class ParticleSwarm implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         ParticleSwarm instance = new ParticleSwarm(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         ParticleSwarm instance = new ParticleSwarm(fileName);
+
         return instance.solvePart2();
     }
 
@@ -43,6 +45,7 @@ public class ParticleSwarm implements AoCFunctionality {
 
     private int countParticlesNotCollided(List<Particle> particles, int iterations) {
         int lastCount = -1;
+
         for (int i = 1; lastCount != particles.size() || i <= iterations; i++) {
             int t = i;
 

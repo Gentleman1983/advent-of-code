@@ -17,6 +17,7 @@ public class TheHaltingProblem implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         TheHaltingProblem instance = new TheHaltingProblem(fileName);
+
         return instance.solvePart1();
     }
 

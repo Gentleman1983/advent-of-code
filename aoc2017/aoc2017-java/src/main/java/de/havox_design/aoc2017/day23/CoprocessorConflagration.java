@@ -19,11 +19,13 @@ public class CoprocessorConflagration implements AoCFunctionality {
 
     public static long solvePart1(String fileName) {
         CoprocessorConflagration instance = new CoprocessorConflagration(fileName);
+
         return instance.solvePart1();
     }
 
     public static long solvePart2(String fileName) {
         CoprocessorConflagration instance = new CoprocessorConflagration(fileName);
+
         return instance.solvePart2();
     }
 

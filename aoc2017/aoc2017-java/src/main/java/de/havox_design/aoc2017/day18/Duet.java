@@ -20,11 +20,13 @@ public class Duet implements AoCFunctionality {
 
     public static BigInteger solvePart1(String fileName) {
         Duet instance = new Duet(fileName);
+
         return instance.solvePart1();
     }
 
     public static BigInteger solvePart2(String fileName) {
         Duet instance = new Duet(fileName);
+
         return instance.solvePart2();
     }
 
