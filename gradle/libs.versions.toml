@@ -1,7 +1,7 @@
 [versions]
 commons-codec = "1.17.1"
 commons-collections4 = "4.4"
-commons-lang3 = "3.16.0"
+commons-lang3 = "3.17.0"
 equalsverifier = "3.16.2"
 groovy = "4.0.22"
 hamcrest = "3.0"
