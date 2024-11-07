@@ -20,13 +20,13 @@ import de.havox_design.aoc2015.day16.FindAuntSue
 import de.havox_design.aoc2015.day17.NotEnoughEggnod
 import de.havox_design.aoc2015.day18.GIFMatrix
 import de.havox_design.aoc2015.day19.MedicineForRudolph
+import de.havox_design.aoc2015.day19.MedicineForRudolphJava
 import de.havox_design.aoc2015.day20.PacketDelivery
 import de.havox_design.aoc2015.day21.RPGBossFight
 import de.havox_design.aoc2015.day22.RPGWizardFight
 import de.havox_design.aoc2015.day23.Turing
 import de.havox_design.aoc2015.day24.BalancedQuantumEntanglement
 import de.havox_design.aoc2015.day25.CodeLock
-import java.io.File
 
 class MainClass: AocMainClassHelper {
     override fun getYear(): Int = 2015
@@ -201,7 +201,7 @@ class MainClass: AocMainClassHelper {
         day(
             getDayString(day),
             MedicineForRudolph(getFileName(day))::processPart1,
-            ::medicineForRudolphPart2,
+            MedicineForRudolphJava(getFileName(day))::solvePart2,
             daysSelected,
             args
         )
@@ -259,12 +259,6 @@ class MainClass: AocMainClassHelper {
             daysSelected,
             args
         )
-    }
-
-    private fun medicineForRudolphPart2(): String {
-        return File("aoc2015-python/src/main/resources/de/havox_design/aoc2015/day19/day19result_part2.txt")
-            .readLines()
-            .last()
     }
 
     companion object {

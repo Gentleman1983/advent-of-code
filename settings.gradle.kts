@@ -3,7 +3,6 @@ rootProject.name = "advent-of-code"
 include("aoc2015")
 include("aoc2015:aoc2015-java")
 include("aoc2015:aoc2015-kotlin")
-include("aoc2015:aoc2015-python")
 
 include("aoc2016")
 include("aoc2016:aoc2016-groovy")
