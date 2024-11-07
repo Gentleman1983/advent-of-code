@@ -13,6 +13,7 @@ public record Target(String type, int id) {
         return type.equals(TYPE_OUTPUT) || bots.containsKey(id);
     }
 
+    @SuppressWarnings("javaarchitecture:S7027")
     void update(Map<Integer, Bot> bots, Map<Integer, List<Integer>> outputs, int value) {
         switch (type) {
             case TYPE_BOT -> Optional
