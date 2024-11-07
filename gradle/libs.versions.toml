@@ -2,7 +2,7 @@
 commons-codec = "1.17.1"
 commons-collections4 = "4.4"
 commons-lang3 = "3.17.0"
-equalsverifier = "3.17.2"
+equalsverifier = "3.17.3"
 groovy = "4.0.23"
 hamcrest = "3.0"
 jgrapht = "1.5.2"
