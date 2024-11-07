@@ -11,8 +11,8 @@ class Day21Test {
 
     @ParameterizedTest
     @MethodSource("getDataForPart1")
-    void testPart1(String fileName, String expected, String input) {
-        Assertions.assertEquals(expected, ScrambledLettersAndHash.solvePart1(fileName, input));
+    void testPart1(String fileName, String expected, String scrambledPassword) {
+        Assertions.assertEquals(expected, ScrambledLettersAndHash.processTask1(fileName, scrambledPassword));
     }
 
     private static Stream<Arguments> getDataForPart1() {

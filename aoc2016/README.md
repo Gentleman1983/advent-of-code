@@ -30,7 +30,7 @@ For more information see https://adventofcode.com [2016](https://adventofcode.co
 | 18      | ⭐ ![Java](../img/java.png)     | ⭐ ![Java](../img/java.png)     |
 | 19      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
 | 20      | ⭐ ![Java](../img/java.png)     | ⭐ ![Java](../img/java.png)     |
-| 21      | ⭐ ![Groovy](../img/groovy.png) | ⭐ ![Groovy](../img/groovy.png) |
+| 21      | ⭐ ![Java](../img/java.png)     | ⭐ ![Java](../img/java.png)     |
 | 22      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
 | 23      | ⭐ ![Java](../img/java.png)     | ⭐ ![Java](../img/java.png)     |
 | 24      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
