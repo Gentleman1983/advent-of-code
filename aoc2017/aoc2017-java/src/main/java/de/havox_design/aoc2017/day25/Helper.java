@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@SuppressWarnings("javaarchitecture:S7027")
 public class Helper {
     private static final Pattern EXTRACTOR =
             Pattern.compile("^.* ([0-9A-Z]+|left|right)(?: steps)?[.:]$");
