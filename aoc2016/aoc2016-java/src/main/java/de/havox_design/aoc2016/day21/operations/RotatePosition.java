@@ -1,4 +1,4 @@
-package de.havox_design.aoc2016.day21;
+package de.havox_design.aoc2016.day21.operations;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,9 +17,6 @@ public class RotatePosition implements ScramblingOperation {
     @Override
     public String scramble(String text) {
         int delta = delta(text.indexOf(letter));
-//        if (delta > 4) {
-//            delta++;
-//        }
         char[] chars = new char[text.length()];
         for (int i = 0; i < text.length(); i++) {
             chars[(i + delta) % text.length()] = text.charAt(i);

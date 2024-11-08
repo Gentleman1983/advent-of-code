@@ -56,7 +56,7 @@ public class MedicineForRudolphJava implements AoCFunctionality {
     private Map<String, String> readReverseMap(List<String> input) {
         Map<String, String> reverseMapUnderConstruction = new TreeMap<>();
 
-        for(String line : input) {
+        for (String line : input) {
             if (line.isEmpty()) {
                 break;
             }

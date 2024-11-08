@@ -1,4 +1,4 @@
-package de.havox_design.aoc2016.day21;
+package de.havox_design.aoc2016.day21.operations;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,12 +8,11 @@ public class Move implements ScramblingOperation {
     public static final Pattern REGEX = Pattern.compile("move position (\\d+) to position (\\d+)");
 
     private final int pos1;
-
     private final int pos2;
 
     public Move(Matcher matcher) {
-        pos1 = Integer.valueOf(matcher.group(1));
-        pos2 = Integer.valueOf(matcher.group(2));
+        pos1 = Integer.parseInt(matcher.group(1));
+        pos2 = Integer.parseInt(matcher.group(2));
     }
 
     @Override

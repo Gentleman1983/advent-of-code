@@ -1,4 +1,4 @@
-package de.havox_design.aoc2016.day21;
+package de.havox_design.aoc2016.day21.operations;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,7 +8,6 @@ public class SwapLetter implements ScramblingOperation {
     public static final Pattern REGEX = Pattern.compile("swap letter (\\w) with letter (\\w)");
 
     private final char letter1;
-
     private final char letter2;
 
     public SwapLetter(Matcher matcher) {

@@ -1,4 +1,4 @@
-package de.havox_design.aoc2016.day21;
+package de.havox_design.aoc2016.day21.operations;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,12 +8,11 @@ public class Rotate implements ScramblingOperation {
     public static final Pattern REGEX = Pattern.compile("rotate (right|left) (\\d+) steps?");
 
     private final int delta;
-
-    private boolean left;
+    private final boolean left;
 
     public Rotate(Matcher matcher) {
         left = matcher.group(1).equals("left");
-        delta = Integer.valueOf(matcher.group(2));
+        delta = Integer.parseInt(matcher.group(2));
     }
 
     @Override

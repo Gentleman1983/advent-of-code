@@ -2,6 +2,7 @@ package de.havox_design.aoc2016.day21;
 
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
+import de.havox_design.aoc2016.day21.operations.ScramblingOperation;
 
 import java.util.ArrayList;
 import java.util.Collections;
