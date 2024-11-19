@@ -11,7 +11,7 @@ python-plugin = "2.8.1"
 scala3-library = "3.6.1"
 scala3-scalatest = "3.3.0-SNAP4"
 scala3-scalatestplus-junit = "3.2.19.1"
-sonarqube-plugin = "5.1.0.4882"
+sonarqube-plugin = "6.0.0.5145"
 struts2 = "6.6.1"
 
 [libraries]
