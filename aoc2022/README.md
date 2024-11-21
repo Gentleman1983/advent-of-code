@@ -21,13 +21,13 @@ For more information see https://adventofcode.com [2022](https://adventofcode.co
 | 8       | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
 | 9       | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
 | 10      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
-| 11      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Scala](../img/scala.png)   |
+| 11      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![JAVA](../img/java.png)     |
 | 12      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
 | 13      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
 | 14      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
 | 15      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
-| 16      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Scala](../img/scala.png)   |
-| 17      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Scala](../img/scala.png)   |
+| 16      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![JAVA](../img/java.png)     |
+| 17      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![JAVA](../img/java.png)     |
 | 18      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
 | 19      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |
 | 20      | ⭐ ![Kotlin](../img/kotlin.png)  | ⭐ ![Kotlin](../img/kotlin.png) |

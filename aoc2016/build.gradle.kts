@@ -6,7 +6,6 @@ plugins {
 val year = 2016
 
 dependencies {
-    api(project(":aoc${year}:aoc${year}-groovy"))
     api(project(":aoc${year}:aoc${year}-java"))
     api(project(":aoc${year}:aoc${year}-kotlin"))
 
