@@ -3,6 +3,7 @@ package de.havox_design.aoc2016.day21.operations;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@SuppressWarnings("javaarchitecture:S7027")
 public interface ScramblingOperation {
 
     static boolean matches(Pattern pattern, String line) {
