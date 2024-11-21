@@ -1,6 +1,5 @@
-package de.havox_design.aoc2023.day01;
+package de.havox_design.aoc2023.day24;
 
-import de.havox_design.aoc2023.day24.NeverTellMeTheOddsJava;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
