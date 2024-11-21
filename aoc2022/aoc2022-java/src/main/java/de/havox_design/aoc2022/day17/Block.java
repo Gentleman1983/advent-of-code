@@ -1,5 +1,6 @@
 package de.havox_design.aoc2022.day17;
 
+@SuppressWarnings("javaarchitecture:S7027")
 public class Block {
     private static final int ID_X = 0;
     private static final int ID_Y = 1;
