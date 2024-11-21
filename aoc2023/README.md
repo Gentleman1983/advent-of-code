@@ -3,7 +3,7 @@
 Simple project for Advent of Code 2023.
 
 Planned to be done primarily in [Kotlin](https://kotlinlang.org). Please beware of code quality issues, because these
-are early steps on Kotlin. Day 24 part 2 is solved in Python for better performance and easier solution instead of 
+are early steps on Kotlin. Day 24 part 2 is solved in Java for better performance and easier solution instead of 
 Kotlin.
 
 For more information see https://adventofcode.com [2023](https://adventofcode.com/2023).
@@ -35,7 +35,7 @@ For more information see https://adventofcode.com [2023](https://adventofcode.co
 | 21      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
 | 22      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
 | 23      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
-| 24      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Python](../img/python.png) |
+| 24      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![JAVA](../img/java.png)     |
 | 25      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
 | **SUM** | **25 ⭐**                       | **25 ⭐**                       |
 

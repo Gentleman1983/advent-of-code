@@ -32,8 +32,8 @@ include("aoc2022:aoc2022-kotlin")
 include("aoc2022:aoc2022-scala")
 
 include("aoc2023")
+include("aoc2023:aoc2023-java")
 include("aoc2023:aoc2023-kotlin")
-include("aoc2023:aoc2023-python")
 
 include("aoc2024")
 include("aoc2024:aoc2024-kotlin")

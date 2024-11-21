@@ -25,8 +25,8 @@ import de.havox_design.aoc2023.day21.StepCounter
 import de.havox_design.aoc2023.day22.SandSlabs
 import de.havox_design.aoc2023.day23.ALongWalk
 import de.havox_design.aoc2023.day24.NeverTellMeTheOdds
+import de.havox_design.aoc2023.day24.NeverTellMeTheOddsJava
 import de.havox_design.aoc2023.day25.Snowverload
-import java.io.File
 
 class MainClass: AocMainClassHelper {
     override fun getYear(): Int = 2023
@@ -255,7 +255,7 @@ class MainClass: AocMainClassHelper {
         day(
             getDayString(day),
             NeverTellMeTheOdds(getFileName(day))::solvePart1,
-            this::neverTellMeTheOddsPart2,
+            NeverTellMeTheOddsJava(getFileName(day))::solvePart2,
             daysSelected,
             args
         )
@@ -268,12 +268,6 @@ class MainClass: AocMainClassHelper {
             daysSelected,
             args
         )
-    }
-
-    private fun neverTellMeTheOddsPart2(): String {
-        return File("aoc2023-python/src/main/resources/de/havox_design/aoc2023/day24/day24result_part2.txt")
-            .readLines()
-            .last()
     }
 
     companion object {
