@@ -3,7 +3,6 @@ import org.sonarqube.gradle.SonarExtension
 import org.sonarqube.gradle.SonarTask
 
 plugins {
-    alias(libs.plugins.python.plugin) apply false
     id("jacoco-report-aggregation")
     id("java-library")
     alias(libs.plugins.kotlin.jvm) apply false
