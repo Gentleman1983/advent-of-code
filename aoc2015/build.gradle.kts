@@ -28,7 +28,3 @@ tasks.named<Jar>("jar") {
         attributes["Main-Class"] = "de.havox_design.aoc${year}.MainClass"
     }
 }
-
-tasks.test{
-    dependsOn(project(":aoc${year}:aoc${year}-python").tasks.named("check"))
-}

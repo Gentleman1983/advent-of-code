@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.logging.Logger;
 
+@SuppressWarnings("javaarchitecture:S7027")
 public class IntComputer implements Runnable {
     private static final Logger LOGGER = Logger.getLogger(IntComputer.class.getName());
     private static final ExecutorService EXECUTOR = Executors.newCachedThreadPool();

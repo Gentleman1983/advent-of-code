@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+@SuppressWarnings("javaarchitecture:S7027")
 public class Area {
     private static final char ICON_PIXEL_ON = '#';
 

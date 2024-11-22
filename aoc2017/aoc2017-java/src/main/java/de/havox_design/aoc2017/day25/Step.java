@@ -3,6 +3,7 @@ package de.havox_design.aoc2017.day25;
 import java.util.Iterator;
 import java.util.Map;
 
+@SuppressWarnings("javaarchitecture:S7027")
 public class Step {
     final int newValue;
     final int shiftBy;

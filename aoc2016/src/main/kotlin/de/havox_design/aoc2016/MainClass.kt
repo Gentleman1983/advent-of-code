@@ -303,13 +303,13 @@ class MainClass: AocMainClassHelper {
     private fun scrambledLettersAndHashPart1(): String {
         val filename = getFileName(21)
 
-        return ScrambledLettersAndHash.solvePart1(filename).toString()
+        return ScrambledLettersAndHash.processTask1(filename).toString()
     }
 
     private fun scrambledLettersAndHashPart2(): String {
         val filename = getFileName(21)
 
-        return ScrambledLettersAndHash.solvePart2(filename).toString()
+        return ScrambledLettersAndHash.processTask2(filename).toString()
     }
 
     companion object {

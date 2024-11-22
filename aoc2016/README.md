@@ -2,7 +2,7 @@
 
 Simple project for Advent of Code 2016.
 
-Done in Java 21. Some used Groovy or Kotlin for easier solutions. ;)
+Done in Java 21. Some used Kotlin for easier solutions. ;)
 
 For more information see https://adventofcode.com [2016](https://adventofcode.com/2016).
 
@@ -30,7 +30,7 @@ For more information see https://adventofcode.com [2016](https://adventofcode.co
 | 18      | ⭐ ![Java](../img/java.png)     | ⭐ ![Java](../img/java.png)     |
 | 19      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
 | 20      | ⭐ ![Java](../img/java.png)     | ⭐ ![Java](../img/java.png)     |
-| 21      | ⭐ ![Groovy](../img/groovy.png) | ⭐ ![Groovy](../img/groovy.png) |
+| 21      | ⭐ ![Java](../img/java.png)     | ⭐ ![Java](../img/java.png)     |
 | 22      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
 | 23      | ⭐ ![Java](../img/java.png)     | ⭐ ![Java](../img/java.png)     |
 | 24      | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |

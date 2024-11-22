@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 
+@SuppressWarnings("javaarchitecture:S7027")
 public enum OpCode implements Consumer<IntComputer> {
     ADD(IntComputer.getDataFor("ADD")) {
         @Override

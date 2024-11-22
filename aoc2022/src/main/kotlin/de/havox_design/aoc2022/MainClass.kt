@@ -12,15 +12,15 @@ import de.havox_design.aoc2022.day08.TreetopTreeHouse
 import de.havox_design.aoc2022.day09.RopeBridge
 import de.havox_design.aoc2022.day10.CathodeRayTube
 import de.havox_design.aoc2022.day11.MonkeyInTheMiddle
-import de.havox_design.aoc2022.day11.ScalaMonkeyInTheMiddle
+import de.havox_design.aoc2022.day11.MonkeyInTheMiddleJava
 import de.havox_design.aoc2022.day12.HillClimbingAlgorithm
 import de.havox_design.aoc2022.day13.DistressSignal
 import de.havox_design.aoc2022.day14.RegolithReservoir
 import de.havox_design.aoc2022.day15.BeaconExclusionZone
 import de.havox_design.aoc2022.day16.ProboscideaVolcanium
-import de.havox_design.aoc2022.day16.ScalaProboscideaVolcanium
+import de.havox_design.aoc2022.day16.ProboscideaVolcaniumJava
+import de.havox_design.aoc2022.day17.PyroclasticFlowJava
 import de.havox_design.aoc2022.day17.PyroclasticFlow
-import de.havox_design.aoc2022.day17.ScalaPyroclasticFlow
 import de.havox_design.aoc2022.day18.BoilingBoulders
 import de.havox_design.aoc2022.day19.NotEnoughMinerals
 import de.havox_design.aoc2022.day20.GrovePositioningSystem
@@ -133,7 +133,7 @@ class MainClass : AocMainClassHelper {
         day(
             getDayString(day),
             MonkeyInTheMiddle(getFileName(day))::processPart1,
-            ::solveDay11Part2,
+            MonkeyInTheMiddleJava(getFileName(day))::solvePart2,
             daysSelected,
             args
         )
@@ -178,7 +178,7 @@ class MainClass : AocMainClassHelper {
         day(
             getDayString(day),
             ProboscideaVolcanium(getFileName(day))::processPart1,
-            ::solveDay16Part2,
+            ProboscideaVolcaniumJava(getFileName(day))::solvePart2,
             daysSelected,
             args
         )
@@ -187,7 +187,7 @@ class MainClass : AocMainClassHelper {
         day(
             getDayString(day),
             PyroclasticFlow(getFileName(day))::processPart1,
-            ::solveDay17Part2,
+            PyroclasticFlowJava(getFileName(day))::solvePart2,
             daysSelected,
             args
         )
@@ -265,18 +265,6 @@ class MainClass : AocMainClassHelper {
             daysSelected,
             args
         )
-    }
-
-    private fun solveDay11Part2(): String {
-        return ScalaMonkeyInTheMiddle.solvePart2(getFileName(11), 10000).toString()
-    }
-
-    private fun solveDay16Part2(): String {
-        return ScalaProboscideaVolcanium.solvePart2(getFileName(16), 10000).toString()
-    }
-
-    private fun solveDay17Part2(): String {
-        return ScalaPyroclasticFlow.solvePart2(getFileName(17), 10000).toString()
     }
 
     private fun crtPreview(): String {

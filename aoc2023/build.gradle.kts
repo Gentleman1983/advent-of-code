@@ -6,6 +6,7 @@ plugins {
 val year = 2023
 
 dependencies {
+    api(project(":aoc${year}:aoc${year}-java"))
     api(project(":aoc${year}:aoc${year}-kotlin"))
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -26,8 +27,4 @@ tasks.named<Jar>("jar") {
         attributes["Implementation-Version"] = project.version
         attributes["Main-Class"] = "de.havox_design.aoc${year}.MainClass"
     }
-}
-
-tasks.test{
-    dependsOn(project(":aoc${year}:aoc${year}-python").tasks.named("check"))
 }

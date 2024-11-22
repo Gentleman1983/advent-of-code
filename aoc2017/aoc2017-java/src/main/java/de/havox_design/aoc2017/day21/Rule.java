@@ -7,6 +7,7 @@ import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@SuppressWarnings("javaarchitecture:S7027")
 public class Rule {
     private static final Pattern ELEMENT_DELIMITER = Pattern.compile("/");
     private static final Pattern RULE_PARSER = Pattern.compile("(?<input>[.#/]+)\\s+=>\\s+(?<output>[.#/]+)");

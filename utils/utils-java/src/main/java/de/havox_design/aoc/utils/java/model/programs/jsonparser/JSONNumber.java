@@ -4,6 +4,7 @@ import java.io.Serial;
 import java.util.List;
 import java.util.Set;
 
+@SuppressWarnings("javaarchitecture:S7027")
 public final class JSONNumber extends Number implements JSONEntity {
     @Serial
     private static final long serialVersionUID = 1L;

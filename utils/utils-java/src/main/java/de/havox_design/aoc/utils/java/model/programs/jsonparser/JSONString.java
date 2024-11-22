@@ -2,6 +2,7 @@ package de.havox_design.aoc.utils.java.model.programs.jsonparser;
 
 import java.util.List;
 
+@SuppressWarnings("javaarchitecture:S7027")
 public final class JSONString implements CharSequence, JSONEntity {
 
     private String string;

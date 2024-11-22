@@ -3,6 +3,7 @@ package de.havox_design.aoc2016.day10;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("javaarchitecture:S7027")
 public record Bot(int id, Target lowTarget, Target highTarget, Integer low, Integer high) {
 
     Bot(int id, int low) {
