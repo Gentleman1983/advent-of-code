@@ -65,8 +65,8 @@ class MainClass: AocMainClassHelper {
         day = 4
         day(
             getDayString(day),
-            ::highEntropyPassphrasesPart1,
-            ::highEntropyPassphrasesPart2,
+            HighEntropyPassphrases(getFileName(day))::processPart1,
+            HighEntropyPassphrases(getFileName(day))::processPart2,
             daysSelected,
             args
         )
@@ -74,8 +74,8 @@ class MainClass: AocMainClassHelper {
         day = 5
         day(
             getDayString(day),
-            ::aMazeOfTwistyTrampolinesAllAlikePart1,
-            ::aMazeOfTwistyTrampolinesAllAlikePart2,
+            AMazeOfTwistyTrampolinesAllAlike(getFileName(day))::processPart1,
+            AMazeOfTwistyTrampolinesAllAlike(getFileName(day))::processPart2,
             daysSelected,
             args
         )
@@ -83,8 +83,8 @@ class MainClass: AocMainClassHelper {
         day = 6
         day(
             getDayString(day),
-            ::memoryReallocationPart1,
-            ::memoryReallocationPart2,
+            MemoryReallocation(getFileName(day))::processPart1,
+            MemoryReallocation(getFileName(day))::processPart2,
             daysSelected,
             args
         )
@@ -92,8 +92,8 @@ class MainClass: AocMainClassHelper {
         day = 7
         day(
             getDayString(day),
-            ::recursiveCircusPart1,
-            ::recursiveCircusPart2,
+            RecursiveCircus(getFileName(day))::processPart1,
+            RecursiveCircus(getFileName(day))::processPart2,
             daysSelected,
             args
         )
@@ -101,8 +101,8 @@ class MainClass: AocMainClassHelper {
         day = 8
         day(
             getDayString(day),
-            ::iHeardYouLikeRegistersPart1,
-            ::iHeardYouLikeRegistersPart2,
+            IHeardYouLikeRegisters(getFileName(day))::processPart1,
+            IHeardYouLikeRegisters(getFileName(day))::processPart2,
             daysSelected,
             args
         )
@@ -110,8 +110,8 @@ class MainClass: AocMainClassHelper {
         day = 9
         day(
             getDayString(day),
-            ::streamProcessingPart1,
-            ::streamProcessingPart2,
+            StreamProcessing(getFileName(day))::processPart1,
+            StreamProcessing(getFileName(day))::processPart2,
             daysSelected,
             args
         )
@@ -119,8 +119,8 @@ class MainClass: AocMainClassHelper {
         day = 10
         day(
             getDayString(day),
-            ::knotHashPart1,
-            ::knotHashPart2,
+            KnotHash(getFileName(day))::processPart1,
+            KnotHash(getFileName(day))::processPart2,
             daysSelected,
             args
         )
@@ -155,8 +155,8 @@ class MainClass: AocMainClassHelper {
         day = 14
         day(
             getDayString(day),
-            this::diskDefragmentationPart1,
-            this::diskDefragmentationPart2,
+            DiskDefragmentation(getFileName(day))::processPart1,
+            DiskDefragmentation(getFileName(day))::processPart2,
             daysSelected,
             args
         )
@@ -259,102 +259,6 @@ class MainClass: AocMainClassHelper {
             daysSelected,
             args
         )
-    }
-
-    private fun highEntropyPassphrasesPart1(): String {
-        val filename = getFileName(4)
-
-        return HighEntropyPassphrases.solvePart1(filename).toString()
-    }
-
-    private fun highEntropyPassphrasesPart2(): String {
-        val filename = getFileName(4)
-
-        return HighEntropyPassphrases.solvePart2(filename).toString()
-    }
-
-    private fun aMazeOfTwistyTrampolinesAllAlikePart1(): String {
-        val filename = getFileName(5)
-
-        return AMazeOfTwistyTrampolinesAllAlike.solvePart1(filename).toString()
-    }
-
-    private fun aMazeOfTwistyTrampolinesAllAlikePart2(): String {
-        val filename = getFileName(5)
-
-        return AMazeOfTwistyTrampolinesAllAlike.solvePart2(filename).toString()
-    }
-
-    private fun memoryReallocationPart1(): String {
-        val filename = getFileName(6)
-
-        return MemoryReallocation.solvePart1(filename).toString()
-    }
-
-    private fun memoryReallocationPart2(): String {
-        val filename = getFileName(6)
-
-        return MemoryReallocation.solvePart2(filename).toString()
-    }
-
-    private fun recursiveCircusPart1(): String {
-        val filename = getFileName(7)
-
-        return RecursiveCircus.solvePart1(filename).toString()
-    }
-
-    private fun recursiveCircusPart2(): String {
-        val filename = getFileName(7)
-
-        return RecursiveCircus.solvePart2(filename).toString()
-    }
-
-    private fun iHeardYouLikeRegistersPart1(): String {
-        val filename = getFileName(8)
-
-        return IHeardYouLikeRegisters.solvePart1(filename).toString()
-    }
-
-    private fun iHeardYouLikeRegistersPart2(): String {
-        val filename = getFileName(8)
-
-        return IHeardYouLikeRegisters.solvePart2(filename).toString()
-    }
-
-    private fun streamProcessingPart1(): String {
-        val filename = getFileName(9)
-
-        return StreamProcessing.solvePart1(filename).toString()
-    }
-
-    private fun streamProcessingPart2(): String {
-        val filename = getFileName(9)
-
-        return StreamProcessing.solvePart2(filename).toString()
-    }
-
-    private fun knotHashPart1(): String {
-        val filename = getFileName(10)
-
-        return KnotHash.solvePart1(filename, 256).toString()
-    }
-
-    private fun knotHashPart2(): String {
-        val filename = getFileName(10)
-
-        return KnotHash.solvePart2(filename).toString()
-    }
-
-    private fun diskDefragmentationPart1(): String {
-        val filename = getFileName(14)
-
-        return DiskDefragmentation.solvePart1(filename).toString()
-    }
-
-    private fun diskDefragmentationPart2(): String {
-        val filename = getFileName(14)
-
-        return DiskDefragmentation.solvePart2(filename).toString()
     }
 
     private fun permutationPromenadePart1(): String {

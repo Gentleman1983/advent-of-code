@@ -7,9 +7,6 @@ hamcrest = "3.0"
 jgrapht = "1.5.2"
 junit5 = "5.11.3"
 kotlin-jvm = "2.0.21"
-scala3-library = "3.6.1"
-scala3-scalatest = "3.3.0-SNAP4"
-scala3-scalatestplus-junit = "3.2.19.1"
 sonarqube-plugin = "6.0.0.5145"
 struts2 = "6.6.1"
 
@@ -21,9 +18,6 @@ equalsverifier = { group = "nl.jqno.equalsverifier", name = "equalsverifier", ve
 hamcrest = { group = "org.hamcrest", name = "hamcrest", version.ref = "hamcrest" }
 jgrapht-core = { group = "org.jgrapht", name = "jgrapht-core", version.ref = "jgrapht" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit5" }
-scala3-library = { group = "org.scala-lang", name = "scala3-library_3", version.ref = "scala3-library" }
-scala3-scalatest = { group = "org.scalatest", name = "scalatest_3", version.ref = "scala3-scalatest" }
-scala3-scalatestplus-junit = { group = "org.scalatestplus", name = "junit-5-10_3", version.ref = "scala3-scalatestplus-junit" }
 struts2-core = { group = "org.apache.struts", name = "struts2-core", version.ref = "struts2" }
 
 [plugins]

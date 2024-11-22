@@ -10,7 +10,7 @@ include("aoc2016:aoc2016-kotlin")
 
 include("aoc2017")
 include("aoc2017:aoc2017-java")
-include("aoc2017:aoc2017-scala")
+include("aoc2017:aoc2017-kotlin")
 
 include("aoc2018")
 include("aoc2018:aoc2018-java")
