@@ -3,6 +3,7 @@ package de.havox_design.aoc2017.day09
 class StreamProcessing(private var filename: String) {
     private val data = getResourceAsText(filename)
 
+    @SuppressWarnings("kotlin:S5857")
     fun processPart1(): Any {
         val stream = data
             .replace(Regex("""[^{}<>!]|!."""), "")
