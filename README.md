@@ -18,8 +18,8 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | Year    | Language(s)                                                  | Total Stars | Link to repository                                                                 |
 |---------|--------------------------------------------------------------|------------:|------------------------------------------------------------------------------------|
 | 2024    | Kotlin ![Kotlin](img/kotlin.png)                             |    0 / 50 ⭐ | [aoc2024](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2024)       |
-| 2023    | Kotlin ![Kotlin](img/kotlin.png), JAVA ![JAVA](img/java.png) |   50 / 50 ⭐ | [aoc2023](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2023)       |
-| 2022    | Kotlin ![Kotlin](img/kotlin.png), JAVA ![JAVA](img/java.png) |   50 / 50 ⭐ | [aoc2022](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2022)       |
+| 2023    | Java ![Java](img/java.png), Kotlin ![Kotlin](img/kotlin.png) |   50 / 50 ⭐ | [aoc2023](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2023)       |
+| 2022    | Java ![Java](img/java.png), Kotlin ![Kotlin](img/kotlin.png) |   50 / 50 ⭐ | [aoc2022](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2022)       |
 | 2022    | Kotlin ![Kotlin](img/kotlin.png)                             |     2 / 2 ⭐ | [meilisearch](https://github.com/Gentleman1983/advent-of-code/tree/main/meili2022) |
 | 2021    | Kotlin ![Kotlin](img/kotlin.png)                             |   50 / 50 ⭐ | [aoc2021](https://github.com/Gentleman1983/aoc2021)                                |
 | 2020    | Kotlin ![Kotlin](img/kotlin.png)                             |   50 / 50 ⭐ | [aoc2020](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2020)       |
