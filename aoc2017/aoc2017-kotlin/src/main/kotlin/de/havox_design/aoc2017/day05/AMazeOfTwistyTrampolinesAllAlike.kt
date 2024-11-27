@@ -13,6 +13,7 @@ class AMazeOfTwistyTrampolinesAllAlike(private var filename: String) {
     fun processPart2(): Any =
         solve(true)
 
+    @SuppressWarnings("kotlin:S6524")
     private fun solve(decrease: Boolean = false): Int {
         val items = numbers
             .toMutableList()

@@ -8,6 +8,7 @@ class GiantSquid(private var filename: String) {
     fun processPart1(): Any =
         getWinningBoard(buildBoards(), parseCalledNumbers()).score()
 
+    @SuppressWarnings("kotlin:S6524")
     fun processPart2(): Any {
         val boards = buildBoards()
             .toMutableList()

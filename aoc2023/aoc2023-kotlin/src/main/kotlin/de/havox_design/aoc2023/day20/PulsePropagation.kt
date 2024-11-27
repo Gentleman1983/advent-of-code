@@ -10,6 +10,7 @@ class PulsePropagation(private var filename: String) {
     private val SIGNAL_DELIMITER = " -> "
     private val OUTPUTS_DELIMITER = ", "
 
+    @SuppressWarnings("kotlin:S6524")
     fun solvePart1(runs: Int = 1000): Long {
         val (modules, assignment, conjunctionInputs) = parseInput()
         var count = 0

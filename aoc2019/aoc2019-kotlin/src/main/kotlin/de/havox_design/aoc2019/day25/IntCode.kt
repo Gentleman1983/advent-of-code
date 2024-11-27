@@ -87,6 +87,7 @@ class IntCode(
         return memory[index]
     }
 
+    @SuppressWarnings("kotlin:S6524")
     private fun resizeMemory(maxIndex: Int) {
         val currentMemory = memory
 

@@ -11,6 +11,7 @@ class RepairReport(private var filename: String) {
         return findParts(numbers, 2020L) ?: throw IllegalStateException("No solution found")
     }
 
+    @SuppressWarnings("kotlin:S6524")
     fun processPart2(): Any {
         val numbers = data
             .map { it.toLong() }

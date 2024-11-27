@@ -16,6 +16,7 @@ class Snowverload(private var filename: String) {
     fun solvePart2(): String =
         "Merry X-MAS!!!"
 
+    @SuppressWarnings("kotlin:S6524")
     private fun splitGroups(input: List<String>): Int {
         val graph: Graph<String, DefaultEdge> = SimpleGraph(DefaultEdge::class.java)
 
