@@ -1,4 +1,4 @@
-# Advent of Coding 2021
+# Advent of Code 2021
 
 Simple project for Advent of Code 2021.
 
