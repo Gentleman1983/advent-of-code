@@ -1,4 +1,4 @@
-# Advent of Coding 2020
+# Advent of Code 2020
 
 Simple project for Advent of Code 2020.
 
