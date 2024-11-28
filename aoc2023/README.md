@@ -1,4 +1,4 @@
-# Advent of Coding 2023
+# Advent of Code 2023
 
 Simple project for Advent of Code 2023.
 
