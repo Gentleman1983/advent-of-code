@@ -1,4 +1,4 @@
-# Advent of Coding 2024
+# Advent of Code 2024
 
 Simple project for Advent of Code 2024.
 
