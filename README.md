@@ -1,4 +1,4 @@
-# Advent of Coding
+# Advent of Code
 
 This project collects all my simple project for [Advent of Code](https://adventofcode.com/) projects. I started in 2022
 participating. In the meantime I'm programming the missing Advent of Code years. Done in different languages depending
