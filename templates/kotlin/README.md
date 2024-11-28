@@ -1,4 +1,4 @@
-# Advent of Coding 20xx
+# Advent of Code 20xx
 
 Simple project for Advent of Code 20xx.
 
