@@ -6,23 +6,23 @@ import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-class Day01Test {
+class HistorianHysteriaTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
     fun testProcessPart1(filename: String, expectedResult: Long) =
-        de.havox_design.aoc2024.day01.Day01(filename).processPart1().shouldBe(expectedResult)
+        de.havox_design.aoc2024.day01.HistorianHysteria(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
     fun testProcessPart2(filename: String, expectedResult: Long) =
-        de.havox_design.aoc2024.day01.Day01(filename).processPart2().shouldBe(expectedResult)
+        de.havox_design.aoc2024.day01.HistorianHysteria(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day01/day01part1sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day01/day01part1sample.txt", 11L)
             )
 
         @JvmStatic
