@@ -22,13 +22,13 @@ class HistorianHysteriaTest {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day01/day01part1sample.txt", 11L)
+                Arguments.of("de/havox_design/aoc2024/day01/day01sample.txt", 11L)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day01/day01part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day01/day01sample.txt", 31L)
             )
     }
 }
