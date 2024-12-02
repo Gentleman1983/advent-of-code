@@ -8,12 +8,30 @@ class RedNosedReports(private var filename: String) {
 
     fun processPart1(): Any =
         data
-            .count { it
-                .isSafe()
+            .count {
+                it
+                    .isSafe()
             }
 
     fun processPart2(): Any =
-        0L
+        data
+            .count { line ->
+                val unsafeJumpIndex = line
+                    .indexOfUnsafeJump()
+                var isSafe = unsafeJumpIndex == NOT_FOUND
+                var indexToRemove = (unsafeJumpIndex - 1)
+                    .coerceAtLeast(0)
+
+                while (!isSafe && indexToRemove <= unsafeJumpIndex + 1) {
+                    isSafe = line
+                        .dropAt(indexToRemove)
+                        .isSafe()
+
+                    indexToRemove++
+                }
+
+                isSafe
+            }
 
     private fun List<Int>.isSafe(): Boolean =
         indexOfUnsafeJump() == NOT_FOUND
@@ -42,10 +60,10 @@ class RedNosedReports(private var filename: String) {
                 line
                     .split(" ")
                     .map { value ->
-                    value
-                        .trim()
-                        .toInt()
-                }
+                        value
+                            .trim()
+                            .toInt()
+                    }
             }
 
     private fun getResourceAsText(path: String): List<String> =
@@ -58,3 +76,6 @@ class RedNosedReports(private var filename: String) {
 }
 
 private const val NOT_FOUND = -1
+private fun List<Int>.dropAt(index: Int): List<Int> =
+    toMutableList()
+        .apply { removeAt(index) }

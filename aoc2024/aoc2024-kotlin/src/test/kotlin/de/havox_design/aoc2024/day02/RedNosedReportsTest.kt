@@ -15,7 +15,7 @@ class RedNosedReportsTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         RedNosedReports(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
@@ -28,7 +28,7 @@ class RedNosedReportsTest {
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day02/day02part2sample.txt", 4)
+                Arguments.of("de/havox_design/aoc2024/day02/day02sample.txt", 4)
             )
     }
 }
