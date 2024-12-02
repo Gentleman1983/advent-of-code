@@ -22,13 +22,13 @@ class RedNosedReportsTest {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day02/day02part1sample.txt", 2)
+                Arguments.of("de/havox_design/aoc2024/day02/day02sample.txt", 2)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day02/day02part2sample.txt", 0)
+                Arguments.of("de/havox_design/aoc2024/day02/day02part2sample.txt", 4)
             )
     }
 }
