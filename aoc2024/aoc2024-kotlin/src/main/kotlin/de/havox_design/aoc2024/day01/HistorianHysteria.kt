@@ -7,6 +7,7 @@ class HistorianHysteria(private var filename: String) {
     private val lists = buildLists()
     private val multiplicityMap = buildMultiplicityMap()
 
+    @SuppressWarnings("kotlin:S6524")
     fun processPart1(): Any {
         val leftSorted = lists
             .first
