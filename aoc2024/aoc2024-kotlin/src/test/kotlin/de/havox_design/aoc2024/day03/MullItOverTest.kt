@@ -22,7 +22,7 @@ class MullItOverTest {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day03/day03sample.txt", 161)
+                Arguments.of("de/havox_design/aoc2024/day03/day03part1sample.txt", 161)
             )
 
         @JvmStatic
