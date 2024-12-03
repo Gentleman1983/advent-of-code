@@ -10,7 +10,7 @@ class MullItOverTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         MullItOver(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,7 +22,7 @@ class MullItOverTest {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day03/day03part1sample.txt", 161L)
+                Arguments.of("de/havox_design/aoc2024/day03/day03part1sample.txt", 161)
             )
 
         @JvmStatic
