@@ -1,6 +1,6 @@
 package de.havox_design.aoc2024.day03
 
-class Day03(private var filename: String) {
+class MullItOver(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
