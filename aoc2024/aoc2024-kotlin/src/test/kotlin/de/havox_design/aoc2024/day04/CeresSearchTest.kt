@@ -10,7 +10,7 @@ class CeresSearchTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         CeresSearch(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,7 +22,7 @@ class CeresSearchTest {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day04/day04part1sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day04/day04part1sample.txt", 18)
             )
 
         @JvmStatic
