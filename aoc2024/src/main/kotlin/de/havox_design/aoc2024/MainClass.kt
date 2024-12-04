@@ -4,7 +4,7 @@ import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
 import de.havox_design.aoc2024.day01.HistorianHysteria
 import de.havox_design.aoc2024.day02.RedNosedReports
 import de.havox_design.aoc2024.day03.MullItOver
-import de.havox_design.aoc2024.day04.Day04
+import de.havox_design.aoc2024.day04.CeresSearch
 import de.havox_design.aoc2024.day05.Day05
 import de.havox_design.aoc2024.day06.Day06
 import de.havox_design.aoc2024.day07.Day07
@@ -64,8 +64,8 @@ class MainClass : AocMainClassHelper {
         day = 4
         day(
             getDayString(day),
-            Day04(getFileName(day))::processPart1,
-            Day04(getFileName(day))::processPart2,
+            CeresSearch(getFileName(day))::processPart1,
+            CeresSearch(getFileName(day))::processPart2,
             daysSelected,
             args
         )

@@ -6,17 +6,17 @@ import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-class Day04Test {
+class CeresSearchTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
     fun testProcessPart1(filename: String, expectedResult: Long) =
-        Day04(filename).processPart1().shouldBe(expectedResult)
+        CeresSearch(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
     fun testProcessPart2(filename: String, expectedResult: Long) =
-        Day04(filename).processPart2().shouldBe(expectedResult)
+        CeresSearch(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
