@@ -28,7 +28,7 @@ class CeresSearchTest {
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day04/day04part2sample.txt", 9)
+                Arguments.of("de/havox_design/aoc2024/day04/day04sample.txt", 9)
             )
     }
 }

@@ -25,7 +25,23 @@ class CeresSearch(private var filename: String) {
             }
 
     fun processPart2(): Any =
-        0L
+        data
+            .indices
+            .sumOf { y ->
+                data[y]
+                    .indices
+                    .count { x ->
+                        if (data[y][x] != 'A') {
+                            return@count false
+                        }
+
+                        val n = data.getOrNull(y - 1) ?: return@count false
+                        val s = data.getOrNull(y + 1) ?: return@count false
+
+                        setOf(n.getOrNull(x - 1), s.getOrNull(x + 1)) == MS &&
+                                setOf(n.getOrNull(x + 1), s.getOrNull(x - 1)) == MS
+                    }
+            }
 
     private fun getResourceAsText(path: String): List<String> =
         this
@@ -37,5 +53,6 @@ class CeresSearch(private var filename: String) {
 
     companion object {
         private const val XMAS = "XMAS"
+        private val MS = setOf('M', 'S')
     }
 }
