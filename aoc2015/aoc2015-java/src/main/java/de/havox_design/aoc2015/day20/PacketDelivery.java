@@ -45,6 +45,7 @@ public class PacketDelivery implements AoCFunctionality {
         return houseNumber;
     }
 
+    @SuppressWarnings("javabugs:S6466")
     public int solvePart2() {
         int minPresents = input;
         int[] houses = new int[minPresents / 11];
