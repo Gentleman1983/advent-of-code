@@ -19,8 +19,15 @@ class PrintQueue(private var filename: String) {
             .sumOf { it[it.size / 2] }
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val comparator = rules
+            .comparator()
+
+        return updates
+            .filterNot { it.isSorted(comparator) }
+            .map { it.sortedWith(comparator) }
+            .sumOf { it[it.size / 2] }
+    }
 
     private fun Set<Rule>.comparator(): Comparator<Int> =
         Comparator { o1, o2 ->
