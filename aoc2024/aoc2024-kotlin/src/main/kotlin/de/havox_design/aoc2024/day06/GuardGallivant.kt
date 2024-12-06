@@ -1,5 +1,9 @@
 package de.havox_design.aoc2024.day06
 
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.runBlocking
+
 class GuardGallivant(private var filename: String) {
     private val data = getResourceAsText(filename)
     private val initialPosition =
@@ -20,7 +24,9 @@ class GuardGallivant(private var filename: String) {
             .size
 
     fun processPart2(): Any =
-        0L
+        runBlocking {
+            solvePart2()
+        }
 
     private fun getResourceAsText(path: String): List<String> =
         this
@@ -29,6 +35,22 @@ class GuardGallivant(private var filename: String) {
             .getResourceAsStream(path)!!
             .bufferedReader()
             .readLines()
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    suspend fun solvePart2(): Any =
+        initialWalk
+            .asFlow()
+            .drop(1)
+            .flatMapMerge { (y, x) ->
+                val lines = data
+                    .toMutableList()
+                lines[y] = StringBuilder(lines[y])
+                    .apply { set(x, '#') }
+                    .toString()
+                flowOf(Unit)
+                    .filter { !lines.walk(initialPosition).all(mutableSetOf<Any?>()::add) }
+            }
+            .count()
 
     companion object {
         private fun List<String>.walk(position: IntPair) =

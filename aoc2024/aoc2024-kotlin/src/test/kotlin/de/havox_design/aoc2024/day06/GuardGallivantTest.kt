@@ -1,6 +1,7 @@
 package de.havox_design.aoc2024.day06
 
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
@@ -16,7 +17,9 @@ class GuardGallivantTest {
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
     fun testProcessPart2(filename: String, expectedResult: Int) =
-        GuardGallivant(filename).processPart2().shouldBe(expectedResult)
+        runTest {
+            GuardGallivant(filename).processPart2().shouldBe(expectedResult)
+        }
 
     companion object {
         @JvmStatic
