@@ -6,7 +6,7 @@ import de.havox_design.aoc2024.day02.RedNosedReports
 import de.havox_design.aoc2024.day03.MullItOver
 import de.havox_design.aoc2024.day04.CeresSearch
 import de.havox_design.aoc2024.day05.PrintQueue
-import de.havox_design.aoc2024.day06.Day06
+import de.havox_design.aoc2024.day06.GuardGallivant
 import de.havox_design.aoc2024.day07.Day07
 import de.havox_design.aoc2024.day08.Day08
 import de.havox_design.aoc2024.day09.Day09
@@ -82,8 +82,8 @@ class MainClass : AocMainClassHelper {
         day = 6
         day(
             getDayString(day),
-            Day06(getFileName(day))::processPart1,
-            Day06(getFileName(day))::processPart2,
+            GuardGallivant(getFileName(day))::processPart1,
+            GuardGallivant(getFileName(day))::processPart2,
             daysSelected,
             args
         )
