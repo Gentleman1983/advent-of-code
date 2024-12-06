@@ -10,7 +10,7 @@ class GuardGallivantTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         GuardGallivant(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,7 +22,7 @@ class GuardGallivantTest {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day06/day06part1sample.txt", 41L)
+                Arguments.of("de/havox_design/aoc2024/day06/day06part1sample.txt", 41)
             )
 
         @JvmStatic
