@@ -1,6 +1,6 @@
 package de.havox_design.aoc2024.day07
 
-class Day07(private var filename: String) {
+class BridgeRepair(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
