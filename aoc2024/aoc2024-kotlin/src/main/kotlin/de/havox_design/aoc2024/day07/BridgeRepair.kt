@@ -13,7 +13,7 @@ class BridgeRepair(private var filename: String) {
         calculateValidEquations(data, listOf(ADD, MULTIPLY))
 
     fun processPart2(): Any =
-        0L
+        calculateValidEquations(data, listOf(ADD, CONCATENATE, MULTIPLY))
 
     @SuppressWarnings("kotlin:S6528")
     private fun calculateValidEquations(equations: List<Pair<Long, List<Long>>>, validOperators: List<String>): Long {
@@ -77,6 +77,7 @@ class BridgeRepair(private var filename: String) {
 
     companion object {
         private const val ADD = "+"
+        private const val CONCATENATE = "|"
         private const val MULTIPLY = "*"
     }
 }
