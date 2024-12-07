@@ -22,13 +22,13 @@ class BridgeRepairTest {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day07/day07part1sample.txt", 3749L)
+                Arguments.of("de/havox_design/aoc2024/day07/day07sample.txt", 3749L)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day07/day07part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day07/day07sample.txt", 11387L)
             )
     }
 }
