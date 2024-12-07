@@ -7,10 +7,19 @@ import kotlin.math.min
 fun Iterable<Long>.product() =
     reduce { acc, item -> acc * item }
 
-fun Long.pow(e: Int): Long = Math.pow(this.toDouble(), e.toDouble()).toLong()
+fun Long.pow(e: Int): Long =
+    Math
+        .pow(this.toDouble(), e.toDouble())
+        .toLong()
 
 fun absoluteMax(num1: Long, num2: Long) =
     max(abs(num1), abs(num2))
 
 fun absoluteMin(num1: Long, num2: Long) =
     min(abs(num1), abs(num2))
+
+fun String.longs() =
+    Regex("-?\\d+")
+        .findAll(this)
+        .map { it.value.toLong() }
+        .toList()
