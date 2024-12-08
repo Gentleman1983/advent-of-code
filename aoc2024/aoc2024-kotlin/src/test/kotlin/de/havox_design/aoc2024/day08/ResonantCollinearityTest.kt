@@ -10,7 +10,7 @@ class ResonantCollinearityTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         ResonantCollinearity(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,7 +22,7 @@ class ResonantCollinearityTest {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day08/day08part1sample.txt", 14L)
+                Arguments.of("de/havox_design/aoc2024/day08/day08part1sample.txt", 14)
             )
 
         @JvmStatic
