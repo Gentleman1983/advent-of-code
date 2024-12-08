@@ -21,9 +21,9 @@ class ResonantCollinearity(private var filename: String) {
         solve()
 
     fun processPart2(): Any =
-        0L
+        solve(true)
 
-    private fun solve(): Int = buildSet {
+    private fun solve(allMultiples: Boolean = false): Int = buildSet {
         for ((_, points) in antennae) {
             for (positionA in points) {
                 for (positionB in points) {
@@ -34,7 +34,14 @@ class ResonantCollinearity(private var filename: String) {
                     val dx = positionB.first - positionA.first
                     val dy = positionB.second - positionA.second
 
-                    addIfInRange(positionB.first + dx, positionB.second + dy)
+                    if (allMultiples) {
+                        var i = 0
+
+                        while (addIfInRange(positionA.first + i * dx, positionA.second + i * dy)) i++
+                    }
+                    else {
+                        addIfInRange(positionB.first + dx, positionB.second + dy)
+                    }
                 }
             }
         }

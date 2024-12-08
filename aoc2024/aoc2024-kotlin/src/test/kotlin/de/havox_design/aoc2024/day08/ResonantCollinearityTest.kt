@@ -22,14 +22,13 @@ class ResonantCollinearityTest {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day08/day08part1sample.txt", 14)
+                Arguments.of("de/havox_design/aoc2024/day08/day08sample.txt", 14)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day08/day08part2sample1.txt", 34),
-                Arguments.of("de/havox_design/aoc2024/day08/day08part2sample1.txt", 9)
+                Arguments.of("de/havox_design/aoc2024/day08/day08sample.txt", 34)
             )
     }
 }
