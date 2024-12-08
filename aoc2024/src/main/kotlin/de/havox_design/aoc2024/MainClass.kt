@@ -8,7 +8,7 @@ import de.havox_design.aoc2024.day04.CeresSearch
 import de.havox_design.aoc2024.day05.PrintQueue
 import de.havox_design.aoc2024.day06.GuardGallivant
 import de.havox_design.aoc2024.day07.BridgeRepair
-import de.havox_design.aoc2024.day08.Day08
+import de.havox_design.aoc2024.day08.ResonantCollinearity
 import de.havox_design.aoc2024.day09.Day09
 import de.havox_design.aoc2024.day10.Day10
 import de.havox_design.aoc2024.day11.Day11
@@ -100,8 +100,8 @@ class MainClass : AocMainClassHelper {
         day = 8
         day(
             getDayString(day),
-            Day08(getFileName(day))::processPart1,
-            Day08(getFileName(day))::processPart2,
+            ResonantCollinearity(getFileName(day))::processPart1,
+            ResonantCollinearity(getFileName(day))::processPart2,
             daysSelected,
             args
         )
