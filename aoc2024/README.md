@@ -17,7 +17,7 @@ For more information see https://adventofcode.com [2024](https://adventofcode.co
 | 5       | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
 | 6       | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
 | 7       | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
-| 8       | ❌ ![Kotlin](../img/kotlin.png) | ❌ ![Kotlin](../img/kotlin.png) |
+| 8       | ⭐ ![Kotlin](../img/kotlin.png) | ⭐ ![Kotlin](../img/kotlin.png) |
 | 9       | ❌ ![Kotlin](../img/kotlin.png) | ❌ ![Kotlin](../img/kotlin.png) |
 | 10      | ❌ ![Kotlin](../img/kotlin.png) | ❌ ![Kotlin](../img/kotlin.png) |
 | 11      | ❌ ![Kotlin](../img/kotlin.png) | ❌ ![Kotlin](../img/kotlin.png) |
@@ -35,9 +35,9 @@ For more information see https://adventofcode.com [2024](https://adventofcode.co
 | 23      | ❌ ![Kotlin](../img/kotlin.png) | ❌ ![Kotlin](../img/kotlin.png) |
 | 24      | ❌ ![Kotlin](../img/kotlin.png) | ❌ ![Kotlin](../img/kotlin.png) |
 | 25      | ❌ ![Kotlin](../img/kotlin.png) | ❌ ![Kotlin](../img/kotlin.png) |
-| **SUM** | **7 ⭐**                        | **7 ⭐**                        |
+| **SUM** | **8 ⭐**                        | **8 ⭐**                        |
 
-Total: 14 ⭐
+Total: 16 ⭐
 
 ## Solution image
 N/A
