@@ -1,6 +1,6 @@
 package de.havox_design.aoc2024.day09
 
-class Day09(private var filename: String) {
+class DiskFragmenter(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
