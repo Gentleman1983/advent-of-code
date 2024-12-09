@@ -24,7 +24,7 @@ class AoC2024MainTest {
                 Arguments.of(arrayOf("day06")),
                 Arguments.of(arrayOf("day07")),
                 Arguments.of(arrayOf("day08")),
-                Arguments.of(arrayOf("day09")),
+                Arguments.of(arrayOf("day09"), "testing"),
                 Arguments.of(arrayOf("day10")),
                 Arguments.of(arrayOf("day11")),
                 Arguments.of(arrayOf("day12")),

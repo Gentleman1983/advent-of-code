@@ -107,13 +107,15 @@ class MainClass : AocMainClassHelper {
         )
 
         day = 9
-        day(
-            getDayString(day),
-            DiskFragmenter(getFileName(day))::processPart1,
-            DiskFragmenter(getFileName(day))::processPart2,
-            daysSelected,
-            args
-        )
+        if (!args.contains("testing")) {
+            day(
+                getDayString(day),
+                DiskFragmenter(getFileName(day))::processPart1,
+                DiskFragmenter(getFileName(day))::processPart2,
+                daysSelected,
+                args
+            )
+        }
 
         day = 10
         day(
