@@ -1,4 +1,3 @@
 package de.havox_design.aoc2024.day09
 
-class Block {
-}
+data class Block(val value: Int?, val type: Type, val length: Int) {}
