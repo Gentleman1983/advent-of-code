@@ -15,20 +15,20 @@ class HoofItTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         HoofIt(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day10/day10part1sample.txt", 36)
+                Arguments.of("de/havox_design/aoc2024/day10/day10sample.txt", 36)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day10/day10part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day10/day10sample.txt", 81)
             )
     }
 }
