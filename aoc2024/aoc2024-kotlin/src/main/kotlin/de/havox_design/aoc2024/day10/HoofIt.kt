@@ -6,8 +6,17 @@ class HoofIt(private var filename: String) {
     private val data = getResourceAsText(filename)
     private val map = parseMap()
 
-    fun processPart1(): Any {
+    fun processPart1(): Any =
+        solve()
+            .first
+
+    fun processPart2(): Any =
+        solve()
+            .second
+
+    private fun solve(): Pair<Any, Any> {
         var totalScore = 0
+        var totalRating = 0
 
         map
             .forEachIndexed { y, row ->
@@ -19,15 +28,14 @@ class HoofIt(private var filename: String) {
                             totalScore += reachablePicks
                                 .distinct()
                                 .size
+                            totalRating += reachablePicks
+                                .size
                         }
                     }
             }
 
-        return totalScore
+        return Pair(totalScore, totalRating)
     }
-
-    fun processPart2(): Any =
-        0L
 
     private fun getReachablePeaks(start: Position2d<Int>): List<Position2d<Int>> {
         val currentHeight = map
