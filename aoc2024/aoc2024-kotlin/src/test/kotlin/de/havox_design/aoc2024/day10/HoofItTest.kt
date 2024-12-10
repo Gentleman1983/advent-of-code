@@ -10,7 +10,7 @@ class HoofItTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         HoofIt(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,7 +22,7 @@ class HoofItTest {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day10/day10part1sample.txt", 36L)
+                Arguments.of("de/havox_design/aoc2024/day10/day10part1sample.txt", 36)
             )
 
         @JvmStatic
