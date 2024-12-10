@@ -1,6 +1,6 @@
 package de.havox_design.aoc2024.day10
 
-class Day10(private var filename: String) {
+class HoofIt(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
