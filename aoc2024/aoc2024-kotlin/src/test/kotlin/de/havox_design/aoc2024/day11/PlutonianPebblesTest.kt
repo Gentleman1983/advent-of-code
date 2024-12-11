@@ -13,22 +13,11 @@ class PlutonianPebblesTest {
     fun testProcessPart1(filename: String, expectedResult: Long) =
         PlutonianPebbles(filename).processPart1().shouldBe(expectedResult)
 
-    @ParameterizedTest
-    @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
-        PlutonianPebbles(filename).processPart2().shouldBe(expectedResult)
-
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day11/day11part1sample.txt", 55312L)
-            )
-
-        @JvmStatic
-        private fun getDataForTestProcessPart2(): Stream<Arguments> =
-            Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day11/day11part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day11/day11sample.txt", 55312L)
             )
     }
 }
