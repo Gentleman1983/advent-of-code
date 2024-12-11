@@ -12,7 +12,11 @@ class PlutonianPebbles(private var filename: String) {
             }
 
     fun processPart2(): Any =
-        0L
+        data
+            .sumOf { stone ->
+                stone
+                    .countStones(cache, 75)
+            }
 
     @SuppressWarnings("kotlin:S6611")
     private fun Long.countStones(cache: MutableMap<Pair<Long, Int>, Long>, rounds: Int): Long {
