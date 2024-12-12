@@ -30,7 +30,11 @@ class GardenGroupsTest {
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day12/day12part2sample.txt", 0)
+                Arguments.of("de/havox_design/aoc2024/day12/day12part2sample1.txt", 80),
+                Arguments.of("de/havox_design/aoc2024/day12/day12part2sample2.txt", 436),
+                Arguments.of("de/havox_design/aoc2024/day12/day12part2sample3.txt", 236),
+                Arguments.of("de/havox_design/aoc2024/day12/day12part2sample4.txt", 368),
+                Arguments.of("de/havox_design/aoc2024/day12/day12part2sample5.txt", 1206)
             )
     }
 }
