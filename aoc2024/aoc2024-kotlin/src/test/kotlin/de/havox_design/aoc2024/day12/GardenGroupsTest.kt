@@ -10,27 +10,27 @@ class GardenGroupsTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         GardenGroups(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         GardenGroups(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day12/day12part1sample1.txt", 140L),
-                Arguments.of("de/havox_design/aoc2024/day12/day12part1sample2.txt", 772L),
-                Arguments.of("de/havox_design/aoc2024/day12/day12part1sample3.txt", 1930L)
+                Arguments.of("de/havox_design/aoc2024/day12/day12part1sample1.txt", 140),
+                Arguments.of("de/havox_design/aoc2024/day12/day12part1sample2.txt", 772),
+                Arguments.of("de/havox_design/aoc2024/day12/day12part1sample3.txt", 1930)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day12/day12part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day12/day12part2sample.txt", 0)
             )
     }
 }
