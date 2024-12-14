@@ -46,8 +46,44 @@ class ClawContraption(private var filename: String) {
         return minTokenCount
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        var minTokenCount = 0L
+
+        data.forEach { machineData ->
+            solveLinearSystem(
+                a1 = machineData
+                    .buttonA
+                    .first,
+                b1 = machineData
+                    .buttonB
+                    .first,
+                c1 = 10000000000000 + machineData
+                    .prize
+                    .first,
+                a2 = machineData
+                    .buttonA
+                    .second,
+                b2 = machineData
+                    .buttonB
+                    .second,
+                c2 = 10000000000000 + machineData
+                    .prize
+                    .second,
+            )
+                ?.also { solution ->
+                    if (solution.first > 0.0 &&
+                        solution.first % 1 == 0.0 &&
+                        solution.second > 0.0 &&
+                        solution.second % 1 == 0.0
+                    ) {
+                        minTokenCount += (PRIZE_BUTTON_A * solution.first + PRIZE_BUTTON_B * solution.second)
+                            .roundToLong()
+                    }
+                }
+        }
+
+        return minTokenCount
+    }
 
     private fun solveLinearSystem(a1: Long, b1: Long, c1: Long, a2: Long, b2: Long, c2: Long): Pair<Double, Double>? {
         return when (val determinant = a1.toDouble() * b2 - a2.toDouble() * b1) {
