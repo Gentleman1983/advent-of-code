@@ -40,7 +40,16 @@ class RestroomRedoubt(private var filename: String) {
     }
 
     fun processPart2(): Any =
-        0L
+        generateSequence(data) { previous ->
+            previous
+                .map(Robot::move)
+        }
+            .indexOfFirst { robots ->
+                robots
+                    .map(Robot::position)
+                    .toSet()
+                    .size == robots.size
+            }
 
     fun withCustomBathRoom(height: Int, width: Int): RestroomRedoubt {
         BATHROOM_HEIGHT = height
