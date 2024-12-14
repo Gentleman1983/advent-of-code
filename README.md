@@ -17,7 +17,7 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 ## Contributions:
 | Year    | Language(s)                                                  |   Total Stars | Link to repository                                                                 |
 |---------|--------------------------------------------------------------|--------------:|------------------------------------------------------------------------------------|
-| 2024    | Kotlin ![Kotlin](img/kotlin.png)                             |     26 / 50 ⭐ | [aoc2024](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2024)       |
+| 2024    | Kotlin ![Kotlin](img/kotlin.png)                             |     28 / 50 ⭐ | [aoc2024](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2024)       |
 | 2023    | Java ![Java](img/java.png), Kotlin ![Kotlin](img/kotlin.png) |     50 / 50 ⭐ | [aoc2023](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2023)       |
 | 2022    | Java ![Java](img/java.png), Kotlin ![Kotlin](img/kotlin.png) |     50 / 50 ⭐ | [aoc2022](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2022)       |
 | 2022    | Kotlin ![Kotlin](img/kotlin.png)                             |       2 / 2 ⭐ | [meilisearch](https://github.com/Gentleman1983/advent-of-code/tree/main/meili2022) |
@@ -28,5 +28,5 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 2017    | Java ![Java](img/java.png), Kotlin ![Kotlin](img/kotlin.png) |     50 / 50 ⭐ | [aoc2017](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2017)       |
 | 2016    | Java ![Java](img/java.png), Kotlin ![Kotlin](img/kotlin.png) |     50 / 50 ⭐ | [aoc2016](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2016)       |
 | 2015    | Java ![Java](img/java.png), Kotlin ![Kotlin](img/kotlin.png) |     50 / 50 ⭐ | [aoc2015](https://github.com/Gentleman1983/advent-of-code/tree/main/aoc2015)       |
-| **SUM** |                                                              | **476 + 2 ⭐** |                                                                                    |
+| **SUM** |                                                              | **478 + 2 ⭐** |                                                                                    |
 
