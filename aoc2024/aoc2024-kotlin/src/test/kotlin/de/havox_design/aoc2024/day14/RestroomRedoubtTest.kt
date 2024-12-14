@@ -10,25 +10,25 @@ class RestroomRedoubtTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
-        RestroomRedoubt(filename).processPart1().shouldBe(expectedResult)
+    fun testProcessPart1(filename: String, expectedResult: Int) =
+        RestroomRedoubt(filename).withCustomBathRoom(7, 11).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         RestroomRedoubt(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day14/day14part1sample.txt", 12L)
+                Arguments.of("de/havox_design/aoc2024/day14/day14part1sample.txt", 12)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day14/day14part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day14/day14part2sample.txt", 0)
             )
     }
 }
