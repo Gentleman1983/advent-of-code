@@ -1,6 +1,6 @@
 package de.havox_design.aoc2024.day13
 
-class Day13(private var filename: String) {
+class ClawContraption(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
