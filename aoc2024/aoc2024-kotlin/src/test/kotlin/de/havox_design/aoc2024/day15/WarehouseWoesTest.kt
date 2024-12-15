@@ -10,7 +10,7 @@ class WarehouseWoesTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         WarehouseWoes(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,8 +22,8 @@ class WarehouseWoesTest {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day15/day15part1sample1.txt", 2028L),
-                Arguments.of("de/havox_design/aoc2024/day15/day15part1sample2.txt", 10092L)
+                Arguments.of("de/havox_design/aoc2024/day15/day15part1sample1.txt", 2028),
+                Arguments.of("de/havox_design/aoc2024/day15/day15part1sample2.txt", 10092)
             )
 
         @JvmStatic
