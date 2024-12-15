@@ -189,7 +189,7 @@ class WarehouseWoes(private var filename: String) {
 
     private fun parseInput(input: String): Warehouse {
         val (map, moves) = input
-            .split("${System.lineSeparator()}${System.lineSeparator()}")
+            .split("\r\n\r\n")
         val dimensions = map
             .dimensions()
         var robot = Position2d(0, 0)
