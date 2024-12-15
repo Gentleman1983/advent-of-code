@@ -1,6 +1,6 @@
 package de.havox_design.aoc2024.day15
 
-class Day15(private var filename: String) {
+class WarehouseWoes(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
