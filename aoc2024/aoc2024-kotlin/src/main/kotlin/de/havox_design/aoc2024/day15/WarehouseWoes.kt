@@ -8,15 +8,18 @@ class WarehouseWoes(private var filename: String) {
     fun processPart1(): Any {
         val warehouse = data
 
-        moveRobot(warehouse)
+        moveRobotPart1(warehouse)
 
         return gpsSum(warehouse.map)
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val warehouse = expandWarehouse(data)
+        moveRobotPart2(warehouse)
+        return gpsSum(warehouse.map)
+    }
 
-    private fun moveRobot(warehouse: Warehouse) {
+    private fun moveRobotPart1(warehouse: Warehouse) {
         var robot = warehouse.robot
         val map = warehouse.map
 
@@ -58,6 +61,82 @@ class WarehouseWoes(private var filename: String) {
         }
     }
 
+    private fun moveRobotPart2(warehouse: Warehouse) {
+        var robot = warehouse
+            .robot
+        val map = warehouse
+            .map
+
+        warehouse
+            .moves
+            .forEach { direction ->
+                val nextPosition = robot
+                    .move(direction)
+                when (map[nextPosition]) {
+                    '.' -> {
+                        map[robot] = '.'
+                        robot = nextPosition
+                        map[robot] = '@'
+                    }
+
+                    '[', ']' -> {
+                        findMoveableBoxes(map, robot, direction)
+                            ?.let { moveableBoxes ->
+                                robot = nextPosition
+
+                                val movedBoxes = moveableBoxes
+                                    .map { box -> box.move(direction) to map[box]!! }
+                                moveableBoxes
+                                    .forEach { box -> map[box] = '.' }
+                                map += movedBoxes
+                                map[robot] = '@'
+                            }
+                    }
+                }
+            }
+    }
+
+    private fun findMoveableBoxes(
+        map: MapGrid<Char>,
+        start: Position2d<Int>,
+        direction: RobotDirection
+    ): List<Position2d<Int>>? {
+        val nextPosition = start
+            .move(direction)
+        val nextObject = map[nextPosition]
+
+        return when {
+            nextObject == '.' -> listOf(start)
+            (nextObject == '[' || nextObject == ']') && direction.isHorizontal() -> {
+                findMoveableBoxes(map, nextPosition, direction)?.let {
+                    it + start
+                }
+            }
+
+            nextObject == '[' && direction.isVertical() -> {
+                val left = findMoveableBoxes(map, nextPosition, direction)
+                val right = findMoveableBoxes(map, nextPosition + Position2d(1, 0), direction)
+                if (left == null || right == null) {
+                    null
+                } else {
+                    left + right + start
+                }
+            }
+
+            nextObject == ']' && direction.isVertical() -> {
+                val right = findMoveableBoxes(map, nextPosition, direction)
+                val left = findMoveableBoxes(map, nextPosition + Position2d(-1, 0), direction)
+                if (left == null || right == null) {
+                    null
+                } else {
+                    left + right + start
+                }
+            }
+
+            else -> null
+        }
+    }
+
     private fun gpsSum(map: MapGrid<Char>) =
         map
             .entries
@@ -68,6 +147,45 @@ class WarehouseWoes(private var filename: String) {
                     0
                 }
             }
+
+    private fun expandWarehouse(warehouse: Warehouse): Warehouse {
+        val wideMap = mutableMapOf<Position2d<Int>, Char>()
+        var robot = Position2d(0, 0)
+
+        repeat(warehouse.dimensions.y) { y ->
+            repeat(warehouse.dimensions.x) { x ->
+                val wideX = 2 * x
+                val char = warehouse.map[Position2d(x, y)]
+
+                when (char) {
+                    '.' -> {
+                        wideMap[Position2d(wideX, y)] = '.'
+                        wideMap[Position2d(wideX + 1, y)] = '.'
+                    }
+
+                    'O' -> {
+                        wideMap[Position2d(wideX, y)] = '['
+                        wideMap[Position2d(wideX + 1, y)] = ']'
+                    }
+
+                    '#' -> {
+                        wideMap[Position2d(wideX, y)] = '#'
+                        wideMap[Position2d(wideX + 1, y)] = '#'
+                    }
+
+                    '@' -> {
+                        robot = Position2d(wideX, y)
+                        wideMap[robot] = '@'
+                        wideMap[robot + Position2d(1, 0)] = '.'
+                    }
+                }
+            }
+        }
+
+        val dimensions = Position2d(warehouse.dimensions.x * 2, warehouse.dimensions.y)
+
+        return Warehouse(wideMap, dimensions, robot, warehouse.moves)
+    }
 
     private fun parseInput(input: String): Warehouse {
         val (map, moves) = input
