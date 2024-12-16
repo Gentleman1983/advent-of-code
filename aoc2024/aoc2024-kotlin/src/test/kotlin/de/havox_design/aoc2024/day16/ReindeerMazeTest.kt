@@ -10,7 +10,7 @@ class ReindeerMazeTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: Long) =
+    fun testProcessPart1(filename: String, expectedResult: Int) =
         ReindeerMaze(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
@@ -22,8 +22,8 @@ class ReindeerMazeTest {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day16/day16part1sample1.txt", 7036L),
-                Arguments.of("de/havox_design/aoc2024/day16/day16part1sample2.txt", 11048L)
+                Arguments.of("de/havox_design/aoc2024/day16/day16part1sample1.txt", 7036),
+                Arguments.of("de/havox_design/aoc2024/day16/day16part1sample2.txt", 11048)
             )
 
         @JvmStatic
