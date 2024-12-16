@@ -8,15 +8,25 @@ class ReindeerMaze(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any {
-        val grid = CharGrid.fromString(data)
+        val grid = CharGrid
+            .fromString(data)
         val start = grid.findPoint('S') ?: error("Start point not found")
         val end = grid.findPoint('E') ?: error("End point not found")
 
-        return findLowestScore(grid, start, end).first
+        return findLowestScore(grid, start, end)
+            .first
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val grid = CharGrid
+            .fromString(data)
+        val start = grid.findPoint('S') ?: error("Start point not found")
+        val end = grid.findPoint('E') ?: error("End point not found")
+
+        return findLowestScore(grid, start, end, findAllPaths = true)
+            .second
+            .size
+    }
 
     private fun CharGrid.findPoint(target: Char): Position2d<Int>? =
         this

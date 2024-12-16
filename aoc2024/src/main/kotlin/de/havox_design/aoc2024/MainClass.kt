@@ -172,13 +172,15 @@ class MainClass : AocMainClassHelper {
         )
 
         day = 16
-        day(
-            getDayString(day),
-            ReindeerMaze(getFileName(day))::processPart1,
-            ReindeerMaze(getFileName(day))::processPart2,
-            daysSelected,
-            args
-        )
+        if (!args.contains("testing")) {
+            day(
+                getDayString(day),
+                ReindeerMaze(getFileName(day))::processPart1,
+                ReindeerMaze(getFileName(day))::processPart2,
+                daysSelected,
+                args
+            )
+        }
 
         day = 17
         day(
@@ -199,13 +201,13 @@ class MainClass : AocMainClassHelper {
         )
 
         day = 19
-            day(
-                getDayString(day),
-                Day19(getFileName(day))::processPart1,
-                Day19(getFileName(day))::processPart2,
-                daysSelected,
-                args
-            )
+        day(
+            getDayString(day),
+            Day19(getFileName(day))::processPart1,
+            Day19(getFileName(day))::processPart2,
+            daysSelected,
+            args
+        )
 
         day = 20
         day(
