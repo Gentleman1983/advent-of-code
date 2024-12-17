@@ -17,7 +17,7 @@ import de.havox_design.aoc2024.day13.ClawContraption
 import de.havox_design.aoc2024.day14.RestroomRedoubt
 import de.havox_design.aoc2024.day15.WarehouseWoes
 import de.havox_design.aoc2024.day16.ReindeerMaze
-import de.havox_design.aoc2024.day17.Day17
+import de.havox_design.aoc2024.day17.ChronospatialComputer
 import de.havox_design.aoc2024.day18.Day18
 import de.havox_design.aoc2024.day19.Day19
 import de.havox_design.aoc2024.day20.Day20
@@ -185,8 +185,8 @@ class MainClass : AocMainClassHelper {
         day = 17
         day(
             getDayString(day),
-            Day17(getFileName(day))::processPart1,
-            Day17(getFileName(day))::processPart2,
+            ChronospatialComputer(getFileName(day))::processPart1,
+            ChronospatialComputer(getFileName(day))::processPart2,
             daysSelected,
             args
         )
