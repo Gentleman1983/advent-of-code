@@ -28,7 +28,7 @@ class ChronospatialComputerTest {
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day17/day17part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day17/day17part2sample.txt", 117440L)
             )
     }
 }
