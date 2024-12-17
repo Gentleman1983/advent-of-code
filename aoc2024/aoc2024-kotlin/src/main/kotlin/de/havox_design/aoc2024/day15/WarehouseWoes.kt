@@ -61,6 +61,7 @@ class WarehouseWoes(private var filename: String) {
         }
     }
 
+    @SuppressWarnings("kotlin:S6611")
     private fun moveRobotPart2(warehouse: Warehouse) {
         var robot = warehouse
             .robot
