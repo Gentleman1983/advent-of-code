@@ -3,9 +3,20 @@ package de.havox_design.aoc2024.day17
 class ChronospatialComputer(private var filename: String) {
     private val data = getResourceAsText(filename)
 
-    fun processPart1(): Any {
-        val state = parseInitialState(data)
+    fun processPart1(): Any =
+        parseOutput(compute(parseInitialState(data)))
 
+    fun processPart2(): Any {
+        val state = parseInitialState(data)
+        val minimalValueForRegisterA: Register = backtrack(state) / 8
+        val newState = State(minimalValueForRegisterA, 0L, 0L, state.program)
+
+        check(state.program == compute(newState))
+
+        return minimalValueForRegisterA
+    }
+
+    private fun compute(state: State): Output {
         var pc = 0
         while (pc < state.program.size) {
             val opcode = state.program[pc]
@@ -68,14 +79,33 @@ class ChronospatialComputer(private var filename: String) {
             }
         }
 
-        return parseOutput(state.output)
+        return state.output
     }
-
-    fun processPart2(): Any =
-        0L
 
     private fun dv(state: State, comboOperand: Lazy<Long>) =
         state.a / (1 shl comboOperand.value.toInt())
+
+    private fun backtrack(state: State): Long {
+        return backtrack(program = state.program)
+    }
+
+    private fun backtrack(a: Long = 0L, program: Program, index: Int = program.lastIndex): Long {
+        if (index < 0) {
+            return a
+        }
+
+        val result = mutableListOf<Long>()
+
+        for (mod8 in 0..7) {
+            val computeResult = compute(State(a + mod8, 0L, 0L, program))
+
+            if (computeResult.first() == program[index]) {
+                result += backtrack((a + mod8) * 8, program, index - 1)
+            }
+        }
+
+        return result.minOrNull() ?: Long.MAX_VALUE
+    }
 
     private fun parseOutput(output: Output): String =
         output

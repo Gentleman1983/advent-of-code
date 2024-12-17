@@ -10,7 +10,7 @@ class ChronospatialComputerTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
-    fun testProcessPart1(filename: String, expectedResult: List<Int>) =
+    fun testProcessPart1(filename: String, expectedResult: String) =
         ChronospatialComputer(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
