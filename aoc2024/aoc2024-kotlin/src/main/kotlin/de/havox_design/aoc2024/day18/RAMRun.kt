@@ -16,8 +16,8 @@ class RAMRun(private var filename: String) {
                 .toSet()
         ) ?: 0
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(fieldX: Int = 70, fieldY: Int = 70): Any =
+        ""
 
     private fun findPath(fieldX: Int, fieldY: Int, coordinates: Set<Position2d<Int>>): Int? {
         val start = Position2d(0, 0)

@@ -15,20 +15,20 @@ class RAMRunTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
-        RAMRun(filename).processPart2().shouldBe(expectedResult)
+    fun testProcessPart2(filename: String, expectedResult: String) =
+        RAMRun(filename).processPart2(fieldX = 6, fieldY = 6).shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day18/day18part1sample.txt", 22)
+                Arguments.of("de/havox_design/aoc2024/day18/day18sample.txt", 22)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day18/day18part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day18/day18part2sample.txt", "6,1")
             )
     }
 }
