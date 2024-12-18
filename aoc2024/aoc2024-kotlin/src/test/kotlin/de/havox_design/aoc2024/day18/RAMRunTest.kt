@@ -28,7 +28,7 @@ class RAMRunTest {
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day18/day18part2sample.txt", "6,1")
+                Arguments.of("de/havox_design/aoc2024/day18/day18sample.txt", "6,1")
             )
     }
 }
