@@ -1,6 +1,6 @@
 package de.havox_design.aoc2024.day18
 
-class Day18(private var filename: String) {
+class RAMRun(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
