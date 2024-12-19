@@ -19,7 +19,7 @@ import de.havox_design.aoc2024.day15.WarehouseWoes
 import de.havox_design.aoc2024.day16.ReindeerMaze
 import de.havox_design.aoc2024.day17.ChronospatialComputer
 import de.havox_design.aoc2024.day18.RAMRun
-import de.havox_design.aoc2024.day19.Day19
+import de.havox_design.aoc2024.day19.LinenLayout
 import de.havox_design.aoc2024.day20.Day20
 import de.havox_design.aoc2024.day21.Day21
 import de.havox_design.aoc2024.day22.Day22
@@ -203,8 +203,8 @@ class MainClass : AocMainClassHelper {
         day = 19
         day(
             getDayString(day),
-            Day19(getFileName(day))::processPart1,
-            Day19(getFileName(day))::processPart2,
+            LinenLayout(getFileName(day))::processPart1,
+            LinenLayout(getFileName(day))::processPart2,
             daysSelected,
             args
         )

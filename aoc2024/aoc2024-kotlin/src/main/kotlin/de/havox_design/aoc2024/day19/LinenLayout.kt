@@ -1,6 +1,6 @@
 package de.havox_design.aoc2024.day19
 
-class Day19(private var filename: String) {
+class LinenLayout(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =
