@@ -15,7 +15,11 @@ class LinenLayout(private var filename: String) {
             }
 
     fun processPart2(): Any =
-        0L
+        data
+            .designs
+            .fold(0L) { r, design ->
+                r + isDesignMatching(data.patterns, design)
+            }
 
     @SuppressWarnings("kotlin:S6611")
     private fun isDesignMatching(patterns: List<String>, design: String): Long {
