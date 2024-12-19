@@ -15,20 +15,20 @@ class LinenLayoutTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: Int) =
         LinenLayout(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day19/day19part1sample.txt", 6)
+                Arguments.of("de/havox_design/aoc2024/day19/day19sample.txt", 6)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day19/day19part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day19/day19sample.txt", 16)
             )
     }
 }
