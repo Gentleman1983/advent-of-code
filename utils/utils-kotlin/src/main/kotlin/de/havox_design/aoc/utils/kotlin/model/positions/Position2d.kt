@@ -1,5 +1,7 @@
 package de.havox_design.aoc.utils.kotlin.model.positions
 
+import kotlin.math.abs
+
 data class Position2d<t>(val x: t, val y: t)
 
 fun Position2d<Int>.east(offset: Int = 1) =
@@ -65,3 +67,9 @@ fun Position2d<Int>.diagonalNeighbours() =
         Position2d(x - 1, y + 1),
         Position2d(x - 1, y - 1)
     )
+
+fun Position2d<Int>.distance(other: Position2d<Int>): Int =
+    abs(x - other.x) + abs(y - other.y)
+
+fun Position2d<Long>.distance(other: Position2d<Long>): Long =
+    abs(x - other.x) + abs(y - other.y)
