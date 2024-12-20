@@ -20,7 +20,7 @@ import de.havox_design.aoc2024.day16.ReindeerMaze
 import de.havox_design.aoc2024.day17.ChronospatialComputer
 import de.havox_design.aoc2024.day18.RAMRun
 import de.havox_design.aoc2024.day19.LinenLayout
-import de.havox_design.aoc2024.day20.Day20
+import de.havox_design.aoc2024.day20.RaceCondition
 import de.havox_design.aoc2024.day21.Day21
 import de.havox_design.aoc2024.day22.Day22
 import de.havox_design.aoc2024.day23.Day23
@@ -212,8 +212,8 @@ class MainClass : AocMainClassHelper {
         day = 20
         day(
             getDayString(day),
-            Day20(getFileName(day))::processPart1,
-            Day20(getFileName(day))::processPart2,
+            RaceCondition(getFileName(day))::processPart1,
+            RaceCondition(getFileName(day))::processPart2,
             daysSelected,
             args
         )

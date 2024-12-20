@@ -1,9 +1,9 @@
 package de.havox_design.aoc2024.day20
 
-class Day20(private var filename: String) {
+class RaceCondition(private var filename: String) {
     private val data = getResourceAsText(filename)
 
-    fun processPart1(): Any =
+    fun processPart1(minimumCostSaving: Int): Any =
         0L
 
     fun processPart2(): Any =
