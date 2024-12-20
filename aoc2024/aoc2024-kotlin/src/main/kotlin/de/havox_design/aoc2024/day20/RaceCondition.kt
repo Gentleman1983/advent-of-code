@@ -12,7 +12,7 @@ class RaceCondition(private var filename: String) {
     fun processPart1(minimumCostSaving: Int = 100): Any =
         solve(maze, minimumCostSaving)
 
-    fun processPart2(): Any =
+    fun processPart2(minimumCostSaving: Int = 100): Any =
         0L
 
     private fun solve(maze: Maze, minimumCostSaving: Int): Int {
@@ -85,21 +85,21 @@ class RaceCondition(private var filename: String) {
 
             neighbours(currentVertex)
                 .forEach { next ->
-                val nextCost = currentCost + cost(currentVertex, next)
-                val heuristicCost = heuristic(next)
-                val bestCost = seenPoints[next]
-                    ?.cost ?: Int.MAX_VALUE
+                    val nextCost = currentCost + cost(currentVertex, next)
+                    val heuristicCost = heuristic(next)
+                    val bestCost = seenPoints[next]
+                        ?.cost ?: Int.MAX_VALUE
 
-                if (nextCost < bestCost) {
-                    possiblePaths[next] = mutableSetOf(currentVertex)
-                    seenPoints[next] = SeenVertex(nextCost, currentVertex)
-                    toVisit
-                        .add(ScoredVertex(next, nextCost, heuristicCost))
-                } else if (nextCost == bestCost) {
-                    possiblePaths[next]!!
-                        .add(currentVertex)
+                    if (nextCost < bestCost) {
+                        possiblePaths[next] = mutableSetOf(currentVertex)
+                        seenPoints[next] = SeenVertex(nextCost, currentVertex)
+                        toVisit
+                            .add(ScoredVertex(next, nextCost, heuristicCost))
+                    } else if (nextCost == bestCost) {
+                        possiblePaths[next]!!
+                            .add(currentVertex)
+                    }
                 }
-            }
         }
 
         val starts = initialToVisit
