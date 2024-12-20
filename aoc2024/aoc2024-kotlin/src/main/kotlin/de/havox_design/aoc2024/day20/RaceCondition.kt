@@ -10,12 +10,12 @@ class RaceCondition(private var filename: String) {
     private val maze = parseMaze(data)
 
     fun processPart1(minimumCostSaving: Int = 100): Any =
-        solve(maze, minimumCostSaving)
+        solve(maze, minimumCostSaving, CHEAT_LENGTH_PART_A)
 
     fun processPart2(minimumCostSaving: Int = 100): Any =
-        0L
+        solve(maze, minimumCostSaving, CHEAT_LENGTH_PART_B)
 
-    private fun solve(maze: Maze, minimumCostSaving: Int): Int {
+    private fun solve(maze: Maze, minimumCostSaving: Int, cheatLength: Int): Int {
         val pathResult = shortestPath(
             start = maze.start,
             end = { it == maze.end },
@@ -26,7 +26,7 @@ class RaceCondition(private var filename: String) {
         return path.withIndex().sumOf { (index, cheatStart) ->
             path.drop(index + 1).count { cheatEnd ->
                 val distance = cheatStart.distance(cheatEnd)
-                distance <= 2 && pathResult.getCost(cheatEnd) - distance - index >= minimumCostSaving
+                distance <= cheatLength && pathResult.getCost(cheatEnd) - distance - index >= minimumCostSaving
             }
         }
     }
@@ -134,6 +134,9 @@ class RaceCondition(private var filename: String) {
             .readText()
 
     companion object {
+        private const val CHEAT_LENGTH_PART_A = 2
+        private const val CHEAT_LENGTH_PART_B = 20
+
         private const val ICON_END = 'E'
         private const val ICON_START = 'S'
         private const val ICON_WALL = '#'
