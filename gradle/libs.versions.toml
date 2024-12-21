@@ -9,7 +9,7 @@ junit5 = "5.11.4"
 kotlin-jvm = "2.1.0"
 kotlinx-coroutines = "1.10.1"
 sonarqube-plugin = "6.0.1.5171"
-struts2 = "6.7.0"
+struts2 = "7.0.0"
 
 [libraries]
 commons-codec = { group = "commons-codec", name = "commons-codec", version.ref = "commons-codec" }
