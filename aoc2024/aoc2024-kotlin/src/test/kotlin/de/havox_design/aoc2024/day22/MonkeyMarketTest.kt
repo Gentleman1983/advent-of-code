@@ -28,7 +28,7 @@ class MonkeyMarketTest {
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day22/day22part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day22/day22part2sample.txt", 23L)
             )
     }
 }
