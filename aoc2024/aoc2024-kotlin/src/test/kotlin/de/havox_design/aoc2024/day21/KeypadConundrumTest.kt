@@ -13,22 +13,11 @@ class KeypadConundrumTest {
     fun testProcessPart1(filename: String, expectedResult: Long) =
         KeypadConundrum(filename).processPart1().shouldBe(expectedResult)
 
-    @ParameterizedTest
-    @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
-        KeypadConundrum(filename).processPart2().shouldBe(expectedResult)
-
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day21/day21part1sample.txt", 126384L)
-            )
-
-        @JvmStatic
-        private fun getDataForTestProcessPart2(): Stream<Arguments> =
-            Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day21/day21part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day21/day21sample.txt", 126384L)
             )
     }
 }
