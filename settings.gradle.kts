@@ -1,3 +1,7 @@
+plugins {
+    id("com.gradle.develocity") version("3.19")
+}
+
 rootProject.name = "advent-of-code"
 
 include("aoc2015")

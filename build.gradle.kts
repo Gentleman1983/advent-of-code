@@ -41,9 +41,11 @@ tasks.withType<Wrapper> {
     gradleVersion = "8.12"
 }
 
-extensions.findByName("buildScan")?.withGroovyBuilder {
-    setProperty("termsOfUseUrl", "https://gradle.com/terms-of-service")
-    setProperty("termsOfUseAgree", "yes")
+develocity {
+    buildScan {
+        termsOfUseUrl.set("https://gradle.com/help/legal-terms-of-use")
+        termsOfUseAgree.set("yes")
+    }
 }
 
 rootProject.allprojects.forEach { currentProject ->
