@@ -57,7 +57,7 @@ class RaceCondition(private var filename: String) {
     ): PathResult<T> =
         shortestPath(listOf(ScoredVertex(start, 0, heuristic(start))), end, neighbours, cost, heuristic)
 
-    @SuppressWarnings("kotlin:S6611")
+    @SuppressWarnings("kotlin:S6524", "kotlin:S6611")
     private fun <T> shortestPath(
         initialToVisit: List<ScoredVertex<T>>,
         end: (T) -> Boolean,
