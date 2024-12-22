@@ -42,8 +42,8 @@ tasks.withType<Wrapper> {
 }
 
 extensions.findByName("buildScan")?.withGroovyBuilder {
-    setProperty("termsOfServiceUrl", "https://gradle.com/terms-of-service")
-    setProperty("termsOfServiceAgree", "yes")
+    setProperty("termsOfUseUrl", "https://gradle.com/terms-of-service")
+    setProperty("termsOfUseAgree", "yes")
 }
 
 rootProject.allprojects.forEach { currentProject ->
