@@ -1,7 +1,7 @@
 package de.havox_design.aoc.utils.java.input;
 
-import com.opensymphony.xwork2.util.ClassLoaderUtil;
 import de.havox_design.aoc.utils.java.exceptions.ReadDataException;
+import org.apache.struts2.util.ClassLoaderUtil;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
