@@ -13,7 +13,7 @@ class KeypadConundrum(private var filename: String) {
         calculateComplexity(data, 2)
 
     fun processPart2(): Any =
-        0L
+        calculateComplexity(data, 25)
 
     private fun calculateComplexity(codes: List<String>, depth: Int): Long =
         codes
