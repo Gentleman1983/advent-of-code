@@ -12,8 +12,39 @@ class MonkeyMarket(private var filename: String) {
                     }
             }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val changes = HashMap<List<Int>, Int>()
+
+        for (number in data) {
+            val changesForNum = HashMap<List<Int>, Int>()
+            val secretNumbers = (0..<MAX_SIZE)
+                .runningFold(number) { acc, _ ->
+                    acc
+                        .nextSecretNumber()
+                }
+            val prices = secretNumbers
+                .map { (it % 10).toInt() }
+            val diffs = prices
+                .zipWithNext()
+                .map { (a, b) ->
+                    b - a
+                }
+
+            for ((index, change) in diffs.windowed(4).withIndex()) {
+                if (change !in changesForNum) {
+                    changesForNum[change] = prices[index + 4]
+                }
+            }
+
+            for ((change, maxPrice) in changesForNum) {
+                changes[change] = (changes[change] ?: 0) + maxPrice
+            }
+        }
+
+        return changes
+            .values
+            .max()
+    }
 
     private fun Long.mixInto(other: Long) =
         this xor other
