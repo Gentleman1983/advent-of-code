@@ -15,20 +15,20 @@ class LANPartyTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: String) =
         LANParty(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day23/day23part1sample.txt", 7)
+                Arguments.of("de/havox_design/aoc2024/day23/day23sample.txt", 7)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day23/day23part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day23/day23sample.txt", "co,de,ka,ta")
             )
     }
 }
