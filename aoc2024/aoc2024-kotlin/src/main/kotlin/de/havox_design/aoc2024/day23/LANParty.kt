@@ -23,8 +23,47 @@ class LANParty(private var filename: String) {
             .size
     }
 
-    fun processPart2(): Any =
-        0L
+    fun processPart2(): Any {
+        val result = mutableListOf<String>()
+
+        data
+            .findClique(result)
+        result
+            .sortBy { it.length }
+
+        return result
+            .last()
+    }
+
+    @SuppressWarnings("kotlin:S6611")
+    private fun HashMap<String, MutableSet<String>>.findClique(
+        result: MutableList<String>,
+        r: Set<String> = mutableSetOf(),
+        p: MutableSet<String> = keys
+            .toMutableSet(),
+        x: MutableSet<String> = mutableSetOf()
+    ) {
+        if (p.isEmpty() && x.isEmpty()) {
+            result += r
+                .toList()
+                .sorted()
+                .joinToString(ELEMENT_SEPARATOR)
+        } else {
+            val pivot = (p union x)
+                .maxByOrNull { this[it]?.size ?: 0 } ?: throw IllegalStateException("This should never have happened!")
+
+            for (v in p - this[pivot]!!) {
+                findClique(
+                    result, r union setOf(v), (p intersect this[v]!!).toMutableSet(), (x intersect this[v]!!)
+                        .toMutableSet()
+                )
+                p
+                    .remove(v)
+                x
+                    .add(v)
+            }
+        }
+    }
 
     private fun parseInput(input: List<String>) =
         input
@@ -65,5 +104,6 @@ class LANParty(private var filename: String) {
     companion object {
         private const val CHIEF_HISTORIAN_IDENTIFIER = 't'
         private const val COMPUTER_DIVIDER = "-"
+        private const val ELEMENT_SEPARATOR = ","
     }
 }
