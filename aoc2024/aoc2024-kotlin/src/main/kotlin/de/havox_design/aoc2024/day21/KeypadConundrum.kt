@@ -2,7 +2,6 @@ package de.havox_design.aoc2024.day21
 
 import de.havox_design.aoc.utils.kotlin.model.chargrid.CharGrid
 import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
-import de.havox_design.aoc.utils.kotlin.model.positions.plus
 import kotlin.math.abs
 
 class KeypadConundrum(private var filename: String) {
