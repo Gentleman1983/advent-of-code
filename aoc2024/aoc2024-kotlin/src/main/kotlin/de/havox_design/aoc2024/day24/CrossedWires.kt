@@ -28,8 +28,99 @@ class CrossedWires(private var filename: String) {
         return zValues
     }
 
-    fun processPart2(): Any =
-        0L
+    @SuppressWarnings("kotlin:S1481", "kotlin:S3776")
+    fun processPart2(): Any {
+        val formulas = data
+            .second
+        val formulaLookup = formulas
+            .entries
+            .flatMap { (key, value) ->
+                listOf(value to key, value.copy(left = value.right, right = value.left) to key)
+            }
+            .toMap()
+        val swapped = mutableListOf<String>()
+        var carry = ""
+        var cright: String?
+        var nextCarry = ""
+        var sum: String
+
+        (0..<45)
+            .forEach { num ->
+                val suffix = num
+                    .toString()
+                    .padStart(2, IDENTIFIER_LEADING_ZERO)
+                var s1 = formulaLookup[Formula(
+                    "${IDENTIFIER_INPUT1_WIRES}${suffix}",
+                    "${IDENTIFIER_INPUT2_WIRES}${suffix}",
+                    Operation.XOR
+                )] ?: error("No s1 for $num")
+                var cleft = formulaLookup[Formula(
+                    "${IDENTIFIER_INPUT1_WIRES}${suffix}",
+                    "${IDENTIFIER_INPUT2_WIRES}${suffix}",
+                    Operation.AND
+                )] ?: error("No cleft for $num")
+
+                if (carry.isNotBlank()) {
+                    cright = formulaLookup[Formula(carry, s1, Operation.AND)]
+
+                    if (cright == null) {
+                        swap(s1, cleft, swapped)
+                            .also { (a, b) ->
+                                cleft = a
+                                s1 = b
+                            }
+
+                        cright = formulaLookup[Formula(carry, s1, Operation.AND)] ?: error("No cright for $num")
+                    }
+
+                    sum = formulaLookup[Formula(s1, carry, Operation.XOR)] ?: error("No sum for $num")
+
+                    if (s1.startsWith(IDENTIFIER_SOLUTION_WIRES)) {
+                        swap(s1, sum, swapped)
+                            .also { (a, b) ->
+                                sum = a
+                                s1 = b
+                            }
+                    }
+
+                    if (cleft.startsWith(IDENTIFIER_SOLUTION_WIRES)) {
+                        swap(cleft, sum, swapped)
+                            .also { (a, b) ->
+                                sum = a
+                                cleft = b
+                            }
+                    }
+
+                    if (cright!!.startsWith(IDENTIFIER_SOLUTION_WIRES)) {
+                        swap(cright!!, sum, swapped)
+                            .also { (a, b) ->
+                                sum = a
+                                cright = b
+                            }
+                    }
+
+                    nextCarry = formulaLookup[Formula(cright!!, cleft, Operation.OR)] ?: error("No nextCarry for $num")
+
+                    if (nextCarry.startsWith(IDENTIFIER_SOLUTION_WIRES) && nextCarry != IDENTIFIER_MAX_SOLUTION_WIRE) {
+                        swap(nextCarry, sum, swapped)
+                            .also { (a, b) ->
+                                sum = a
+                                nextCarry = b
+                            }
+                    }
+                }
+
+                carry = if (carry.isBlank()) {
+                    cleft
+                } else {
+                    nextCarry
+                }
+            }
+
+        return swapped
+            .sorted()
+            .joinToString(DELIMITER_ANSWER)
+    }
 
     @SuppressWarnings("kotlin:S6611")
     private fun getValue(
@@ -54,6 +145,13 @@ class CrossedWires(private var filename: String) {
                         getValue(formula.right, current, assignments, formulas)
                     )
             }
+
+    private fun swap(a: String, b: String, swapped: MutableList<String>): Pair<String, String> {
+        swapped.add(a)
+        swapped.add(b)
+
+        return a to b
+    }
 
     private fun parseInput(input: List<String>): Pair<Map<String, Boolean>, Map<String, Formula>> {
         val assignments = input
@@ -98,7 +196,13 @@ class CrossedWires(private var filename: String) {
         private val CONNECTION_REGEX = Regex("""(.+) (AND|XOR|OR) (.+) -> (.+)""")
         private val WIRE_REGEX = Regex("""(.+): (\d)""")
 
+        private const val IDENTIFIER_INPUT1_WIRES = "x"
+        private const val IDENTIFIER_INPUT2_WIRES = "y"
+        private const val IDENTIFIER_LEADING_ZERO = '0'
+        private const val IDENTIFIER_MAX_SOLUTION_WIRE = "z45"
         private const val IDENTIFIER_SOLUTION_WIRES = "z"
+
+        private const val DELIMITER_ANSWER = ","
     }
 }
 
