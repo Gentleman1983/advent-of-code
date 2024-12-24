@@ -15,7 +15,7 @@ class CrossedWiresTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Long) =
+    fun testProcessPart2(filename: String, expectedResult: String) =
         CrossedWires(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
@@ -28,7 +28,7 @@ class CrossedWiresTest {
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2024/day24/day24part2sample.txt", 0L)
+                Arguments.of("de/havox_design/aoc2024/day24/day24part2sample.txt", "z00,z01,z02,z05")
             )
     }
 }
