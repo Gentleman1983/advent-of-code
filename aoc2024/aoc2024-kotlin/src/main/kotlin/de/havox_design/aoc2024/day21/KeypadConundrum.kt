@@ -5,7 +5,6 @@ import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 import de.havox_design.aoc.utils.kotlin.model.positions.plus
 import kotlin.math.abs
 
-@SuppressWarnings("kotlin:S1128")
 class KeypadConundrum(private var filename: String) {
     private val data = getResourceAsText(filename)
     private val cache = mutableMapOf<DpParams, Long>()
