@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-class Day23Test {
+class ALongWalkTest {
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart1")
     fun testSolvePart1(filename: String, expectedResult: Long) =
