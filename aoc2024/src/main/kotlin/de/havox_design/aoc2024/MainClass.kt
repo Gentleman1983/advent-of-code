@@ -25,7 +25,7 @@ import de.havox_design.aoc2024.day21.KeypadConundrum
 import de.havox_design.aoc2024.day22.MonkeyMarket
 import de.havox_design.aoc2024.day23.LANParty
 import de.havox_design.aoc2024.day24.CrossedWires
-import de.havox_design.aoc2024.day25.Day25
+import de.havox_design.aoc2024.day25.CodeChronicle
 
 class MainClass : AocMainClassHelper {
     override fun getYear(): Int = 2024
@@ -257,8 +257,8 @@ class MainClass : AocMainClassHelper {
         day = 25
         day(
             getDayString(day),
-            Day25(getFileName(day))::processPart1,
-            Day25(getFileName(day))::processPart2,
+            CodeChronicle(getFileName(day))::processPart1,
+            CodeChronicle(getFileName(day))::processPart2,
             daysSelected,
             args
         )
