@@ -1,4 +1,4 @@
-package de.havox_design.aoc2018.day13;
+package de.havox_design.aoc2018.day04;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -7,29 +7,29 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-class Day13Test {
+class ReposeRecordTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTask1")
-    void testTask1(String fileName, String expectation) {
-        Assertions.assertEquals(expectation, MineCartMadness.processTask1(fileName));
+    void testTask1(String fileName, int expectation) {
+        Assertions.assertEquals(expectation, ReposeRecord.processTask1(fileName));
     }
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day13/day13part1sample.txt", "7,3")
+                Arguments.of("de/havox_design/aoc2018/day04/day04sample.txt", 240)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
-    void testTask2(String fileName, String expectation) {
-        Assertions.assertEquals(expectation, MineCartMadness.processTask2(fileName));
+    void testTask2(String fileName, int expectation) {
+        Assertions.assertEquals(expectation, ReposeRecord.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day13/day13part2sample.txt", "6,4")
+                Arguments.of("de/havox_design/aoc2018/day04/day04sample.txt", 4455)
         );
     }
 }

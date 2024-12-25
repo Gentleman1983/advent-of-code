@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-class Day15Test {
+class BeverageBanditsTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTask1")

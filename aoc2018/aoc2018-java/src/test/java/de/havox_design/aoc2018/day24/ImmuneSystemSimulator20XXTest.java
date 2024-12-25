@@ -1,4 +1,4 @@
-package de.havox_design.aoc2018.day06;
+package de.havox_design.aoc2018.day24;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -7,29 +7,29 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-class Day06Test {
+class ImmuneSystemSimulator20XXTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTask1")
     void testTask1(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, ChronalCoordinates.processTask1(fileName));
+        Assertions.assertEquals(expectation, ImmuneSystemSimulator20XX.processTask1(fileName));
     }
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day06/day06sample.txt", 17L)
+                Arguments.of("de/havox_design/aoc2018/day24/day24sample.txt", 5216L)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
     void testTask2(String fileName, long expectation) {
-        Assertions.assertEquals(expectation, ChronalCoordinates.processTask2(fileName, 32));
+        Assertions.assertEquals(expectation, ImmuneSystemSimulator20XX.processTask2(fileName));
     }
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day06/day06sample.txt", 16L)
+                Arguments.of("de/havox_design/aoc2018/day24/day24sample.txt", 51L)
         );
     }
 }

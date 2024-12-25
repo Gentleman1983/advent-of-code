@@ -1,4 +1,4 @@
-package de.havox_design.aoc2018.day02;
+package de.havox_design.aoc2018.day06;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -7,29 +7,29 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-class Day02Test {
+class ChronalCoordinatesTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTask1")
-    void testTask1(String fileName, long expected) {
-        Assertions.assertEquals(expected, InventoryManagementSystem.processTask1(fileName));
+    void testTask1(String fileName, long expectation) {
+        Assertions.assertEquals(expectation, ChronalCoordinates.processTask1(fileName));
     }
 
     private static Stream<Arguments> getDataForTask1() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day02/day02part1sample.txt", 12L)
+                Arguments.of("de/havox_design/aoc2018/day06/day06sample.txt", 17L)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getDataForTask2")
-    void testTask2(String fileName, String expected) {
-        Assertions.assertEquals(expected, InventoryManagementSystem.processTask2(fileName));
+    void testTask2(String fileName, long expectation) {
+        Assertions.assertEquals(expectation, ChronalCoordinates.processTask2(fileName, 32));
     }
 
     private static Stream<Arguments> getDataForTask2() {
         return Stream.of(
-                Arguments.of("de/havox_design/aoc2018/day02/day02part2sample.txt", "fgij")
+                Arguments.of("de/havox_design/aoc2018/day06/day06sample.txt", 16L)
         );
     }
 }

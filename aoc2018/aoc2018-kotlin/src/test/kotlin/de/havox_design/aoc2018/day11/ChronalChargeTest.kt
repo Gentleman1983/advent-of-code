@@ -1,13 +1,12 @@
 package de.havox_design.aoc2018.day11
 
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
-import de.havox_design.aoc.utils.kotlin.model.positions.Position2d
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-class Day11Test {
+class ChronalChargeTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart1")
