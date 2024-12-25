@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.math.BigInteger;
 import java.util.stream.Stream;
 
-class Day18Test {
+class DuetTest {
 
     @ParameterizedTest
     @MethodSource("getDataForPart1")

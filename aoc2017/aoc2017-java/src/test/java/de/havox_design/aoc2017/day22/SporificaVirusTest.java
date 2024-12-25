@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-class Day22Test {
+class SporificaVirusTest {
 
     @ParameterizedTest
     @MethodSource("getDataForPart1")

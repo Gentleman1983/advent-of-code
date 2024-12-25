@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-class Day16Test {
+class PermutationPromenadeTest {
 
     @ParameterizedTest
     @MethodSource("getDataForPart1")
