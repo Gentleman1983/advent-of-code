@@ -148,3 +148,11 @@ I'll need to be in my seat to watch the sleigh launch by then."
 You nod, and The Historians quickly work to collect their notes into the final set of pages for the chronicle.
 
 You have enough stars to **[Deliver The Chronicle]**.
+
+Using the notes from the places marked by all **fifty stars**, The Historians finish the chronicle, wrap it, and give it 
+to you so you can bring it to Santa before the big sleigh launch.
+
+Santa is already in the sleigh making the final launch preparations when you arrive. You try to hand him the chronicle, 
+but he doesn't take it. "Ho ho ho," he laughs to himself. "That gift isn't for me - it's for **you**. That chronicle is 
+a record of all the places you've been and people you've helped over the last decade. Thank you for everything." With 
+that, Santa takes off in his sleigh to deliver the rest of this year's presents.
