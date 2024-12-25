@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-class Day24Test {
+class AirDuctSpelunkingTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestSolvePart1")

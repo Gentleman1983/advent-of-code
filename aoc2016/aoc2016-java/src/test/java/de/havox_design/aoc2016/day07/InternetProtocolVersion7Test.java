@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-class Day07Test {
+class InternetProtocolVersion7Test {
 
     @ParameterizedTest
     @MethodSource("getDataForPart1")
