@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 
 import static de.havox_design.aoc2015.day11.PasswordValidator.FIRST_VALID_LETTER_VALUE;
 
-class Day11Test {
+class SantasPasswordPolicyTest {
 
     @ParameterizedTest
     @MethodSource("getDataForPart1")
