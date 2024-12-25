@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-class Day18Test {
+class ManyWorldsInterpretationPart2Test {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
