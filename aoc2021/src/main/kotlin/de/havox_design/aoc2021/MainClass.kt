@@ -1,7 +1,7 @@
 package de.havox_design.aoc2021
 
 import de.havox_design.aoc.utils.kotlin.helpers.AocMainClassHelper
-import de.havox_design.aoc2021.day01.Day01
+import de.havox_design.aoc2021.day01.SonarSweep
 import de.havox_design.aoc2021.day02.Dive
 import de.havox_design.aoc2021.day03.BinaryDiagnostic
 import de.havox_design.aoc2021.day04.GiantSquid
@@ -37,8 +37,8 @@ class MainClass : AocMainClassHelper {
         var day = 1
         day(
             getDayString(day),
-            Day01(getFileName(day))::processPart1,
-            Day01(getFileName(day))::processPart2,
+            SonarSweep(getFileName(day))::processPart1,
+            SonarSweep(getFileName(day))::processPart2,
             daysSelected,
             args
         )

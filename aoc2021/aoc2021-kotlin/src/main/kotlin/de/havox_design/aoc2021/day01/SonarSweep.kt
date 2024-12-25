@@ -1,6 +1,6 @@
 package de.havox_design.aoc2021.day01
 
-class Day01(private var filename: String) {
+class SonarSweep(private var filename: String) {
     private val data = getResourceAsText(filename)
 
     fun processPart1(): Any =

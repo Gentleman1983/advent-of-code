@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource
 import java.math.BigInteger
 import java.util.stream.Stream
 
-class Day16Test {
+class PacketDecoderTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
