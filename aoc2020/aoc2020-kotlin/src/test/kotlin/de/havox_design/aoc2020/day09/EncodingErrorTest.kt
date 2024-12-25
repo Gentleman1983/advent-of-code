@@ -1,4 +1,4 @@
-package de.havox_design.aoc2020.day20
+package de.havox_design.aoc2020.day09
 
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import org.junit.jupiter.params.ParameterizedTest
@@ -6,29 +6,29 @@ import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-class Day20Test {
+class EncodingErrorTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
     fun testProcessPart1(filename: String, expectedResult: Long) =
-        JurassicJigsaw(filename).processPart1().shouldBe(expectedResult)
+        EncodingError(filename).processPart1(5).shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
-    fun testProcessPart2(filename: String, expectedResult: Int) =
-        JurassicJigsaw(filename).processPart2().shouldBe(expectedResult)
+    fun testProcessPart2(filename: String, expectedResult: Long) =
+        EncodingError(filename).processPart2(5).shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day20/day20sample.txt", 20899048083289L)
+                Arguments.of("de/havox_design/aoc2020/day09/day09sample.txt", 127L)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day20/day20sample.txt", 273)
+                Arguments.of("de/havox_design/aoc2020/day09/day09sample.txt", 62L)
             )
     }
 }

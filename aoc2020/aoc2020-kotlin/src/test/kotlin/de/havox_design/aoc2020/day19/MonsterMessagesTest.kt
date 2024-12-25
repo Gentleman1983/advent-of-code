@@ -1,4 +1,4 @@
-package de.havox_design.aoc2020.day22
+package de.havox_design.aoc2020.day19
 
 import de.havox_design.aoc.utils.kotlin.helpers.tests.shouldBe
 import org.junit.jupiter.params.ParameterizedTest
@@ -6,29 +6,29 @@ import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-class Day22Test {
+class MonsterMessagesTest {
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart1")
     fun testProcessPart1(filename: String, expectedResult: Int) =
-        CrabCombat(filename).processPart1().shouldBe(expectedResult)
+        MonsterMessages(filename).processPart1().shouldBe(expectedResult)
 
     @ParameterizedTest
     @MethodSource("getDataForTestProcessPart2")
     fun testProcessPart2(filename: String, expectedResult: Int) =
-        CrabCombat(filename).processPart2().shouldBe(expectedResult)
+        MonsterMessages(filename).processPart2().shouldBe(expectedResult)
 
     companion object {
         @JvmStatic
         private fun getDataForTestProcessPart1(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day22/day22sample.txt", 306)
+                Arguments.of("de/havox_design/aoc2020/day19/day19part1sample.txt", 2)
             )
 
         @JvmStatic
         private fun getDataForTestProcessPart2(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("de/havox_design/aoc2020/day22/day22sample.txt", 291)
+                Arguments.of("de/havox_design/aoc2020/day19/day19part2sample.txt", 12)
             )
     }
 }
