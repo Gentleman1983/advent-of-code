@@ -1,4 +1,4 @@
-package de.havox_design.aoc20xx.day15;
+package de.havox_design.aoc2025.day15;
 
 import de.havox_design.aoc.utils.java.AoCFunctionality;
 

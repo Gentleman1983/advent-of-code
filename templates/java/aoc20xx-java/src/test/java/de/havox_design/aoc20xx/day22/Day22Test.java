@@ -1,7 +1,7 @@
 
-package de.havox_design.aoc20xx.day22;
+package de.havox_design.aoc2025.day22;
 
-import de.havox_design.aoc20xx.day01.Day01;
+import de.havox_design.aoc2025.day01.Day01;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

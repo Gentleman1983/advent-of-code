@@ -41,6 +41,9 @@ include("aoc2023:aoc2023-kotlin")
 include("aoc2024")
 include("aoc2024:aoc2024-kotlin")
 
+include("aoc2025")
+include("aoc2025:aoc2025-java")
+
 include("meilisearch")
 
 include("utils")
