@@ -2,7 +2,7 @@
 
 Simple project for Advent of Code 2017.
 
-Done in Java 21. Some are done in Kotlin.
+Done in Java. Some are done in Kotlin.
 
 For more information see https://adventofcode.com [2017](https://adventofcode.com/2017).
 
