@@ -11,21 +11,21 @@ public class Day05 implements AoCFunctionality {
         input = readData(fileName);
     }
 
-    public static long processTask1(String fileName) {
+    public static long processPart1(String fileName) {
         Day05 instance = new Day05(fileName);
-        return instance.processTask1();
+        return instance.processPart1();
     }
 
-    public static long processTask2(String fileName) {
+    public static long processPart2(String fileName) {
         Day05 instance = new Day05(fileName);
-        return instance.processTask2();
+        return instance.processPart2();
     }
 
-    public long processTask1() {
+    public long processPart1() {
         return 1L;
     }
 
-    public long processTask2() {
+    public long processPart2() {
         return 1L;
     }
 }
