@@ -244,22 +244,26 @@ class MainClass: AocMainClassHelper {
         )
 
         day = 24
-        day(
-            getDayString(day),
-            PlanetOfDiscord(getFileName(day))::processTask1,
-            PlanetOfDiscord(getFileName(day))::processTask2,
-            daysSelected,
-            args
-        )
+        if (!args.contains("testing")) {
+            day(
+                getDayString(day),
+                PlanetOfDiscord(getFileName(day))::processTask1,
+                PlanetOfDiscord(getFileName(day))::processTask2,
+                daysSelected,
+                args
+            )
+        }
 
         day = 25
-        day(
-            getDayString(day),
-            Cryostasis(getFileName(day))::processPart1,
-            Cryostasis(getFileName(day))::processPart2,
-            daysSelected,
-            args
-        )
+        if (!args.contains("testing")) {
+            day(
+                getDayString(day),
+                Cryostasis(getFileName(day))::processPart1,
+                Cryostasis(getFileName(day))::processPart2,
+                daysSelected,
+                args
+            )
+        }
     }
 
     companion object {
