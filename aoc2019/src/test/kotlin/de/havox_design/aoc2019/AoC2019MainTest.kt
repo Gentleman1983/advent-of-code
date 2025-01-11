@@ -39,8 +39,8 @@ class AoC2019MainTest {
                 Arguments.of(arrayOf("day21")),
                 Arguments.of(arrayOf("day22")),
                 Arguments.of(arrayOf("day23")),
-                Arguments.of(arrayOf("day24"), "testing"),
-                Arguments.of(arrayOf("day25"), "testing")
+                Arguments.of(arrayOf("day24", "testing")),
+                Arguments.of(arrayOf("day25", "testing"))
             )
     }
 }
