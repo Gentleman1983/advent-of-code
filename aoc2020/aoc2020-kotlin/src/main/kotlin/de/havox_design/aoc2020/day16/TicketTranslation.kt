@@ -49,7 +49,7 @@ class TicketTranslation(private var filename: String) {
                         .filter { (_, it) -> it.contains(name) }
 
                     if (possibleIndices.size == 1) {
-                        val (index, _) = possibleIndices.first()
+                        val (index, _:Set<String>) = possibleIndices.first()
                         solvedFields[index] = name
                         possibleFieldNames[index].clear()
                         possibleFieldNames.forEach { it.remove(name) }
@@ -58,8 +58,8 @@ class TicketTranslation(private var filename: String) {
 
             possibleFieldNames
                 .withIndex()
-                .filter { (_, names) -> names.size == 1 }
-                .forEach { (index, names) ->
+                .filter { (_, names:Set<String>) -> names.size == 1 }
+                .forEach { (index, names:Set<String>) ->
                     val name = names.first()
                     solvedFields[index] = name
                     possibleFieldNames[index].clear()
