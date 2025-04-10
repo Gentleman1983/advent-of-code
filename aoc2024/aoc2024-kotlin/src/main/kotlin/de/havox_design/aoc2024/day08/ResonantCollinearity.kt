@@ -25,7 +25,7 @@ class ResonantCollinearity(private var filename: String) {
 
     @SuppressWarnings("kotlin:S3776")
     private fun solve(allMultiples: Boolean = false): Int = buildSet {
-        for ((_, points) in antennae) {
+        for ((_, points:List<IntPair>) in antennae) {
             for (positionA in points) {
                 for (positionB in points) {
                     if (positionA == positionB) {
