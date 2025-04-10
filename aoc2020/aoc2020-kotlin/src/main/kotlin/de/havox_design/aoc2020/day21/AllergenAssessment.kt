@@ -45,7 +45,7 @@ class AllergenAssessment(private var filename: String) {
 
         dictionary
             .entries
-            .forEach { (allergen, possibleIngredients) ->
+            .forEach { (allergen, possibleIngredients:Set<String>) ->
             possibleIngredients
                 .forEach {
                 reversedDictionary.putIfAbsent(it, mutableSetOf())
@@ -56,7 +56,7 @@ class AllergenAssessment(private var filename: String) {
         val solution = mutableMapOf<String, String>()
 
         while (reversedDictionary.any { (_, value) -> value.size == 1 }) {
-            val (ingredient, possibleAllergens) = reversedDictionary
+            val (ingredient, possibleAllergens:Set<String>) = reversedDictionary
                 .entries
                 .first { (_, value) -> value.size == 1 }
             val allergen = possibleAllergens
