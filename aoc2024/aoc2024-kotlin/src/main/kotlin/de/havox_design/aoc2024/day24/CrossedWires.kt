@@ -28,7 +28,7 @@ class CrossedWires(private var filename: String) {
         return zValues
     }
 
-    @SuppressWarnings("kotlin:S1481", "kotlin:S3776")
+    @SuppressWarnings("kotlin:S1481", "kotlin:S3776", "kotlin:S6615")
     fun processPart2(): Any {
         val formulas = data
             .second
