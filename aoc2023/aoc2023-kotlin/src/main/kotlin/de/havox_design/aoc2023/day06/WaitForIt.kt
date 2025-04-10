@@ -1,7 +1,5 @@
 package de.havox_design.aoc2023.day06
 
-import kotlin.text.StringBuilder
-
 class WaitForIt(private var filename: String) {
     private val DISTANCE_INDEX = 1
     private val DISTANCE_PREFIX = "Distance: "
