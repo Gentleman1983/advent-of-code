@@ -6,7 +6,7 @@ class CodeChronicle(private var filename: String) {
     private val data = parseInput(getResourceAsText(filename))
 
     fun processPart1(): Any {
-        val (locks, keys) = data
+        val (locks: List<Quintet<Int, Int, Int, Int, Int>>, keys:List<Quintet<Int, Int, Int, Int, Int>>) = data
 
         return locks
             .sumOf { lock ->
