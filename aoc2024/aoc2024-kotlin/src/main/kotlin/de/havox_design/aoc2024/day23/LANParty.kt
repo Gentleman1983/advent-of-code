@@ -6,7 +6,7 @@ class LANParty(private var filename: String) {
     fun processPart1(): Any {
         val triangles = HashSet<List<String>>()
 
-        for ((from, neighbours) in data) {
+        for ((from, neighbours:Set<String>) in data) {
             if (from.startsWith(CHIEF_HISTORIAN_IDENTIFIER)) {
                 for (u in neighbours) {
                     for (v in neighbours) {
