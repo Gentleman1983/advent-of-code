@@ -66,7 +66,7 @@ class UnstableDiffusion(private var filename: String) {
                 }
             }
 
-            for ((point, candidates) in proposals) {
+            for ((point, candidates:List<Point>) in proposals) {
                 if (candidates.size == 1) {
                     data.remove(candidates[0])
                     data.add(point)
