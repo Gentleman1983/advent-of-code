@@ -1,6 +1,6 @@
 [versions]
 commons-codec = "1.18.0"
-commons-collections4 = "4.4"
+commons-collections4 = "4.5.0"
 commons-lang3 = "3.17.0"
 equalsverifier = "3.19.3"
 hamcrest = "3.0"
