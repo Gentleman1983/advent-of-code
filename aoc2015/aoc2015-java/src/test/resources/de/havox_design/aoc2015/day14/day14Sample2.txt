@@ -1,1 +1,0 @@
-Dancer can fly 16 km/s for 11 seconds, but then must rest for 162 seconds.
