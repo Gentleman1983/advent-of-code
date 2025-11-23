@@ -12,7 +12,6 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 ## Contributions:
 | Year    | Language(s)                                                  |   Total Stars | Link to repository                                                                 |
 |---------|--------------------------------------------------------------|--------------:|------------------------------------------------------------------------------------|
-
 | 2019    | Java ![Java](img/java.png), Kotlin ![Kotlin](img/kotlin.png) |     50 / 50 ⭐ | [aoc2019](https://github.com/Gentleman1983/advent-of-code-2019)       |
 | 2018    | Java ![Java](img/java.png), Kotlin ![Kotlin](img/kotlin.png) |     50 / 50 ⭐ | [aoc2018](https://github.com/Gentleman1983/advent-of-code-2018)       |
 | 2017    | Java ![Java](img/java.png), Kotlin ![Kotlin](img/kotlin.png), Scala ![Scala](img/scala.png) |     50 / 50 ⭐ | [aoc2017](https://github.com/Gentleman1983/advent-of-code-2017)       |
