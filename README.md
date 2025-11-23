@@ -18,5 +18,5 @@ To run all solutions, simply run `./gradlew run`. If you want to run the solutio
 | 2017    | Java ![Java](img/java.png), Kotlin ![Kotlin](img/kotlin.png), Scala ![Scala](img/scala.png) |     50 / 50 ⭐ | [aoc2017](https://github.com/Gentleman1983/advent-of-code-2017)       |
 | 2016    | Java ![Java](img/java.png), Kotlin ![Kotlin](img/kotlin.png), Groovy ![Groovy](img/groovy.png) |     50 / 50 ⭐ | [aoc2016](https://github.com/Gentleman1983/advent-of-code-2016)       |
 | 2015    | Java ![Java](img/java.png), Kotlin ![Kotlin](img/kotlin.png), Python ![Python](img/python.png) |     50 / 50 ⭐ | [aoc2015](https://github.com/Gentleman1983/advent-of-code-2015)       |
-| **SUM** |                                                              | **350 ⭐** |                                                                                    |
+| **SUM** |                                                              | **300 ⭐** |                                                                                    |
 
