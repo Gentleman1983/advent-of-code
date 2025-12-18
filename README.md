@@ -9,6 +9,7 @@ on interest and learning about languages. All projects are built using build man
 ## Contributions:
 | Year    | Language(s)                                                  |   Total Stars | Link to repository                                                                 |
 |---------|--------------------------------------------------------------|--------------:|------------------------------------------------------------------------------------|
+| 2026    | ???                             |     ? / ? ⭐ | [aoc2026](https://github.com/Gentleman1983/advent-of-code-2026)       |
 | 2025    | Kotlin ![Kotlin](img/kotlin.png)                             |     24 / 24 ⭐ | [aoc2025](https://github.com/Gentleman1983/advent-of-code-2025)       |
 | 2024    | Kotlin ![Kotlin](img/kotlin.png)                             |     50 / 50 ⭐ | [aoc2024](https://github.com/Gentleman1983/advent-of-code-2024)       |
 | 2023    | Java ![Java](img/java.png), Kotlin ![Kotlin](img/kotlin.png) |     50 / 50 ⭐ | [aoc2023](https://github.com/Gentleman1983/advent-of-code-2023)       |
